@@ -1,0 +1,1 @@
+{"data":[{"method":"POST","address":"projects/proof-translated","title":"New proofreading project (source + target) - No public key","save":"0","params":["secret_key","No Public Key",{"name":"source_language","value":"en-us"},{"name":"target_language","value":"fr-fr"},{"name":"sources","value":"oneTxt"},{"name":"translations","value":"oneFile"}],"find":[],"check":[],"value":[]}]}

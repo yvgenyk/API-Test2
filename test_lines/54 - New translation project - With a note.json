@@ -1,0 +1,1 @@
+{"data":[{"method":"POST","address":"projects/translation","title":"New translation project - With a note","save":"0","params":["secret_key","public_key",{"name":"sources","value":"oneTxt"},{"name":"source_language","value":"en-us"},{"name":"target_language","value":"fr-fr"},{"name":"notes","value":"I need you to be very professional on this."}],"find":[],"check":[],"value":[]}]}
