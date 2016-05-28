@@ -1,0 +1,1 @@
+{"data":[{"method":"GET","address":"tools/wordcount","title":"Get wordcount - No public key","save":"0","params":["secret_key","No Public Key",{"name":"resources","value":"oneTxt"}],"find":[],"check":[],"value":[]}]}

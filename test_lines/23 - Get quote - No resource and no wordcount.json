@@ -1,0 +1,1 @@
+{"data":[{"method":"GET","address":"tools/quote","title":"Get quote - no resource and no wordcount","save":"0","params":["secret_key","public_key",{"name":"source_language","value":"en-us"},{"name":"target_language","value":"fr-fr"}],"find":[],"check":[],"value":[]}]}

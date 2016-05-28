@@ -1,0 +1,1 @@
+{"data":[{"method":"GET","address":"tools/wordcount","title":"Get wordcount - All file resource","save":"0","params":["secret_key","public_key",{"name":"resources","value":"allFile"}],"find":[],"check":[],"value":[]}]}

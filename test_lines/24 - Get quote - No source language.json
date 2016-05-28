@@ -1,0 +1,1 @@
+{"data":[{"method":"GET","address":"tools/quote","title":"Get quote - No source language","save":"0","params":["secret_key","public_key",{"name":"resources","value":"oneTxt"},{"name":"target_language","value":"fr-fr"}],"find":[],"check":[],"value":[]}]}

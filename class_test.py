@@ -158,6 +158,8 @@ class GetMethod:
                 elif self.testLine["params"][payIndex] == "No Secret Key" or self.testLine["params"][payIndex] == "No Public Key":
                     noKeysFlag = True
 
+                elif self.testLine["params"][payIndex]['name'] == "resources":
+                    self.ex_resource(self.testLine["params"][payIndex], payload, txtFileUUID, uploadFileUUID)
                 else:
                     payload[self.testLine["params"][payIndex]['name']] = self.testLine["params"][payIndex]['value']
                             
@@ -270,7 +272,41 @@ class GetMethod:
             else:
                 textEdit.append("Error: %d" % res.getStatus())
                 errorFlag[0] = True
-        
+
+        """""""""""""""""""""""""""""""""""""""""""""""""""""""""
+         This method is for requests that need resource UUID to
+         execute. The method will check which type of resource is
+         needed (Text or File) and execute the request.
+        """""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+        def ex_resource(self, line, payload, txtFileUUID, uploadFileUUID):
+
+            sourcesString = ""
+            # Text sources
+            if line["value"] == "oneTxt":
+                payload[line["name"]] = txtFileUUID[0]
+
+            elif line["value"] == "allTxt":
+                for rsc in range(len(txtFileUUID)):
+                    if rsc == 0:
+                        sourcesString = txtFileUUID[0]
+                    else:
+                        sourcesString += "," + txtFileUUID[rsc]
+
+                payload[line["name"]] = sourcesString
+
+            elif line["value"] == "oneFile":
+                payload[line["name"]] = uploadFileUUID[0]
+
+            elif line["value"] == "allFile":
+                for rsc in range(len(uploadFileUUID)):
+                    if rsc == 0:
+                        sourcesString = uploadFileUUID[0]
+                    else:
+                        sourcesString += "," + uploadFileUUID[rsc]
+
+                payload[line["name"]] = sourcesString
+
         
 """""""""""""""""""""""""""""""""""""""""""""""""""
                     Post Method
@@ -312,7 +348,7 @@ class PostMethod:
                 
             #Use existing resources    
             elif self.testLine["params"][payIndex]["name"] == "sources":   
-                self.ex_resource(payload, txtFileUUID, uploadFileUUID, textEdit, errorFlag)
+                self.ex_resource(self.testLine["params"][payIndex], payload, txtFileUUID, uploadFileUUID)
                 
             else:
                 payload[self.testLine["params"][payIndex]["name"]] = self.testLine["params"][payIndex]["value"]
@@ -452,38 +488,32 @@ class PostMethod:
      execute. The method will check which type of resource is
      needed (Text or File) and execute the request.
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    def ex_resource(self, payload, txtFileUUID, uploadFileUUID, textEdit, errorFlag):   
-        
-        #Text sources
-        if self.testLine["params"][payIndex]["value"] == "txt":
-            sourcesString = ""
-        if len(txtFileUUID)>1:
+
+    def ex_resource(self, line, payload, txtFileUUID, uploadFileUUID):
+
+        sourcesString = ""
+        # Text sources
+        if line["value"] == "oneTxt":
+            payload[line["name"]] = txtFileUUID[0]
+
+        elif line["value"] == "allTxt":
             for rsc in range(len(txtFileUUID)):
-                sourcesString += "," + txtFileUUID[rsc]
-                                        
-                payload[self.testLine["params"][payIndex]["name"]] = sourcesString
-                                    
-        elif len(txtFileUUID)==1:
-            payload[self.testLine["params"][payIndex]["name"]] = txtFileUUID[0]
-                                
-        elif len(txtFileUUID)==0:
-            textEdit.append("No text resources found!")
-            errorFlag[0] = True
-                                    
-        #File sources
-        else:
-            sourcesString = ""
-            if len(uploadFileUUID)>1:
-                for rsc in range(len(uploadFileUUID)):
+                if rsc == 0:
+                    sourcesString = txtFileUUID[0]
+                else:
+                    sourcesString += "," + txtFileUUID[rsc]
+
+            payload[line["name"]] = sourcesString
+
+        elif line["value"] == "oneFile":
+            payload[line["name"]] = uploadFileUUID[0]
+
+        elif line["value"] == "allFile":
+            for rsc in range(len(uploadFileUUID)):
+                if rsc == 0:
+                    sourcesString = uploadFileUUID[0]
+                else:
                     sourcesString += "," + uploadFileUUID[rsc]
-                                        
-                    payload[self.testLine["params"][payIndex]["name"]] = sourcesString
-                                
-            elif len(uploadFileUUID)==1:
-                payload[self.testLine["params"][payIndex]["name"]] = uploadFileUUID[0]
-                                
-            elif len(uploadFileUUID)==0:
-                textEdit.append("No file resources found!")
-                errorFlag[0] = True
+
+            payload[line["name"]] = sourcesString
     
-        

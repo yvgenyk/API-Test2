@@ -1,0 +1,1 @@
+{"data":[{"method":"GET","address":"tools/quote","title":"Get quote with expertise","save":"0","params":["secret_key","public_key",{"name":"resources","value":"oneTxt"},{"name":"source_language","value":"en-us"},{"name":"target_language","value":"fr-fr"},{"name":"expertise","value":"business-finance"}],"find":[],"check":[],"value":[]}]}

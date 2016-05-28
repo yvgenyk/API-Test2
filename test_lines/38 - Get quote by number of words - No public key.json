@@ -1,0 +1,1 @@
+{"data":[{"method":"GET","address":"tools/quote","title":"Get quote by number of words - No public key","save":"0","params":["secret_key","No Public Key",{"name":"wordcount","value":"200"},{"name":"source_language","value":"en-us"},{"name":"target_language","value":"fr-fr"}],"find":[],"check":[],"value":[]}]}

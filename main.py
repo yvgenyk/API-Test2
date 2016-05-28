@@ -72,6 +72,9 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         files are selected and uploading.
         """""""""""""""""""""""""""""""""
         if (self.json_work.testFile):
+            txtFileUUID = []
+            uploadFileUUID = []
+
             if len(txtFilePath) == 0:
                 choice = QtGui.QMessageBox.question(self, 'No Text File', "No text file was loaded, would you like to load?",
                                                 QtGui.QMessageBox.Yes | QtGui.QMessageBox.No)
@@ -178,16 +181,18 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
     def open_txt(self):
         global txtFilePath
         txtFile = QtGui.QFileDialog.getOpenFileName(self, 'Open File', "*.txt")
-        txtFilePath.append(txtFile)
-        fileName = txtFile.split('/')
-        self.txtFilesList.addItem('%s' % fileName[len(fileName)-1])
+        if (txtFile):
+            txtFilePath.append(txtFile)
+            fileName = txtFile.split('/')
+            self.txtFilesList.addItem('%s' % fileName[len(fileName)-1])
         
     def open_test_files(self):
         global testFilePath
         testFile = QtGui.QFileDialog.getOpenFileName(self, 'Open File')
-        testFilePath.append(testFile)
-        fileName = testFile.split('/')
-        self.testFilesList.addItem('%s' % fileName[len(fileName)-1])
+        if (testFile):
+            testFilePath.append(testFile)
+            fileName = testFile.split('/')
+            self.testFilesList.addItem('%s' % fileName[len(fileName)-1])
         
         
         

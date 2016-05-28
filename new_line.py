@@ -19,8 +19,15 @@ class NewLine(QtGui.QMainWindow, new_line_design.Ui_NewLine):
         self.boxP_K.addItems(["public_key", "No Public Key"])
 
         self.newMethod.addItems(["POST", "GET"])
-        self.paramNameSet = ["None", "textrsc", "filersc", "file_mime", "file_name", "fetch"]
+        self.paramNameSet = ["None", "textrsc", "filersc", "file_mime", "file_name", "fetch", "resources", "wordcount",
+                             "source_language", "target_language", "service", "expertise", "currency", "proofreading"]
+
         self.paramValueSet_rsc = ["", "empty", "nokey"]
+
+        self.expertise = ["", "automotive-aerospace", "business-finance", "software-it", "legal-certificate",
+                          "marketing-consumer-media", "cv", "medical", "patents", "scientific-academic",
+                          "technical-engineering", "gaming-video-games", "ad-words-banners", "mobile-applications",
+                          "tourism", "certificates-translation"]
 
 
 
@@ -64,6 +71,50 @@ class NewLine(QtGui.QMainWindow, new_line_design.Ui_NewLine):
                     self.dictOfValues[i].clear()
                     self.dictOfValues[i].addItems(["", "base64"])
 
+            if self.dictOfNames[i].currentText() == "wordcount":
+                if self.dictOfValues[i].currentText() == '':
+                    self.dictOfValues[i].clear()
+                    self.dictOfValues[i].addItems(["", "100", "200", "333"])
+
+            if self.dictOfNames[i].currentText() == "expertise":
+                if self.dictOfValues[i].currentText() == '':
+                    self.dictOfValues[i].clear()
+                    self.dictOfValues[i].addItems(self.expertise)
+
+            if self.dictOfNames[i].currentText() == "source_language":
+                if self.dictOfValues[i].currentText() == '':
+                    self.dictOfValues[i].clear()
+                    self.dictOfValues[i].addItems(["", "en-us"])
+
+            if self.dictOfNames[i].currentText() == "target_language":
+                if self.dictOfValues[i].currentText() == '':
+                    self.dictOfValues[i].clear()
+                    self.dictOfValues[i].addItems(["", "fr-fr"])
+
+            if self.dictOfNames[i].currentText() == "target_language":
+                if self.dictOfValues[i].currentText() == '':
+                    self.dictOfValues[i].clear()
+                    self.dictOfValues[i].addItems(["", "fr-fr"])
+
+            if self.dictOfNames[i].currentText() == "currency":
+                if self.dictOfValues[i].currentText() == '':
+                    self.dictOfValues[i].clear()
+                    self.dictOfValues[i].addItems(["", "USD", "EUR"])
+
+            if self.dictOfNames[i].currentText() == "service":
+                if self.dictOfValues[i].currentText() == '':
+                    self.dictOfValues[i].clear()
+                    self.dictOfValues[i].addItems(["", "translation", "transproof", "transcription"])
+
+            if self.dictOfNames[i].currentText() == "proofreading":
+                if self.dictOfValues[i].currentText() == '':
+                    self.dictOfValues[i].clear()
+                    self.dictOfValues[i].addItems(["", "1"])
+
+            if self.dictOfNames[i].currentText() == "resources":
+                if self.dictOfValues[i].currentText() == '':
+                    self.dictOfValues[i].clear()
+                    self.dictOfValues[i].addItems(["", "oneTxt", "allTxt", "oneFile", "allFile"])
 
     def close_window(self):
         self.close()
