@@ -20,7 +20,8 @@ class NewLine(QtGui.QMainWindow, new_line_design.Ui_NewLine):
 
         self.newMethod.addItems(["POST", "GET"])
         self.paramNameSet = ["None", "textrsc", "filersc", "file_mime", "file_name", "fetch", "resources", "wordcount",
-                             "source_language", "target_language", "service", "expertise", "currency", "proofreading"]
+                             "source_language", "target_language", "service", "expertise", "currency", "proofreading",
+                             "sources", "callback_url", "notes", "custom0", "custom1", "custom2", "translations"]
 
         self.paramValueSet_rsc = ["", "empty", "nokey"]
 
@@ -111,10 +112,37 @@ class NewLine(QtGui.QMainWindow, new_line_design.Ui_NewLine):
                     self.dictOfValues[i].clear()
                     self.dictOfValues[i].addItems(["", "1"])
 
-            if self.dictOfNames[i].currentText() == "resources":
+            if self.dictOfNames[i].currentText() == "resources" or self.dictOfNames[i].currentText() == "sources" or \
+                            self.dictOfNames[i].currentText() == "translations":
                 if self.dictOfValues[i].currentText() == '':
                     self.dictOfValues[i].clear()
                     self.dictOfValues[i].addItems(["", "oneTxt", "allTxt", "oneFile", "allFile"])
+
+            if self.dictOfNames[i].currentText() == "callback_url":
+                if self.dictOfValues[i].currentText() == '':
+                    self.dictOfValues[i].clear()
+                    self.dictOfValues[i].addItems(["", "https: // yavengy.vagrant.oht.cc / callbacks.php"])
+
+            if self.dictOfNames[i].currentText() == "notes":
+                if self.dictOfValues[i].currentText() == '':
+                    self.dictOfValues[i].clear()
+                    self.dictOfValues[i].addItems(["", "Hello there, please do a good job.",
+                                                   "I need you to be very professional on this."])
+
+            if self.dictOfNames[i].currentText() == "custom0":
+                if self.dictOfValues[i].currentText() == '':
+                    self.dictOfValues[i].clear()
+                    self.dictOfValues[i].addItem("Custom 0")
+
+            if self.dictOfNames[i].currentText() == "custom1":
+                if self.dictOfValues[i].currentText() == '':
+                    self.dictOfValues[i].clear()
+                    self.dictOfValues[i].addItem("Custom 1")
+
+            if self.dictOfNames[i].currentText() == "custom2":
+                if self.dictOfValues[i].currentText() == '':
+                    self.dictOfValues[i].clear()
+                    self.dictOfValues[i].addItem("Custom 2")
 
     def close_window(self):
         self.close()

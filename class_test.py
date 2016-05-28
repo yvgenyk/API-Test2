@@ -347,7 +347,7 @@ class PostMethod:
                 self.file_upload(httpAddress, payload, payIndex, testFilePath, textEdit, prevResponse, prevPayload, uploadFileUUID, uploadedrscFlag, errorFlag)
                 
             #Use existing resources    
-            elif self.testLine["params"][payIndex]["name"] == "sources":   
+            elif self.testLine["params"][payIndex]["name"] == "sources" or self.testLine["params"][payIndex]["name"] == "translations":
                 self.ex_resource(self.testLine["params"][payIndex], payload, txtFileUUID, uploadFileUUID)
                 
             else:
