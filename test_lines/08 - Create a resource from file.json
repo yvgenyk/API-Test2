@@ -1,0 +1,1 @@
+{"data":[{"method":"POST","address":"resources/file","title":"Create a resource from file","save":"0","params":["secret_key","public_key",{"name":"filersc","value":""}],"find":["ok"],"check":[],"value":[]}]}

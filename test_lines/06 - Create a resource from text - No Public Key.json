@@ -1,0 +1,1 @@
+{"data":[{"method":"POST","address":"resources/text","title":"Create a resource from text - No Public Key","save":"0","params":["secret_key","No Public Key",{"name":"textrsc","value":"nokey"}],"find":["unauthorized request - please include your public key \\/ account id and api secret key","101"],"check":[],"value":[]}]}
