@@ -281,8 +281,8 @@
   <widget class="QProgressBar" name="progressBar">
    <property name="geometry">
     <rect>
-     <x>770</x>
-     <y>330</y>
+     <x>760</x>
+     <y>560</y>
      <width>317</width>
      <height>21</height>
     </rect>
@@ -290,6 +290,118 @@
    <property name="value">
     <number>0</number>
    </property>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>760</x>
+     <y>330</y>
+     <width>160</width>
+     <height>136</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_4">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_7">
+      <item>
+       <widget class="QLabel" name="label_4">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Regular Project</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="reg_proj"/>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_8">
+      <item>
+       <widget class="QLabel" name="label_5">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Expert Project</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="expert_proj"/>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_9">
+      <item>
+       <widget class="QLabel" name="label_6">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Proofreading</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="proof_proj"/>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_10">
+      <item>
+       <widget class="QLabel" name="label_7">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Transcription</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="transcript_proj"/>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_11">
+      <item>
+       <widget class="QLabel" name="label_8">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Combo Project</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="combo_proj"/>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

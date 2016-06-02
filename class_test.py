@@ -5,6 +5,7 @@ import os
 import json
 import time
 import re
+#from resource_class import Resource
 from PyQt4.QtCore import QThread, SIGNAL
 
 
@@ -67,7 +68,7 @@ class Response:
         
         text = ("------------------------------------------------------------------------------------------------------------------------------------------------------------------\n" + 
                         method + " Request \"" + title + "\":\n" + self.responseURL + "\n\nAPI response:\n" + self.responseText)
-        self.textEdit.append(text)
+        textEdit.append(text)
 
         
     #def AppendText(self):
@@ -92,27 +93,55 @@ class Response:
     Check method, if there is certain values to check 
     in the response, this method will check them.
     """""""""""""""""""""""""""""""""""""""""""""""""""""
-    def check_value(self, data, errorFlag, textEdit):
-        for valIndex in range(len(['value'])):
-            #If this is true, the method will check the values with the values from last call/response.
-            if data["check"][valIndex*2] == 'prev':
-                varToCheck = data["check"][(valIndex*2 + 1)]
-                
-                if data['value'][valIndex] == str(self.getJson()["results"][varToCheck]):
-                    pass
-                else:
-                    textEdit.append("\n\n There was a problem: " + data["check"][(valIndex*2+1)] + 
-                                    ": " + data["value"][valIndex] + " wasn't found in :\n" + self.getText())
-                    errorFlag[0] = True
-            #Else will check the provided values by the user against the response.                            
+    def check_value(self, data, errorFlag, textEdit, prevPayload):
+
+        for valIndex in range(len(data['check'])):
+
+            varToCheck = str(data["check"][valIndex])
+            splitVarToCheck = varToCheck.split('-')
+
+            """""""""""""""""""""""""""""""""""""""""""""
+            If there is "@" sign it means that there
+            is a value to check from previous payload.
+            This if will erase the "@" sign and take the
+            original value from prev payload to find
+            in the new response.
+            """""""""""""""""""""""""""""""""""""""""""""
+            if splitVarToCheck[0][0] == "@":
+                splitVarToCheck[0] = splitVarToCheck[0][1:]
+
+                valueToCheck = prevPayload[0][splitVarToCheck[len(splitVarToCheck)-1]]
+
+                """""""""""""""""""""""""""""""""""""""""""""
+                If there is no need for prev payload,
+                the value checked is provided in the
+                parameters.
+                """""""""""""""""""""""""""""""""""""""""""""
             else:
-                varToCheck = data["check"][valIndex]
-                                
-                if data['value'][valIndex] == str(self.getJson()["results"][varToCheck]):
-                    pass
+                valueToCheck = data['value'][valIndex]
+
+
+            resJson = self.getJson()
+
+            #This will go through the path of the response to find the value we are checking.
+            for res in splitVarToCheck:
+                resJson = resJson[res]
+            #The files correct format is checked in a different function. Here we check only the name.
+            if splitVarToCheck[len(splitVarToCheck) - 1] == "file_name":
+                if valueToCheck in str(resJson):
+                    textEdit.append("\nFile name: \"" + valueToCheck + "\" was found in file name:" + str(resJson))
+
                 else:
-                    textEdit.append("\n\n There was a problem: " + data["check"][valIndex] + 
-                                    ": " + data["value"][valIndex] + " wasn't found in :\n" + self.getText())
+                    textEdit.append("\n\nError: File name:" + valueToCheck + " wasn't found in file name:" + str(resJson))
+                    errorFlag[0] = True
+            #This is the main search method.
+            else:
+                if valueToCheck == str(resJson):
+                    textEdit.append("\nFound: \"" + splitVarToCheck[len(splitVarToCheck) - 1] +
+                                    ": " + valueToCheck + "\" in response.")
+                else:
+                    textEdit.append("\n\n There was a problem: " + splitVarToCheck[len(splitVarToCheck)-1] +
+                                    ": " + valueToCheck + " wasn't found in :\n" + self.getText())
                     errorFlag[0] = True
         
         
@@ -135,7 +164,8 @@ class GetMethod:
         class and execute the request. 
         """""""""""""""""""""""""""""""""
         def get_method(self, secretKey, publicKey, httpAddress, errorFlag, prevResponse, prevPayload, textEdit, lineIndex, testFilePath, uploadFileUUID, txtFileUUID):
-            
+
+
             uuidToAddress = 0
             payload = dict()
             downloadResource = 0
@@ -171,9 +201,17 @@ class GetMethod:
             the new address line.
             """""""""""""""""""""""""""""""""""""""""
             addressCheck = self.testLine["address"]
-            if addressCheck[len(addressCheck)-4:] == 'uuid':
-                newAddress = (addressCheck[:len(addressCheck)-4] +
-                             (str(prevResponse[0]["results"]))[2:(len(prevResponse[0]["results"])-3)])
+            if addressCheck[len(addressCheck) - 8:] == 'uuidPrev':
+                newAddress = (addressCheck[:len(addressCheck)-8] +
+                              (str(prevResponse[0]["results"]))[2:(len(prevResponse[0]["results"])-3)])
+                uuidToAddress = 1
+
+            elif addressCheck[len(addressCheck) - 7:] == 'uuidTxt':
+                newAddress = (addressCheck[:len(addressCheck) - 7] + txtFileUUID[0])
+                uuidToAddress = 1
+
+            elif addressCheck[len(addressCheck) - 8:] == 'uuidFile':
+                newAddress = (addressCheck[:len(addressCheck) - 8] + uploadFileUUID[0])
                 uuidToAddress = 1
 
             """""""""""""""""""""""""""""""""""""""""
@@ -202,6 +240,17 @@ class GetMethod:
             
             elif downloadResource == 1:
                 res = requests.get(httpAddress + newAddress,stream=True ,params=payload, verify=False)
+                """
+                res = Response(requests.get(httpAddress + newAddress, stream=True, params=payload, verify=False), textEdit)
+
+                if res.getStatus() != 200:
+                    for i in range(2):
+                        res = Response(
+                            requests.get(httpAddress + newAddress, stream=True, params=payload, verify=False), textEdit)
+
+                        if res.getStatus() == 200:
+                            break
+                """
                 if noKeysFlag == False:
                     #finds the name of the file writen on site.
                     fileName = res.headers['content-disposition']
@@ -240,14 +289,15 @@ class GetMethod:
                             errorFlag[0] = True
 
                 else:
-                    for findIndex in range(len(self.testLine['find'])):
-                        if self.testLine['find'][findIndex] in res.text:
-                            textEdit.append(res.text)
-                        else:
-                            textEdit.append("\n\n There was a problem: " + self.testLine['find'][findIndex] +
-                                            " wasn't found in :\n" + res.text)
-                            errorFlag[0] = True
 
+                    textEdit.append(res.text)
+                    """
+                    if res.getStatus() == 200:
+                        res.report_line(self.testLine['title'], textEdit, "GET")
+
+                        if len(self.testLine['check']) >= 1:
+                            res.check_value(self.testLine, errorFlag, textEdit, prevPayload)
+                    """
 
                 return
             else:
@@ -257,8 +307,16 @@ class GetMethod:
             response and the request of the current request
             """""""""""""""""""""""""""""""""""""""""""""""           
             if self.testLine["save"] == '1':
-                prevResponse = res.responseJson()
-                prevPayload = payload
+                prevResponse[0] = res.responseJson()
+                prevPayload[0] = payload
+
+            if res.getStatus() != 200:
+                for i in range(2):
+                    res = Response(requests.get(httpAddress + self.testLine["address"], params=payload, verify=False),
+                                   textEdit)
+
+                    if res.getStatus() == 200:
+                        break
                     
             if res.getStatus() == 200:
                 res.report_line(self.testLine['title'], textEdit, "GET")
@@ -267,7 +325,7 @@ class GetMethod:
                     res.find(self.testLine, errorFlag, textEdit)
                 
                 if len(self.testLine['check']) >= 1:
-                    res.check_value(self.testLine, errorFlag, textEdit)
+                    res.check_value(self.testLine, errorFlag, textEdit, prevPayload)
                     
             else:
                 textEdit.append("Error: %d" % res.getStatus())
@@ -324,7 +382,7 @@ class PostMethod:
     This is the main method, gets the line to execute and 
     sort between the types of requests.
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    def post_method(self, secretKey, publicKey, httpAddress, txtFilePath, txtFileUUID, testFilePath, uploadFileUUID, prevResponse, prevPayload, textEdit, errorFlag):
+    def post_method(self, secretKey, publicKey, httpAddress, txtFilePath, txtFileUUID, testFilePath, uploadFileUUID, prevResponse, prevPayload, textEdit, errorFlag, firstResourcesUpload):
         payload = dict()
         uploadedrscFlag = [False]
         for payIndex in range(len(self.testLine['params'])):
@@ -340,11 +398,11 @@ class PostMethod:
                 
             #Text upload  
             elif self.testLine["params"][payIndex]["name"] == "textrsc":  
-                self.text_upload(httpAddress, payIndex, payload, txtFilePath, textEdit, prevResponse, prevPayload, txtFileUUID, uploadedrscFlag, errorFlag)
+                self.text_upload(httpAddress, payIndex, payload, txtFilePath, textEdit, prevResponse, prevPayload, txtFileUUID, uploadedrscFlag, errorFlag, firstResourcesUpload)
                 
             #File upload  
             elif self.testLine["params"][payIndex]["name"] == "filersc": 
-                self.file_upload(httpAddress, payload, payIndex, testFilePath, textEdit, prevResponse, prevPayload, uploadFileUUID, uploadedrscFlag, errorFlag)
+                self.file_upload(httpAddress, payload, payIndex, testFilePath, textEdit, prevResponse, prevPayload, uploadFileUUID, uploadedrscFlag, errorFlag, firstResourcesUpload)
                 
             #Use existing resources    
             elif self.testLine["params"][payIndex]["name"] == "sources" or self.testLine["params"][payIndex]["name"] == "translations":
@@ -359,7 +417,15 @@ class PostMethod:
                 
             if self.testLine["save"] == '1':
                 prevResponse[0] = res.getJson()
-                prevPayload = payload
+                prevPayload[0] = payload
+
+            if res.getStatus() != 200:
+                for i in range(2):
+                    res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False),
+                                   textEdit)
+
+                    if res.getStatus() == 200:
+                        break
                         
             if res.getStatus() == 200:
                 res.report_line(self.testLine['title'], textEdit, "POST")
@@ -372,7 +438,7 @@ class PostMethod:
                 res.find(self.testLine, errorFlag, textEdit)     
                          
             if len(self.testLine['check']) >= 1:
-                res.check_value(self.testLine, errorFlag, textEdit)
+                res.check_value(self.testLine, errorFlag, textEdit, prevPayload)
             
                 
         
@@ -380,7 +446,7 @@ class PostMethod:
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""
       This method will upload a text resource from file.
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""    
-    def text_upload(self, httpAddress, payIndex, payload, txtFilePath, textEdit, prevResponse, prevPayload, txtFileUUID, uploadedrscFlag, errorFlag):    
+    def text_upload(self, httpAddress, payIndex, payload, txtFilePath, textEdit, prevResponse, prevPayload, txtFileUUID, uploadedrscFlag, errorFlag, firstResourcesUpload):
         
         if self.testLine["params"][payIndex]["value"] == "empty":
             pass
@@ -400,14 +466,15 @@ class PostMethod:
                                 
                     with loadedFile:
                         txt = loadedFile.read()
-                                    
+
+
                     payload['text'] = txt
                                         
                     res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False), textEdit)
                                         
                     if self.testLine["save"] == '1':
                         prevResponse[0] = res.getJson()
-                        prevPayload = payload
+                        prevPayload[0] = payload
 
                     """""""""""""""""""""""""""""""""
                     In case there is 500 error, will
@@ -424,10 +491,18 @@ class PostMethod:
 
                     if res.getStatus() == 200:
                         res.report_line(self.testLine['title'], textEdit, "POST")
-                                
-                        uuidTxt = str(res.getJson()["results"])
-                        txtFileUUID.append(uuidTxt[2:(len(uuidTxt)-2)])
-                        uploadedrscFlag[0] = True 
+
+                        if len(self.testLine['find']) >= 1:
+                            res.find(self.testLine, errorFlag, textEdit)
+
+                        if len(self.testLine['check']) >= 1:
+                            res.check_value(self.testLine, errorFlag, textEdit, prevPayload)
+
+                        if firstResourcesUpload[0] == False:
+                            uuidTxt = str(res.getJson()["results"])
+                            txtFileUUID.append(uuidTxt[2:(len(uuidTxt)-2)])
+
+                        uploadedrscFlag[0] = True
                                             
                     else:
                         textEdit.append("Error: %d" % res.getStatus())
@@ -436,9 +511,9 @@ class PostMethod:
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""
             This method will upload a file resource
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    def file_upload(self, httpAddress, payload, payIndex, testFilePath, textEdit, prevResponse, prevPayload, uploadFileUUID, uploadedrscFlag, errorFlag):
+    def file_upload(self, httpAddress, payload, payIndex, testFilePath, textEdit, prevResponse, prevPayload, uploadFileUUID, uploadedrscFlag, errorFlag, firstResourcesUpload):
 
-        uploadFlag = False
+        #uploadFlag = False
         
         if self.testLine["params"][payIndex]["value"] == "empty":
             pass
@@ -454,12 +529,13 @@ class PostMethod:
                 for fileIndex in range(len(testFilePath)):
                                 
                     loadedFile = {'@upload': open(testFilePath[fileIndex], 'rb')}
-                                        
+
                     res = Response(requests.post(httpAddress + self.testLine["address"], files = loadedFile, data = payload, verify=False), textEdit)
                                         
                     if self.testLine["save"] == '1':
                         prevResponse[0] = res.getJson()
-                        prevPayload = payload
+                        prevPayload[0] = payload
+
                     """""""""""""""""""""""""""""""""
                     In case there is 500 error, will
                     try to upload 2 more times.
@@ -474,10 +550,18 @@ class PostMethod:
 
                     if res.getStatus() == 200:
                         res.report_line(self.testLine['title'], textEdit, "POST")
-                                
-                        uuidFile = str(res.getJson()["results"])
-                        uploadFileUUID.append(uuidFile[2:(len(uuidFile)-2)])
-                        uploadedrscFlag[0] = True 
+
+                        if len(self.testLine['find']) >= 1:
+                            res.find(self.testLine, errorFlag, textEdit)
+
+                        if len(self.testLine['check']) >= 1:
+                            res.check_value(self.testLine, errorFlag, textEdit, prevPayload)
+
+                        if firstResourcesUpload[0] == False:
+                            uuidFile = str(res.getJson()["results"])
+                            uploadFileUUID.append(uuidFile[2:(len(uuidFile)-2)])
+
+                        uploadedrscFlag[0] = True
                     
                     else:
                         textEdit.append("Error: %d" % res.getStatus())

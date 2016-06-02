@@ -11,6 +11,7 @@ import json
 import time
 from jason_creator import JsonCreator
 from class_test import Response, GetMethod, PostMethod
+from resource_class import Resource
 from doctest import testfile
 #from idlelib.ClassBrowser import file_open
 from PyQt4.Qt import QListWidgetItem
@@ -45,25 +46,36 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         self.startBtn.clicked.connect(self.start_test)
         self.pushButton_2.clicked.connect(self.close_application)
         self.fileLoad.clicked.connect(self.file_open)
-        self.lineEdit.setText('6d33c51b2b2ab29a998528309e003444')
-        self.lineEdit_2.setText('vc2Dd7kNfwZxYVTJ3XGn')
-        self.lineEdit_3.setText('https://yavengy.vagrant.oht.cc/api/2/')
+        self.lineEdit.setText('d9bd904ea3da9e6e69b6036c44288add')
+        self.lineEdit_2.setText('KG2cD8FJ7p3whPvYNqLj')
+        self.lineEdit_3.setText('https://oht.vagrant.oht.cc/api/2/')
         self.loadTxtBtn.clicked.connect(self.open_txt)
         self.loadFileBtn.clicked.connect(self.open_test_files)
 
-        self.secretKey = self.lineEdit.text()
-        self.publicKey = self.lineEdit_2.text()
-        self.httpAddress = self.lineEdit_3.text()
+        self.reg_proj.setText('7')
+        self.expert_proj.setText('7.9')
+        self.proof_proj.setText('7')
+        self.transcript_proj.setText('3.316')
+        self.combo_proj.setText('12')
+
         self.errorFlag = [False]
         self.prevResponse = {}
-        self.prevPayload = ()
-    
-        
+        self.prevPayload = {}
+
+        self.priceList = {"reg_proj":float(self.reg_proj.text()),"expert_proj":float(self.expert_proj.text()),
+                          "proof_proj":float(self.proof_proj.text()),"transcript_proj":float(self.transcript_proj.text()),
+                          "combo_proj":float(self.combo_proj.text())}
+
+
     def start_test(self):
         global txtFilePath
         global txtFileUUID
         global testFilePath
         global uploadFileUUID
+        self.firstResourcesUpload = [False]
+        self.secretKey = self.lineEdit.text()
+        self.publicKey = self.lineEdit_2.text()
+        self.httpAddress = self.lineEdit_3.text()
         
         startFlag = 0
 
@@ -101,9 +113,11 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
 
                     checkLine = PostMethod(firstU)
                     checkLine.post_method(self.secretKey, self.publicKey, self.httpAddress, txtFilePath, txtFileUUID, testFilePath,
-                                          uploadFileUUID, self.prevResponse, self.prevPayload, self.textEdit, self.errorFlag)
+                                          uploadFileUUID, self.prevResponse, self.prevPayload, self.textEdit, self.errorFlag, self.firstResourcesUpload)
 
+                self.firstResourcesUpload[0] = True
                 startFlag = 1
+
 
         else:
             choice = QtGui.QMessageBox.question(self, 'No File', "No file was loaded, would you like to load?",
@@ -131,7 +145,9 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
 
             with open(self.json_work.testFile) as codeLines_data:
                 data = json.load(codeLines_data)
-                
+
+
+
             for lineIndex in range(len(data["data"])):  
                 
                 
@@ -148,7 +164,7 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
                 elif str.lower(data["data"][lineIndex]["method"]) == 'post': 
                     checkLine = PostMethod(data["data"][lineIndex]) 
                     checkLine.post_method(self.secretKey, self.publicKey, self.httpAddress, txtFilePath, txtFileUUID, testFilePath,
-                                          uploadFileUUID, self.prevResponse, self.prevPayload, self.textEdit, self.errorFlag)
+                                          uploadFileUUID, self.prevResponse, self.prevPayload, self.textEdit, self.errorFlag, self.firstResourcesUpload)
                                                    
                     
                 #Delete line code

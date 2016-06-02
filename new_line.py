@@ -198,20 +198,20 @@ class NewLine(QtGui.QMainWindow, new_line_design.Ui_NewLine):
         
         if self.check_one_name.text() != '':        
             if self.checkPrevValue_1.isChecked():
-                line = (line[:len(line)-1] + ',\"check\":[\"prev\",\"' + self.check_one_name.text() + '\"]' + line[len(line)-1:])
+                line = (line[:len(line)-1] + ',\"check\":[\"@' + self.check_one_name.text() + '\"]' + line[len(line)-1:])
         
             else:         
                 line = (line[:len(line)-1] + ',\"check\":[\"' + self.check_one_name.text() + '\"]' + line[len(line)-1:])
             
             if self.check_two_name.text() != '':
                 if self.checkPrevValue_2.isChecked():
-                    line = (line[:len(line)-2] + ',\"prev\",\"' + self.check_two_name.text() + '\"' + line[len(line)-2:])
+                    line = (line[:len(line)-2] + ',\"@' + self.check_two_name.text() + '\"' + line[len(line)-2:])
                 else:    
                     line = (line[:len(line)-2] + ',\"' + self.check_two_name.text() + '\"' + line[len(line)-2:])
                 
             if self.check_three_name.text() != '':
                 if self.checkPrevValue_3.isChecked():
-                    line = (line[:len(line)-2] + ',\"prev\",\"' + self.check_three_name.text() + '\"' + line[len(line)-2:])
+                    line = (line[:len(line)-2] + ',\"@' + self.check_three_name.text() + '\"' + line[len(line)-2:])
                 else:
                     line = (line[:len(line)-2] + ',\"' + self.check_three_name.text() + '\"' + line[len(line)-2:])
         else:
