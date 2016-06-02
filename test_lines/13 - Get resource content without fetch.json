@@ -1,1 +1,1 @@
-{"data":[]}
+{"data":[{"method":"GET","address":"resources/uuidFile","title":"Get resource content without fetch","save":"0","params":["secret_key","public_key"],"find":["download_url"],"check":["status-code","status-msg"],"value":["0","ok"]}]}
