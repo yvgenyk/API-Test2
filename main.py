@@ -10,6 +10,7 @@ import shutil
 import json
 import time
 from jason_creator import JsonCreator
+from check_code import CheckCode
 from class_test import Response, GetMethod, PostMethod
 from resource_class import Resource
 from doctest import testfile
@@ -17,7 +18,6 @@ from doctest import testfile
 from PyQt4.Qt import QListWidgetItem
 from PyQt4.QtCore import QThread
 
-            
 
 class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
     def __init__(self, parent=None):
@@ -42,13 +42,15 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         
         
         self.json_work = JsonCreator(testFile)
+        self.check_code = CheckCode(testFile)
         self.new_line_window = None
         self.startBtn.clicked.connect(self.start_test)
         self.pushButton_2.clicked.connect(self.close_application)
         self.fileLoad.clicked.connect(self.file_open)
-        self.lineEdit.setText('d9bd904ea3da9e6e69b6036c44288add')
-        self.lineEdit_2.setText('KG2cD8FJ7p3whPvYNqLj')
-        self.lineEdit_3.setText('https://oht.vagrant.oht.cc/api/2/')
+        self.checkDisplay.clicked.connect(self.check_the_code)
+        self.lineEdit.setText('6d33c51b2b2ab29a998528309e003444')
+        self.lineEdit_2.setText('vc2Dd7kNfwZxYVTJ3XGn')
+        self.lineEdit_3.setText('https://yavengy.vagrant.oht.cc/api/2/')
         self.loadTxtBtn.clicked.connect(self.open_txt)
         self.loadFileBtn.clicked.connect(self.open_test_files)
 
@@ -83,7 +85,7 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         Checking that all necessary
         files are selected and uploading.
         """""""""""""""""""""""""""""""""
-        if (self.json_work.testFile):
+        if (self.json_work.testFile) or (self.check_code.testFile):
             txtFileUUID = []
             uploadFileUUID = []
 
@@ -143,9 +145,12 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
             if os.path.exists("Downloads"):
                 shutil.rmtree("Downloads")
 
-            with open(self.json_work.testFile) as codeLines_data:
-                data = json.load(codeLines_data)
-
+            if self.check_code.testFile:
+                with open(self.check_code.testFile) as codeLines_data:
+                    data = json.load(codeLines_data)
+            else:
+                with open(self.json_work.testFile) as codeLines_data:
+                    data = json.load(codeLines_data)
 
 
             for lineIndex in range(len(data["data"])):  
@@ -179,9 +184,12 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
                 time.sleep(1)
         
         
-    def file_open(self): 
+    def file_open(self):
         self.json_work = JsonCreator(testFile)
         self.json_work.show()
+
+    def check_the_code(self):
+        self.check_code.show()
        
        
         
@@ -215,6 +223,8 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
 
 def main():
     app = QtGui.QApplication(sys.argv)
+    # QCleanlooksStyle
+    app.setStyle('cleanlooks')
     form = TestApp()
     form.show()
     app.exec_()

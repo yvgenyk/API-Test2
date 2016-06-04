@@ -297,7 +297,7 @@
      <x>760</x>
      <y>330</y>
      <width>160</width>
-     <height>136</height>
+     <height>171</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -402,6 +402,19 @@
      </layout>
     </item>
    </layout>
+  </widget>
+  <widget class="QPushButton" name="checkDisplay">
+   <property name="geometry">
+    <rect>
+     <x>930</x>
+     <y>330</y>
+     <width>131</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Whole check display</string>
+   </property>
   </widget>
  </widget>
  <resources/>
