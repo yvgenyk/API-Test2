@@ -88,6 +88,7 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         if (self.json_work.testFile) or (self.check_code.testFile):
             txtFileUUID = []
             uploadFileUUID = []
+            printText = ['']
 
             if len(txtFilePath) == 0:
                 choice = QtGui.QMessageBox.question(self, 'No Text File', "No text file was loaded, would you like to load?",
@@ -113,9 +114,12 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
 
                 for firstU in firstUpload["data"]:
 
-                    checkLine = PostMethod(firstU)
+                    checkLine = PostMethod(firstU, printText)
                     checkLine.post_method(self.secretKey, self.publicKey, self.httpAddress, txtFilePath, txtFileUUID, testFilePath,
                                           uploadFileUUID, self.prevResponse, self.prevPayload, self.textEdit, self.errorFlag, self.firstResourcesUpload)
+                    self.textEdit.append(printText[0])
+
+
 
                 self.firstResourcesUpload[0] = True
                 startFlag = 1
@@ -152,24 +156,25 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
                 with open(self.json_work.testFile) as codeLines_data:
                     data = json.load(codeLines_data)
 
+            for lineIndex in range(len(data["data"])):
 
-            for lineIndex in range(len(data["data"])):  
-                
-                
+                printText = ['']
                 
                 #Get line code
                 if str.lower(data["data"][lineIndex]["method"]) == 'get':
                     #payload initialization
                     
-                    checkLine = GetMethod(data["data"][lineIndex])
+                    checkLine = GetMethod(data["data"][lineIndex], printText)
                     checkLine.get_method(self.secretKey, self.publicKey, self.httpAddress, self.errorFlag, self.prevResponse,
                                          self.prevPayload, self.textEdit, lineIndex, testFilePath, uploadFileUUID, txtFileUUID)
+                    self.textEdit.append(printText[0])
 
                 #Post line code
                 elif str.lower(data["data"][lineIndex]["method"]) == 'post': 
-                    checkLine = PostMethod(data["data"][lineIndex]) 
+                    checkLine = PostMethod(data["data"][lineIndex], printText)
                     checkLine.post_method(self.secretKey, self.publicKey, self.httpAddress, txtFilePath, txtFileUUID, testFilePath,
                                           uploadFileUUID, self.prevResponse, self.prevPayload, self.textEdit, self.errorFlag, self.firstResourcesUpload)
+                    self.textEdit.append(printText[0])
                                                    
                     
                 #Delete line code

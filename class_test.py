@@ -64,36 +64,33 @@ class Response:
     Prints the request and the response in the text editor
     of the program for later review.
     """""""""""""""""""""""""""""""""""""""""""""""""""""
-    def report_line(self, title, textEdit, method):
+    def report_line(self, title, textEdit, method, printText):
         
         text = ("------------------------------------------------------------------------------------------------------------------------------------------------------------------\n" + 
                         method + " Request \"" + title + "\":\n" + self.responseURL + "\n\nAPI response:\n" + self.responseText)
-        textEdit.append(text)
+        printText[0] = text
 
-        
-    #def AppendText(self):
-          #print("\n\nAppended\n\n")
         
     """""""""""""""""""""""""""""""""""""""""""""""""""""
     Find method, if there is a request to find something 
     in the response, this method will find it.
     """""""""""""""""""""""""""""""""""""""""""""""""""""
-    def find(self,data, errorFlag, textEdit):
+    def find(self,data, errorFlag, textEdit, printText):
         for findIndex in range(len(data['find'])):
             if data['find'][findIndex] in self.getText():
                 pass
             else:
                 if len(self.getText()) > 500:
-                    textEdit.append("\n\nError 500, long response\n")
+                    printText[0] = "%s%s" % (printText[0], "\n\nError 500, long response\n")
                 else:
-                    textEdit.append("\n\n There was a problem: " + data['find'][findIndex] + " wasn't found in :\n" + self.getText())
+                    printText[0] = "%s%s" % (printText[0], "\n\n There was a problem: " + data['find'][findIndex] + " wasn't found in :\n" + self.getText())
                     errorFlag[0] = True
         
     """""""""""""""""""""""""""""""""""""""""""""""""""""
     Check method, if there is certain values to check 
     in the response, this method will check them.
     """""""""""""""""""""""""""""""""""""""""""""""""""""
-    def check_value(self, data, errorFlag, textEdit, prevPayload):
+    def check_value(self, data, errorFlag, textEdit, prevPayload, printText):
 
         for valIndex in range(len(data['check'])):
 
@@ -125,23 +122,28 @@ class Response:
 
             #This will go through the path of the response to find the value we are checking.
             for res in splitVarToCheck:
-                resJson = resJson[res]
+                if res[0] == '#':
+                    resJson = resJson[int(res[1])]
+                else:
+                    resJson = resJson[res]
             #The files correct format is checked in a different function. Here we check only the name.
             if splitVarToCheck[len(splitVarToCheck) - 1] == "file_name":
                 if valueToCheck in str(resJson):
-                    textEdit.append("\nFile name: \"" + valueToCheck + "\" was found in file name:" + str(resJson))
+                    printText[0] = "%s\n%s" % (printText[0], "\nFile name: \"" + valueToCheck +
+                                               "\" was found in file name:" + str(resJson))
 
                 else:
-                    textEdit.append("\n\nError: File name:" + valueToCheck + " wasn't found in file name:" + str(resJson))
+                    printText[0] = "%s\n%s" % (printText[0], "\n\nError: File name:" + valueToCheck +
+                                               " wasn't found in file name:" + str(resJson))
                     errorFlag[0] = True
             #This is the main search method.
             else:
                 if valueToCheck == str(resJson):
-                    textEdit.append("\nFound: \"" + splitVarToCheck[len(splitVarToCheck) - 1] +
-                                    ": " + valueToCheck + "\" in response.")
+                    printText[0] = "%s\n%s" % (printText[0], "\nFound: \"" + splitVarToCheck[len(splitVarToCheck) - 1] +
+                                               ": " + valueToCheck + "\" in response.")
                 else:
-                    textEdit.append("\n\n There was a problem: " + splitVarToCheck[len(splitVarToCheck)-1] +
-                                    ": " + valueToCheck + " wasn't found in :\n" + self.getText())
+                    printText[0] = "%s\n%s" % (printText[0], "\n\n There was a problem: " + splitVarToCheck[len(splitVarToCheck)-1] +
+                                               ": " + valueToCheck + " wasn't found in :\n" + self.getText())
                     errorFlag[0] = True
         
         
@@ -155,7 +157,8 @@ class Response:
 """""""""""""""""""""""""""""""""""""""""""""""""""        
 class GetMethod:
         
-        def __init__(self, data):
+        def __init__(self, data, printText):
+            self.printText = printText
             self.testLine = data
             
         """""""""""""""""""""""""""""""""
@@ -220,14 +223,14 @@ class GetMethod:
             """""""""""""""""""""""""""""""""""""""""
             if addressCheck == 'downloadText':
                 newAddress = ("resources/" + txtFileUUID[0] + "/download")
-                textEdit.append("\n------------------------------------------------------------------------------------------------------------------------------------------------------------------\n" +
-                                self.testLine['title'] + "\n")
+                self.printText[0] = "%s\n%s" % (self.printText[0], "\n------------------------------------------------------------------------------------------------------------------------------------------------------------------\n" +
+                                                self.testLine['title'] + "\n")
                 downloadResource = 1
 
             if addressCheck == 'downloadFile':
                 newAddress = ("resources/" + uploadFileUUID[0] + "/download")
-                textEdit.append("\n------------------------------------------------------------------------------------------------------------------------------------------------------------------\n" +
-                                self.testLine['title'] + "\n")
+                self.printText[0] = "%s\n%s" % (self.printText[0], "\n------------------------------------------------------------------------------------------------------------------------------------------------------------------\n" +
+                                                self.testLine['title'] + "\n")
                 downloadResource = 1
 
 
@@ -272,10 +275,12 @@ class GetMethod:
                     if addressCheck == 'downloadText':
                         #Checking the download directory for the right file name.
                         if os.path.exists("Downloads/oht_" + txtFileUUID[0] + ".txt"):
-                            textEdit.append("\nText file: oht_" + txtFileUUID[0] + ".txt was successfully downloaded.\n" )
+                            self.printText[0] = "%s\n%s" % (self.printText[0], "\nText file: oht_" + txtFileUUID[0] +
+                                                            ".txt was successfully downloaded.\n")
                         #If no such file found an error is raised.
                         else:
-                            textEdit.append("\nError: Text file: oht_" + txtFileUUID[0] + ".txt wasn't successfully downloaded.\n")
+                            self.printText[0] = "%s\n%s" % (self.printText[0], "\nError: Text file: oht_" + txtFileUUID[0] +
+                                                            ".txt wasn't successfully downloaded.\n")
                             errorFlag[0] = True
                     #File check
                     else:
@@ -283,14 +288,16 @@ class GetMethod:
                         fileName = testFilePath[0].split('/')
 
                         if os.path.exists("Downloads/" + fileName[len(fileName) - 1]):
-                            textEdit.append("\nFile:" + fileName[len(fileName) - 1] + " was downloaded successfully.\n")
+                            self.printText[0] = "%s\n%s" % (self.printText[0], "\nFile:" + fileName[len(fileName) - 1] +
+                                                            " was downloaded successfully.\n")
                         else:
-                            textEdit.append("\nError: File:" + fileName[len(fileName) - 1] + "was not dowloaded.\n")
+                            self.printText[0] = "%s\n%s" % (self.printText[0], "\nError: File:" + fileName[len(fileName) - 1] +
+                                                            "was not dowloaded.\n")
                             errorFlag[0] = True
 
                 else:
 
-                    textEdit.append(res.text)
+                    #textEdit.append(res.text)
                     """
                     if res.getStatus() == 200:
                         res.report_line(self.testLine['title'], textEdit, "GET")
@@ -319,16 +326,16 @@ class GetMethod:
                         break
                     
             if res.getStatus() == 200:
-                res.report_line(self.testLine['title'], textEdit, "GET")
+                res.report_line(self.testLine['title'], textEdit, "GET", self.printText)
                     
                 if len(self.testLine['find']) >= 1:
-                    res.find(self.testLine, errorFlag, textEdit)
+                    res.find(self.testLine, errorFlag, textEdit, self.printText)
                 
                 if len(self.testLine['check']) >= 1:
-                    res.check_value(self.testLine, errorFlag, textEdit, prevPayload)
+                    res.check_value(self.testLine, errorFlag, textEdit, prevPayload, self.printText)
                     
             else:
-                textEdit.append("Error: %d" % res.getStatus())
+                self.printText[0] = "%s%s" % (self.printText[0], "Error: %d" % res.getStatus())
                 errorFlag[0] = True
 
         """""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -375,8 +382,9 @@ class GetMethod:
 """""""""""""""""""""""""""""""""""""""""""""""""""
 class PostMethod:
     
-    def __init__(self, data):
-            self.testLine = data
+    def __init__(self, data, printText):
+        self.printText = printText
+        self.testLine = data
     
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""
     This is the main method, gets the line to execute and 
@@ -428,17 +436,17 @@ class PostMethod:
                         break
                         
             if res.getStatus() == 200:
-                res.report_line(self.testLine['title'], textEdit, "POST")
+                res.report_line(self.testLine['title'], textEdit, "POST", self.printText)
             else:
-                    textEdit.append("Error: %d" % res.getStatus())
+                    self.printText[0] = "%s%s" % (self.printText[0], "Error: %d" % res.getStatus())
                     errorFlag[0] = True
              
                             
             if len(self.testLine['find']) >= 1:
-                res.find(self.testLine, errorFlag, textEdit)     
+                res.find(self.testLine, errorFlag, textEdit, self.printText)
                          
             if len(self.testLine['check']) >= 1:
-                res.check_value(self.testLine, errorFlag, textEdit, prevPayload)
+                res.check_value(self.testLine, errorFlag, textEdit, prevPayload, self.printText)
             
                 
         
@@ -490,13 +498,13 @@ class PostMethod:
                                 break
 
                     if res.getStatus() == 200:
-                        res.report_line(self.testLine['title'], textEdit, "POST")
+                        res.report_line(self.testLine['title'], textEdit, "POST", self.printText)
 
                         if len(self.testLine['find']) >= 1:
-                            res.find(self.testLine, errorFlag, textEdit)
+                            res.find(self.testLine, errorFlag, textEdit, self.printText)
 
                         if len(self.testLine['check']) >= 1:
-                            res.check_value(self.testLine, errorFlag, textEdit, prevPayload)
+                            res.check_value(self.testLine, errorFlag, textEdit, prevPayload, self.printText)
 
                         if firstResourcesUpload[0] == False:
                             uuidTxt = str(res.getJson()["results"])
@@ -505,7 +513,7 @@ class PostMethod:
                         uploadedrscFlag[0] = True
                                             
                     else:
-                        textEdit.append("Error: %d" % res.getStatus())
+                        self.printText[0] = "%s%s" % (self.printText[0], "Error: %d" % res.getStatus())
                         errorFlag[0] = True
         
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -549,13 +557,13 @@ class PostMethod:
                                 break
 
                     if res.getStatus() == 200:
-                        res.report_line(self.testLine['title'], textEdit, "POST")
+                        res.report_line(self.testLine['title'], textEdit, "POST", self.printText)
 
                         if len(self.testLine['find']) >= 1:
-                            res.find(self.testLine, errorFlag, textEdit)
+                            res.find(self.testLine, errorFlag, textEdit, self.printText)
 
                         if len(self.testLine['check']) >= 1:
-                            res.check_value(self.testLine, errorFlag, textEdit, prevPayload)
+                            res.check_value(self.testLine, errorFlag, textEdit, prevPayload, self.printText)
 
                         if firstResourcesUpload[0] == False:
                             uuidFile = str(res.getJson()["results"])
@@ -564,7 +572,7 @@ class PostMethod:
                         uploadedrscFlag[0] = True
                     
                     else:
-                        textEdit.append("Error: %d" % res.getStatus())
+                        self.printText[0] = "%s%s" % (self.printText[0], "Error: %d" % res.getStatus())
                         errorFlag[0] = True    
     
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""

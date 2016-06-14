@@ -227,9 +227,9 @@ class CheckCode(QtGui.QMainWindow, check_code_design.Ui_Lines_presentation):
                 if currentIndex < len(self.mainJson['data'][line]['check']):
                     if check.text() != self.mainJson['data'][line]['check'][currentIndex]:
                         self.mainJson['data'][line]['check'][currentIndex] = check.text()
-
-                    if self.checkValueDict[currentIndex].text() != self.mainJson['data'][line]['value'][currentIndex]:
-                        self.mainJson['data'][line]['value'][currentIndex] = self.checkValueDict[currentIndex].text()
+                    if currentIndex < len(self.mainJson['data'][line]['value']):
+                        if self.checkValueDict[currentIndex].text() != self.mainJson['data'][line]['value'][currentIndex]:
+                            self.mainJson['data'][line]['value'][currentIndex] = self.checkValueDict[currentIndex].text()
 
                 elif check.text() != '':
                     self.mainJson['data'][line]['check'].append(check.text())
