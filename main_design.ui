@@ -416,6 +416,19 @@
     <string>Whole check display</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="reportBtn">
+   <property name="geometry">
+    <rect>
+     <x>930</x>
+     <y>390</y>
+     <width>131</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>See Report</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

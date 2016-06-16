@@ -2,6 +2,7 @@ from PyQt4 import QtGui, QtCore
 import json_creator_design
 from new_line import NewLine
 
+
 class JsonCreator(QtGui.QMainWindow, json_creator_design.Ui_JsonCreator):
     def __init__(self, testFile, parent=None):
         super(JsonCreator, self).__init__(parent)

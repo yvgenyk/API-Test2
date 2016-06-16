@@ -11,6 +11,7 @@ import json
 import time
 from jason_creator import JsonCreator
 from check_code import CheckCode
+from new_report import Report
 from class_test import Response, GetMethod, PostMethod
 from resource_class import Resource
 from doctest import testfile
@@ -23,34 +24,34 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
     def __init__(self, parent=None):
         super(TestApp, self).__init__(parent)
         self.setupUi(self)
-        
+
         global txtFilePath
         txtFilePath = []
-        
+
         global txtFileUUID
         txtFileUUID = []
-        
+
         global uploadFileUUID
         uploadFileUUID = []
-        
+
         global testFilePath
         testFilePath = []
-        
+
         global testFile
         testFile = None
-        
-        
-        
+
         self.json_work = JsonCreator(testFile)
         self.check_code = CheckCode(testFile)
         self.new_line_window = None
+        self.report = Report()
         self.startBtn.clicked.connect(self.start_test)
         self.pushButton_2.clicked.connect(self.close_application)
         self.fileLoad.clicked.connect(self.file_open)
         self.checkDisplay.clicked.connect(self.check_the_code)
-        self.lineEdit.setText('6d33c51b2b2ab29a998528309e003444')
-        self.lineEdit_2.setText('vc2Dd7kNfwZxYVTJ3XGn')
-        self.lineEdit_3.setText('https://yavengy.vagrant.oht.cc/api/2/')
+        self.reportBtn.clicked.connect(self.new_report)
+        self.lineEdit.setText('aa96e6ebe4c8142ca3203807ee7762d6')
+        self.lineEdit_2.setText('JjPBxp9W87LYk42dXRzG')
+        self.lineEdit_3.setText('https://oht.vagrant.oht.cc/api/2/')
         self.loadTxtBtn.clicked.connect(self.open_txt)
         self.loadFileBtn.clicked.connect(self.open_test_files)
 
@@ -78,7 +79,7 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         self.secretKey = self.lineEdit.text()
         self.publicKey = self.lineEdit_2.text()
         self.httpAddress = self.lineEdit_3.text()
-        
+
         startFlag = 0
 
         """""""""""""""""""""""""""""""""
@@ -128,17 +129,17 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         else:
             choice = QtGui.QMessageBox.question(self, 'No File', "No file was loaded, would you like to load?",
                                                 QtGui.QMessageBox.Yes | QtGui.QMessageBox.No)
-        
+
             if choice == QtGui.QMessageBox.Yes:
                 self.json_work = JsonCreator(testFile)
                 self.json_work.show()
             else:
                 pass
-        
-        
-        
+
+
+
         if startFlag == 1:
-            
+
             self.textEdit.append("\n\nNEW TEST\n")
             payload = dict()
             """""""""""""""""""""""""""
@@ -159,54 +160,57 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
             for lineIndex in range(len(data["data"])):
 
                 printText = ['']
-                
+
                 #Get line code
                 if str.lower(data["data"][lineIndex]["method"]) == 'get':
                     #payload initialization
-                    
+
                     checkLine = GetMethod(data["data"][lineIndex], printText)
                     checkLine.get_method(self.secretKey, self.publicKey, self.httpAddress, self.errorFlag, self.prevResponse,
                                          self.prevPayload, self.textEdit, lineIndex, testFilePath, uploadFileUUID, txtFileUUID)
-                    self.textEdit.append(printText[0])
+                    self.report.mark_green(lineIndex)
+                    #self.textEdit.append(printText[0])
 
                 #Post line code
-                elif str.lower(data["data"][lineIndex]["method"]) == 'post': 
+                elif str.lower(data["data"][lineIndex]["method"]) == 'post':
                     checkLine = PostMethod(data["data"][lineIndex], printText)
                     checkLine.post_method(self.secretKey, self.publicKey, self.httpAddress, txtFilePath, txtFileUUID, testFilePath,
                                           uploadFileUUID, self.prevResponse, self.prevPayload, self.textEdit, self.errorFlag, self.firstResourcesUpload)
-                    self.textEdit.append(printText[0])
-                                                   
-                    
+                    self.report.mark_red(lineIndex)
+                    #self.textEdit.append(printText[0])
+
+
                 #Delete line code
-                elif str.lower(data["data"][lineIndex]["method"]) == 'del': 
+                elif str.lower(data["data"][lineIndex]["method"]) == 'del':
                     print("we have a deleter in line: " + str(lineIndex + 1))
-                    
-                
+
+
                 if self.errorFlag[0] == True:
                     break
-    
+
                 self.progressBar.setValue((100/(len(data["data"]))*(lineIndex+1)))
-                time.sleep(1)
-        
-        
+
+
     def file_open(self):
         self.json_work = JsonCreator(testFile)
         self.json_work.show()
 
     def check_the_code(self):
         self.check_code.show()
-       
-       
-        
+
+    def new_report(self):
+        self.report.show()
+
+
     def close_application(self):
         #popup messegae before exiting
         choice = QtGui.QMessageBox.question(self, 'Quit', "Quit application?", QtGui.QMessageBox.Yes | QtGui.QMessageBox.No)
-        
+
         if choice == QtGui.QMessageBox.Yes:
             sys.exit()
         else:
             pass
-        
+
     def open_txt(self):
         global txtFilePath
         txtFile = QtGui.QFileDialog.getOpenFileName(self, 'Open File', "*.txt")
@@ -214,7 +218,7 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
             txtFilePath.append(txtFile)
             fileName = txtFile.split('/')
             self.txtFilesList.addItem('%s' % fileName[len(fileName)-1])
-        
+
     def open_test_files(self):
         global testFilePath
         testFile = QtGui.QFileDialog.getOpenFileName(self, 'Open File')
@@ -222,9 +226,9 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
             testFilePath.append(testFile)
             fileName = testFile.split('/')
             self.testFilesList.addItem('%s' % fileName[len(fileName)-1])
-        
-        
-        
+
+
+
 
 def main():
     app = QtGui.QApplication(sys.argv)
@@ -233,6 +237,6 @@ def main():
     form = TestApp()
     form.show()
     app.exec_()
-    
+
 if __name__ == '__main__':
     main()

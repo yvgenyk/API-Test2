@@ -2,8 +2,7 @@
 
 # Form implementation generated from reading ui file 'main_design.ui'
 #
-# Created: Fri Jun  3 20:25:54 2016
-#      by: PyQt4 UI code generator 4.10.4
+# Created by: PyQt4 UI code generator 4.11.4
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -31,7 +30,6 @@ class Ui_Dialog(object):
         self.gridLayoutWidget.setGeometry(QtCore.QRect(10, 10, 729, 571))
         self.gridLayoutWidget.setObjectName(_fromUtf8("gridLayoutWidget"))
         self.gridLayout = QtGui.QGridLayout(self.gridLayoutWidget)
-        self.gridLayout.setMargin(0)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
         self.textEdit = QtGui.QTextEdit(self.gridLayoutWidget)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.MinimumExpanding, QtGui.QSizePolicy.Expanding)
@@ -100,7 +98,6 @@ class Ui_Dialog(object):
         self.horizontalLayoutWidget.setGeometry(QtCore.QRect(760, 10, 321, 311))
         self.horizontalLayoutWidget.setObjectName(_fromUtf8("horizontalLayoutWidget"))
         self.horizontalLayout_6 = QtGui.QHBoxLayout(self.horizontalLayoutWidget)
-        self.horizontalLayout_6.setMargin(0)
         self.horizontalLayout_6.setObjectName(_fromUtf8("horizontalLayout_6"))
         self.verticalLayout_3 = QtGui.QVBoxLayout()
         self.verticalLayout_3.setObjectName(_fromUtf8("verticalLayout_3"))
@@ -156,7 +153,6 @@ class Ui_Dialog(object):
         self.verticalLayoutWidget.setGeometry(QtCore.QRect(760, 330, 160, 171))
         self.verticalLayoutWidget.setObjectName(_fromUtf8("verticalLayoutWidget"))
         self.verticalLayout_4 = QtGui.QVBoxLayout(self.verticalLayoutWidget)
-        self.verticalLayout_4.setMargin(0)
         self.verticalLayout_4.setObjectName(_fromUtf8("verticalLayout_4"))
         self.horizontalLayout_7 = QtGui.QHBoxLayout()
         self.horizontalLayout_7.setObjectName(_fromUtf8("horizontalLayout_7"))
@@ -211,6 +207,9 @@ class Ui_Dialog(object):
         self.checkDisplay = QtGui.QPushButton(Dialog)
         self.checkDisplay.setGeometry(QtCore.QRect(930, 330, 131, 51))
         self.checkDisplay.setObjectName(_fromUtf8("checkDisplay"))
+        self.reportBtn = QtGui.QPushButton(Dialog)
+        self.reportBtn.setGeometry(QtCore.QRect(930, 390, 131, 51))
+        self.reportBtn.setObjectName(_fromUtf8("reportBtn"))
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -231,14 +230,5 @@ class Ui_Dialog(object):
         self.label_7.setText(_translate("Dialog", "Transcription", None))
         self.label_8.setText(_translate("Dialog", "Combo Project", None))
         self.checkDisplay.setText(_translate("Dialog", "Whole check display", None))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtGui.QApplication(sys.argv)
-    Dialog = QtGui.QDialog()
-    ui = Ui_Dialog()
-    ui.setupUi(Dialog)
-    Dialog.show()
-    sys.exit(app.exec_())
+        self.reportBtn.setText(_translate("Dialog", "See Report", None))
 

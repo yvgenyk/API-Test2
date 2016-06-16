@@ -2,6 +2,7 @@ from PyQt4 import QtGui, QtCore
 import check_code_design
 import json
 
+
 class CheckCode(QtGui.QMainWindow, check_code_design.Ui_Lines_presentation):
     def __init__(self,testFile ,parent=None):
         super(CheckCode, self).__init__(parent)

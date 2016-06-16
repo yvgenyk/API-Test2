@@ -1,6 +1,7 @@
 from class_test import Response
 import requests
 
+
 class Resource:
     def __init__(self, UUID, textEdit, priceList):
         self.textEdit = textEdit
