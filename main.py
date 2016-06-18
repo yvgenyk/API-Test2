@@ -28,6 +28,7 @@ class LineExec(QThread):
     def run(self):
         for line in self.mainJson:
             self.emit(SIGNAL("line_exec(PyQt_PyObject)"), line)
+
             self.sleep(1)
 
 
@@ -55,15 +56,15 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         self.json_work = JsonCreator(self.testFile)
         self.check_code = CheckCode(self.testFile)
         self.new_line_window = None
-        self.report = Report()
+        #self.report = Report()
         self.startBtn.clicked.connect(self.start_test)
         self.pushButton_2.clicked.connect(self.close_application)
         self.fileLoad.clicked.connect(self.file_open)
         self.checkDisplay.clicked.connect(self.check_the_code)
         self.reportBtn.clicked.connect(self.new_report)
-        self.lineEdit.setText('aa96e6ebe4c8142ca3203807ee7762d6')
-        self.lineEdit_2.setText('JjPBxp9W87LYk42dXRzG')
-        self.lineEdit_3.setText('https://oht.vagrant.oht.cc/api/2/')
+        self.lineEdit.setText('c03f6951e5b06ee943ccd2dfd2b61f16')
+        self.lineEdit_2.setText('CZQPy9XNbzF2rVfnGcY7')
+        self.lineEdit_3.setText('https://yavengy.vagrant.oht.cc/api/2/')
         self.loadTxtBtn.clicked.connect(self.open_txt)
         self.loadFileBtn.clicked.connect(self.open_test_files)
 
@@ -131,9 +132,9 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
 
                 for firstU in firstUpload["data"]:
 
-                    checkLine = PostMethod(firstU, self.printText)
+                    checkLine = PostMethod(firstU)
                     checkLine.post_method(self.secretKey, self.publicKey, self.httpAddress, self.txtFilePath, self.txtFileUUID, self.testFilePath,
-                                          self.uploadFileUUID, self.prevResponse, self.prevPayload, self.textEdit, self.errorFlag, self.firstResourcesUpload)
+                                          self.uploadFileUUID, self.prevResponse, self.prevPayload, self.tableWidget, self.errorFlag, self.firstResourcesUpload)
                     #self.textEdit.append(self.printText[0])
 
 
@@ -214,29 +215,24 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
                 self.progressBar.setValue((100/(len(data["data"]))*(lineIndex+1)))
             """
 
-    def line_print(self, title, status):
-        rows = self.tableWidget.rowCount()
-        self.tableWidget.insertRow(rows)
-        self.tableWidget.setItem(rows, 0, QtGui.QTableWidgetItem(title))
-        self.tableWidget.setItem(rows, 0, QtGui.QTableWidgetItem(status))
-
     def line_exec(self, line):
         if str.lower(line["method"]) == 'get':
             # payload initialization
-            checkLine = GetMethod(line, self.printText)
+            checkLine = GetMethod(line)
             checkLine.get_method(self.secretKey, self.publicKey, self.httpAddress, self.errorFlag, self.prevResponse,
-                                 self.prevPayload, self.textEdit, 0, self.testFilePath, self.uploadFileUUID,
+                                 self.prevPayload, self.tableWidget, 0, self.testFilePath, self.uploadFileUUID,
                                  self.txtFileUUID)
             #self.report.mark_green(lineIndex)
             #self.textEdit.append(self.printText[0])
-            self.line_print(line['title'], )
+            #self.line_print(line['title'], )
+
 
         # Post line code
         elif str.lower(line["method"]) == 'post':
-            checkLine = PostMethod(line, self.printText)
+            checkLine = PostMethod(line)
             checkLine.post_method(self.secretKey, self.publicKey, self.httpAddress, self.txtFilePath, self.txtFileUUID,
-                                  self.testFilePath, self.uploadFileUUID, self.prevResponse, self.prevPayload, self.textEdit,
-                                  self.errorFlag, self.firstResourcesUpload)
+                                  self.testFilePath, self.uploadFileUUID, self.prevResponse, self.prevPayload,
+                                  self.tableWidget, self.errorFlag, self.firstResourcesUpload)
             #self.report.mark_red(lineIndex)
             #self.textEdit.append(self.printText[0])
 

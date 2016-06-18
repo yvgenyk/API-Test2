@@ -4,10 +4,16 @@ import new_report_design
 
 
 class Report(QtGui.QMainWindow, new_report_design.Ui_Form):
-    def __init__(self, parent=None):
+    def __init__(self, tableWidget, title, status,parent=None):
         super(Report, self).__init__(parent)
         self.setupUi(self)
 
+        self.tableWidget = tableWidget
+        self.title = title
+        self.status = status
+        self.rows = self.tableWidget.rowCount()
+
+        """
         with open('./test_lines/00_Complete_Test.json') as codeLines_data:
             self.mainJson = json.load(codeLines_data)
 
@@ -25,11 +31,21 @@ class Report(QtGui.QMainWindow, new_report_design.Ui_Form):
             self.tableWidget.setItem(index, 0, QtGui.QTableWidgetItem(self.mainJson['data'][index]['title']))
             self.tableWidget.setItem(index, 1, QtGui.QTableWidgetItem("ok"))
 
+        """
 
-    def mark_green(self, index):
-        self.tableWidget.item(index, 0).setBackground(QtGui.QColor(128, 255, 128))
-        self.tableWidget.item(index, 1).setBackground(QtGui.QColor(128, 255, 128))
+    def print_line(self):
+        self.tableWidget.insertRow(self.rows)
+        self.tableWidget.setItem(self.rows, 0, QtGui.QTableWidgetItem(self.title))
+        self.tableWidget.setItem(self.rows, 1, QtGui.QTableWidgetItem(str(self.status)))
+        item = self.tableWidget.item(self.rows, 0)
+        self.tableWidget.scrollToItem(item, QtGui.QAbstractItemView.PositionAtCenter)
+        self.tableWidget.selectRow(self.rows)
+        print(str(self.rows) + ". Title: " + self.title + "  Status: " + str(self.status) + "\n")
 
-    def mark_red(self, index):
-        self.tableWidget.item(index, 0).setBackground(QtGui.QColor(255, 140, 102))
-        self.tableWidget.item(index, 1).setBackground(QtGui.QColor(255, 140, 102))
+    def mark_green(self):
+        self.tableWidget.item(self.rows, 0).setBackground(QtGui.QColor(128, 255, 128))
+        self.tableWidget.item(self.rows, 1).setBackground(QtGui.QColor(128, 255, 128))
+
+    def mark_red(self):
+        self.tableWidget.item(self.rows, 0).setBackground(QtGui.QColor(255, 140, 102))
+        self.tableWidget.item(self.rows, 1).setBackground(QtGui.QColor(255, 140, 102))
