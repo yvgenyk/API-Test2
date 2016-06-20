@@ -2,7 +2,8 @@
 
 # Form implementation generated from reading ui file 'main_design.ui'
 #
-# Created by: PyQt4 UI code generator 4.11.4
+# Created: Sun Jun 19 10:35:25 2016
+#      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -25,21 +26,13 @@ except AttributeError:
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName(_fromUtf8("Dialog"))
-        Dialog.resize(1089, 590)
+        Dialog.resize(1089, 630)
         self.gridLayoutWidget = QtGui.QWidget(Dialog)
-        self.gridLayoutWidget.setGeometry(QtCore.QRect(10, 10, 729, 571))
+        self.gridLayoutWidget.setGeometry(QtCore.QRect(10, 10, 729, 613))
         self.gridLayoutWidget.setObjectName(_fromUtf8("gridLayoutWidget"))
         self.gridLayout = QtGui.QGridLayout(self.gridLayoutWidget)
+        self.gridLayout.setMargin(0)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
-        self.textEdit = QtGui.QTextEdit(self.gridLayoutWidget)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.MinimumExpanding, QtGui.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.textEdit.sizePolicy().hasHeightForWidth())
-        self.textEdit.setSizePolicy(sizePolicy)
-        self.textEdit.setMinimumSize(QtCore.QSize(700, 450))
-        self.textEdit.setObjectName(_fromUtf8("textEdit"))
-        self.gridLayout.addWidget(self.textEdit, 1, 0, 1, 1)
         self.gridLayout_2 = QtGui.QGridLayout()
         self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))
         self.verticalLayout_2 = QtGui.QVBoxLayout()
@@ -50,6 +43,7 @@ class Ui_Dialog(object):
         self.label.setObjectName(_fromUtf8("label"))
         self.horizontalLayout.addWidget(self.label)
         self.lineEdit = QtGui.QLineEdit(self.gridLayoutWidget)
+        self.lineEdit.setText(_fromUtf8(""))
         self.lineEdit.setObjectName(_fromUtf8("lineEdit"))
         self.horizontalLayout.addWidget(self.lineEdit)
         self.verticalLayout_2.addLayout(self.horizontalLayout)
@@ -74,7 +68,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_3.addWidget(self.lineEdit_3)
         self.verticalLayout.addLayout(self.horizontalLayout_3)
         self.verticalLayout_2.addLayout(self.verticalLayout)
-        self.gridLayout_2.addLayout(self.verticalLayout_2, 0, 3, 1, 1)
+        self.gridLayout_2.addLayout(self.verticalLayout_2, 0, 4, 1, 1)
         self.startBtn = QtGui.QPushButton(self.gridLayoutWidget)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(97)
@@ -93,11 +87,22 @@ class Ui_Dialog(object):
         self.fileLoad.setMinimumSize(QtCore.QSize(97, 60))
         self.fileLoad.setObjectName(_fromUtf8("fileLoad"))
         self.gridLayout_2.addWidget(self.fileLoad, 0, 1, 1, 1)
+        self.stopBtn = QtGui.QPushButton(self.gridLayoutWidget)
+        self.stopBtn.setMinimumSize(QtCore.QSize(97, 60))
+        self.stopBtn.setObjectName(_fromUtf8("stopBtn"))
+        self.gridLayout_2.addWidget(self.stopBtn, 0, 3, 1, 1)
         self.gridLayout.addLayout(self.gridLayout_2, 0, 0, 1, 1)
+        self.tableWidget = QtGui.QTableWidget(self.gridLayoutWidget)
+        self.tableWidget.setMinimumSize(QtCore.QSize(0, 500))
+        self.tableWidget.setObjectName(_fromUtf8("tableWidget"))
+        self.tableWidget.setColumnCount(0)
+        self.tableWidget.setRowCount(0)
+        self.gridLayout.addWidget(self.tableWidget, 1, 0, 1, 1)
         self.horizontalLayoutWidget = QtGui.QWidget(Dialog)
         self.horizontalLayoutWidget.setGeometry(QtCore.QRect(760, 10, 321, 311))
         self.horizontalLayoutWidget.setObjectName(_fromUtf8("horizontalLayoutWidget"))
         self.horizontalLayout_6 = QtGui.QHBoxLayout(self.horizontalLayoutWidget)
+        self.horizontalLayout_6.setMargin(0)
         self.horizontalLayout_6.setObjectName(_fromUtf8("horizontalLayout_6"))
         self.verticalLayout_3 = QtGui.QVBoxLayout()
         self.verticalLayout_3.setObjectName(_fromUtf8("verticalLayout_3"))
@@ -153,6 +158,7 @@ class Ui_Dialog(object):
         self.verticalLayoutWidget.setGeometry(QtCore.QRect(760, 330, 160, 171))
         self.verticalLayoutWidget.setObjectName(_fromUtf8("verticalLayoutWidget"))
         self.verticalLayout_4 = QtGui.QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout_4.setMargin(0)
         self.verticalLayout_4.setObjectName(_fromUtf8("verticalLayout_4"))
         self.horizontalLayout_7 = QtGui.QHBoxLayout()
         self.horizontalLayout_7.setObjectName(_fromUtf8("horizontalLayout_7"))
@@ -222,6 +228,7 @@ class Ui_Dialog(object):
         self.startBtn.setText(_translate("Dialog", "Start Test", None))
         self.pushButton_2.setText(_translate("Dialog", "Quit", None))
         self.fileLoad.setText(_translate("Dialog", "Load Test File", None))
+        self.stopBtn.setText(_translate("Dialog", "Stop Test", None))
         self.loadTxtBtn.setText(_translate("Dialog", "Load Text Files", None))
         self.loadFileBtn.setText(_translate("Dialog", "Load Files", None))
         self.label_4.setText(_translate("Dialog", "Regular Project", None))
