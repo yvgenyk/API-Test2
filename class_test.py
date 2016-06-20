@@ -124,16 +124,20 @@ class Response:
             if splitVarToCheck[len(splitVarToCheck) - 1] == "file_name":
                 if valueToCheck in str(resJson):
                     reportLine.mark_green()
+                    reportLine.report_line_cf(valueToCheck, str(resJson), splitVarToCheck[len(splitVarToCheck) - 1])
                 else:
                     reportLine.mark_red()
+                    reportLine.report_line_cf(valueToCheck, str(resJson), splitVarToCheck[len(splitVarToCheck) - 1])
                     break
 
             #This is the main search method.
             else:
                 if valueToCheck == str(resJson):
                     reportLine.mark_green()
+                    reportLine.report_line_cf(valueToCheck, str(resJson), splitVarToCheck[len(splitVarToCheck) - 1])
                 else:
                     reportLine.mark_red()
+                    reportLine.report_line_cf(valueToCheck, str(resJson), splitVarToCheck[len(splitVarToCheck) - 1])
                     break
         
         

@@ -39,3 +39,16 @@ class Report:
             entry = {'url' : sentURL, 'res' : response, 'payload' : payload, 'filePayload' : filePayload}
             mainJson.append(entry)
             json.dump(mainJson, outfile)
+
+    def report_line_cf(self, check, checkFound, name):
+
+        with open('./report/test_report.json') as codeLines_data:
+            mainJson = json.load(codeLines_data)
+
+        with open('./report/test_report.json', 'w') as outfile:
+            if 'check' not in mainJson[len(mainJson)-1]:
+                mainJson[len(mainJson) - 1]["check"] = {}
+                mainJson[len(mainJson) - 1]["check"][name] = {check: checkFound}
+            else:
+                mainJson[len(mainJson) - 1]["check"][name] = {check: checkFound}
+            json.dump(mainJson, outfile)
