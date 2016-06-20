@@ -1,37 +1,14 @@
-from PyQt4 import QtGui, QtCore
+from PyQt4 import QtGui
 import json
-import new_report_design
 
 
-class Report(QtGui.QMainWindow, new_report_design.Ui_Form):
-    def __init__(self, tableWidget, title, status,parent=None):
-        super(Report, self).__init__(parent)
-        self.setupUi(self)
+class Report:
 
+    def __init__(self, tableWidget, title, status):
         self.tableWidget = tableWidget
         self.title = title
         self.status = status
         self.rows = self.tableWidget.rowCount()
-
-        """
-        with open('./test_lines/00_Complete_Test.json') as codeLines_data:
-            self.mainJson = json.load(codeLines_data)
-
-        self.maxLines = len(self.mainJson['data'])
-
-        hLabels = ('Line', 'Status')
-
-        self.tableWidget.setRowCount(self.maxLines)
-        self.tableWidget.setColumnCount(2)
-        self.tableWidget.setHorizontalHeaderLabels(hLabels)
-        self.tableWidget.setColumnWidth(0, 500)
-        self.tableWidget.horizontalHeader().setResizeMode(1, QtGui.QHeaderView.Stretch)
-
-        for index in range(self.maxLines):
-            self.tableWidget.setItem(index, 0, QtGui.QTableWidgetItem(self.mainJson['data'][index]['title']))
-            self.tableWidget.setItem(index, 1, QtGui.QTableWidgetItem("ok"))
-
-        """
 
     def print_line(self):
         self.tableWidget.insertRow(self.rows)
@@ -49,3 +26,16 @@ class Report(QtGui.QMainWindow, new_report_design.Ui_Form):
     def mark_red(self):
         self.tableWidget.item(self.rows, 0).setBackground(QtGui.QColor(255, 140, 102))
         self.tableWidget.item(self.rows, 1).setBackground(QtGui.QColor(255, 140, 102))
+
+    def mark_yellow(self):
+        self.tableWidget.item(self.rows, 0).setBackground(QtGui.QColor(255, 224, 102))
+        self.tableWidget.item(self.rows, 1).setBackground(QtGui.QColor(255, 224, 102))
+
+    def report_line(self, sentURL, response, payload, filePayload):
+        with open('./report/test_report.json') as codeLines_data:
+            mainJson = json.load(codeLines_data)
+
+        with open('./report/test_report.json', 'w') as outfile:
+            entry = {'url' : sentURL, 'res' : response, 'payload' : payload, 'filePayload' : filePayload}
+            mainJson.append(entry)
+            json.dump(mainJson, outfile)

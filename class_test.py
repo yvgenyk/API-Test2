@@ -6,7 +6,7 @@ from new_report import Report
 import json
 import time
 import re
-#from resource_class import Resource
+from resource_class import Resource
 from PyQt4.QtCore import QThread, SIGNAL
 
                     
@@ -63,13 +63,8 @@ class Response:
     of the program for later review.
     """""""""""""""""""""""""""""""""""""""""""""""""""""
     def report_line(self, reportLine):
-        
-        #text = ("------------------------------------------------------------------------------------------------------------------------------------------------------------------\n" +
-                        #method + " Request \"" + title + "\":\n" + self.responseURL + "\n\nAPI response:\n" + self.responseText)
-        #printText[0] = text
-
         reportLine.print_line()
-        reportLine.mark_green()
+        reportLine.mark_yellow()
         
     """""""""""""""""""""""""""""""""""""""""""""""""""""
     Find method, if there is a request to find something 
@@ -83,8 +78,6 @@ class Response:
                 if len(self.getText()) > 500:
                     reportLine.mark_red()
                 else:
-                    #printText[0] = "%s%s" % (printText[0], "\n\n There was a problem: " + data['find'][findIndex] + " wasn't found in :\n" + self.getText())
-                    #errorFlag[0] = True
                     reportLine.mark_red()
         
     """""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -130,26 +123,16 @@ class Response:
             #The files correct format is checked in a different function. Here we check only the name.
             if splitVarToCheck[len(splitVarToCheck) - 1] == "file_name":
                 if valueToCheck in str(resJson):
-                    #printText[0] = "%s\n%s" % (printText[0], "\nFile name: \"" + valueToCheck +
-                                               #"\" was found in file name:" + str(resJson))
                     reportLine.mark_green()
                 else:
-                    #printText[0] = "%s\n%s" % (printText[0], "\n\nError: File name:" + valueToCheck +
-                                               #" wasn't found in file name:" + str(resJson))
-                    #errorFlag[0] = True
                     reportLine.mark_red()
                     break
 
             #This is the main search method.
             else:
                 if valueToCheck == str(resJson):
-                    #printText[0] = "%s\n%s" % (printText[0], "\nFound: \"" + splitVarToCheck[len(splitVarToCheck) - 1] +
-                                               #": " + valueToCheck + "\" in response.")
                     reportLine.mark_green()
                 else:
-                    #printText[0] = "%s\n%s" % (printText[0], "\n\n There was a problem: " + splitVarToCheck[len(splitVarToCheck)-1] +
-                                               #": " + valueToCheck + " wasn't found in :\n" + self.getText())
-                    #errorFlag[0] = True
                     reportLine.mark_red()
                     break
         
@@ -172,7 +155,7 @@ class GetMethod:
         everything it needs from the main 
         class and execute the request. 
         """""""""""""""""""""""""""""""""
-        def get_method(self, secretKey, publicKey, httpAddress, errorFlag, prevResponse, prevPayload, tableWidget, lineIndex, testFilePath, uploadFileUUID, txtFileUUID):
+        def get_method(self, secretKey, publicKey, httpAddress, prevResponse, prevPayload, tableWidget, testFilePath, uploadFileUUID, txtFileUUID):
 
             uuidToAddress = 0
             payload = dict()
@@ -228,20 +211,17 @@ class GetMethod:
             """""""""""""""""""""""""""""""""""""""""
             if addressCheck == 'downloadText':
                 newAddress = ("resources/" + txtFileUUID[0] + "/download")
-                #self.printText[0] = "%s\n%s" % (self.printText[0], "\n------------------------------------------------------------------------------------------------------------------------------------------------------------------\n" +
-                                                #self.testLine['title'] + "\n")
                 downloadResource = 1
 
             if addressCheck == 'downloadFile':
                 newAddress = ("resources/" + uploadFileUUID[0] + "/download")
-                #self.printText[0] = "%s\n%s" % (self.printText[0], "\n------------------------------------------------------------------------------------------------------------------------------------------------------------------\n" +
-                                                #self.testLine['title'] + "\n")
                 downloadResource = 1
 
 
             if uuidToAddress == 1:
                 res = Response(requests.get(httpAddress + newAddress, params=payload, verify=False))
                 reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
+                reportLine.report_line(httpAddress + newAddress, res.getText(), payload, None)
 
                 """""""""""""""""""""""""""""""""""""""""
                 Download method for both files and text.
@@ -250,6 +230,7 @@ class GetMethod:
             elif downloadResource == 1:
                 res = requests.get(httpAddress + newAddress,stream=True ,params=payload, verify=False)
                 reportLine = Report(tableWidget, self.testLine['title'], res.status_code)
+                reportLine.report_line(httpAddress + newAddress, res.text, payload, None)
                 """
                 res = Response(requests.get(httpAddress + newAddress, stream=True, params=payload, verify=False), textEdit)
 
@@ -282,16 +263,11 @@ class GetMethod:
                     if addressCheck == 'downloadText':
                         #Checking the download directory for the right file name.
                         if os.path.exists("Downloads/oht_" + txtFileUUID[0] + ".txt"):
-                            #self.printText[0] = "%s\n%s" % (self.printText[0], "\nText file: oht_" + txtFileUUID[0] +
-                                                            #".txt was successfully downloaded.\n")
                             reportLine.print_line()
                             reportLine.mark_green()
 
                         #If no such file found an error is raised.
                         else:
-                            #self.printText[0] = "%s\n%s" % (self.printText[0], "\nError: Text file: oht_" + txtFileUUID[0] +
-                                                            #".txt wasn't successfully downloaded.\n")
-                            #errorFlag[0] = True
                             reportLine.print_line()
                             reportLine.mark_red()
                     #File check
@@ -300,14 +276,9 @@ class GetMethod:
                         fileName = testFilePath[0].split('/')
 
                         if os.path.exists("Downloads/" + fileName[len(fileName) - 1]):
-                            #self.printText[0] = "%s\n%s" % (self.printText[0], "\nFile:" + fileName[len(fileName) - 1] +
-                                                            #" was downloaded successfully.\n")
                             reportLine.print_line()
                             reportLine.mark_green()
                         else:
-                            #self.printText[0] = "%s\n%s" % (self.printText[0], "\nError: File:" + fileName[len(fileName) - 1] +
-                                                            #"was not dowloaded.\n")
-                            #errorFlag[0] = True
                             reportLine.print_line()
                             reportLine.mark_red()
 
@@ -326,6 +297,7 @@ class GetMethod:
             else:
                 res = Response(requests.get(httpAddress + self.testLine["address"], params=payload, verify=False))
                 reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
+                reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
             """""""""""""""""""""""""""""""""""""""""""""""
             If the save option is checked, will save the
             response and the request of the current request
@@ -338,6 +310,7 @@ class GetMethod:
                 for i in range(2):
                     res = Response(requests.get(httpAddress + self.testLine["address"], params=payload, verify=False),)
                     reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
+                    reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
                     if res.getStatus() == 200:
                         break
                     
@@ -351,8 +324,6 @@ class GetMethod:
                     res.check_value(self.testLine, reportLine, prevPayload)
                     
             else:
-                #self.printText[0] = "%s%s" % (self.printText[0], "Error: %d" % res.getStatus())
-                #errorFlag[0] = True
                 reportLine.print_line()
                 reportLine.mark_red()
 
@@ -408,7 +379,7 @@ class PostMethod:
     sort between the types of requests.
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""
     def post_method(self, secretKey, publicKey, httpAddress, txtFilePath, txtFileUUID, testFilePath, uploadFileUUID,
-                    prevResponse, prevPayload, tableWidget, errorFlag, firstResourcesUpload):
+                    prevResponse, prevPayload, tableWidget, firstResourcesUpload):
         payload = dict()
         uploadedrscFlag = [False]
         for payIndex in range(len(self.testLine['params'])):
@@ -424,13 +395,13 @@ class PostMethod:
                 
             #Text upload  
             elif self.testLine["params"][payIndex]["name"] == "textrsc":  
-                reportLine = self.text_upload(httpAddress, payIndex, payload, txtFilePath, prevResponse, prevPayload, txtFileUUID,
-                                              uploadedrscFlag, errorFlag, firstResourcesUpload, tableWidget)
+                self.text_upload(httpAddress, payIndex, payload, txtFilePath, prevResponse, prevPayload, txtFileUUID,
+                                 uploadedrscFlag, firstResourcesUpload, tableWidget)
                 
             #File upload  
             elif self.testLine["params"][payIndex]["name"] == "filersc": 
-                reportLine = self.file_upload(httpAddress, payload, payIndex, testFilePath, prevResponse, prevPayload,
-                                              uploadFileUUID, uploadedrscFlag, errorFlag, firstResourcesUpload, tableWidget)
+                self.file_upload(httpAddress, payload, payIndex, testFilePath, prevResponse, prevPayload,
+                                 uploadFileUUID, uploadedrscFlag, firstResourcesUpload, tableWidget)
                 
             #Use existing resources    
             elif self.testLine["params"][payIndex]["name"] == "sources" or self.testLine["params"][payIndex]["name"] == "translations":
@@ -443,6 +414,7 @@ class PostMethod:
         if uploadedrscFlag[0] == False:        
             res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False))
             reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
+            reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
                 
             if self.testLine["save"] == '1':
                 prevResponse[0] = res.getJson()
@@ -452,6 +424,7 @@ class PostMethod:
                 for i in range(2):
                     res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False))
                     reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
+                    reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
 
                     if res.getStatus() == 200:
                         break
@@ -459,8 +432,6 @@ class PostMethod:
             if res.getStatus() == 200:
                 res.report_line(reportLine)
             else:
-                    #self.printText[0] = "%s%s" % (self.printText[0], "Error: %d" % res.getStatus())
-                    #errorFlag[0] = True
                     reportLine.print_line()
                     reportLine.mark_red()
              
@@ -475,7 +446,7 @@ class PostMethod:
       This method will upload a text resource from file.
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""    
     def text_upload(self, httpAddress, payIndex, payload, txtFilePath, prevResponse, prevPayload, txtFileUUID,
-                    uploadedrscFlag, errorFlag, firstResourcesUpload, tableWidget):
+                    uploadedrscFlag, firstResourcesUpload, tableWidget):
         
         if self.testLine["params"][payIndex]["value"] == "empty":
             pass
@@ -485,7 +456,6 @@ class PostMethod:
         else:
                             
             if len(txtFilePath) == 0:
-                #textEdit.append("No text file was added\n")
                 pass
             elif len(txtFilePath) >= 1:
                                 
@@ -496,11 +466,11 @@ class PostMethod:
                     with loadedFile:
                         txt = loadedFile.read()
 
-
                     payload['text'] = txt
                                         
                     res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False))
                     reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
+                    reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
                                         
                     if self.testLine["save"] == '1':
                         prevResponse[0] = res.getJson()
@@ -512,9 +482,9 @@ class PostMethod:
                     """""""""""""""""""""""""""""""""
                     if res.getStatus() != 200:
                         for i in range(2):
-                            res = Response(
-                                requests.post(httpAddress + self.testLine["address"], data=payload, verify=False))
+                            res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False))
                             reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
+                            reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
 
                             if res.getStatus() == 200:
                                 break
@@ -535,8 +505,6 @@ class PostMethod:
                         uploadedrscFlag[0] = True
                                             
                     else:
-                        #self.printText[0] = "%s%s" % (self.printText[0], "Error: %d" % res.getStatus())
-                        #errorFlag[0] = True
                         reportLine.print_line()
                         reportLine.mark_red()
         
@@ -544,7 +512,7 @@ class PostMethod:
             This method will upload a file resource
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""
     def file_upload(self, httpAddress, payload, payIndex, testFilePath, prevResponse, prevPayload,
-                    uploadFileUUID, uploadedrscFlag, errorFlag, firstResourcesUpload, tableWidget):
+                    uploadFileUUID, uploadedrscFlag, firstResourcesUpload, tableWidget):
 
         #uploadFlag = False
         
@@ -565,6 +533,7 @@ class PostMethod:
 
                     res = Response(requests.post(httpAddress + self.testLine["address"], files = loadedFile, data = payload, verify=False))
                     reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
+                    reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, str(loadedFile))
                                         
                     if self.testLine["save"] == '1':
                         prevResponse[0] = res.getJson()
@@ -580,6 +549,7 @@ class PostMethod:
                                 requests.post(httpAddress + self.testLine["address"], files=loadedFile, data=payload,
                                               verify=False))
                             reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
+                            reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
                             if res.getStatus() == 200:
                                 break
 
@@ -599,8 +569,6 @@ class PostMethod:
                         uploadedrscFlag[0] = True
                     
                     else:
-                        #self.printText[0] = "%s%s" % (self.printText[0], "Error: %d" % res.getStatus())
-                        #errorFlag[0] = True
                         reportLine.print_line()
                         reportLine.mark_red()
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""

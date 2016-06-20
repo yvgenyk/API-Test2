@@ -25,7 +25,7 @@
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <layout class="QGridLayout" name="gridLayout_2">
-      <item row="0" column="3">
+      <item row="0" column="4">
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout">
@@ -37,7 +37,11 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit"/>
+           <widget class="QLineEdit" name="lineEdit">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -123,6 +127,19 @@
         </property>
         <property name="text">
          <string>Load Test File</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QPushButton" name="stopBtn">
+        <property name="minimumSize">
+         <size>
+          <width>97</width>
+          <height>60</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Stop Test</string>
         </property>
        </widget>
       </item>
@@ -421,16 +438,6 @@
    </property>
    <property name="text">
     <string>See Report</string>
-   </property>
-  </widget>
-  <widget class="QTextEdit" name="textEdit">
-   <property name="geometry">
-    <rect>
-     <x>940</x>
-     <y>460</y>
-     <width>104</width>
-     <height>78</height>
-    </rect>
    </property>
   </widget>
  </widget>

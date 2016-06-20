@@ -11,7 +11,7 @@ import json
 import time
 from jason_creator import JsonCreator
 from check_code import CheckCode
-from new_report import Report
+from report_window import ViewReport
 from class_test import Response, GetMethod, PostMethod
 from resource_class import Resource
 from doctest import testfile
@@ -28,7 +28,6 @@ class LineExec(QThread):
     def run(self):
         for line in self.mainJson:
             self.emit(SIGNAL("line_exec(PyQt_PyObject)"), line)
-
             self.sleep(1)
 
 
@@ -37,34 +36,24 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         super(TestApp, self).__init__(parent)
         self.setupUi(self)
 
-        #global txtFilePath
         self.txtFilePath = []
-
-        #global txtFileUUID
         self.txtFileUUID = []
-
-        #global uploadFileUUID
         self.uploadFileUUID = []
-
-        #global testFilePath
         self.testFilePath = []
-
-        #global testFile
         self.testFile = None
 
         self.printText = ['']
         self.json_work = JsonCreator(self.testFile)
         self.check_code = CheckCode(self.testFile)
         self.new_line_window = None
-        #self.report = Report()
         self.startBtn.clicked.connect(self.start_test)
         self.pushButton_2.clicked.connect(self.close_application)
         self.fileLoad.clicked.connect(self.file_open)
         self.checkDisplay.clicked.connect(self.check_the_code)
         self.reportBtn.clicked.connect(self.new_report)
-        self.lineEdit.setText('c03f6951e5b06ee943ccd2dfd2b61f16')
-        self.lineEdit_2.setText('CZQPy9XNbzF2rVfnGcY7')
-        self.lineEdit_3.setText('https://yavengy.vagrant.oht.cc/api/2/')
+        self.lineEdit.setText('aa96e6ebe4c8142ca3203807ee7762d6')
+        self.lineEdit_2.setText('JjPBxp9W87LYk42dXRzG')
+        self.lineEdit_3.setText('https://oht.vagrant.oht.cc/api/2/')
         self.loadTxtBtn.clicked.connect(self.open_txt)
         self.loadFileBtn.clicked.connect(self.open_test_files)
 
@@ -86,16 +75,18 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
                           "proof_proj":float(self.proof_proj.text()),"transcript_proj":float(self.transcript_proj.text()),
                           "combo_proj":float(self.combo_proj.text())}
 
+        with open('./report/test_report.json', "w") as new:
+            json.dump([], new)
 
     def start_test(self):
-        #global txtFilePath
-        #global txtFileUUID
-        #global testFilePath
-        #global uploadFileUUID
+
         self.firstResourcesUpload = [False]
         self.secretKey = self.lineEdit.text()
         self.publicKey = self.lineEdit_2.text()
         self.httpAddress = self.lineEdit_3.text()
+
+        while self.tableWidget.rowCount() > 0:
+            self.tableWidget.removeRow(0)
 
         startFlag = 0
 
@@ -128,16 +119,11 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
                 with open('firstUpload.json') as codeLines_data:
                     firstUpload = json.load(codeLines_data)
 
-                #self.textEdit.append("First files upload\n\n")
-
                 for firstU in firstUpload["data"]:
 
                     checkLine = PostMethod(firstU)
                     checkLine.post_method(self.secretKey, self.publicKey, self.httpAddress, self.txtFilePath, self.txtFileUUID, self.testFilePath,
-                                          self.uploadFileUUID, self.prevResponse, self.prevPayload, self.tableWidget, self.errorFlag, self.firstResourcesUpload)
-                    #self.textEdit.append(self.printText[0])
-
-
+                                          self.uploadFileUUID, self.prevResponse, self.prevPayload, self.tableWidget, self.firstResourcesUpload)
 
                 self.firstResourcesUpload[0] = True
                 startFlag = 1
@@ -153,11 +139,7 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
             else:
                 pass
 
-
-
         if startFlag == 1:
-
-            self.textEdit.append("\n\nNEW TEST\n")
             payload = dict()
             """""""""""""""""""""""""""
             Deletes the existing Downloads
@@ -179,62 +161,23 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
             self.linePrint = LineExec(data["data"])
             self.connect(self.linePrint, SIGNAL("line_exec(PyQt_PyObject)"), self.line_exec)
             self.linePrint.start()
-
-            """
-            for lineIndex in range(len(data["data"])):
-
-                printText = ['']
-
-                #Get line code
-                if str.lower(data["data"][lineIndex]["method"]) == 'get':
-                    #payload initialization
-
-                    checkLine = GetMethod(data["data"][lineIndex], printText)
-                    checkLine.get_method(self.secretKey, self.publicKey, self.httpAddress, self.errorFlag, self.prevResponse,
-                                         self.prevPayload, self.textEdit, lineIndex, self.testFilePath, self.uploadFileUUID, self.txtFileUUID)
-                    #self.report.mark_green(lineIndex)
-                    #self.textEdit.append(printText[0])
-
-                #Post line code
-                elif str.lower(data["data"][lineIndex]["method"]) == 'post':
-                    checkLine = PostMethod(data["data"][lineIndex], printText)
-                    checkLine.post_method(self.secretKey, self.publicKey, self.httpAddress, self.txtFilePath, self.txtFileUUID, self.testFilePath,
-                                          self.uploadFileUUID, self.prevResponse, self.prevPayload, self.textEdit, self.errorFlag, self.firstResourcesUpload)
-                    #self.report.mark_red(lineIndex)
-                    #self.textEdit.append(printText[0])
-
-
-                #Delete line code
-                elif str.lower(data["data"][lineIndex]["method"]) == 'del':
-                    print("we have a deleter in line: " + str(lineIndex + 1))
-
-
-                if self.errorFlag[0] == True:
-                    break
-
-                self.progressBar.setValue((100/(len(data["data"]))*(lineIndex+1)))
-            """
+            self.stopBtn.setEnabled(True)
+            self.stopBtn.clicked.connect(self.linePrint.terminate)
 
     def line_exec(self, line):
         if str.lower(line["method"]) == 'get':
             # payload initialization
             checkLine = GetMethod(line)
-            checkLine.get_method(self.secretKey, self.publicKey, self.httpAddress, self.errorFlag, self.prevResponse,
-                                 self.prevPayload, self.tableWidget, 0, self.testFilePath, self.uploadFileUUID,
+            checkLine.get_method(self.secretKey, self.publicKey, self.httpAddress, self.prevResponse,
+                                 self.prevPayload, self.tableWidget, self.testFilePath, self.uploadFileUUID,
                                  self.txtFileUUID)
-            #self.report.mark_green(lineIndex)
-            #self.textEdit.append(self.printText[0])
-            #self.line_print(line['title'], )
-
 
         # Post line code
         elif str.lower(line["method"]) == 'post':
             checkLine = PostMethod(line)
             checkLine.post_method(self.secretKey, self.publicKey, self.httpAddress, self.txtFilePath, self.txtFileUUID,
                                   self.testFilePath, self.uploadFileUUID, self.prevResponse, self.prevPayload,
-                                  self.tableWidget, self.errorFlag, self.firstResourcesUpload)
-            #self.report.mark_red(lineIndex)
-            #self.textEdit.append(self.printText[0])
+                                  self.tableWidget, self.firstResourcesUpload)
 
         self.progressBar.setValue(self.progressBar.value() + 1)
 
@@ -246,7 +189,8 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         self.check_code.show()
 
     def new_report(self):
-        self.report.show()
+        self.viewReport = ViewReport(self.tableWidget)
+        self.viewReport.show()
 
 
     def close_application(self):

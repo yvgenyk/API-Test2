@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'main_design.ui'
 #
-# Created: Thu Jun 16 17:50:55 2016
+# Created: Sun Jun 19 10:35:25 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -43,6 +43,7 @@ class Ui_Dialog(object):
         self.label.setObjectName(_fromUtf8("label"))
         self.horizontalLayout.addWidget(self.label)
         self.lineEdit = QtGui.QLineEdit(self.gridLayoutWidget)
+        self.lineEdit.setText(_fromUtf8(""))
         self.lineEdit.setObjectName(_fromUtf8("lineEdit"))
         self.horizontalLayout.addWidget(self.lineEdit)
         self.verticalLayout_2.addLayout(self.horizontalLayout)
@@ -67,7 +68,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_3.addWidget(self.lineEdit_3)
         self.verticalLayout.addLayout(self.horizontalLayout_3)
         self.verticalLayout_2.addLayout(self.verticalLayout)
-        self.gridLayout_2.addLayout(self.verticalLayout_2, 0, 3, 1, 1)
+        self.gridLayout_2.addLayout(self.verticalLayout_2, 0, 4, 1, 1)
         self.startBtn = QtGui.QPushButton(self.gridLayoutWidget)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(97)
@@ -86,6 +87,10 @@ class Ui_Dialog(object):
         self.fileLoad.setMinimumSize(QtCore.QSize(97, 60))
         self.fileLoad.setObjectName(_fromUtf8("fileLoad"))
         self.gridLayout_2.addWidget(self.fileLoad, 0, 1, 1, 1)
+        self.stopBtn = QtGui.QPushButton(self.gridLayoutWidget)
+        self.stopBtn.setMinimumSize(QtCore.QSize(97, 60))
+        self.stopBtn.setObjectName(_fromUtf8("stopBtn"))
+        self.gridLayout_2.addWidget(self.stopBtn, 0, 3, 1, 1)
         self.gridLayout.addLayout(self.gridLayout_2, 0, 0, 1, 1)
         self.tableWidget = QtGui.QTableWidget(self.gridLayoutWidget)
         self.tableWidget.setMinimumSize(QtCore.QSize(0, 500))
@@ -211,9 +216,6 @@ class Ui_Dialog(object):
         self.reportBtn = QtGui.QPushButton(Dialog)
         self.reportBtn.setGeometry(QtCore.QRect(930, 390, 131, 51))
         self.reportBtn.setObjectName(_fromUtf8("reportBtn"))
-        self.textEdit = QtGui.QTextEdit(Dialog)
-        self.textEdit.setGeometry(QtCore.QRect(940, 460, 104, 78))
-        self.textEdit.setObjectName(_fromUtf8("textEdit"))
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -226,6 +228,7 @@ class Ui_Dialog(object):
         self.startBtn.setText(_translate("Dialog", "Start Test", None))
         self.pushButton_2.setText(_translate("Dialog", "Quit", None))
         self.fileLoad.setText(_translate("Dialog", "Load Test File", None))
+        self.stopBtn.setText(_translate("Dialog", "Stop Test", None))
         self.loadTxtBtn.setText(_translate("Dialog", "Load Text Files", None))
         self.loadFileBtn.setText(_translate("Dialog", "Load Files", None))
         self.label_4.setText(_translate("Dialog", "Regular Project", None))
