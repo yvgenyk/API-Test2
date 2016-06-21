@@ -1,14 +1,17 @@
 
-import requests
-
 
 class Resource:
-    def __init__(self, file, priceList):
-        self.file = file
+    def __init__(self, filePath, priceList):
+        self.filePath = filePath
         self.priceList = priceList
 
+        loadedFile = open(self.filePath, 'r')
+
+        with loadedFile:
+            txt = loadedFile.read()
+
         # Adding 13% more for the word count.
-        self.wordcount = len(self.file.split(' '))*1.13
+        self.wordcount = len(txt.split(' '))*1.13
 
 
 

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'check_code_design.ui'
 #
-# Created: Sat Jun  4 19:24:56 2016
+# Created: Tue Jun 21 14:18:44 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -27,6 +27,9 @@ class Ui_Lines_presentation(object):
     def setupUi(self, Lines_presentation):
         Lines_presentation.setObjectName(_fromUtf8("Lines_presentation"))
         Lines_presentation.resize(1292, 791)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8("logo.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        Lines_presentation.setWindowIcon(icon)
         self.horizontalLayoutWidget_26 = QtGui.QWidget(Lines_presentation)
         self.horizontalLayoutWidget_26.setGeometry(QtCore.QRect(10, 10, 1281, 710))
         self.horizontalLayoutWidget_26.setObjectName(_fromUtf8("horizontalLayoutWidget_26"))
@@ -988,14 +991,4 @@ class Ui_Lines_presentation(object):
         self.label_22.setText(_translate("Lines_presentation", "=>", None))
         self.label_23.setText(_translate("Lines_presentation", "=>", None))
         self.label_26.setText(_translate("Lines_presentation", "                                                          Find:", None))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtGui.QApplication(sys.argv)
-    Lines_presentation = QtGui.QDialog()
-    ui = Ui_Lines_presentation()
-    ui.setupUi(Lines_presentation)
-    Lines_presentation.show()
-    sys.exit(app.exec_())
 

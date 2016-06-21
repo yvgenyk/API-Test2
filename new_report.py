@@ -14,6 +14,9 @@ class Report:
         self.tableWidget.insertRow(self.rows)
         self.tableWidget.setItem(self.rows, 0, QtGui.QTableWidgetItem(self.title))
         self.tableWidget.setItem(self.rows, 1, QtGui.QTableWidgetItem(str(self.status)))
+        if self.status != 200:
+            self.mark_red()
+
         item = self.tableWidget.item(self.rows, 0)
         self.tableWidget.scrollToItem(item, QtGui.QAbstractItemView.PositionAtCenter)
         self.tableWidget.selectRow(self.rows)
@@ -40,7 +43,7 @@ class Report:
             mainJson.append(entry)
             json.dump(mainJson, outfile)
 
-    def report_line_cf(self, check, checkFound, name):
+    def report_line_check(self, check, checkFound, name):
 
         with open('./report/test_report.json') as codeLines_data:
             mainJson = json.load(codeLines_data)
@@ -51,4 +54,16 @@ class Report:
                 mainJson[len(mainJson) - 1]["check"][name] = {check: checkFound}
             else:
                 mainJson[len(mainJson) - 1]["check"][name] = {check: checkFound}
+            json.dump(mainJson, outfile)
+
+    def report_line_find(self, find):
+        with open('./report/test_report.json') as codeLines_data:
+            mainJson = json.load(codeLines_data)
+
+        with open('./report/test_report.json', 'w') as outfile:
+            if 'find' not in mainJson[len(mainJson) - 1]:
+                mainJson[len(mainJson) - 1]["find"] = []
+                mainJson[len(mainJson) - 1]["find"].append(find)
+            else:
+                mainJson[len(mainJson) - 1]["find"].append(find)
             json.dump(mainJson, outfile)

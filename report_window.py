@@ -71,13 +71,24 @@ class ViewReport(QtGui.QMainWindow, new_report_design.Ui_Form):
                                 text += reportJson[row]['check'][check][param][i]
                                 if i % 40 == 0 and i != 0:
                                     text += "\n"
-                        text += "\n"
+                        text += "\n\n"
 
                     else:
                         text += ("S: " + check + ": " + param + "\n" +
-                                 "F: " + check + ": " + reportJson[row]['check'][check][param] + "\n")
+                                 "F: " + check + ": " + reportJson[row]['check'][check][param] + "\n\n")
 
             self.checkLable.setText(text)
         else:
             text = ''
             self.checkLable.setText(text)
+
+        if 'find' in reportJson[row]:
+
+            text = 'Found:\n'
+            for find in reportJson[row]['find']:
+                text += (find + "\n")
+
+            self.findLable.setText(text)
+
+        else:
+            self.findLable.setText('')

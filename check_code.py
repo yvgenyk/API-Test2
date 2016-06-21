@@ -34,6 +34,8 @@ class CheckCode(QtGui.QMainWindow, check_code_design.Ui_Lines_presentation):
 
         self.findDict = [self.find_1, self.find_2, self.find_3]
 
+        self.clear_lines()
+
         self.codeLinesDict[0].clicked.connect(self.lineOne)
         self.codeLinesDict[1].clicked.connect(self.lineTwo)
         self.codeLinesDict[2].clicked.connect(self.lineThree)

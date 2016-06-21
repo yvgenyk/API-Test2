@@ -51,8 +51,8 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         self.fileLoad.clicked.connect(self.file_open)
         self.checkDisplay.clicked.connect(self.check_the_code)
         self.reportBtn.clicked.connect(self.new_report)
-        self.lineEdit.setText('cde3f5431b6e5770919a199d7f71c4ec')
-        self.lineEdit_2.setText('Mn9GDLjBzV83dFKbr2tP')
+        self.lineEdit.setText('4c55ed410b7358cc51080afb772a5afd')
+        self.lineEdit_2.setText('Z9zKv8gbYj3LRTcrVHQf')
         self.lineEdit_3.setText('https://oht.vagrant.oht.cc/api/2/')
         self.loadTxtBtn.clicked.connect(self.open_txt)
         self.loadFileBtn.clicked.connect(self.open_test_files)
@@ -75,9 +75,6 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
                           "proof_proj":float(self.proof_proj.text()),"transcript_proj":float(self.transcript_proj.text()),
                           "combo_proj":float(self.combo_proj.text())}
 
-        with open('./report/test_report.json', "w") as new:
-            json.dump([], new)
-
     def start_test(self):
 
         self.firstResourcesUpload = [False]
@@ -87,6 +84,12 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
 
         while self.tableWidget.rowCount() > 0:
             self.tableWidget.removeRow(0)
+
+        with open('./report/test_report.json', "w") as new:
+            json.dump([], new)
+
+        with open('./data/words_prices.json', "w") as new:
+            json.dump([], new)
 
         startFlag = 0
 
@@ -126,6 +129,7 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
                                           self.uploadFileUUID, self.prevResponse, self.prevPayload, self.tableWidget, self.firstResourcesUpload)
 
                 self.firstResourcesUpload[0] = True
+
                 startFlag = 1
 
 
@@ -141,6 +145,7 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
 
         if startFlag == 1:
             payload = dict()
+            self.initialize_data()
             """""""""""""""""""""""""""
             Deletes the existing Downloads
             directory to check up to date
@@ -163,6 +168,36 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
             self.linePrint.start()
             self.stopBtn.setEnabled(True)
             self.stopBtn.clicked.connect(self.linePrint.terminate)
+
+    def initialize_data(self):
+        entry = {}
+        with open('./data/words_prices.json') as codeLines_data:
+            mainJson = json.load(codeLines_data)
+
+        with open('./data/words_prices.json', 'w') as outfile:
+
+            for txtUUID in self.txtFileUUID:
+                uploaded_file = Resource(self.txtFilePath[self.txtFileUUID.index(txtUUID)], self.priceList)
+                entry[txtUUID] = {'wordcount': uploaded_file.get_wordcount(),
+                                  'reg_proj_price': uploaded_file.get_reg_project_price(),
+                                  'expert_proj_price': uploaded_file.get_expert_project_price(),
+                                  'proof_proj_price': uploaded_file.get_proof_proj_price(),
+                                  'trranscrip_proj_price': uploaded_file.get_transcript_proj_price(),
+                                  'combo_proj_price': uploaded_file.get_combo_price()}
+
+                mainJson.append(entry)
+
+            for fileUUID in self.uploadFileUUID:
+                uploaded_file = Resource(self.testFilePath[self.uploadFileUUID.index(fileUUID)], self.priceList)
+                entry[fileUUID] = {'wordcount': uploaded_file.get_wordcount(),
+                                   'reg_proj_price': uploaded_file.get_reg_project_price(),
+                                   'expert_proj_price': uploaded_file.get_expert_project_price(),
+                                   'proof_proj_price': uploaded_file.get_proof_proj_price(),
+                                   'trranscrip_proj_price': uploaded_file.get_transcript_proj_price(),
+                                   'combo_proj_price': uploaded_file.get_combo_price()}
+                mainJson.append(entry)
+
+            json.dump(mainJson, outfile)
 
     def line_exec(self, line):
         if str.lower(line["method"]) == 'get':

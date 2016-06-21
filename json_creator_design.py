@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'jsoncreator.ui'
+# Form implementation generated from reading ui file 'json_creator_design.ui'
 #
-# Created by: PyQt4 UI code generator 4.11.4
+# Created: Tue Jun 21 14:19:20 2016
+#      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -26,10 +27,14 @@ class Ui_JsonCreator(object):
     def setupUi(self, JsonCreator):
         JsonCreator.setObjectName(_fromUtf8("JsonCreator"))
         JsonCreator.resize(719, 460)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8("logo.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        JsonCreator.setWindowIcon(icon)
         self.verticalLayoutWidget = QtGui.QWidget(JsonCreator)
         self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 10, 701, 441))
         self.verticalLayoutWidget.setObjectName(_fromUtf8("verticalLayoutWidget"))
         self.verticalLayout = QtGui.QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout.setMargin(0)
         self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
         self.horizontalLayout = QtGui.QHBoxLayout()
         self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
@@ -73,14 +78,4 @@ class Ui_JsonCreator(object):
         self.loadExFileBtn.setText(_translate("JsonCreator", "Load File", None))
         self.saveBtn.setText(_translate("JsonCreator", "Save", None))
         self.doneBtn.setText(_translate("JsonCreator", "Done", None))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtGui.QApplication(sys.argv)
-    JsonCreator = QtGui.QDialog()
-    ui = Ui_JsonCreator()
-    ui.setupUi(JsonCreator)
-    JsonCreator.show()
-    sys.exit(app.exec_())
 

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'main_design.ui'
 #
-# Created: Sun Jun 19 10:35:25 2016
+# Created: Tue Jun 21 14:13:04 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -27,6 +27,9 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName(_fromUtf8("Dialog"))
         Dialog.resize(1089, 630)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8("logo.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        Dialog.setWindowIcon(icon)
         self.gridLayoutWidget = QtGui.QWidget(Dialog)
         self.gridLayoutWidget.setGeometry(QtCore.QRect(10, 10, 729, 613))
         self.gridLayoutWidget.setObjectName(_fromUtf8("gridLayoutWidget"))

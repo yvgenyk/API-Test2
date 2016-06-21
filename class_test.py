@@ -74,17 +74,23 @@ class Response:
         for findIndex in range(len(data['find'])):
             if data['find'][findIndex] in self.getText():
                 reportLine.mark_green()
+                reportLine.report_line_find(data['find'][findIndex])
             else:
                 if len(self.getText()) > 500:
                     reportLine.mark_red()
+                    reportLine.report_line_find(data['find'][findIndex])
                 else:
                     reportLine.mark_red()
+                    reportLine.report_line_find(data['find'][findIndex])
         
     """""""""""""""""""""""""""""""""""""""""""""""""""""
     Check method, if there is certain values to check 
     in the response, this method will check them.
     """""""""""""""""""""""""""""""""""""""""""""""""""""
-    def check_value(self, data, reportLine, prevPayload):
+    def check_value(self, data, reportLine, prevPayload, rsc_uuid):
+
+        with open('./data/words_prices.json') as codeLines_data:
+            dataJson = json.load(codeLines_data)
 
         for valIndex in range(len(data['check'])):
 
@@ -120,24 +126,39 @@ class Response:
                     resJson = resJson[int(res[1])]
                 else:
                     resJson = resJson[res]
+
             #The files correct format is checked in a different function. Here we check only the name.
             if splitVarToCheck[len(splitVarToCheck) - 1] == "file_name":
                 if valueToCheck in str(resJson):
                     reportLine.mark_green()
-                    reportLine.report_line_cf(valueToCheck, str(resJson), splitVarToCheck[len(splitVarToCheck) - 1])
+                    reportLine.report_line_check(valueToCheck, str(resJson), splitVarToCheck[len(splitVarToCheck) - 1])
                 else:
                     reportLine.mark_red()
-                    reportLine.report_line_cf(valueToCheck, str(resJson), splitVarToCheck[len(splitVarToCheck) - 1])
+                    reportLine.report_line_check(valueToCheck, str(resJson), splitVarToCheck[len(splitVarToCheck) - 1])
+                    break
+
+            elif splitVarToCheck[len(splitVarToCheck) - 1] == "wordcount":
+                total_words = 0
+
+                for uuid in rsc_uuid:
+                    total_words += dataJson[0][uuid]['wordcount']
+
+                if total_words > resJson:
+                    reportLine.mark_green()
+                    reportLine.report_line_check(total_words, str(resJson), splitVarToCheck[len(splitVarToCheck) - 1])
+                else:
+                    reportLine.mark_red()
+                    reportLine.report_line_check(total_words, str(resJson), splitVarToCheck[len(splitVarToCheck) - 1])
                     break
 
             #This is the main search method.
             else:
                 if valueToCheck == str(resJson):
                     reportLine.mark_green()
-                    reportLine.report_line_cf(valueToCheck, str(resJson), splitVarToCheck[len(splitVarToCheck) - 1])
+                    reportLine.report_line_check(valueToCheck, str(resJson), splitVarToCheck[len(splitVarToCheck) - 1])
                 else:
                     reportLine.mark_red()
-                    reportLine.report_line_cf(valueToCheck, str(resJson), splitVarToCheck[len(splitVarToCheck) - 1])
+                    reportLine.report_line_check(valueToCheck, str(resJson), splitVarToCheck[len(splitVarToCheck) - 1])
                     break
         
         
@@ -153,7 +174,7 @@ class GetMethod:
         
         def __init__(self, data):
             self.testLine = data
-            
+            self.rsc_uuid = []
         """""""""""""""""""""""""""""""""
         The get method itself, will get
         everything it needs from the main 
@@ -235,17 +256,7 @@ class GetMethod:
                 res = requests.get(httpAddress + newAddress,stream=True ,params=payload, verify=False)
                 reportLine = Report(tableWidget, self.testLine['title'], res.status_code)
                 reportLine.report_line(httpAddress + newAddress, res.text, payload, None)
-                """
-                res = Response(requests.get(httpAddress + newAddress, stream=True, params=payload, verify=False), textEdit)
 
-                if res.getStatus() != 200:
-                    for i in range(2):
-                        res = Response(
-                            requests.get(httpAddress + newAddress, stream=True, params=payload, verify=False), textEdit)
-
-                        if res.getStatus() == 200:
-                            break
-                """
                 if noKeysFlag == False:
                     #finds the name of the file writen on site.
                     fileName = res.headers['content-disposition']
@@ -286,22 +297,12 @@ class GetMethod:
                             reportLine.print_line()
                             reportLine.mark_red()
 
-                else:
-
-                    #textEdit.append(res.text)
-                    """
-                    if res.getStatus() == 200:
-                        res.report_line(self.testLine['title'], textEdit, "GET")
-
-                        if len(self.testLine['check']) >= 1:
-                            res.check_value(self.testLine, errorFlag, textEdit, prevPayload)
-                    """
-
                 return
             else:
                 res = Response(requests.get(httpAddress + self.testLine["address"], params=payload, verify=False))
                 reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                 reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
+                res.report_line(reportLine)
             """""""""""""""""""""""""""""""""""""""""""""""
             If the save option is checked, will save the
             response and the request of the current request
@@ -315,17 +316,16 @@ class GetMethod:
                     res = Response(requests.get(httpAddress + self.testLine["address"], params=payload, verify=False),)
                     reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                     reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
+                    res.report_line(reportLine)
                     if res.getStatus() == 200:
                         break
                     
             if res.getStatus() == 200:
-                res.report_line(reportLine)
-                    
                 if len(self.testLine['find']) >= 1:
                     res.find(self.testLine, reportLine)
                 
                 if len(self.testLine['check']) >= 1:
-                    res.check_value(self.testLine, reportLine, prevPayload)
+                    res.check_value(self.testLine, reportLine, prevPayload,self.rsc_uuid)
                     
             else:
                 reportLine.print_line()
@@ -343,25 +343,31 @@ class GetMethod:
             # Text sources
             if line["value"] == "oneTxt":
                 payload[line["name"]] = txtFileUUID[0]
+                self.rsc_uuid.append(txtFileUUID[0])
 
             elif line["value"] == "allTxt":
                 for rsc in range(len(txtFileUUID)):
                     if rsc == 0:
                         sourcesString = txtFileUUID[0]
+                        self.rsc_uuid.append(txtFileUUID[0])
                     else:
                         sourcesString += "," + txtFileUUID[rsc]
+                        self.rsc_uuid.append(txtFileUUID[rsc])
 
                 payload[line["name"]] = sourcesString
 
             elif line["value"] == "oneFile":
                 payload[line["name"]] = uploadFileUUID[0]
+                self.rsc_uuid.append(uploadFileUUID[0])
 
             elif line["value"] == "allFile":
                 for rsc in range(len(uploadFileUUID)):
                     if rsc == 0:
                         sourcesString = uploadFileUUID[0]
+                        self.rsc_uuid.append(uploadFileUUID[0])
                     else:
                         sourcesString += "," + uploadFileUUID[rsc]
+                        self.rsc_uuid.append(uploadFileUUID[rsc])
 
                 payload[line["name"]] = sourcesString
 
@@ -377,6 +383,7 @@ class PostMethod:
     
     def __init__(self, data):
         self.testLine = data
+        self.rsc_uuid = []
     
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""
     This is the main method, gets the line to execute and 
@@ -444,7 +451,7 @@ class PostMethod:
                 res.find(self.testLine, reportLine)
                          
             if len(self.testLine['check']) >= 1:
-                res.check_value(self.testLine, reportLine, prevPayload)
+                res.check_value(self.testLine, reportLine, prevPayload, self.rsc_uuid)
 
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""
       This method will upload a text resource from file.
@@ -475,6 +482,7 @@ class PostMethod:
                     res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False))
                     reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                     reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
+                    res.report_line(reportLine)
                                         
                     if self.testLine["save"] == '1':
                         prevResponse[0] = res.getJson()
@@ -489,18 +497,17 @@ class PostMethod:
                             res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False))
                             reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                             reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
+                            res.report_line(reportLine)
 
                             if res.getStatus() == 200:
                                 break
 
                     if res.getStatus() == 200:
-                        res.report_line(reportLine)
-
                         if len(self.testLine['find']) >= 1:
                             res.find(self.testLine, reportLine)
 
                         if len(self.testLine['check']) >= 1:
-                            res.check_value(self.testLine, reportLine, prevPayload)
+                            res.check_value(self.testLine, reportLine, prevPayload, self.rsc_uuid)
 
                         if firstResourcesUpload[0] == False:
                             uuidTxt = str(res.getJson()["results"])
@@ -538,6 +545,7 @@ class PostMethod:
                     res = Response(requests.post(httpAddress + self.testLine["address"], files = loadedFile, data = payload, verify=False))
                     reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                     reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, str(loadedFile))
+                    res.report_line(reportLine)
                                         
                     if self.testLine["save"] == '1':
                         prevResponse[0] = res.getJson()
@@ -554,17 +562,16 @@ class PostMethod:
                                               verify=False))
                             reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                             reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
+                            res.report_line(reportLine)
                             if res.getStatus() == 200:
                                 break
 
                     if res.getStatus() == 200:
-                        res.report_line(reportLine)
-
                         if len(self.testLine['find']) >= 1:
                             res.find(self.testLine, reportLine)
 
                         if len(self.testLine['check']) >= 1:
-                            res.check_value(self.testLine, reportLine, prevPayload)
+                            res.check_value(self.testLine, reportLine, prevPayload, self.rsc_uuid)
 
                         if firstResourcesUpload[0] == False:
                             uuidFile = str(res.getJson()["results"])
@@ -587,25 +594,31 @@ class PostMethod:
         # Text sources
         if line["value"] == "oneTxt":
             payload[line["name"]] = txtFileUUID[0]
+            self.rsc_uuid.append(txtFileUUID[0])
 
         elif line["value"] == "allTxt":
             for rsc in range(len(txtFileUUID)):
                 if rsc == 0:
                     sourcesString = txtFileUUID[0]
+                    self.rsc_uuid.append(txtFileUUID[0])
                 else:
                     sourcesString += "," + txtFileUUID[rsc]
+                    self.rsc_uuid.append(txtFileUUID[rsc])
 
             payload[line["name"]] = sourcesString
 
         elif line["value"] == "oneFile":
             payload[line["name"]] = uploadFileUUID[0]
+            self.rsc_uuid.append(uploadFileUUID[0])
 
         elif line["value"] == "allFile":
             for rsc in range(len(uploadFileUUID)):
                 if rsc == 0:
                     sourcesString = uploadFileUUID[0]
+                    self.rsc_uuid.append(uploadFileUUID[0])
                 else:
                     sourcesString += "," + uploadFileUUID[rsc]
+                    self.rsc_uuid.append(uploadFileUUID[rsc])
 
             payload[line["name"]] = sourcesString
     

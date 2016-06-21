@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'new_Line.ui'
+# Form implementation generated from reading ui file 'new_line_design.ui'
 #
-# Created: Sat May 21 19:19:36 2016
+# Created: Tue Jun 21 14:19:50 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -27,8 +27,11 @@ class Ui_NewLine(object):
     def setupUi(self, NewLine):
         NewLine.setObjectName(_fromUtf8("NewLine"))
         NewLine.resize(858, 642)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8("logo.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        NewLine.setWindowIcon(icon)
         self.verticalLayoutWidget_5 = QtGui.QWidget(NewLine)
-        self.verticalLayoutWidget_5.setGeometry(QtCore.QRect(10, 10, 831, 521))
+        self.verticalLayoutWidget_5.setGeometry(QtCore.QRect(10, 10, 831, 536))
         self.verticalLayoutWidget_5.setObjectName(_fromUtf8("verticalLayoutWidget_5"))
         self.verticalLayout_5 = QtGui.QVBoxLayout(self.verticalLayoutWidget_5)
         self.verticalLayout_5.setMargin(0)
@@ -452,14 +455,4 @@ class Ui_NewLine(object):
         self.closeBtn.setText(_translate("NewLine", "Close", None))
         self.saveBtn.setText(_translate("NewLine", "Save to file", None))
         self.addBtn.setText(_translate("NewLine", "Add to New File", None))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtGui.QApplication(sys.argv)
-    NewLine = QtGui.QDialog()
-    ui = Ui_NewLine()
-    ui.setupUi(NewLine)
-    NewLine.show()
-    sys.exit(app.exec_())
 

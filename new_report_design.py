@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'new_report_design.ui'
 #
-# Created: Mon Jun 20 16:36:41 2016
+# Created: Tue Jun 21 14:18:16 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -27,6 +27,9 @@ class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName(_fromUtf8("Form"))
         Form.resize(1746, 737)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8("logo.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        Form.setWindowIcon(icon)
         self.tableWidget = QtGui.QTableWidget(Form)
         self.tableWidget.setGeometry(QtCore.QRect(10, 10, 491, 721))
         font = QtGui.QFont()
@@ -156,6 +159,28 @@ class Ui_Form(object):
         self.checkLable.setText(_fromUtf8(""))
         self.checkLable.setObjectName(_fromUtf8("checkLable"))
         self.verticalLayout_2.addWidget(self.checkLable)
+        self.verticalLayoutWidget_3 = QtGui.QWidget(Form)
+        self.verticalLayoutWidget_3.setGeometry(QtCore.QRect(1180, 330, 551, 311))
+        self.verticalLayoutWidget_3.setObjectName(_fromUtf8("verticalLayoutWidget_3"))
+        self.verticalLayout_3 = QtGui.QVBoxLayout(self.verticalLayoutWidget_3)
+        self.verticalLayout_3.setMargin(0)
+        self.verticalLayout_3.setObjectName(_fromUtf8("verticalLayout_3"))
+        self.label_4 = QtGui.QLabel(self.verticalLayoutWidget_3)
+        self.label_4.setMinimumSize(QtCore.QSize(0, 30))
+        self.label_4.setMaximumSize(QtCore.QSize(16777215, 30))
+        font = QtGui.QFont()
+        font.setPointSize(16)
+        self.label_4.setFont(font)
+        self.label_4.setObjectName(_fromUtf8("label_4"))
+        self.verticalLayout_3.addWidget(self.label_4)
+        self.findLable = QtGui.QLabel(self.verticalLayoutWidget_3)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.findLable.setFont(font)
+        self.findLable.setStyleSheet(_fromUtf8("background-color: rgb(204, 204, 204)"))
+        self.findLable.setText(_fromUtf8(""))
+        self.findLable.setObjectName(_fromUtf8("findLable"))
+        self.verticalLayout_3.addWidget(self.findLable)
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -167,4 +192,5 @@ class Ui_Form(object):
         self.label_7.setText(_translate("Form", "FileLoad:", None))
         self.label_5.setText(_translate("Form", "Response:", None))
         self.label_2.setText(_translate("Form", "                                                 Check:", None))
+        self.label_4.setText(_translate("Form", "                                                   Find:", None))
 
