@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'check_code_design.ui'
 #
-# Created: Tue Jun 21 14:18:44 2016
+# Created: Wed Jun 22 13:33:32 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -28,7 +28,7 @@ class Ui_Lines_presentation(object):
         Lines_presentation.setObjectName(_fromUtf8("Lines_presentation"))
         Lines_presentation.resize(1292, 791)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(_fromUtf8("logo.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8("logo.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Lines_presentation.setWindowIcon(icon)
         self.horizontalLayoutWidget_26 = QtGui.QWidget(Lines_presentation)
         self.horizontalLayoutWidget_26.setGeometry(QtCore.QRect(10, 10, 1281, 710))
@@ -960,7 +960,7 @@ class Ui_Lines_presentation(object):
         QtCore.QMetaObject.connectSlotsByName(Lines_presentation)
 
     def retranslateUi(self, Lines_presentation):
-        Lines_presentation.setWindowTitle(_translate("Lines_presentation", "Check Code", None))
+        Lines_presentation.setWindowTitle(_translate("Lines_presentation", "API Test - Code Check", None))
         self.prevBtn.setText(_translate("Lines_presentation", "Prev", None))
         self.nextBtn.setText(_translate("Lines_presentation", "Next", None))
         self.saveBtn.setText(_translate("Lines_presentation", "Save Line", None))

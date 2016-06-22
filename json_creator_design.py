@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'json_creator_design.ui'
 #
-# Created: Tue Jun 21 14:19:20 2016
+# Created: Wed Jun 22 13:33:34 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -28,7 +28,7 @@ class Ui_JsonCreator(object):
         JsonCreator.setObjectName(_fromUtf8("JsonCreator"))
         JsonCreator.resize(719, 460)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(_fromUtf8("logo.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8("logo.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         JsonCreator.setWindowIcon(icon)
         self.verticalLayoutWidget = QtGui.QWidget(JsonCreator)
         self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 10, 701, 441))
@@ -72,7 +72,7 @@ class Ui_JsonCreator(object):
         QtCore.QMetaObject.connectSlotsByName(JsonCreator)
 
     def retranslateUi(self, JsonCreator):
-        JsonCreator.setWindowTitle(_translate("JsonCreator", "File Work", None))
+        JsonCreator.setWindowTitle(_translate("JsonCreator", "API Test - File", None))
         self.createNewBtn.setText(_translate("JsonCreator", "Create New", None))
         self.addNewLine.setText(_translate("JsonCreator", "New Test Line", None))
         self.loadExFileBtn.setText(_translate("JsonCreator", "Load File", None))

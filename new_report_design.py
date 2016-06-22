@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'new_report_design.ui'
 #
-# Created: Tue Jun 21 14:18:16 2016
+# Created: Wed Jun 22 13:33:30 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -28,7 +28,7 @@ class Ui_Form(object):
         Form.setObjectName(_fromUtf8("Form"))
         Form.resize(1746, 737)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(_fromUtf8("logo.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8("logo.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Form.setWindowIcon(icon)
         self.tableWidget = QtGui.QTableWidget(Form)
         self.tableWidget.setGeometry(QtCore.QRect(10, 10, 491, 721))
@@ -186,7 +186,7 @@ class Ui_Form(object):
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
-        Form.setWindowTitle(_translate("Form", "Form", None))
+        Form.setWindowTitle(_translate("Form", "API Test - Report", None))
         self.label.setText(_translate("Form", "URL:", None))
         self.label_3.setText(_translate("Form", "PayLoad:", None))
         self.label_7.setText(_translate("Form", "FileLoad:", None))

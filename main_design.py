@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'main_design.ui'
 #
-# Created: Tue Jun 21 14:13:04 2016
+# Created: Wed Jun 22 13:33:29 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -28,8 +28,9 @@ class Ui_Dialog(object):
         Dialog.setObjectName(_fromUtf8("Dialog"))
         Dialog.resize(1089, 630)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(_fromUtf8("logo.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8("logo.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Dialog.setWindowIcon(icon)
+        Dialog.setStyleSheet(_fromUtf8(""))
         self.gridLayoutWidget = QtGui.QWidget(Dialog)
         self.gridLayoutWidget.setGeometry(QtCore.QRect(10, 10, 729, 613))
         self.gridLayoutWidget.setObjectName(_fromUtf8("gridLayoutWidget"))
@@ -140,6 +141,7 @@ class Ui_Dialog(object):
         self.txtFilesList.setEnabled(True)
         self.txtFilesList.setMinimumSize(QtCore.QSize(150, 0))
         self.txtFilesList.setMaximumSize(QtCore.QSize(150, 16777215))
+        self.txtFilesList.setStyleSheet(_fromUtf8(""))
         self.txtFilesList.setObjectName(_fromUtf8("txtFilesList"))
         self.horizontalLayout_5.addWidget(self.txtFilesList)
         self.testFilesList = QtGui.QListWidget(self.horizontalLayoutWidget)
@@ -224,7 +226,7 @@ class Ui_Dialog(object):
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(_translate("Dialog", "Main", None))
+        Dialog.setWindowTitle(_translate("Dialog", "API Test", None))
         self.label.setText(_translate("Dialog", "Secret Key", None))
         self.label_2.setText(_translate("Dialog", "Public Key ", None))
         self.label_3.setText(_translate("Dialog", "    http:     ", None))

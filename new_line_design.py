@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'new_line_design.ui'
 #
-# Created: Tue Jun 21 14:19:50 2016
+# Created: Wed Jun 22 13:33:36 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -28,7 +28,7 @@ class Ui_NewLine(object):
         NewLine.setObjectName(_fromUtf8("NewLine"))
         NewLine.resize(858, 642)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(_fromUtf8("logo.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8("logo.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         NewLine.setWindowIcon(icon)
         self.verticalLayoutWidget_5 = QtGui.QWidget(NewLine)
         self.verticalLayoutWidget_5.setGeometry(QtCore.QRect(10, 10, 831, 536))
@@ -420,7 +420,7 @@ class Ui_NewLine(object):
         QtCore.QMetaObject.connectSlotsByName(NewLine)
 
     def retranslateUi(self, NewLine):
-        NewLine.setWindowTitle(_translate("NewLine", "New Line", None))
+        NewLine.setWindowTitle(_translate("NewLine", "API Test - New Line", None))
         self.label.setText(_translate("NewLine", "Method <GET/POST>:", None))
         self.label_2.setText(_translate("NewLine", "Address:", None))
         self.label_3.setText(_translate("NewLine", "Title:", None))
