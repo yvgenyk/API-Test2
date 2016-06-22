@@ -9,6 +9,7 @@ class Report:
         self.title = title
         self.status = status
         self.rows = self.tableWidget.rowCount()
+        self.color = "None"
 
     def print_line(self):
         self.tableWidget.insertRow(self.rows)
@@ -25,14 +26,20 @@ class Report:
     def mark_green(self):
         self.tableWidget.item(self.rows, 0).setBackground(QtGui.QColor(128, 255, 128))
         self.tableWidget.item(self.rows, 1).setBackground(QtGui.QColor(128, 255, 128))
+        self.color = "green"
 
     def mark_red(self):
         self.tableWidget.item(self.rows, 0).setBackground(QtGui.QColor(255, 140, 102))
         self.tableWidget.item(self.rows, 1).setBackground(QtGui.QColor(255, 140, 102))
+        self.color = "red"
 
     def mark_yellow(self):
         self.tableWidget.item(self.rows, 0).setBackground(QtGui.QColor(255, 224, 102))
         self.tableWidget.item(self.rows, 1).setBackground(QtGui.QColor(255, 224, 102))
+        self.color = "yellow"
+
+    def get_color(self):
+        return self.color
 
     def report_line(self, sentURL, response, payload, filePayload):
         with open('./report/test_report.json') as codeLines_data:

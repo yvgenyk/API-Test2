@@ -72,7 +72,7 @@ class Response:
     """""""""""""""""""""""""""""""""""""""""""""""""""""
     def find(self,data, reportLine):
         for findIndex in range(len(data['find'])):
-            if data['find'][findIndex] in self.getText():
+            if data['find'][findIndex] in self.getText() and reportLine.get_color() != "red":
                 reportLine.mark_green()
                 reportLine.report_line_find(data['find'][findIndex])
             else:
@@ -129,7 +129,7 @@ class Response:
 
             #The files correct format is checked in a different function. Here we check only the name.
             if splitVarToCheck[len(splitVarToCheck) - 1] == "file_name":
-                if valueToCheck in str(resJson):
+                if valueToCheck in str(resJson) and reportLine.get_color() != "red":
                     reportLine.mark_green()
                     reportLine.report_line_check(valueToCheck, str(resJson), splitVarToCheck[len(splitVarToCheck) - 1])
                 else:
@@ -143,7 +143,7 @@ class Response:
                 for uuid in rsc_uuid:
                     total_words += dataJson[0][uuid]['wordcount']
 
-                if total_words > resJson:
+                if total_words > resJson and reportLine.get_color() != "red":
                     reportLine.mark_green()
                     reportLine.report_line_check(total_words, str(resJson), splitVarToCheck[len(splitVarToCheck) - 1])
                 else:
@@ -153,7 +153,7 @@ class Response:
 
             #This is the main search method.
             else:
-                if valueToCheck == str(resJson):
+                if valueToCheck == str(resJson) and reportLine.get_color() != "red":
                     reportLine.mark_green()
                     reportLine.report_line_check(valueToCheck, str(resJson), splitVarToCheck[len(splitVarToCheck) - 1])
                 else:
@@ -247,6 +247,7 @@ class GetMethod:
                 res = Response(requests.get(httpAddress + newAddress, params=payload, verify=False))
                 reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                 reportLine.report_line(httpAddress + newAddress, res.getText(), payload, None)
+                res.report_line(reportLine)
 
                 """""""""""""""""""""""""""""""""""""""""
                 Download method for both files and text.
@@ -256,6 +257,8 @@ class GetMethod:
                 res = requests.get(httpAddress + newAddress,stream=True ,params=payload, verify=False)
                 reportLine = Report(tableWidget, self.testLine['title'], res.status_code)
                 reportLine.report_line(httpAddress + newAddress, res.text, payload, None)
+                reportLine.print_line()
+                reportLine.mark_yellow()
 
                 if noKeysFlag == False:
                     #finds the name of the file writen on site.
