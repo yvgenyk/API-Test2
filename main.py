@@ -51,9 +51,9 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         self.fileLoad.clicked.connect(self.file_open)
         self.checkDisplay.clicked.connect(self.check_the_code)
         self.reportBtn.clicked.connect(self.new_report)
-        self.lineEdit.setText('c03f6951e5b06ee943ccd2dfd2b61f16')
-        self.lineEdit_2.setText('CZQPy9XNbzF2rVfnGcY7')
-        self.lineEdit_3.setText('https://yavengy.vagrant.oht.cc/api/2/')
+        self.lineEdit.setText('4c55ed410b7358cc51080afb772a5afd')
+        self.lineEdit_2.setText('Z9zKv8gbYj3LRTcrVHQf')
+        self.lineEdit_3.setText('https://oht.vagrant.oht.cc/api/2/')
         self.loadTxtBtn.clicked.connect(self.open_txt)
         self.loadFileBtn.clicked.connect(self.open_test_files)
 
