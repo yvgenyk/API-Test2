@@ -23,13 +23,15 @@ class Response:
     Initializing the object with
     the basic thing for the program.
     """""""""""""""""""""""""""""""""
-    def __init__(self, res):
+    def __init__(self, res, notDownload):
 
         self.r = res
         self.responseURL = self.r.url
         self.responseStatus = self.r.status_code
         self.responseText = self.r.text
-        if self.responseStatus == 200:
+        self.header = self.r.headers
+        self.content = self.r.content
+        if self.responseStatus == 200 and notDownload:
             self.responseJson = self.r.json()
         else:
             self.responseJson = None
@@ -57,6 +59,12 @@ class Response:
     """""""""""""""""""""""""""
     def getJson(self):
         return self.responseJson
+
+    def getHeader(self):
+        return self.header
+
+    def getContent(self):
+        return self.content
         
     """""""""""""""""""""""""""""""""""""""""""""""""""""
     Prints the request and the response in the text editor
@@ -244,7 +252,7 @@ class GetMethod:
 
 
             if uuidToAddress == 1:
-                res = Response(requests.get(httpAddress + newAddress, params=payload, verify=False))
+                res = Response(requests.get(httpAddress + newAddress, params=payload, verify=False), True)
                 reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                 reportLine.report_line(httpAddress + newAddress, res.getText(), payload, None)
                 res.report_line(reportLine)
@@ -254,39 +262,41 @@ class GetMethod:
                 """""""""""""""""""""""""""""""""""""""""
             
             elif downloadResource == 1:
-                res = requests.get(httpAddress + newAddress,stream=True ,params=payload, verify=False)
-                reportLine = Report(tableWidget, self.testLine['title'], res.status_code)
-                reportLine.report_line(httpAddress + newAddress, res.text, payload, None)
+                if noKeysFlag == False:
+                    res = Response(requests.get(httpAddress + newAddress,stream=True ,params=payload, verify=False), False)
+                else:
+                    res = Response(requests.get(httpAddress + newAddress, stream=True, params=payload, verify=False),
+                                   True)
+                reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
+                reportLine.report_line(httpAddress + newAddress, res.getText(), payload, None)
                 reportLine.print_line()
                 reportLine.mark_yellow()
 
                 if noKeysFlag == False:
-                    #finds the name of the file writen on site.
-                    fileName = res.headers['content-disposition']
-                    #Creates new download folder to download files into.
+                    # finds the name of the file writen on site.
+                    fileName = res.getHeader()['content-disposition']
+                    # Creates new download folder to download files into.
                     if not os.path.exists("Downloads"):
                         os.makedirs("Downloads")
-                    #Creating the path for the new downloaded file.
+                    # Creating the path for the new downloaded file.
                     path = os.path.join("Downloads", fileName[22:(len(fileName) - 1)])
-                    #Saves the file.
+                    # Saves the file.
                     with open(path, 'wb') as out_file:
-                        out_file.write(res.content)
+                        out_file.write(res.getContent())
 
                     """""""""""""""""""""""""""""""""""""""""
                     Checking if file was downloaded
                     and the name of the file is correct.
                     """""""""""""""""""""""""""""""""""""""""
-                    #Checking download of the first file (uploaded at the start of the test run)
-                    #Text file check.
+                    # Checking download of the first file (uploaded at the start of the test run)
+                    # Text file check.
                     if addressCheck == 'downloadText':
-                        #Checking the download directory for the right file name.
+                        # Checking the download directory for the right file name.
                         if os.path.exists("Downloads/oht_" + txtFileUUID[0] + ".txt"):
-                            reportLine.print_line()
                             reportLine.mark_green()
 
-                        #If no such file found an error is raised.
+                        # If no such file found an error is raised.
                         else:
-                            reportLine.print_line()
                             reportLine.mark_red()
                     #File check
                     else:
@@ -294,15 +304,17 @@ class GetMethod:
                         fileName = testFilePath[0].split('/')
 
                         if os.path.exists("Downloads/" + fileName[len(fileName) - 1]):
-                            reportLine.print_line()
                             reportLine.mark_green()
                         else:
-                            reportLine.print_line()
                             reportLine.mark_red()
+
+                else:
+                    if len(self.testLine['check']) >= 1:
+                        res.check_value(self.testLine, reportLine, prevPayload, self.rsc_uuid)
 
                 return
             else:
-                res = Response(requests.get(httpAddress + self.testLine["address"], params=payload, verify=False))
+                res = Response(requests.get(httpAddress + self.testLine["address"], params=payload, verify=False), True)
                 reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                 reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
                 res.report_line(reportLine)
@@ -316,7 +328,7 @@ class GetMethod:
 
             if res.getStatus() != 200:
                 for i in range(2):
-                    res = Response(requests.get(httpAddress + self.testLine["address"], params=payload, verify=False),)
+                    res = Response(requests.get(httpAddress + self.testLine["address"], params=payload, verify=False), True)
                     reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                     reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
                     res.report_line(reportLine)
@@ -426,7 +438,7 @@ class PostMethod:
                 
                         
         if uploadedrscFlag[0] == False:        
-            res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False))
+            res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False), True)
             reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
             reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
                 
@@ -436,7 +448,7 @@ class PostMethod:
 
             if res.getStatus() != 200:
                 for i in range(2):
-                    res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False))
+                    res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False), True)
                     reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                     reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
 
@@ -482,7 +494,7 @@ class PostMethod:
 
                     payload['text'] = txt
                                         
-                    res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False))
+                    res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False), True)
                     reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                     reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
                     res.report_line(reportLine)
@@ -497,11 +509,10 @@ class PostMethod:
                     """""""""""""""""""""""""""""""""
                     if res.getStatus() != 200:
                         for i in range(2):
-                            res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False))
+                            res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False), True)
                             reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                             reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
                             res.report_line(reportLine)
-
                             if res.getStatus() == 200:
                                 break
 
@@ -545,7 +556,7 @@ class PostMethod:
                                 
                     loadedFile = {'@upload': open(testFilePath[fileIndex], 'rb')}
 
-                    res = Response(requests.post(httpAddress + self.testLine["address"], files = loadedFile, data = payload, verify=False))
+                    res = Response(requests.post(httpAddress + self.testLine["address"], files = loadedFile, data = payload, verify=False), True)
                     reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                     reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, str(loadedFile))
                     res.report_line(reportLine)
@@ -562,7 +573,7 @@ class PostMethod:
                         for i in range(2):
                             res = Response(
                                 requests.post(httpAddress + self.testLine["address"], files=loadedFile, data=payload,
-                                              verify=False))
+                                              verify=False), True)
                             reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                             reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
                             res.report_line(reportLine)

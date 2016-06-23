@@ -49,6 +49,7 @@ class Report:
             entry = {'url' : sentURL, 'res' : response, 'payload' : payload, 'filePayload' : filePayload}
             mainJson.append(entry)
             json.dump(mainJson, outfile)
+            print(str(len(mainJson)))
 
     def report_line_check(self, check, checkFound, name):
 
