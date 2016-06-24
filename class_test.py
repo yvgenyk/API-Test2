@@ -148,10 +148,16 @@ class Response:
             elif splitVarToCheck[len(splitVarToCheck) - 1] == "wordcount":
                 total_words = 0
 
-                for uuid in rsc_uuid:
-                    total_words += dataJson[0][uuid]['wordcount']
+                if valueToCheck == "pre_defined":
+                    with open('./report/test_report.json') as codeLines_data:
+                        mainJson = json.load(codeLines_data)
+                        total_words = mainJson[len(mainJson)-1]["payload"]["wordcount"]
+                else:
+                    for uuid in rsc_uuid:
+                        total_words += dataJson[0][uuid]['wordcount']
 
-                if total_words > resJson and reportLine.get_color() != "red":
+
+                if int(total_words) >= int(resJson) and reportLine.get_color() != "red":
                     reportLine.mark_green()
                     reportLine.report_line_check(total_words, str(resJson), splitVarToCheck[len(splitVarToCheck) - 1])
                 else:
@@ -159,14 +165,57 @@ class Response:
                     reportLine.report_line_check(total_words, str(resJson), splitVarToCheck[len(splitVarToCheck) - 1])
                     break
 
+            elif splitVarToCheck[len(splitVarToCheck) - 1] == "credits":
+                total_price = 0
+
+                if valueToCheck == "regular":
+                    for uuid in rsc_uuid:
+                        total_price += dataJson[0][uuid]['reg_proj_price']
+
+                if valueToCheck == "expert":
+                    for uuid in rsc_uuid:
+                        total_price += dataJson[0][uuid]['expert_proj_price']
+
+                if valueToCheck == "proof":
+                    for uuid in rsc_uuid:
+                        total_price += dataJson[0][uuid]['proof_proj_price']
+
+                if valueToCheck == "combo":
+                    for uuid in rsc_uuid:
+                        total_price += dataJson[0][uuid]['combo_proj_price']
+
+                if valueToCheck == "transcrip":
+                    for uuid in rsc_uuid:
+                        total_price += dataJson[0][uuid]['trranscrip_proj_price']
+
+                if total_price >= resJson and reportLine.get_color() != "red":
+                    reportLine.mark_green()
+                    reportLine.report_line_check(total_price, str(resJson),
+                                                 splitVarToCheck[len(splitVarToCheck) - 1])
+                else:
+                    reportLine.mark_red()
+                    reportLine.report_line_check(total_price, str(resJson),
+                                                 splitVarToCheck[len(splitVarToCheck) - 1])
+                break
+
             #This is the main search method.
             else:
                 if valueToCheck == str(resJson) and reportLine.get_color() != "red":
                     reportLine.mark_green()
-                    reportLine.report_line_check(valueToCheck, str(resJson), splitVarToCheck[len(splitVarToCheck) - 1])
+                    if splitVarToCheck[len(splitVarToCheck) - 1][0] == "#":
+                        reportLine.report_line_check(valueToCheck, str(resJson),
+                                                     splitVarToCheck[len(splitVarToCheck) - 2])
+                    else:
+                        reportLine.report_line_check(valueToCheck, str(resJson),
+                                                     splitVarToCheck[len(splitVarToCheck) - 1])
                 else:
                     reportLine.mark_red()
-                    reportLine.report_line_check(valueToCheck, str(resJson), splitVarToCheck[len(splitVarToCheck) - 1])
+                    if splitVarToCheck[len(splitVarToCheck) - 1][0] == "#":
+                        reportLine.report_line_check(valueToCheck, str(resJson),
+                                                     splitVarToCheck[len(splitVarToCheck) - 2])
+                    else:
+                        reportLine.report_line_check(valueToCheck, str(resJson),
+                                                     splitVarToCheck[len(splitVarToCheck) - 1])
                     break
         
         
