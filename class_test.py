@@ -358,7 +358,7 @@ class GetMethod:
                             reportLine.mark_red()
 
                 else:
-                    if len(self.testLine['check']) >= 1:
+                    if len(self.testLine['check']) >= 1 and res.getStatus() != 500:
                         res.check_value(self.testLine, reportLine, prevPayload, self.rsc_uuid)
 
                 return
@@ -383,6 +383,8 @@ class GetMethod:
                     res.report_line(reportLine)
                     if res.getStatus() == 200:
                         break
+                    else:
+                        reportLine.mark_red()
                     
             if res.getStatus() == 200:
                 if len(self.testLine['find']) >= 1:
@@ -503,6 +505,8 @@ class PostMethod:
 
                     if res.getStatus() == 200:
                         break
+                    else:
+                        reportLine.mark_red()
                         
             if res.getStatus() == 200:
                 res.report_line(reportLine)
@@ -564,6 +568,8 @@ class PostMethod:
                             res.report_line(reportLine)
                             if res.getStatus() == 200:
                                 break
+                            else:
+                                reportLine.mark_red()
 
                     if res.getStatus() == 200:
                         if len(self.testLine['find']) >= 1:
@@ -628,6 +634,8 @@ class PostMethod:
                             res.report_line(reportLine)
                             if res.getStatus() == 200:
                                 break
+                            else:
+                                reportLine.mark_red()
 
                     if res.getStatus() == 200:
                         if len(self.testLine['find']) >= 1:

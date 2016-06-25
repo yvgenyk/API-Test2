@@ -17,6 +17,9 @@
    <iconset>
     <normaloff>logo.jpg</normaloff>logo.jpg</iconset>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background: rgb(128,128, 128)</string>
+  </property>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
@@ -43,6 +46,10 @@
           <height>60</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">background:rgb(80,80,80);
+color: rgb(204,204,204);</string>
+        </property>
         <property name="text">
          <string>Create New</string>
         </property>
@@ -61,6 +68,10 @@
           <width>97</width>
           <height>60</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background:rgb(80,80,80);
+color: rgb(204,204,204);</string>
         </property>
         <property name="text">
          <string>New Test Line</string>
@@ -81,6 +92,10 @@
           <height>60</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">background:rgb(80,80,80);
+color: rgb(204,204,204);</string>
+        </property>
         <property name="text">
          <string>Load File</string>
         </property>
@@ -99,6 +114,10 @@
           <width>97</width>
           <height>60</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background:rgb(80,80,80);
+color: rgb(204,204,204);</string>
         </property>
         <property name="text">
          <string>Save</string>
@@ -119,6 +138,10 @@
           <height>60</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">background:rgb(80,80,80);
+color: rgb(204,204,204);</string>
+        </property>
         <property name="text">
          <string>Done</string>
         </property>
@@ -127,7 +150,13 @@
      </layout>
     </item>
     <item>
-     <widget class="QTextEdit" name="textEditFileLoad"/>
+     <widget class="QTextEdit" name="textEditFileLoad">
+      <property name="styleSheet">
+       <string notr="true">background:rgb(204,204,204);
+border: 1px solid black;
+</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>

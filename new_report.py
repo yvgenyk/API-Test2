@@ -24,13 +24,13 @@ class Report:
         print(str(self.rows) + ". Title: " + self.title + "  Status: " + str(self.status) + "\n")
 
     def mark_green(self):
-        self.tableWidget.item(self.rows, 0).setBackground(QtGui.QColor(128, 255, 128))
-        self.tableWidget.item(self.rows, 1).setBackground(QtGui.QColor(128, 255, 128))
+        self.tableWidget.item(self.rows, 0).setBackground(QtGui.QColor(221, 255, 204))
+        self.tableWidget.item(self.rows, 1).setBackground(QtGui.QColor(221, 255, 204))
         self.color = "green"
 
     def mark_red(self):
-        self.tableWidget.item(self.rows, 0).setBackground(QtGui.QColor(255, 140, 102))
-        self.tableWidget.item(self.rows, 1).setBackground(QtGui.QColor(255, 140, 102))
+        self.tableWidget.item(self.rows, 0).setBackground(QtGui.QColor(255, 153, 153))
+        self.tableWidget.item(self.rows, 1).setBackground(QtGui.QColor(255, 153, 153))
         self.color = "red"
 
     def mark_yellow(self):

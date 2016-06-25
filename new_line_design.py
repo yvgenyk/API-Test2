@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'new_line_design.ui'
 #
-# Created: Wed Jun 22 13:33:36 2016
+# Created: Sat Jun 25 19:54:30 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,12 +26,13 @@ except AttributeError:
 class Ui_NewLine(object):
     def setupUi(self, NewLine):
         NewLine.setObjectName(_fromUtf8("NewLine"))
-        NewLine.resize(858, 642)
+        NewLine.resize(849, 681)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(_fromUtf8("logo.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         NewLine.setWindowIcon(icon)
+        NewLine.setStyleSheet(_fromUtf8("background: rgb(128,128, 128)"))
         self.verticalLayoutWidget_5 = QtGui.QWidget(NewLine)
-        self.verticalLayoutWidget_5.setGeometry(QtCore.QRect(10, 10, 831, 536))
+        self.verticalLayoutWidget_5.setGeometry(QtCore.QRect(10, 10, 831, 596))
         self.verticalLayoutWidget_5.setObjectName(_fromUtf8("verticalLayoutWidget_5"))
         self.verticalLayout_5 = QtGui.QVBoxLayout(self.verticalLayoutWidget_5)
         self.verticalLayout_5.setMargin(0)
@@ -47,6 +48,7 @@ class Ui_NewLine(object):
         self.label.setObjectName(_fromUtf8("label"))
         self.horizontalLayout.addWidget(self.label)
         self.newMethod = QtGui.QComboBox(self.verticalLayoutWidget_5)
+        self.newMethod.setStyleSheet(_fromUtf8("background:rgb(204,204,204);"))
         self.newMethod.setObjectName(_fromUtf8("newMethod"))
         self.horizontalLayout.addWidget(self.newMethod)
         self.verticalLayout_4.addLayout(self.horizontalLayout)
@@ -56,6 +58,9 @@ class Ui_NewLine(object):
         self.label_2.setObjectName(_fromUtf8("label_2"))
         self.horizontalLayout_2.addWidget(self.label_2)
         self.newAddress = QtGui.QLineEdit(self.verticalLayoutWidget_5)
+        self.newAddress.setStyleSheet(_fromUtf8("background:rgb(204,204,204);\n"
+"border: 1px solid black;\n"
+"border-radius: 5px;"))
         self.newAddress.setObjectName(_fromUtf8("newAddress"))
         self.horizontalLayout_2.addWidget(self.newAddress)
         self.verticalLayout_4.addLayout(self.horizontalLayout_2)
@@ -65,6 +70,9 @@ class Ui_NewLine(object):
         self.label_3.setObjectName(_fromUtf8("label_3"))
         self.horizontalLayout_3.addWidget(self.label_3)
         self.newTitle = QtGui.QLineEdit(self.verticalLayoutWidget_5)
+        self.newTitle.setStyleSheet(_fromUtf8("background:rgb(204,204,204);\n"
+"border: 1px solid black;\n"
+"border-radius: 5px;"))
         self.newTitle.setObjectName(_fromUtf8("newTitle"))
         self.horizontalLayout_3.addWidget(self.newTitle)
         self.verticalLayout_4.addLayout(self.horizontalLayout_3)
@@ -95,6 +103,7 @@ class Ui_NewLine(object):
         self.horizontalLayout_28.addWidget(self.label_20)
         self.boxS_K = QtGui.QComboBox(self.verticalLayoutWidget_5)
         self.boxS_K.setMinimumSize(QtCore.QSize(0, 0))
+        self.boxS_K.setStyleSheet(_fromUtf8("background:rgb(204,204,204);"))
         self.boxS_K.setObjectName(_fromUtf8("boxS_K"))
         self.horizontalLayout_28.addWidget(self.boxS_K)
         self.verticalLayout.addLayout(self.horizontalLayout_28)
@@ -105,6 +114,7 @@ class Ui_NewLine(object):
         self.label_21.setObjectName(_fromUtf8("label_21"))
         self.horizontalLayout_29.addWidget(self.label_21)
         self.boxP_K = QtGui.QComboBox(self.verticalLayoutWidget_5)
+        self.boxP_K.setStyleSheet(_fromUtf8("background:rgb(204,204,204);"))
         self.boxP_K.setObjectName(_fromUtf8("boxP_K"))
         self.horizontalLayout_29.addWidget(self.boxP_K)
         self.verticalLayout.addLayout(self.horizontalLayout_29)
@@ -117,6 +127,7 @@ class Ui_NewLine(object):
         self.label_4.setObjectName(_fromUtf8("label_4"))
         self.horizontalLayout_4.addWidget(self.label_4)
         self.p_one_name = QtGui.QComboBox(self.verticalLayoutWidget_5)
+        self.p_one_name.setStyleSheet(_fromUtf8("background:rgb(204,204,204);"))
         self.p_one_name.setObjectName(_fromUtf8("p_one_name"))
         self.horizontalLayout_4.addWidget(self.p_one_name)
         self.horizontalLayout_6.addLayout(self.horizontalLayout_4)
@@ -127,6 +138,7 @@ class Ui_NewLine(object):
         self.label_5.setObjectName(_fromUtf8("label_5"))
         self.horizontalLayout_5.addWidget(self.label_5)
         self.p_one_value = QtGui.QComboBox(self.verticalLayoutWidget_5)
+        self.p_one_value.setStyleSheet(_fromUtf8("background:rgb(204,204,204);"))
         self.p_one_value.setObjectName(_fromUtf8("p_one_value"))
         self.horizontalLayout_5.addWidget(self.p_one_value)
         self.horizontalLayout_6.addLayout(self.horizontalLayout_5)
@@ -140,6 +152,7 @@ class Ui_NewLine(object):
         self.label_6.setObjectName(_fromUtf8("label_6"))
         self.horizontalLayout_8.addWidget(self.label_6)
         self.p_two_name = QtGui.QComboBox(self.verticalLayoutWidget_5)
+        self.p_two_name.setStyleSheet(_fromUtf8("background:rgb(204,204,204);"))
         self.p_two_name.setObjectName(_fromUtf8("p_two_name"))
         self.horizontalLayout_8.addWidget(self.p_two_name)
         self.horizontalLayout_7.addLayout(self.horizontalLayout_8)
@@ -150,6 +163,7 @@ class Ui_NewLine(object):
         self.label_7.setObjectName(_fromUtf8("label_7"))
         self.horizontalLayout_9.addWidget(self.label_7)
         self.p_two_value = QtGui.QComboBox(self.verticalLayoutWidget_5)
+        self.p_two_value.setStyleSheet(_fromUtf8("background:rgb(204,204,204);"))
         self.p_two_value.setObjectName(_fromUtf8("p_two_value"))
         self.horizontalLayout_9.addWidget(self.p_two_value)
         self.horizontalLayout_7.addLayout(self.horizontalLayout_9)
@@ -163,6 +177,7 @@ class Ui_NewLine(object):
         self.label_8.setObjectName(_fromUtf8("label_8"))
         self.horizontalLayout_11.addWidget(self.label_8)
         self.p_three_name = QtGui.QComboBox(self.verticalLayoutWidget_5)
+        self.p_three_name.setStyleSheet(_fromUtf8("background:rgb(204,204,204);"))
         self.p_three_name.setObjectName(_fromUtf8("p_three_name"))
         self.horizontalLayout_11.addWidget(self.p_three_name)
         self.horizontalLayout_10.addLayout(self.horizontalLayout_11)
@@ -173,6 +188,7 @@ class Ui_NewLine(object):
         self.label_9.setObjectName(_fromUtf8("label_9"))
         self.horizontalLayout_12.addWidget(self.label_9)
         self.p_three_value = QtGui.QComboBox(self.verticalLayoutWidget_5)
+        self.p_three_value.setStyleSheet(_fromUtf8("background:rgb(204,204,204);"))
         self.p_three_value.setObjectName(_fromUtf8("p_three_value"))
         self.horizontalLayout_12.addWidget(self.p_three_value)
         self.horizontalLayout_10.addLayout(self.horizontalLayout_12)
@@ -186,6 +202,7 @@ class Ui_NewLine(object):
         self.label_14.setObjectName(_fromUtf8("label_14"))
         self.horizontalLayout_20.addWidget(self.label_14)
         self.p_four_name = QtGui.QComboBox(self.verticalLayoutWidget_5)
+        self.p_four_name.setStyleSheet(_fromUtf8("background:rgb(204,204,204);"))
         self.p_four_name.setObjectName(_fromUtf8("p_four_name"))
         self.horizontalLayout_20.addWidget(self.p_four_name)
         self.horizontalLayout_19.addLayout(self.horizontalLayout_20)
@@ -196,6 +213,7 @@ class Ui_NewLine(object):
         self.label_15.setObjectName(_fromUtf8("label_15"))
         self.horizontalLayout_21.addWidget(self.label_15)
         self.p_four_value = QtGui.QComboBox(self.verticalLayoutWidget_5)
+        self.p_four_value.setStyleSheet(_fromUtf8("background:rgb(204,204,204);"))
         self.p_four_value.setObjectName(_fromUtf8("p_four_value"))
         self.horizontalLayout_21.addWidget(self.p_four_value)
         self.horizontalLayout_19.addLayout(self.horizontalLayout_21)
@@ -209,6 +227,7 @@ class Ui_NewLine(object):
         self.label_10.setObjectName(_fromUtf8("label_10"))
         self.horizontalLayout_14.addWidget(self.label_10)
         self.p_five_name = QtGui.QComboBox(self.verticalLayoutWidget_5)
+        self.p_five_name.setStyleSheet(_fromUtf8("background:rgb(204,204,204);"))
         self.p_five_name.setObjectName(_fromUtf8("p_five_name"))
         self.horizontalLayout_14.addWidget(self.p_five_name)
         self.horizontalLayout_13.addLayout(self.horizontalLayout_14)
@@ -219,6 +238,7 @@ class Ui_NewLine(object):
         self.label_11.setObjectName(_fromUtf8("label_11"))
         self.horizontalLayout_15.addWidget(self.label_11)
         self.p_five_value = QtGui.QComboBox(self.verticalLayoutWidget_5)
+        self.p_five_value.setStyleSheet(_fromUtf8("background:rgb(204,204,204);"))
         self.p_five_value.setObjectName(_fromUtf8("p_five_value"))
         self.horizontalLayout_15.addWidget(self.p_five_value)
         self.horizontalLayout_13.addLayout(self.horizontalLayout_15)
@@ -232,6 +252,7 @@ class Ui_NewLine(object):
         self.label_12.setObjectName(_fromUtf8("label_12"))
         self.horizontalLayout_17.addWidget(self.label_12)
         self.p_six_name = QtGui.QComboBox(self.verticalLayoutWidget_5)
+        self.p_six_name.setStyleSheet(_fromUtf8("background:rgb(204,204,204);"))
         self.p_six_name.setObjectName(_fromUtf8("p_six_name"))
         self.horizontalLayout_17.addWidget(self.p_six_name)
         self.horizontalLayout_16.addLayout(self.horizontalLayout_17)
@@ -242,6 +263,7 @@ class Ui_NewLine(object):
         self.label_13.setObjectName(_fromUtf8("label_13"))
         self.horizontalLayout_18.addWidget(self.label_13)
         self.p_six_value = QtGui.QComboBox(self.verticalLayoutWidget_5)
+        self.p_six_value.setStyleSheet(_fromUtf8("background:rgb(204,204,204);"))
         self.p_six_value.setObjectName(_fromUtf8("p_six_value"))
         self.horizontalLayout_18.addWidget(self.p_six_value)
         self.horizontalLayout_16.addLayout(self.horizontalLayout_18)
@@ -255,6 +277,7 @@ class Ui_NewLine(object):
         self.label_18.setObjectName(_fromUtf8("label_18"))
         self.horizontalLayout_26.addWidget(self.label_18)
         self.p_seven_name = QtGui.QComboBox(self.verticalLayoutWidget_5)
+        self.p_seven_name.setStyleSheet(_fromUtf8("background:rgb(204,204,204);"))
         self.p_seven_name.setObjectName(_fromUtf8("p_seven_name"))
         self.horizontalLayout_26.addWidget(self.p_seven_name)
         self.horizontalLayout_25.addLayout(self.horizontalLayout_26)
@@ -265,6 +288,7 @@ class Ui_NewLine(object):
         self.label_19.setObjectName(_fromUtf8("label_19"))
         self.horizontalLayout_27.addWidget(self.label_19)
         self.p_seven_value = QtGui.QComboBox(self.verticalLayoutWidget_5)
+        self.p_seven_value.setStyleSheet(_fromUtf8("background:rgb(204,204,204);"))
         self.p_seven_value.setObjectName(_fromUtf8("p_seven_value"))
         self.horizontalLayout_27.addWidget(self.p_seven_value)
         self.horizontalLayout_25.addLayout(self.horizontalLayout_27)
@@ -278,6 +302,7 @@ class Ui_NewLine(object):
         self.label_16.setObjectName(_fromUtf8("label_16"))
         self.horizontalLayout_23.addWidget(self.label_16)
         self.p_eight_name = QtGui.QComboBox(self.verticalLayoutWidget_5)
+        self.p_eight_name.setStyleSheet(_fromUtf8("background:rgb(204,204,204);"))
         self.p_eight_name.setObjectName(_fromUtf8("p_eight_name"))
         self.horizontalLayout_23.addWidget(self.p_eight_name)
         self.horizontalLayout_22.addLayout(self.horizontalLayout_23)
@@ -288,6 +313,7 @@ class Ui_NewLine(object):
         self.label_17.setObjectName(_fromUtf8("label_17"))
         self.horizontalLayout_24.addWidget(self.label_17)
         self.p_eight_value = QtGui.QComboBox(self.verticalLayoutWidget_5)
+        self.p_eight_value.setStyleSheet(_fromUtf8("background:rgb(204,204,204);"))
         self.p_eight_value.setObjectName(_fromUtf8("p_eight_value"))
         self.horizontalLayout_24.addWidget(self.p_eight_value)
         self.horizontalLayout_22.addLayout(self.horizontalLayout_24)
@@ -307,12 +333,21 @@ class Ui_NewLine(object):
         self.label_23.setObjectName(_fromUtf8("label_23"))
         self.verticalLayout_2.addWidget(self.label_23)
         self.findOne = QtGui.QLineEdit(self.verticalLayoutWidget_5)
+        self.findOne.setStyleSheet(_fromUtf8("background:rgb(204,204,204);\n"
+"border: 1px solid black;\n"
+"border-radius: 5px;"))
         self.findOne.setObjectName(_fromUtf8("findOne"))
         self.verticalLayout_2.addWidget(self.findOne)
         self.findTwo = QtGui.QLineEdit(self.verticalLayoutWidget_5)
+        self.findTwo.setStyleSheet(_fromUtf8("background:rgb(204,204,204);\n"
+"border: 1px solid black;\n"
+"border-radius: 5px;"))
         self.findTwo.setObjectName(_fromUtf8("findTwo"))
         self.verticalLayout_2.addWidget(self.findTwo)
         self.findThree = QtGui.QLineEdit(self.verticalLayoutWidget_5)
+        self.findThree.setStyleSheet(_fromUtf8("background:rgb(204,204,204);\n"
+"border: 1px solid black;\n"
+"border-radius: 5px;"))
         self.findThree.setObjectName(_fromUtf8("findThree"))
         self.verticalLayout_2.addWidget(self.findThree)
         self.horizontalLayout_39.addLayout(self.verticalLayout_2)
@@ -338,6 +373,9 @@ class Ui_NewLine(object):
         self.label_24.setObjectName(_fromUtf8("label_24"))
         self.horizontalLayout_31.addWidget(self.label_24)
         self.check_one_name = QtGui.QLineEdit(self.verticalLayoutWidget_5)
+        self.check_one_name.setStyleSheet(_fromUtf8("background:rgb(204,204,204);\n"
+"border: 1px solid black;\n"
+"border-radius: 5px;"))
         self.check_one_name.setObjectName(_fromUtf8("check_one_name"))
         self.horizontalLayout_31.addWidget(self.check_one_name)
         self.horizontalLayout_30.addLayout(self.horizontalLayout_31)
@@ -347,6 +385,9 @@ class Ui_NewLine(object):
         self.label_25.setObjectName(_fromUtf8("label_25"))
         self.horizontalLayout_32.addWidget(self.label_25)
         self.check_one_value = QtGui.QLineEdit(self.verticalLayoutWidget_5)
+        self.check_one_value.setStyleSheet(_fromUtf8("background:rgb(204,204,204);\n"
+"border: 1px solid black;\n"
+"border-radius: 5px;"))
         self.check_one_value.setObjectName(_fromUtf8("check_one_value"))
         self.horizontalLayout_32.addWidget(self.check_one_value)
         self.horizontalLayout_30.addLayout(self.horizontalLayout_32)
@@ -363,6 +404,9 @@ class Ui_NewLine(object):
         self.label_26.setObjectName(_fromUtf8("label_26"))
         self.horizontalLayout_34.addWidget(self.label_26)
         self.check_two_name = QtGui.QLineEdit(self.verticalLayoutWidget_5)
+        self.check_two_name.setStyleSheet(_fromUtf8("background:rgb(204,204,204);\n"
+"border: 1px solid black;\n"
+"border-radius: 5px;"))
         self.check_two_name.setObjectName(_fromUtf8("check_two_name"))
         self.horizontalLayout_34.addWidget(self.check_two_name)
         self.horizontalLayout_33.addLayout(self.horizontalLayout_34)
@@ -372,6 +416,9 @@ class Ui_NewLine(object):
         self.label_27.setObjectName(_fromUtf8("label_27"))
         self.horizontalLayout_35.addWidget(self.label_27)
         self.check_two_value = QtGui.QLineEdit(self.verticalLayoutWidget_5)
+        self.check_two_value.setStyleSheet(_fromUtf8("background:rgb(204,204,204);\n"
+"border: 1px solid black;\n"
+"border-radius: 5px;"))
         self.check_two_value.setObjectName(_fromUtf8("check_two_value"))
         self.horizontalLayout_35.addWidget(self.check_two_value)
         self.horizontalLayout_33.addLayout(self.horizontalLayout_35)
@@ -388,6 +435,9 @@ class Ui_NewLine(object):
         self.label_28.setObjectName(_fromUtf8("label_28"))
         self.horizontalLayout_37.addWidget(self.label_28)
         self.check_three_name = QtGui.QLineEdit(self.verticalLayoutWidget_5)
+        self.check_three_name.setStyleSheet(_fromUtf8("background:rgb(204,204,204);\n"
+"border: 1px solid black;\n"
+"border-radius: 5px;"))
         self.check_three_name.setObjectName(_fromUtf8("check_three_name"))
         self.horizontalLayout_37.addWidget(self.check_three_name)
         self.horizontalLayout_36.addLayout(self.horizontalLayout_37)
@@ -397,6 +447,9 @@ class Ui_NewLine(object):
         self.label_29.setObjectName(_fromUtf8("label_29"))
         self.horizontalLayout_38.addWidget(self.label_29)
         self.check_three_value = QtGui.QLineEdit(self.verticalLayoutWidget_5)
+        self.check_three_value.setStyleSheet(_fromUtf8("background:rgb(204,204,204);\n"
+"border: 1px solid black;\n"
+"border-radius: 5px;"))
         self.check_three_value.setObjectName(_fromUtf8("check_three_value"))
         self.horizontalLayout_38.addWidget(self.check_three_value)
         self.horizontalLayout_36.addLayout(self.horizontalLayout_38)
@@ -404,16 +457,22 @@ class Ui_NewLine(object):
         self.horizontalLayout_39.addLayout(self.verticalLayout_3)
         self.verticalLayout_5.addLayout(self.horizontalLayout_39)
         self.closeBtn = QtGui.QPushButton(NewLine)
-        self.closeBtn.setGeometry(QtCore.QRect(750, 540, 97, 60))
+        self.closeBtn.setGeometry(QtCore.QRect(730, 610, 97, 60))
         self.closeBtn.setMinimumSize(QtCore.QSize(97, 60))
+        self.closeBtn.setStyleSheet(_fromUtf8("background:rgb(80,80,80);\n"
+"color: rgb(204,204,204);"))
         self.closeBtn.setObjectName(_fromUtf8("closeBtn"))
         self.saveBtn = QtGui.QPushButton(NewLine)
-        self.saveBtn.setGeometry(QtCore.QRect(640, 540, 97, 60))
+        self.saveBtn.setGeometry(QtCore.QRect(630, 610, 97, 60))
         self.saveBtn.setMinimumSize(QtCore.QSize(97, 60))
+        self.saveBtn.setStyleSheet(_fromUtf8("background:rgb(80,80,80);\n"
+"color: rgb(204,204,204);"))
         self.saveBtn.setObjectName(_fromUtf8("saveBtn"))
         self.addBtn = QtGui.QPushButton(NewLine)
-        self.addBtn.setGeometry(QtCore.QRect(530, 540, 97, 60))
+        self.addBtn.setGeometry(QtCore.QRect(530, 610, 97, 60))
         self.addBtn.setMinimumSize(QtCore.QSize(97, 60))
+        self.addBtn.setStyleSheet(_fromUtf8("background:rgb(80,80,80);\n"
+"color: rgb(204,204,204);"))
         self.addBtn.setObjectName(_fromUtf8("addBtn"))
 
         self.retranslateUi(NewLine)

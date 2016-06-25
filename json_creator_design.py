@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'json_creator_design.ui'
 #
-# Created: Wed Jun 22 13:33:34 2016
+# Created: Sat Jun 25 19:57:07 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -30,6 +30,7 @@ class Ui_JsonCreator(object):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(_fromUtf8("logo.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         JsonCreator.setWindowIcon(icon)
+        JsonCreator.setStyleSheet(_fromUtf8("background: rgb(128,128, 128)"))
         self.verticalLayoutWidget = QtGui.QWidget(JsonCreator)
         self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 10, 701, 441))
         self.verticalLayoutWidget.setObjectName(_fromUtf8("verticalLayoutWidget"))
@@ -41,30 +42,43 @@ class Ui_JsonCreator(object):
         self.createNewBtn = QtGui.QPushButton(self.verticalLayoutWidget)
         self.createNewBtn.setMinimumSize(QtCore.QSize(97, 60))
         self.createNewBtn.setMaximumSize(QtCore.QSize(97, 60))
+        self.createNewBtn.setStyleSheet(_fromUtf8("background:rgb(80,80,80);\n"
+"color: rgb(204,204,204);"))
         self.createNewBtn.setObjectName(_fromUtf8("createNewBtn"))
         self.horizontalLayout.addWidget(self.createNewBtn)
         self.addNewLine = QtGui.QPushButton(self.verticalLayoutWidget)
         self.addNewLine.setMinimumSize(QtCore.QSize(97, 60))
         self.addNewLine.setMaximumSize(QtCore.QSize(97, 60))
+        self.addNewLine.setStyleSheet(_fromUtf8("background:rgb(80,80,80);\n"
+"color: rgb(204,204,204);"))
         self.addNewLine.setObjectName(_fromUtf8("addNewLine"))
         self.horizontalLayout.addWidget(self.addNewLine)
         self.loadExFileBtn = QtGui.QPushButton(self.verticalLayoutWidget)
         self.loadExFileBtn.setMinimumSize(QtCore.QSize(97, 60))
         self.loadExFileBtn.setMaximumSize(QtCore.QSize(97, 60))
+        self.loadExFileBtn.setStyleSheet(_fromUtf8("background:rgb(80,80,80);\n"
+"color: rgb(204,204,204);"))
         self.loadExFileBtn.setObjectName(_fromUtf8("loadExFileBtn"))
         self.horizontalLayout.addWidget(self.loadExFileBtn)
         self.saveBtn = QtGui.QPushButton(self.verticalLayoutWidget)
         self.saveBtn.setMinimumSize(QtCore.QSize(97, 60))
         self.saveBtn.setMaximumSize(QtCore.QSize(97, 60))
+        self.saveBtn.setStyleSheet(_fromUtf8("background:rgb(80,80,80);\n"
+"color: rgb(204,204,204);"))
         self.saveBtn.setObjectName(_fromUtf8("saveBtn"))
         self.horizontalLayout.addWidget(self.saveBtn)
         self.doneBtn = QtGui.QPushButton(self.verticalLayoutWidget)
         self.doneBtn.setMinimumSize(QtCore.QSize(97, 60))
         self.doneBtn.setMaximumSize(QtCore.QSize(97, 60))
+        self.doneBtn.setStyleSheet(_fromUtf8("background:rgb(80,80,80);\n"
+"color: rgb(204,204,204);"))
         self.doneBtn.setObjectName(_fromUtf8("doneBtn"))
         self.horizontalLayout.addWidget(self.doneBtn)
         self.verticalLayout.addLayout(self.horizontalLayout)
         self.textEditFileLoad = QtGui.QTextEdit(self.verticalLayoutWidget)
+        self.textEditFileLoad.setStyleSheet(_fromUtf8("background:rgb(204,204,204);\n"
+"border: 1px solid black;\n"
+""))
         self.textEditFileLoad.setObjectName(_fromUtf8("textEditFileLoad"))
         self.verticalLayout.addWidget(self.textEditFileLoad)
 

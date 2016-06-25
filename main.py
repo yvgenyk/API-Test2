@@ -58,7 +58,7 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         self.loadFileBtn.clicked.connect(self.open_test_files)
 
         self.tableWidget.setColumnCount(2)
-        self.tableWidget.setColumnWidth(0, 500)
+        self.tableWidget.setColumnWidth(0, 400)
         self.tableWidget.horizontalHeader().setResizeMode(1, QtGui.QHeaderView.Stretch)
 
         self.reg_proj.setText('7')

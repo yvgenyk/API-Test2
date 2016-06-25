@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>858</width>
-    <height>642</height>
+    <width>849</width>
+    <height>681</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,13 +17,16 @@
    <iconset>
     <normaloff>logo.jpg</normaloff>logo.jpg</iconset>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background: rgb(128,128, 128)</string>
+  </property>
   <widget class="QWidget" name="verticalLayoutWidget_5">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>10</y>
      <width>831</width>
-     <height>536</height>
+     <height>596</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -47,7 +50,11 @@
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="newMethod"/>
+           <widget class="QComboBox" name="newMethod">
+            <property name="styleSheet">
+             <string notr="true">background:rgb(204,204,204);</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -61,7 +68,13 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="newAddress"/>
+           <widget class="QLineEdit" name="newAddress">
+            <property name="styleSheet">
+             <string notr="true">background:rgb(204,204,204);
+border: 1px solid black;
+border-radius: 5px;</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -75,7 +88,13 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="newTitle"/>
+           <widget class="QLineEdit" name="newTitle">
+            <property name="styleSheet">
+             <string notr="true">background:rgb(204,204,204);
+border: 1px solid black;
+border-radius: 5px;</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -143,6 +162,9 @@
               <height>0</height>
              </size>
             </property>
+            <property name="styleSheet">
+             <string notr="true">background:rgb(204,204,204);</string>
+            </property>
            </widget>
           </item>
          </layout>
@@ -163,7 +185,11 @@
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="boxP_K"/>
+           <widget class="QComboBox" name="boxP_K">
+            <property name="styleSheet">
+             <string notr="true">background:rgb(204,204,204);</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -185,7 +211,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="p_one_name"/>
+             <widget class="QComboBox" name="p_one_name">
+              <property name="styleSheet">
+               <string notr="true">background:rgb(204,204,204);</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -205,7 +235,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="p_one_value"/>
+             <widget class="QComboBox" name="p_one_value">
+              <property name="styleSheet">
+               <string notr="true">background:rgb(204,204,204);</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -229,7 +263,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="p_two_name"/>
+             <widget class="QComboBox" name="p_two_name">
+              <property name="styleSheet">
+               <string notr="true">background:rgb(204,204,204);</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -249,7 +287,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="p_two_value"/>
+             <widget class="QComboBox" name="p_two_value">
+              <property name="styleSheet">
+               <string notr="true">background:rgb(204,204,204);</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -273,7 +315,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="p_three_name"/>
+             <widget class="QComboBox" name="p_three_name">
+              <property name="styleSheet">
+               <string notr="true">background:rgb(204,204,204);</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -293,7 +339,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="p_three_value"/>
+             <widget class="QComboBox" name="p_three_value">
+              <property name="styleSheet">
+               <string notr="true">background:rgb(204,204,204);</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -317,7 +367,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="p_four_name"/>
+             <widget class="QComboBox" name="p_four_name">
+              <property name="styleSheet">
+               <string notr="true">background:rgb(204,204,204);</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -337,7 +391,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="p_four_value"/>
+             <widget class="QComboBox" name="p_four_value">
+              <property name="styleSheet">
+               <string notr="true">background:rgb(204,204,204);</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -361,7 +419,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="p_five_name"/>
+             <widget class="QComboBox" name="p_five_name">
+              <property name="styleSheet">
+               <string notr="true">background:rgb(204,204,204);</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -381,7 +443,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="p_five_value"/>
+             <widget class="QComboBox" name="p_five_value">
+              <property name="styleSheet">
+               <string notr="true">background:rgb(204,204,204);</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -405,7 +471,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="p_six_name"/>
+             <widget class="QComboBox" name="p_six_name">
+              <property name="styleSheet">
+               <string notr="true">background:rgb(204,204,204);</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -425,7 +495,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="p_six_value"/>
+             <widget class="QComboBox" name="p_six_value">
+              <property name="styleSheet">
+               <string notr="true">background:rgb(204,204,204);</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -449,7 +523,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="p_seven_name"/>
+             <widget class="QComboBox" name="p_seven_name">
+              <property name="styleSheet">
+               <string notr="true">background:rgb(204,204,204);</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -469,7 +547,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="p_seven_value"/>
+             <widget class="QComboBox" name="p_seven_value">
+              <property name="styleSheet">
+               <string notr="true">background:rgb(204,204,204);</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -493,7 +575,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="p_eight_name"/>
+             <widget class="QComboBox" name="p_eight_name">
+              <property name="styleSheet">
+               <string notr="true">background:rgb(204,204,204);</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -513,7 +599,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="p_eight_value"/>
+             <widget class="QComboBox" name="p_eight_value">
+              <property name="styleSheet">
+               <string notr="true">background:rgb(204,204,204);</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -542,13 +632,31 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="findOne"/>
+         <widget class="QLineEdit" name="findOne">
+          <property name="styleSheet">
+           <string notr="true">background:rgb(204,204,204);
+border: 1px solid black;
+border-radius: 5px;</string>
+          </property>
+         </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="findTwo"/>
+         <widget class="QLineEdit" name="findTwo">
+          <property name="styleSheet">
+           <string notr="true">background:rgb(204,204,204);
+border: 1px solid black;
+border-radius: 5px;</string>
+          </property>
+         </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="findThree"/>
+         <widget class="QLineEdit" name="findThree">
+          <property name="styleSheet">
+           <string notr="true">background:rgb(204,204,204);
+border: 1px solid black;
+border-radius: 5px;</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -587,7 +695,13 @@
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="check_one_name"/>
+             <widget class="QLineEdit" name="check_one_name">
+              <property name="styleSheet">
+               <string notr="true">background:rgb(204,204,204);
+border: 1px solid black;
+border-radius: 5px;</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -601,7 +715,13 @@
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="check_one_value"/>
+             <widget class="QLineEdit" name="check_one_value">
+              <property name="styleSheet">
+               <string notr="true">background:rgb(204,204,204);
+border: 1px solid black;
+border-radius: 5px;</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -626,7 +746,13 @@
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="check_two_name"/>
+             <widget class="QLineEdit" name="check_two_name">
+              <property name="styleSheet">
+               <string notr="true">background:rgb(204,204,204);
+border: 1px solid black;
+border-radius: 5px;</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -640,7 +766,13 @@
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="check_two_value"/>
+             <widget class="QLineEdit" name="check_two_value">
+              <property name="styleSheet">
+               <string notr="true">background:rgb(204,204,204);
+border: 1px solid black;
+border-radius: 5px;</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -665,7 +797,13 @@
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="check_three_name"/>
+             <widget class="QLineEdit" name="check_three_name">
+              <property name="styleSheet">
+               <string notr="true">background:rgb(204,204,204);
+border: 1px solid black;
+border-radius: 5px;</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -679,7 +817,13 @@
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="check_three_value"/>
+             <widget class="QLineEdit" name="check_three_value">
+              <property name="styleSheet">
+               <string notr="true">background:rgb(204,204,204);
+border: 1px solid black;
+border-radius: 5px;</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -694,8 +838,8 @@
   <widget class="QPushButton" name="closeBtn">
    <property name="geometry">
     <rect>
-     <x>750</x>
-     <y>540</y>
+     <x>730</x>
+     <y>610</y>
      <width>97</width>
      <height>60</height>
     </rect>
@@ -705,6 +849,10 @@
      <width>97</width>
      <height>60</height>
     </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background:rgb(80,80,80);
+color: rgb(204,204,204);</string>
    </property>
    <property name="text">
     <string>Close</string>
@@ -713,8 +861,8 @@
   <widget class="QPushButton" name="saveBtn">
    <property name="geometry">
     <rect>
-     <x>640</x>
-     <y>540</y>
+     <x>630</x>
+     <y>610</y>
      <width>97</width>
      <height>60</height>
     </rect>
@@ -724,6 +872,10 @@
      <width>97</width>
      <height>60</height>
     </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background:rgb(80,80,80);
+color: rgb(204,204,204);</string>
    </property>
    <property name="text">
     <string>Save to file</string>
@@ -733,7 +885,7 @@
    <property name="geometry">
     <rect>
      <x>530</x>
-     <y>540</y>
+     <y>610</y>
      <width>97</width>
      <height>60</height>
     </rect>
@@ -743,6 +895,10 @@
      <width>97</width>
      <height>60</height>
     </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background:rgb(80,80,80);
+color: rgb(204,204,204);</string>
    </property>
    <property name="text">
     <string>Add to New File</string>
