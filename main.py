@@ -28,7 +28,7 @@ class LineExec(QThread):
     def run(self):
         for line in self.mainJson:
             self.emit(SIGNAL("line_exec(PyQt_PyObject)"), line)
-            self.sleep(1)
+            self.sleep(2)
 
 
 class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
@@ -51,8 +51,8 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         self.fileLoad.clicked.connect(self.file_open)
         self.checkDisplay.clicked.connect(self.check_the_code)
         self.reportBtn.clicked.connect(self.new_report)
-        self.lineEdit.setText('4c55ed410b7358cc51080afb772a5afd')
-        self.lineEdit_2.setText('Z9zKv8gbYj3LRTcrVHQf')
+        self.lineEdit.setText('3148b94df4401f595991a14b609c03fd')
+        self.lineEdit_2.setText('WgLVMnBDY3JGKXkdxyfc')
         self.lineEdit_3.setText('https://oht.vagrant.oht.cc/api/2/')
         self.loadTxtBtn.clicked.connect(self.open_txt)
         self.loadFileBtn.clicked.connect(self.open_test_files)

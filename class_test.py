@@ -265,8 +265,7 @@ class GetMethod:
                     self.ex_resource(self.testLine["params"][payIndex], payload, txtFileUUID, uploadFileUUID)
                 else:
                     payload[self.testLine["params"][payIndex]['name']] = self.testLine["params"][payIndex]['value']
-                            
-                            
+
             """""""""""""""""""""""""""""""""""""""""
             If an input from earlier request is 
             needed, like the resouce uuid, this code 
@@ -499,6 +498,7 @@ class PostMethod:
             res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False), True)
             reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
             reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
+            res.report_line(reportLine)
             if res.getStatus() != 200:
                 reportLine.mark_red()
                 
@@ -511,6 +511,7 @@ class PostMethod:
                     res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False), True)
                     reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                     reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
+                    res.report_line(reportLine)
 
                     if res.getStatus() == 200:
                         break
@@ -518,17 +519,14 @@ class PostMethod:
                         reportLine.mark_red()
                         
             if res.getStatus() == 200:
-                res.report_line(reportLine)
+                if len(self.testLine['find']) >= 1:
+                    res.find(self.testLine, reportLine)
+
+                if len(self.testLine['check']) >= 1:
+                    res.check_value(self.testLine, reportLine, prevPayload, self.rsc_uuid)
             else:
                     reportLine.print_line()
                     reportLine.mark_red()
-             
-                            
-            if len(self.testLine['find']) >= 1:
-                res.find(self.testLine, reportLine)
-                         
-            if len(self.testLine['check']) >= 1:
-                res.check_value(self.testLine, reportLine, prevPayload, self.rsc_uuid)
 
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""
       This method will upload a text resource from file.
