@@ -305,6 +305,8 @@ class GetMethod:
                 reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                 reportLine.report_line(httpAddress + newAddress, res.getText(), payload, None)
                 res.report_line(reportLine)
+                if res.getStatus() != 200:
+                    reportLine.mark_red()
 
                 """""""""""""""""""""""""""""""""""""""""
                 Download method for both files and text.
@@ -319,7 +321,10 @@ class GetMethod:
                 reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                 reportLine.report_line(httpAddress + newAddress, res.getText(), payload, None)
                 reportLine.print_line()
-                reportLine.mark_yellow()
+                if res.getStatus() != 200:
+                    reportLine.mark_red()
+                else:
+                    reportLine.mark_yellow()
 
                 if noKeysFlag == False:
                     # finds the name of the file writen on site.
@@ -367,6 +372,8 @@ class GetMethod:
                 reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                 reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
                 res.report_line(reportLine)
+                if res.getStatus() != 200:
+                    reportLine.mark_red()
             """""""""""""""""""""""""""""""""""""""""""""""
             If the save option is checked, will save the
             response and the request of the current request
@@ -492,6 +499,8 @@ class PostMethod:
             res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False), True)
             reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
             reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
+            if res.getStatus() != 200:
+                reportLine.mark_red()
                 
             if self.testLine["save"] == '1':
                 prevResponse[0] = res.getJson()
@@ -551,6 +560,8 @@ class PostMethod:
                     reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                     reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
                     res.report_line(reportLine)
+                    if res.getStatus() != 200:
+                        reportLine.mark_red()
                                         
                     if self.testLine["save"] == '1':
                         prevResponse[0] = res.getJson()
@@ -615,6 +626,8 @@ class PostMethod:
                     reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                     reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, str(loadedFile))
                     res.report_line(reportLine)
+                    if res.getStatus() != 200:
+                        reportLine.mark_red()
                                         
                     if self.testLine["save"] == '1':
                         prevResponse[0] = res.getJson()
