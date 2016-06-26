@@ -303,6 +303,7 @@ class GetMethod:
                 res = Response(requests.get(httpAddress + newAddress, params=payload, verify=False), True)
                 reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                 reportLine.report_line(httpAddress + newAddress, res.getText(), payload, None)
+                print("Payload: " + str(payload))
                 res.report_line(reportLine)
                 if res.getStatus() != 200:
                     reportLine.mark_red()
@@ -317,8 +318,10 @@ class GetMethod:
                 else:
                     res = Response(requests.get(httpAddress + newAddress, stream=True, params=payload, verify=False),
                                    True)
+
                 reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                 reportLine.report_line(httpAddress + newAddress, res.getText(), payload, None)
+                print("Payload: " + str(payload))
                 reportLine.print_line()
                 if res.getStatus() != 200:
                     reportLine.mark_red()
@@ -370,6 +373,7 @@ class GetMethod:
                 res = Response(requests.get(httpAddress + self.testLine["address"], params=payload, verify=False), True)
                 reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                 reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
+                print("Payload: " + str(payload))
                 res.report_line(reportLine)
                 if res.getStatus() != 200:
                     reportLine.mark_red()
@@ -498,6 +502,7 @@ class PostMethod:
             res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False), True)
             reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
             reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
+            print("Payload: " + str(payload))
             res.report_line(reportLine)
             if res.getStatus() != 200:
                 reportLine.mark_red()
@@ -557,6 +562,7 @@ class PostMethod:
                     res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False), True)
                     reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                     reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
+                    print("Payload: " + str(payload))
                     res.report_line(reportLine)
                     if res.getStatus() != 200:
                         reportLine.mark_red()
@@ -623,6 +629,7 @@ class PostMethod:
                     res = Response(requests.post(httpAddress + self.testLine["address"], files = loadedFile, data = payload, verify=False), True)
                     reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                     reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, str(loadedFile))
+                    print("Payload: " + str(payload))
                     res.report_line(reportLine)
                     if res.getStatus() != 200:
                         reportLine.mark_red()

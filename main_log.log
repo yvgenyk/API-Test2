@@ -1,0 +1,309 @@
+2016-06-26 21:50:30,482:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:50:30,492:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:50:32,331:DEBUG:urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-06-26 21:50:32,357:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:50:32,362:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:50:32,483:DEBUG:urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-06-26 21:50:32,491:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:50:32,497:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:50:32,608:DEBUG:urllib3.connectionpool:"GET /api/2/account?public_key=CZQPy9XNbzF2rVfnGcY7&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16 HTTP/1.1" 200 193
+2016-06-26 21:50:34,493:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:50:34,509:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:50:34,591:DEBUG:urllib3.connectionpool:"GET /api/2/account?=&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16 HTTP/1.1" 200 143
+2016-06-26 21:50:36,492:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:50:36,504:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:50:36,574:DEBUG:urllib3.connectionpool:"GET /api/2/account?public_key=CZQPy9XNbzF2rVfnGcY7 HTTP/1.1" 200 143
+2016-06-26 21:50:38,491:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:50:38,496:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:50:38,671:DEBUG:urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-06-26 21:50:40,491:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:50:40,496:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:50:40,577:DEBUG:urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 88
+2016-06-26 21:50:42,491:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:50:42,496:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:50:42,583:DEBUG:urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 143
+2016-06-26 21:50:44,494:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:50:44,511:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:50:44,595:DEBUG:urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 143
+2016-06-26 21:50:46,492:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:50:46,497:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:50:48,119:DEBUG:urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-06-26 21:50:48,494:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:50:48,509:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:50:48,593:DEBUG:urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 127
+2016-06-26 21:50:50,495:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:50:50,512:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:50:50,605:DEBUG:urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 143
+2016-06-26 21:50:52,495:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:50:52,511:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:50:52,594:DEBUG:urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 143
+2016-06-26 21:50:54,493:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:50:54,497:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:50:55,649:DEBUG:urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-06-26 21:50:56,495:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:50:56,508:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:50:57,417:DEBUG:urllib3.connectionpool:"GET /api/2/resources/rsc-5770240f95d590-68790321?=&public_key=CZQPy9XNbzF2rVfnGcY7&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16 HTTP/1.1" 200 243
+2016-06-26 21:50:58,495:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:50:58,511:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:50:59,474:DEBUG:urllib3.connectionpool:"GET /api/2/resources/rsc-577023f83da956-39955583?=&public_key=CZQPy9XNbzF2rVfnGcY7&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16 HTTP/1.1" 200 253
+2016-06-26 21:51:00,495:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:51:00,512:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:51:01,385:DEBUG:urllib3.connectionpool:"GET /api/2/resources/rsc-577023f83da956-39955583?public_key=CZQPy9XNbzF2rVfnGcY7&fetch=base64&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16 HTTP/1.1" 200 1394
+2016-06-26 21:51:02,493:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:51:02,501:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:51:02,756:DEBUG:urllib3.connectionpool:"GET /api/2/resources/rsc-577023f86ec601-50966707?public_key=CZQPy9XNbzF2rVfnGcY7&fetch=base64&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16 HTTP/1.1" 200 1332
+2016-06-26 21:51:04,494:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:51:04,499:DEBUG:urllib3.connectionpool:Setting read timeout to <object object at 0x7f739a579080>
+2016-06-26 21:51:04,609:DEBUG:urllib3.connectionpool:"GET /api/2/resources/rsc-577023f83da956-39955583/download?public_key=CZQPy9XNbzF2rVfnGcY7&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16 HTTP/1.1" 200 None
+2016-06-26 21:51:06,496:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:51:06,512:DEBUG:urllib3.connectionpool:Setting read timeout to <object object at 0x7f739a579080>
+2016-06-26 21:51:06,635:DEBUG:urllib3.connectionpool:"GET /api/2/resources/rsc-577023f86ec601-50966707/download?public_key=CZQPy9XNbzF2rVfnGcY7&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16 HTTP/1.1" 200 None
+2016-06-26 21:51:08,495:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:51:08,508:DEBUG:urllib3.connectionpool:Setting read timeout to <object object at 0x7f739a579080>
+2016-06-26 21:51:08,574:DEBUG:urllib3.connectionpool:"GET /api/2/resources/rsc-577023f83da956-39955583/download?secret_key=c03f6951e5b06ee943ccd2dfd2b61f16 HTTP/1.1" 200 143
+2016-06-26 21:51:10,496:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:51:10,511:DEBUG:urllib3.connectionpool:Setting read timeout to <object object at 0x7f739a579080>
+2016-06-26 21:51:10,609:DEBUG:urllib3.connectionpool:"GET /api/2/resources/rsc-577023f86ec601-50966707/download?secret_key=c03f6951e5b06ee943ccd2dfd2b61f16 HTTP/1.1" 200 143
+2016-06-26 21:51:12,497:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:51:12,511:DEBUG:urllib3.connectionpool:Setting read timeout to <object object at 0x7f739a579080>
+2016-06-26 21:51:12,588:DEBUG:urllib3.connectionpool:"GET /api/2/resources/rsc-577023f83da956-39955583/download?public_key=CZQPy9XNbzF2rVfnGcY7 HTTP/1.1" 200 143
+2016-06-26 21:51:14,498:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:51:14,517:DEBUG:urllib3.connectionpool:Setting read timeout to <object object at 0x7f739a579080>
+2016-06-26 21:51:14,591:DEBUG:urllib3.connectionpool:"GET /api/2/resources/rsc-577023f86ec601-50966707/download?public_key=CZQPy9XNbzF2rVfnGcY7 HTTP/1.1" 200 143
+2016-06-26 21:51:16,495:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:51:16,500:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:51:18,129:DEBUG:urllib3.connectionpool:"GET /api/2/tools/quote?target_language=fr-fr&source_language=en-us&public_key=CZQPy9XNbzF2rVfnGcY7&resources=rsc-577023f86ec601-50966707&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16 HTTP/1.1" 200 271
+2016-06-26 21:51:18,495:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:51:18,500:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:51:20,032:DEBUG:urllib3.connectionpool:"GET /api/2/tools/quote?target_language=fr-fr&source_language=en-us&public_key=CZQPy9XNbzF2rVfnGcY7&resources=rsc-577023f86ec601-50966707&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16 HTTP/1.1" 200 271
+2016-06-26 21:51:20,498:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:51:20,515:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:51:22,675:DEBUG:urllib3.connectionpool:"GET /api/2/tools/quote?target_language=fr-fr&source_language=en-us&public_key=CZQPy9XNbzF2rVfnGcY7&resources=rsc-577023f83da956-39955583&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16 HTTP/1.1" 200 271
+2016-06-26 21:51:22,703:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:51:22,709:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:51:24,933:DEBUG:urllib3.connectionpool:"GET /api/2/tools/quote?target_language=fr-fr&source_language=en-us&public_key=CZQPy9XNbzF2rVfnGcY7&resources=rsc-577023f83da956-39955583&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16 HTTP/1.1" 200 271
+2016-06-26 21:51:24,977:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:51:24,984:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:51:25,122:DEBUG:urllib3.connectionpool:"GET /api/2/tools/quote?target_language=fr-fr&public_key=CZQPy9XNbzF2rVfnGcY7&source_language=en-us&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16 HTTP/1.1" 200 140
+2016-06-26 21:51:26,499:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:51:26,516:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:51:26,710:DEBUG:urllib3.connectionpool:"GET /api/2/tools/quote?target_language=fr-fr&public_key=CZQPy9XNbzF2rVfnGcY7&resources=rsc-577023f86ec601-50966707&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16 HTTP/1.1" 200 99
+2016-06-26 21:51:28,501:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:51:28,517:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:51:28,755:DEBUG:urllib3.connectionpool:"GET /api/2/tools/quote?source_language=en-us&public_key=CZQPy9XNbzF2rVfnGcY7&resources=rsc-577023f86ec601-50966707&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16 HTTP/1.1" 200 99
+2016-06-26 21:51:30,498:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:51:30,509:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:51:32,055:DEBUG:urllib3.connectionpool:"GET /api/2/tools/quote?target_language=fr-fr&expertise=business-finance&source_language=en-us&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16&public_key=CZQPy9XNbzF2rVfnGcY7&resources=rsc-577023f86ec601-50966707 HTTP/1.1" 200 274
+2016-06-26 21:51:32,499:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:51:32,515:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:51:34,007:DEBUG:urllib3.connectionpool:"GET /api/2/tools/quote?target_language=fr-fr&proofreading=1&source_language=en-us&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16&expertise=scientific-academic&public_key=CZQPy9XNbzF2rVfnGcY7&resources=rsc-577023f86ec601-50966707 HTTP/1.1" 200 271
+2016-06-26 21:51:34,498:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:51:34,505:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:51:36,038:DEBUG:urllib3.connectionpool:"GET /api/2/tools/quote?target_language=fr-fr&source_language=en-us&currency=USD&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16&public_key=CZQPy9XNbzF2rVfnGcY7&resources=rsc-577023f86ec601-50966707 HTTP/1.1" 200 271
+2016-06-26 21:51:36,498:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:51:36,502:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:51:38,074:DEBUG:urllib3.connectionpool:"GET /api/2/tools/quote?target_language=fr-fr&source_language=en-us&currency=EUR&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16&public_key=CZQPy9XNbzF2rVfnGcY7&resources=rsc-577023f86ec601-50966707 HTTP/1.1" 200 268
+2016-06-26 21:51:38,499:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:51:38,526:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:51:39,967:DEBUG:urllib3.connectionpool:"GET /api/2/tools/quote?target_language=fr-fr&source_language=en-us&service=translation&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16&public_key=CZQPy9XNbzF2rVfnGcY7&resources=rsc-577023f86ec601-50966707 HTTP/1.1" 200 271
+2016-06-26 21:51:40,498:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:51:40,511:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:51:41,929:DEBUG:urllib3.connectionpool:"GET /api/2/tools/quote?target_language=fr-fr&source_language=en-us&service=transproof&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16&public_key=CZQPy9XNbzF2rVfnGcY7&resources=rsc-577023f86ec601-50966707 HTTP/1.1" 200 271
+2016-06-26 21:51:42,499:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:51:42,505:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:51:44,004:DEBUG:urllib3.connectionpool:"GET /api/2/tools/quote?target_language=fr-fr&source_language=en-us&service=transcription&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16&public_key=CZQPy9XNbzF2rVfnGcY7&resources=rsc-577023f86ec601-50966707 HTTP/1.1" 200 274
+2016-06-26 21:51:44,500:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:51:44,512:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:51:44,567:DEBUG:urllib3.connectionpool:"GET /api/2/tools/quote?target_language=fr-fr&public_key=CZQPy9XNbzF2rVfnGcY7&resources=rsc-577023f86ec601-50966707&source_language=en-us HTTP/1.1" 200 143
+2016-06-26 21:51:46,499:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:51:46,503:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:51:46,594:DEBUG:urllib3.connectionpool:"GET /api/2/tools/quote?target_language=fr-fr&source_language=en-us&resources=rsc-577023f86ec601-50966707&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16 HTTP/1.1" 200 143
+2016-06-26 21:51:48,501:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:51:48,518:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:51:48,765:DEBUG:urllib3.connectionpool:"GET /api/2/tools/quote?target_language=fr-fr&public_key=CZQPy9XNbzF2rVfnGcY7&wordcount=200&source_language=en-us&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16 HTTP/1.1" 200 168
+2016-06-26 21:51:50,502:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:51:50,518:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:51:50,733:DEBUG:urllib3.connectionpool:"GET /api/2/tools/quote?target_language=fr-fr&expertise=software-it&source_language=en-us&wordcount=200&public_key=CZQPy9XNbzF2rVfnGcY7&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16 HTTP/1.1" 200 168
+2016-06-26 21:51:52,501:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:51:52,516:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:51:52,587:DEBUG:urllib3.connectionpool:"GET /api/2/tools/quote?target_language=fr-fr&public_key=CZQPy9XNbzF2rVfnGcY7&source_language=en-us&wordcount=200 HTTP/1.1" 200 143
+2016-06-26 21:51:54,502:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:51:54,519:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:51:54,611:DEBUG:urllib3.connectionpool:"GET /api/2/tools/quote?target_language=fr-fr&source_language=en-us&wordcount=200&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16 HTTP/1.1" 200 143
+2016-06-26 21:51:56,504:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:51:56,520:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:51:57,814:DEBUG:urllib3.connectionpool:"GET /api/2/tools/wordcount?public_key=CZQPy9XNbzF2rVfnGcY7&resources=rsc-577023f86ec601-50966707&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16 HTTP/1.1" 200 155
+2016-06-26 21:51:58,503:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:51:58,517:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:52:00,576:DEBUG:urllib3.connectionpool:"GET /api/2/tools/wordcount?public_key=CZQPy9XNbzF2rVfnGcY7&resources=rsc-577023f83da956-39955583&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16 HTTP/1.1" 200 155
+2016-06-26 21:52:00,604:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:52:00,610:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:52:01,853:DEBUG:urllib3.connectionpool:"GET /api/2/tools/wordcount?public_key=CZQPy9XNbzF2rVfnGcY7&resources=rsc-577023f86ec601-50966707&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16 HTTP/1.1" 200 155
+2016-06-26 21:52:02,500:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:52:02,505:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:52:04,737:DEBUG:urllib3.connectionpool:"GET /api/2/tools/wordcount?public_key=CZQPy9XNbzF2rVfnGcY7&resources=rsc-577023f83da956-39955583&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16 HTTP/1.1" 200 155
+2016-06-26 21:52:04,777:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:52:04,782:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:52:04,870:DEBUG:urllib3.connectionpool:"GET /api/2/tools/wordcount?public_key=CZQPy9XNbzF2rVfnGcY7&resources=rsc-577023f86ec601-50966707 HTTP/1.1" 200 143
+2016-06-26 21:52:06,504:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:52:06,516:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:52:06,597:DEBUG:urllib3.connectionpool:"GET /api/2/tools/wordcount?resources=rsc-577023f86ec601-50966707&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16 HTTP/1.1" 200 143
+2016-06-26 21:52:08,502:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:52:08,519:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:52:08,630:DEBUG:urllib3.connectionpool:"POST /api/2/projects/translation HTTP/1.1" 200 91
+2016-06-26 21:52:10,504:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:52:10,518:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:52:10,651:DEBUG:urllib3.connectionpool:"POST /api/2/projects/translation HTTP/1.1" 200 99
+2016-06-26 21:52:12,503:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:52:12,517:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:52:12,630:DEBUG:urllib3.connectionpool:"POST /api/2/projects/translation HTTP/1.1" 200 99
+2016-06-26 21:52:14,503:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:52:14,515:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:52:16,291:DEBUG:urllib3.connectionpool:"POST /api/2/projects/translation HTTP/1.1" 200 106
+2016-06-26 21:52:16,503:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:52:16,524:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:52:18,664:DEBUG:urllib3.connectionpool:"POST /api/2/projects/translation HTTP/1.1" 200 106
+2016-06-26 21:52:18,705:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:52:18,711:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:52:21,856:DEBUG:urllib3.connectionpool:"POST /api/2/projects/translation HTTP/1.1" 200 106
+2016-06-26 21:52:21,894:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:52:21,900:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:52:25,036:DEBUG:urllib3.connectionpool:"POST /api/2/projects/translation HTTP/1.1" 200 106
+2016-06-26 21:52:25,065:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:52:25,073:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:52:26,247:DEBUG:urllib3.connectionpool:"POST /api/2/projects/translation HTTP/1.1" 200 106
+2016-06-26 21:52:26,275:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:52:26,281:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:52:42,881:DEBUG:urllib3.connectionpool:"POST /api/2/projects/translation HTTP/1.1" 200 108
+2016-06-26 21:52:42,923:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:52:42,932:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:52:45,490:DEBUG:urllib3.connectionpool:"POST /api/2/projects/translation HTTP/1.1" 200 106
+2016-06-26 21:52:45,537:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:52:45,544:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:52:48,445:DEBUG:urllib3.connectionpool:"POST /api/2/projects/translation HTTP/1.1" 200 106
+2016-06-26 21:52:48,481:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:52:48,489:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:52:50,929:DEBUG:urllib3.connectionpool:"POST /api/2/projects/translation HTTP/1.1" 200 106
+2016-06-26 21:52:50,952:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:52:50,957:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:52:51,043:DEBUG:urllib3.connectionpool:"POST /api/2/projects/translation HTTP/1.1" 200 143
+2016-06-26 21:52:51,066:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:52:51,078:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:52:51,191:DEBUG:urllib3.connectionpool:"POST /api/2/projects/translation HTTP/1.1" 200 143
+2016-06-26 21:52:51,219:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:52:51,241:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:52:51,349:DEBUG:urllib3.connectionpool:"POST /api/2/projects/proof-general HTTP/1.1" 200 91
+2016-06-26 21:52:51,386:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:52:51,396:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:52:51,523:DEBUG:urllib3.connectionpool:"POST /api/2/projects/proof-general HTTP/1.1" 200 99
+2016-06-26 21:52:51,550:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:52:51,562:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:52:53,747:DEBUG:urllib3.connectionpool:"POST /api/2/projects/proof-general HTTP/1.1" 200 106
+2016-06-26 21:52:53,789:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:52:53,797:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:52:55,823:DEBUG:urllib3.connectionpool:"POST /api/2/projects/proof-general HTTP/1.1" 200 106
+2016-06-26 21:52:55,866:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:52:55,872:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:52:58,459:DEBUG:urllib3.connectionpool:"POST /api/2/projects/proof-general HTTP/1.1" 200 106
+2016-06-26 21:52:58,488:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:52:58,494:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:01,170:DEBUG:urllib3.connectionpool:"POST /api/2/projects/proof-general HTTP/1.1" 200 106
+2016-06-26 21:53:01,206:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:01,217:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:04,060:DEBUG:urllib3.connectionpool:"POST /api/2/projects/proof-general HTTP/1.1" 200 106
+2016-06-26 21:53:04,085:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:04,092:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:05,299:DEBUG:urllib3.connectionpool:"POST /api/2/projects/proof-general HTTP/1.1" 200 106
+2016-06-26 21:53:05,336:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:05,346:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:07,390:DEBUG:urllib3.connectionpool:"POST /api/2/projects/proof-general HTTP/1.1" 200 106
+2016-06-26 21:53:07,419:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:07,426:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:09,262:DEBUG:urllib3.connectionpool:"POST /api/2/projects/proof-general HTTP/1.1" 200 106
+2016-06-26 21:53:09,287:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:09,294:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:09,345:DEBUG:urllib3.connectionpool:"POST /api/2/projects/proof-general HTTP/1.1" 200 143
+2016-06-26 21:53:09,368:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:09,374:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:09,422:DEBUG:urllib3.connectionpool:"POST /api/2/projects/proof-general HTTP/1.1" 200 143
+2016-06-26 21:53:09,446:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:09,452:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:09,553:DEBUG:urllib3.connectionpool:"POST /api/2/projects/proof-translated HTTP/1.1" 200 91
+2016-06-26 21:53:09,587:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:09,597:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:09,956:DEBUG:urllib3.connectionpool:"POST /api/2/projects/proof-translated HTTP/1.1" 200 96
+2016-06-26 21:53:09,997:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:10,004:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:10,085:DEBUG:urllib3.connectionpool:"POST /api/2/projects/proof-translated HTTP/1.1" 200 99
+2016-06-26 21:53:10,124:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:10,130:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:10,193:DEBUG:urllib3.connectionpool:"POST /api/2/projects/proof-translated HTTP/1.1" 200 99
+2016-06-26 21:53:10,222:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:10,229:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:12,885:DEBUG:urllib3.connectionpool:"POST /api/2/projects/proof-translated HTTP/1.1" 200 106
+2016-06-26 21:53:12,926:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:12,933:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:16,240:DEBUG:urllib3.connectionpool:"POST /api/2/projects/proof-translated HTTP/1.1" 200 106
+2016-06-26 21:53:16,299:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:16,305:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:19,376:DEBUG:urllib3.connectionpool:"POST /api/2/projects/proof-translated HTTP/1.1" 200 106
+2016-06-26 21:53:19,402:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:19,413:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:21,612:DEBUG:urllib3.connectionpool:"POST /api/2/projects/proof-translated HTTP/1.1" 200 106
+2016-06-26 21:53:21,639:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:21,643:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:25,166:DEBUG:urllib3.connectionpool:"POST /api/2/projects/proof-translated HTTP/1.1" 200 106
+2016-06-26 21:53:25,202:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:25,207:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:27,310:DEBUG:urllib3.connectionpool:"POST /api/2/projects/proof-translated HTTP/1.1" 200 106
+2016-06-26 21:53:27,346:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:27,352:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:31,556:DEBUG:urllib3.connectionpool:"POST /api/2/projects/proof-translated HTTP/1.1" 200 106
+2016-06-26 21:53:31,588:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:31,595:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:34,847:DEBUG:urllib3.connectionpool:"POST /api/2/projects/proof-translated HTTP/1.1" 200 106
+2016-06-26 21:53:34,911:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:34,926:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:35,037:DEBUG:urllib3.connectionpool:"POST /api/2/projects/proof-translated HTTP/1.1" 200 143
+2016-06-26 21:53:35,134:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:35,139:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:35,271:DEBUG:urllib3.connectionpool:"POST /api/2/projects/proof-translated HTTP/1.1" 200 143
+2016-06-26 21:53:35,317:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:35,322:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:35,474:DEBUG:urllib3.connectionpool:"POST /api/2/projects/transcription HTTP/1.1" 200 91
+2016-06-26 21:53:35,511:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:35,518:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:35,660:DEBUG:urllib3.connectionpool:"POST /api/2/projects/transcription HTTP/1.1" 200 99
+2016-06-26 21:53:35,694:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:35,701:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:37,963:DEBUG:urllib3.connectionpool:"POST /api/2/projects/transcription HTTP/1.1" 200 109
+2016-06-26 21:53:38,029:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:38,035:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:40,501:DEBUG:urllib3.connectionpool:"POST /api/2/projects/transcription HTTP/1.1" 200 109
+2016-06-26 21:53:40,547:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:40,552:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:42,906:DEBUG:urllib3.connectionpool:"POST /api/2/projects/transcription HTTP/1.1" 200 109
+2016-06-26 21:53:42,936:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:42,943:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:43,826:DEBUG:urllib3.connectionpool:"POST /api/2/projects/transcription HTTP/1.1" 200 110
+2016-06-26 21:53:43,865:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:43,871:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:46,575:DEBUG:urllib3.connectionpool:"POST /api/2/projects/transcription HTTP/1.1" 200 109
+2016-06-26 21:53:46,606:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:46,614:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:48,988:DEBUG:urllib3.connectionpool:"POST /api/2/projects/transcription HTTP/1.1" 200 109
+2016-06-26 21:53:49,021:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:49,029:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:49,143:DEBUG:urllib3.connectionpool:"POST /api/2/projects/transcription HTTP/1.1" 200 143
+2016-06-26 21:53:49,180:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:49,189:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:49,312:DEBUG:urllib3.connectionpool:"POST /api/2/projects/transcription HTTP/1.1" 200 143
+2016-06-26 21:53:49,342:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:49,349:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:49,861:DEBUG:urllib3.connectionpool:"GET /api/2/projects/41?public_key=CZQPy9XNbzF2rVfnGcY7&secret_key=c03f6951e5b06ee943ccd2dfd2b61f16 HTTP/1.1" 200 456
+2016-06-26 21:53:50,510:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:50,515:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:50,633:DEBUG:urllib3.connectionpool:"GET /api/2/projects/41?public_key=CZQPy9XNbzF2rVfnGcY7 HTTP/1.1" 200 143
+2016-06-26 21:53:52,510:INFO:urllib3.connectionpool:Starting new HTTPS connection (1): yavengy.vagrant.oht.cc
+2016-06-26 21:53:52,519:DEBUG:urllib3.connectionpool:Setting read timeout to None
+2016-06-26 21:53:52,633:DEBUG:urllib3.connectionpool:"GET /api/2/projects/41?secret_key=c03f6951e5b06ee943ccd2dfd2b61f16 HTTP/1.1" 200 143

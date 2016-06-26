@@ -18,6 +18,7 @@ from doctest import testfile
 #from idlelib.ClassBrowser import file_open
 from PyQt4.Qt import QListWidgetItem
 from PyQt4.QtCore import QThread, SIGNAL
+import logging
 
 class LineExec(QThread):
 
@@ -51,9 +52,9 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         self.fileLoad.clicked.connect(self.file_open)
         self.checkDisplay.clicked.connect(self.check_the_code)
         self.reportBtn.clicked.connect(self.new_report)
-        self.lineEdit.setText('3148b94df4401f595991a14b609c03fd')
-        self.lineEdit_2.setText('WgLVMnBDY3JGKXkdxyfc')
-        self.lineEdit_3.setText('https://oht.vagrant.oht.cc/api/2/')
+        self.lineEdit.setText('c03f6951e5b06ee943ccd2dfd2b61f16')
+        self.lineEdit_2.setText('CZQPy9XNbzF2rVfnGcY7')
+        self.lineEdit_3.setText('https://yavengy.vagrant.oht.cc/api/2/')
         self.loadTxtBtn.clicked.connect(self.open_txt)
         self.loadFileBtn.clicked.connect(self.open_test_files)
 
@@ -229,7 +230,7 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
 
 
     def close_application(self):
-        #popup messegae before exiting
+        # popup messegae before exiting
         choice = QtGui.QMessageBox.question(self, 'Quit', "Quit application?", QtGui.QMessageBox.Yes | QtGui.QMessageBox.No)
 
         if choice == QtGui.QMessageBox.Yes:
@@ -238,7 +239,7 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
             pass
 
     def open_txt(self):
-        #global txtFilePath
+        # global txtFilePath
         txtFile = QtGui.QFileDialog.getOpenFileName(self, 'Open File', "*.txt")
         if (txtFile):
             self.txtFilePath.append(txtFile)
@@ -246,7 +247,7 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
             self.txtFilesList.addItem('%s' % fileName[len(fileName)-1])
 
     def open_test_files(self):
-        #global testFilePath
+        # global testFilePath
         testFile = QtGui.QFileDialog.getOpenFileName(self, 'Open File')
         if (testFile):
             self.testFilePath.append(testFile)
@@ -254,11 +255,39 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
             self.testFilesList.addItem('%s' % fileName[len(fileName)-1])
 
 
+class StreamToLogger(object):
+    """
+    Fake file-like stream object that redirects writes to a logger instance.
+    """
+
+    def __init__(self, logger, log_level=logging.INFO):
+        self.logger = logger
+        self.log_level = log_level
+        self.linebuf = ''
+
+    def write(self, buf):
+        for line in buf.rstrip().splitlines():
+            self.logger.log(self.log_level, line.rstrip())
+
+
+    logging.basicConfig(
+        level=logging.DEBUG,
+        format='%(asctime)s:%(levelname)s:%(name)s:%(message)s',
+        filename="main_log.log",
+        filemode='w')
 
 
 def main():
+    #"""
+    stdout_logger = logging.getLogger('STDOUT')
+    sl = StreamToLogger(stdout_logger, logging.INFO)
+    sys.stdout = sl
+
+    stderr_logger = logging.getLogger('STDERR')
+    sl = StreamToLogger(stderr_logger, logging.ERROR)
+    sys.stderr = sl
+    #"""
     app = QtGui.QApplication(sys.argv)
-    # QCleanlooksStyle
     app.setStyle('cleanlooks')
     form = TestApp()
     form.show()
