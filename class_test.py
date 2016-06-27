@@ -231,7 +231,6 @@ class Response:
                     break
         
         
-        
 """""""""""""""""""""""""""""""""""""""""""""""""""
                     Get Method Class
 
@@ -244,6 +243,8 @@ class GetMethod:
         def __init__(self, data):
             self.testLine = data
             self.rsc_uuid = []
+            with open('./data/languages.json') as codeLines_data:
+                self.langJson = json.load(codeLines_data)
         """""""""""""""""""""""""""""""""
         The get method itself, will get
         everything it needs from the main 
@@ -272,14 +273,26 @@ class GetMethod:
                     payload[self.testLine["params"][payIndex]] = publicKey
 
                 elif 'name' in self.testLine["params"][payIndex]:
-                    if self.testLine["params"][payIndex]['name'] == "language_pair":
-                        with open('./data/languages.json') as codeLines_data:
-                            langJson = json.load(codeLines_data)
 
-                        lang_pair = randint(0, len(langJson)-1)
-                        for source in langJson[lang_pair]:
+                    # Randomly Choosing a language pair out of the initialized on site.
+                    if self.testLine["params"][payIndex]['name'] == "language_pair":
+
+                        lang_pair = randint(0, len(self.langJson)-1)
+                        for source in self.langJson[lang_pair]:
                             payload['source_language'] = source
-                            payload['target_language'] = langJson[lang_pair][source]
+                            payload['target_language'] = self.langJson[lang_pair][source]
+
+                    # Randomly Choosing source language
+                    elif self.testLine["params"][payIndex]['name'] == "source_language":
+                        lang_pair = randint(0, len(self.langJson) - 1)
+                        for source in self.langJson[lang_pair]:
+                            payload['source_language'] = source
+
+                    # Randomly choosing target language.
+                    elif self.testLine["params"][payIndex]['name'] == "target_language":
+                        lang_pair = randint(0, len(self.langJson) - 1)
+                        for source in self.langJson[lang_pair]:
+                            payload['target_language'] = self.langJson[lang_pair][source]
 
                     elif self.testLine["params"][payIndex]['name'] == "resources":
                         self.ex_resource(self.testLine["params"][payIndex], payload, txtFileUUID, uploadFileUUID)
@@ -483,6 +496,8 @@ class PostMethod:
     def __init__(self, data):
         self.testLine = data
         self.rsc_uuid = []
+        with open('./data/languages.json') as codeLines_data:
+            self.langJson = json.load(codeLines_data)
     
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""
     This is the main method, gets the line to execute and 
@@ -504,14 +519,25 @@ class PostMethod:
                 payload[self.testLine["params"][payIndex]] = publicKey
 
             elif 'name' in self.testLine["params"][payIndex]:
-                if self.testLine["params"][payIndex]['name'] == "language_pair":
-                    with open('./data/languages.json') as codeLines_data:
-                        langJson = json.load(codeLines_data)
 
-                    lang_pair = randint(0, len(langJson) - 1)
-                    for source in langJson[lang_pair]:
+                # Randomly Choosing a language pair out of the initialized on site.
+                if self.testLine["params"][payIndex]['name'] == "language_pair":
+                    lang_pair = randint(0, len(self.langJson) - 1)
+                    for source in self.langJson[lang_pair]:
                         payload['source_language'] = source
-                        payload['target_language'] = langJson[lang_pair][source]
+                        payload['target_language'] = self.langJson[lang_pair][source]
+
+                # Randomly Choosing source language
+                elif self.testLine["params"][payIndex]['name'] == "source_language":
+                    lang_pair = randint(0, len(self.langJson) - 1)
+                    for source in self.langJson[lang_pair]:
+                        payload['source_language'] = source
+
+                # Randomly choosing target language.
+                elif self.testLine["params"][payIndex]['name'] == "target_language":
+                    lang_pair = randint(0, len(self.langJson) - 1)
+                    for source in self.langJson[lang_pair]:
+                        payload['target_language'] = self.langJson[lang_pair][source]
 
                 # Text upload
                 elif self.testLine["params"][payIndex]["name"] == "textrsc":
