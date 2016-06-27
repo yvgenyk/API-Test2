@@ -359,7 +359,7 @@ class GetMethod:
                         #Comparing the files names - downloaded vs uploaded.
                         fileName = testFilePath[0].split('/')
 
-                        if os.path.exists("Downloads/" + fileName[len(fileName) - 1]):
+                        if os.path.exists(fileName[len(fileName) - 1]):
                             reportLine.mark_green()
                         else:
                             reportLine.mark_red()

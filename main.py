@@ -6,6 +6,8 @@ import new_line_design
 import requests
 import re
 import os
+from os import listdir
+from os.path import isfile, join
 import shutil
 import json
 import time
@@ -52,11 +54,12 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         self.fileLoad.clicked.connect(self.file_open)
         self.checkDisplay.clicked.connect(self.check_the_code)
         self.reportBtn.clicked.connect(self.new_report)
-        self.lineEdit.setText('c03f6951e5b06ee943ccd2dfd2b61f16')
-        self.lineEdit_2.setText('CZQPy9XNbzF2rVfnGcY7')
-        self.lineEdit_3.setText('https://yavengy.vagrant.oht.cc/api/2/')
+        self.lineEdit.setText('aefb54a42428cfc28b5938145444d02c')
+        self.lineEdit_2.setText('cDThvkzHP36nVGRZ8qp9')
+        self.lineEdit_3.setText('https://oht.vagrant.oht.cc/api/2/')
         self.loadTxtBtn.clicked.connect(self.open_txt)
         self.loadFileBtn.clicked.connect(self.open_test_files)
+        self.read_files()
 
         self.tableWidget.setColumnCount(2)
         self.tableWidget.setColumnWidth(0, 400)
@@ -239,20 +242,33 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
             pass
 
     def open_txt(self):
-        # global txtFilePath
         txtFile = QtGui.QFileDialog.getOpenFileName(self, 'Open File', "*.txt")
         if (txtFile):
             self.txtFilePath.append(txtFile)
+            print(str(self.txtFilePath))
             fileName = txtFile.split('/')
             self.txtFilesList.addItem('%s' % fileName[len(fileName)-1])
 
     def open_test_files(self):
-        # global testFilePath
         testFile = QtGui.QFileDialog.getOpenFileName(self, 'Open File')
         if (testFile):
             self.testFilePath.append(testFile)
             fileName = testFile.split('/')
             self.testFilesList.addItem('%s' % fileName[len(fileName)-1])
+
+    def read_files(self):
+        files = os.listdir("./Text_Files/")
+        for file in files:
+            path = os.path.abspath("Text_Files")
+            self.txtFilePath.append(path + "/"  + file)
+            self.txtFilesList.addItem(file)
+
+        files = os.listdir("./Other_Files/")
+        for file in files:
+            path = os.path.abspath("Other_Files")
+            self.testFilePath.append(os.path.abspath(path + "/" + file))
+            self.testFilesList.addItem(file)
+
 
 
 class StreamToLogger(object):
@@ -274,11 +290,11 @@ class StreamToLogger(object):
         level=logging.DEBUG,
         format='%(asctime)s:%(levelname)s:%(name)s:%(message)s',
         filename="main_log.log",
-        filemode='w')
+        filemode='w+')
 
 
 def main():
-    #"""
+    # """ Logging - commented off, else On
     stdout_logger = logging.getLogger('STDOUT')
     sl = StreamToLogger(stdout_logger, logging.INFO)
     sys.stdout = sl
@@ -286,12 +302,13 @@ def main():
     stderr_logger = logging.getLogger('STDERR')
     sl = StreamToLogger(stderr_logger, logging.ERROR)
     sys.stderr = sl
-    #"""
+    # """
     app = QtGui.QApplication(sys.argv)
     app.setStyle('cleanlooks')
     form = TestApp()
     form.show()
     app.exec_()
-
+    sys.stdout = sys.__stdout__
+    sys.stderr = sys.__stderr__
 if __name__ == '__main__':
     main()
