@@ -2,6 +2,10 @@ from PyQt4 import QtGui, QtCore
 import json_creator_design
 from new_line import NewLine
 
+"""
+This class is handling all the low level json files editing.
+"""
+
 
 class JsonCreator(QtGui.QMainWindow, json_creator_design.Ui_JsonCreator):
     def __init__(self, testFile, parent=None):

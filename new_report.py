@@ -1,6 +1,13 @@
 from PyQt4 import QtGui
 import json
 
+"""
+This class is handling all the report methods.
+- Print line to the main screen.
+- Add color to the line on main screen.
+- Saving all the data sent or recieved to/from the sites API.
+"""
+
 
 class Report:
 
@@ -10,7 +17,11 @@ class Report:
         self.status = status
         self.rows = self.tableWidget.rowCount()
         self.color = "None"
-
+    """
+    Printing the line to the main table.
+    This is critical. without the print the row won't be painted
+    and there will be an exception.
+    """
     def print_line(self):
         self.tableWidget.insertRow(self.rows)
         self.tableWidget.setItem(self.rows, 0, QtGui.QTableWidgetItem(self.title))
@@ -40,7 +51,11 @@ class Report:
 
     def get_color(self):
         return self.color
-
+    """
+    This method will add lines to the test_report.json which is
+    a sort of logging. After the test is finished the user can see each and every
+    executed lines status, payload, sent url and response.
+    """
     def report_line(self, sentURL, response, payload, filePayload):
         with open('./report/test_report.json') as codeLines_data:
             mainJson = json.load(codeLines_data)
@@ -50,7 +65,9 @@ class Report:
             mainJson.append(entry)
             json.dump(mainJson, outfile)
             print("Test report Lines: " + str(len(mainJson)) + "\n")
-
+    """
+    This will add all the checked parameters to test_report.json
+    """
     def report_line_check(self, check, checkFound, name):
 
         with open('./report/test_report.json') as codeLines_data:
@@ -63,7 +80,10 @@ class Report:
             else:
                 mainJson[len(mainJson) - 1]["check"][name] = {check: checkFound}
             json.dump(mainJson, outfile)
-
+    """
+    Finally adding the find parameters which were, if they were searched and found
+    or not. This too is added to test_report.json
+    """
     def report_line_find(self, find):
         with open('./report/test_report.json') as codeLines_data:
             mainJson = json.load(codeLines_data)

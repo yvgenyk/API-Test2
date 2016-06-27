@@ -229,7 +229,7 @@ class Response:
                         reportLine.report_line_check(valueToCheck, str(resJson),
                                                      splitVarToCheck[len(splitVarToCheck) - 1])
                     break
-        
+
         
 """""""""""""""""""""""""""""""""""""""""""""""""""
                     Get Method Class
