@@ -54,9 +54,11 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         self.fileLoad.clicked.connect(self.file_open)
         self.checkDisplay.clicked.connect(self.check_the_code)
         self.reportBtn.clicked.connect(self.new_report)
-        self.lineEdit.setText('aefb54a42428cfc28b5938145444d02c')
-        self.lineEdit_2.setText('cDThvkzHP36nVGRZ8qp9')
-        self.lineEdit_3.setText('https://oht.vagrant.oht.cc/api/2/')
+        with open('./data/setup.json') as codeLines_data:
+            self.setupJson = json.load(codeLines_data)
+        self.lineEdit.setText(self.setupJson[0]['secret_key'])
+        self.lineEdit_2.setText(self.setupJson[1]['public_key'])
+        self.lineEdit_3.setText(self.setupJson[3]['https'])
         self.loadTxtBtn.clicked.connect(self.open_txt)
         self.loadFileBtn.clicked.connect(self.open_test_files)
         self.read_files()
@@ -99,6 +101,12 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
 
         with open('./data/words_prices.json', "w") as new:
             json.dump([], new)
+
+        with open('./data/setup.json', 'w+') as outfile:
+            self.setupJson[0]['secret_key'] = self.lineEdit.text()
+            self.setupJson[1]['public_key'] = self.lineEdit_2.text()
+            self.setupJson[3]['https'] = self.lineEdit_3.text()
+            json.dump(self.setupJson, outfile)
 
         startFlag = 0
 
