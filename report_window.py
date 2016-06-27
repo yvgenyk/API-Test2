@@ -35,7 +35,10 @@ class ViewReport(QtGui.QMainWindow, new_report_design.Ui_Form):
             if param == 'text':
                 text += (param + " : \"" + reportJson[row]['payload'][param][:50] + "...\"\n")
             else:
-                text += (param + " : " + reportJson[row]['payload'][param] + "\n")
+                if param == '':
+                    pass
+                else:
+                    text += (param + " : " + reportJson[row]['payload'][param] + "\n")
 
         self.payloadLable.setText(text)
 

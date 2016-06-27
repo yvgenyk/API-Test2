@@ -6,19 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1165</width>
+    <width>1170</width>
     <height>640</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>1165</width>
+    <width>1170</width>
     <height>640</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>1165</width>
+    <width>1170</width>
     <height>640</height>
    </size>
   </property>
@@ -37,7 +37,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1159</width>
+     <width>1169</width>
      <height>640</height>
     </rect>
    </property>
@@ -665,13 +665,13 @@ color: rgb(204,204,204);</string>
          <widget class="QLineEdit" name="methodDisplay">
           <property name="minimumSize">
            <size>
-            <width>460</width>
+            <width>470</width>
             <height>30</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>460</width>
+            <width>470</width>
             <height>30</height>
            </size>
           </property>
@@ -727,13 +727,13 @@ border-radius: 5px;</string>
          <widget class="QLineEdit" name="addressDisplay">
           <property name="minimumSize">
            <size>
-            <width>460</width>
+            <width>470</width>
             <height>30</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>460</width>
+            <width>470</width>
             <height>30</height>
            </size>
           </property>
@@ -789,13 +789,13 @@ border-radius: 5px;</string>
          <widget class="QLineEdit" name="titleDisplay">
           <property name="minimumSize">
            <size>
-            <width>460</width>
+            <width>470</width>
             <height>30</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>460</width>
+            <width>470</width>
             <height>30</height>
            </size>
           </property>
@@ -885,13 +885,13 @@ border-radius: 5px;</string>
            <widget class="QLabel" name="label_11">
             <property name="minimumSize">
              <size>
-              <width>20</width>
+              <width>25</width>
               <height>20</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>20</width>
+              <width>25</width>
               <height>20</height>
              </size>
             </property>
@@ -985,13 +985,13 @@ border-radius: 5px;</string>
            <widget class="QLabel" name="label_12">
             <property name="minimumSize">
              <size>
-              <width>20</width>
+              <width>25</width>
               <height>20</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>20</width>
+              <width>25</width>
               <height>20</height>
              </size>
             </property>
@@ -1082,13 +1082,13 @@ border-radius: 5px;</string>
            <widget class="QLabel" name="label_13">
             <property name="minimumSize">
              <size>
-              <width>20</width>
+              <width>25</width>
               <height>20</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>20</width>
+              <width>25</width>
               <height>20</height>
              </size>
             </property>
@@ -1182,13 +1182,13 @@ border-radius: 5px;</string>
            <widget class="QLabel" name="label_14">
             <property name="minimumSize">
              <size>
-              <width>20</width>
+              <width>25</width>
               <height>20</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>20</width>
+              <width>25</width>
               <height>20</height>
              </size>
             </property>
@@ -1279,13 +1279,13 @@ border-radius: 5px;</string>
            <widget class="QLabel" name="label_15">
             <property name="minimumSize">
              <size>
-              <width>20</width>
+              <width>25</width>
               <height>20</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>20</width>
+              <width>25</width>
               <height>20</height>
              </size>
             </property>
@@ -1379,13 +1379,13 @@ border-radius: 5px;</string>
            <widget class="QLabel" name="label_16">
             <property name="minimumSize">
              <size>
-              <width>20</width>
+              <width>25</width>
               <height>20</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>20</width>
+              <width>25</width>
               <height>20</height>
              </size>
             </property>
@@ -1476,13 +1476,13 @@ border-radius: 5px;</string>
            <widget class="QLabel" name="label_17">
             <property name="minimumSize">
              <size>
-              <width>20</width>
+              <width>25</width>
               <height>20</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>20</width>
+              <width>25</width>
               <height>20</height>
              </size>
             </property>
@@ -1576,13 +1576,13 @@ border-radius: 5px;</string>
            <widget class="QLabel" name="label_18">
             <property name="minimumSize">
              <size>
-              <width>20</width>
+              <width>25</width>
               <height>20</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>20</width>
+              <width>25</width>
               <height>20</height>
              </size>
             </property>
@@ -1673,13 +1673,13 @@ border-radius: 5px;</string>
            <widget class="QLabel" name="label_9">
             <property name="minimumSize">
              <size>
-              <width>20</width>
+              <width>25</width>
               <height>20</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>20</width>
+              <width>25</width>
               <height>20</height>
              </size>
             </property>
@@ -1773,13 +1773,13 @@ border-radius: 5px;</string>
            <widget class="QLabel" name="label_10">
             <property name="minimumSize">
              <size>
-              <width>20</width>
+              <width>25</width>
               <height>20</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>20</width>
+              <width>25</width>
               <height>20</height>
              </size>
             </property>
@@ -1930,13 +1930,13 @@ border-radius: 5px;</string>
          <widget class="QLabel" name="label_20">
           <property name="minimumSize">
            <size>
-            <width>20</width>
+            <width>25</width>
             <height>20</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>20</width>
+            <width>25</width>
             <height>20</height>
            </size>
           </property>
@@ -2023,13 +2023,13 @@ border-radius: 5px;</string>
          <widget class="QLabel" name="label_24">
           <property name="minimumSize">
            <size>
-            <width>20</width>
+            <width>25</width>
             <height>20</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>20</width>
+            <width>25</width>
             <height>20</height>
            </size>
           </property>
@@ -2116,13 +2116,13 @@ border-radius: 5px;</string>
          <widget class="QLabel" name="label_22">
           <property name="minimumSize">
            <size>
-            <width>20</width>
+            <width>25</width>
             <height>20</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>20</width>
+            <width>25</width>
             <height>20</height>
            </size>
           </property>
@@ -2209,13 +2209,13 @@ border-radius: 5px;</string>
          <widget class="QLabel" name="label_21">
           <property name="minimumSize">
            <size>
-            <width>20</width>
+            <width>25</width>
             <height>20</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>20</width>
+            <width>25</width>
             <height>20</height>
            </size>
           </property>
@@ -2302,13 +2302,13 @@ border-radius: 5px;</string>
          <widget class="QLabel" name="label_25">
           <property name="minimumSize">
            <size>
-            <width>20</width>
+            <width>25</width>
             <height>20</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>20</width>
+            <width>25</width>
             <height>20</height>
            </size>
           </property>
@@ -2395,13 +2395,13 @@ border-radius: 5px;</string>
          <widget class="QLabel" name="label_23">
           <property name="minimumSize">
            <size>
-            <width>20</width>
+            <width>25</width>
             <height>20</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>20</width>
+            <width>25</width>
             <height>20</height>
            </size>
           </property>
@@ -2474,13 +2474,13 @@ border-radius: 5px;</string>
          <widget class="QLineEdit" name="find_1">
           <property name="minimumSize">
            <size>
-            <width>560</width>
+            <width>570</width>
             <height>20</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>560</width>
+            <width>570</width>
             <height>20</height>
            </size>
           </property>
@@ -2505,13 +2505,13 @@ border-radius: 5px;</string>
          <widget class="QLineEdit" name="find_2">
           <property name="minimumSize">
            <size>
-            <width>560</width>
+            <width>570</width>
             <height>20</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>560</width>
+            <width>570</width>
             <height>20</height>
            </size>
           </property>
@@ -2536,13 +2536,13 @@ border-radius: 5px;</string>
          <widget class="QLineEdit" name="find_3">
           <property name="minimumSize">
            <size>
-            <width>560</width>
+            <width>570</width>
             <height>20</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>560</width>
+            <width>570</width>
             <height>20</height>
            </size>
           </property>

@@ -4,6 +4,7 @@ import requests
 import os
 from new_report import Report
 import json
+from random import randint
 import time
 import re
 from resource_class import Resource
@@ -117,11 +118,22 @@ class Response:
 
                 valueToCheck = prevPayload[0][splitVarToCheck[len(splitVarToCheck)-1]]
 
-                """""""""""""""""""""""""""""""""""""""""""""
-                If there is no need for prev payload,
-                the value checked is provided in the
-                parameters.
-                """""""""""""""""""""""""""""""""""""""""""""
+            elif varToCheck == 'save-languages':
+                with open('./data/languages.json') as codeLines_data:
+                    langJson = json.load(codeLines_data)
+
+                with open('./data/languages.json', 'w') as outfile:
+                    for results in self.getJson()['results']:
+                        for target in results['targets']:
+                            langJson.append({results['source']['code'] : target['code']})
+                    json.dump(langJson, outfile)
+
+                break
+
+                # If there is no need for prev payload,
+                # the value checked is provided in the
+                # parameters.
+
             else:
                 valueToCheck = data['value'][valIndex]
 
@@ -237,7 +249,8 @@ class GetMethod:
         everything it needs from the main 
         class and execute the request. 
         """""""""""""""""""""""""""""""""
-        def get_method(self, secretKey, publicKey, httpAddress, prevResponse, prevPayload, tableWidget, testFilePath, uploadFileUUID, txtFileUUID):
+        def get_method(self, secretKey, publicKey, httpAddress, prevResponse, prevPayload, tableWidget, testFilePath,
+                       uploadFileUUID, txtFileUUID):
 
             uuidToAddress = 0
             payload = dict()
@@ -258,13 +271,23 @@ class GetMethod:
                 elif self.testLine["params"][payIndex] == "public_key":
                     payload[self.testLine["params"][payIndex]] = publicKey
 
+                elif 'name' in self.testLine["params"][payIndex]:
+                    if self.testLine["params"][payIndex]['name'] == "language_pair":
+                        with open('./data/languages.json') as codeLines_data:
+                            langJson = json.load(codeLines_data)
+
+                        lang_pair = randint(0, len(langJson)-1)
+                        for source in langJson[lang_pair]:
+                            payload['source_language'] = source
+                            payload['target_language'] = langJson[lang_pair][source]
+
+                    elif self.testLine["params"][payIndex]['name'] == "resources":
+                        self.ex_resource(self.testLine["params"][payIndex], payload, txtFileUUID, uploadFileUUID)
+                    else:
+                        payload[self.testLine["params"][payIndex]['name']] = self.testLine["params"][payIndex]['value']
+
                 elif self.testLine["params"][payIndex] == "No Secret Key" or self.testLine["params"][payIndex] == "No Public Key":
                     noKeysFlag = True
-
-                elif self.testLine["params"][payIndex]['name'] == "resources":
-                    self.ex_resource(self.testLine["params"][payIndex], payload, txtFileUUID, uploadFileUUID)
-                else:
-                    payload[self.testLine["params"][payIndex]['name']] = self.testLine["params"][payIndex]['value']
 
             """""""""""""""""""""""""""""""""""""""""
             If an input from earlier request is 
@@ -354,9 +377,9 @@ class GetMethod:
                         # If no such file found an error is raised.
                         else:
                             reportLine.mark_red()
-                    #File check
+                    # File check
                     else:
-                        #Comparing the files names - downloaded vs uploaded.
+                        # Comparing the files names - downloaded vs uploaded.
                         fileName = testFilePath[0].split('/')
 
                         if os.path.exists(fileName[len(fileName) - 1]):
@@ -478,24 +501,34 @@ class PostMethod:
                 payload[self.testLine["params"][payIndex]] = secretKey
                             
             elif self.testLine["params"][payIndex] == "public_key":
-                payload[self.testLine["params"][payIndex]] = publicKey  
+                payload[self.testLine["params"][payIndex]] = publicKey
+
+            elif 'name' in self.testLine["params"][payIndex]:
+                if self.testLine["params"][payIndex]['name'] == "language_pair":
+                    with open('./data/languages.json') as codeLines_data:
+                        langJson = json.load(codeLines_data)
+
+                    lang_pair = randint(0, len(langJson) - 1)
+                    for source in langJson[lang_pair]:
+                        payload['source_language'] = source
+                        payload['target_language'] = langJson[lang_pair][source]
+
+                # Text upload
+                elif self.testLine["params"][payIndex]["name"] == "textrsc":
+                    self.text_upload(httpAddress, payIndex, payload, txtFilePath, prevResponse, prevPayload, txtFileUUID,
+                                     uploadedrscFlag, firstResourcesUpload, tableWidget)
                 
-            #Text upload  
-            elif self.testLine["params"][payIndex]["name"] == "textrsc":  
-                self.text_upload(httpAddress, payIndex, payload, txtFilePath, prevResponse, prevPayload, txtFileUUID,
-                                 uploadedrscFlag, firstResourcesUpload, tableWidget)
+                # File upload
+                elif self.testLine["params"][payIndex]["name"] == "filersc":
+                    self.file_upload(httpAddress, payload, payIndex, testFilePath, prevResponse, prevPayload,
+                                     uploadFileUUID, uploadedrscFlag, firstResourcesUpload, tableWidget)
                 
-            #File upload  
-            elif self.testLine["params"][payIndex]["name"] == "filersc": 
-                self.file_upload(httpAddress, payload, payIndex, testFilePath, prevResponse, prevPayload,
-                                 uploadFileUUID, uploadedrscFlag, firstResourcesUpload, tableWidget)
+                # Use existing resources
+                elif self.testLine["params"][payIndex]["name"] == "sources" or self.testLine["params"][payIndex]["name"] == "translations":
+                    self.ex_resource(self.testLine["params"][payIndex], payload, txtFileUUID, uploadFileUUID)
                 
-            #Use existing resources    
-            elif self.testLine["params"][payIndex]["name"] == "sources" or self.testLine["params"][payIndex]["name"] == "translations":
-                self.ex_resource(self.testLine["params"][payIndex], payload, txtFileUUID, uploadFileUUID)
-                
-            else:
-                payload[self.testLine["params"][payIndex]["name"]] = self.testLine["params"][payIndex]["value"]
+                else:
+                    payload[self.testLine["params"][payIndex]["name"]] = self.testLine["params"][payIndex]["value"]
                 
                         
         if uploadedrscFlag[0] == False:        

@@ -60,6 +60,8 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         self.loadTxtBtn.clicked.connect(self.open_txt)
         self.loadFileBtn.clicked.connect(self.open_test_files)
         self.read_files()
+        self.delTextFile.clicked.connect(self.del_txt)
+        self.delFile.clicked.connect(self.del_file)
 
         self.tableWidget.setColumnCount(2)
         self.tableWidget.setColumnWidth(0, 400)
@@ -90,6 +92,9 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
             self.tableWidget.removeRow(0)
 
         with open('./report/test_report.json', "w") as new:
+            json.dump([], new)
+
+        with open('./data/languages.json', "w") as new:
             json.dump([], new)
 
         with open('./data/words_prices.json', "w") as new:
@@ -123,14 +128,22 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
                     pass
             else:
 
-                with open('firstUpload.json') as codeLines_data:
+                with open('./data/firstUpload.json') as codeLines_data:
                     firstUpload = json.load(codeLines_data)
 
                 for firstU in firstUpload["data"]:
+                    if str.lower(firstU["method"]) == 'post':
+                        checkLine = PostMethod(firstU)
+                        checkLine.post_method(self.secretKey, self.publicKey, self.httpAddress, self.txtFilePath,
+                                              self.txtFileUUID, self.testFilePath, self.uploadFileUUID,
+                                              self.prevResponse, self.prevPayload, self.tableWidget,
+                                              self.firstResourcesUpload)
 
-                    checkLine = PostMethod(firstU)
-                    checkLine.post_method(self.secretKey, self.publicKey, self.httpAddress, self.txtFilePath, self.txtFileUUID, self.testFilePath,
-                                          self.uploadFileUUID, self.prevResponse, self.prevPayload, self.tableWidget, self.firstResourcesUpload)
+                    elif str.lower(firstU["method"]) == 'get':
+                        checkLine = GetMethod(firstU)
+                        checkLine.get_method(self.secretKey, self.publicKey, self.httpAddress, self.prevResponse,
+                                             self.prevPayload, self.tableWidget, self.testFilePath, self.uploadFileUUID,
+                                             self.txtFileUUID)
 
                 self.firstResourcesUpload[0] = True
 
@@ -260,7 +273,7 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         files = os.listdir("./Text_Files/")
         for file in files:
             path = os.path.abspath("Text_Files")
-            self.txtFilePath.append(path + "/"  + file)
+            self.txtFilePath.append(path + "/" + file)
             self.txtFilesList.addItem(file)
 
         files = os.listdir("./Other_Files/")
@@ -269,7 +282,21 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
             self.testFilePath.append(os.path.abspath(path + "/" + file))
             self.testFilesList.addItem(file)
 
+    def del_txt(self):
+        row = self.txtFilesList.currentRow()
+        if row >= 0 and row < len(self.txtFilePath):
+            self.txtFilesList.takeItem(self.txtFilesList.currentRow())
+            self.txtFilePath.remove(self.txtFilePath[row])
+        else:
+            pass
 
+    def del_file(self):
+        row = self.testFilesList.currentRow()
+        if row >= 0 and row < len(self.testFilePath):
+            self.testFilesList.takeItem(self.testFilesList.currentRow())
+            self.testFilePath.remove(self.testFilePath[row])
+        else:
+            pass
 
 class StreamToLogger(object):
     """
@@ -294,7 +321,7 @@ class StreamToLogger(object):
 
 
 def main():
-    # """ Logging - commented off, else On
+    """ Logging - commented off, else On
     stdout_logger = logging.getLogger('STDOUT')
     sl = StreamToLogger(stdout_logger, logging.INFO)
     sys.stdout = sl
@@ -302,7 +329,7 @@ def main():
     stderr_logger = logging.getLogger('STDERR')
     sl = StreamToLogger(stderr_logger, logging.ERROR)
     sys.stderr = sl
-    # """
+    """
     app = QtGui.QApplication(sys.argv)
     app.setStyle('cleanlooks')
     form = TestApp()
