@@ -79,24 +79,24 @@ class Response:
     Find method, if there is a request to find something 
     in the response, this method will find it.
     """""""""""""""""""""""""""""""""""""""""""""""""""""
-    def find(self,data, reportLine):
+    def find(self,data, reportLine, errorNumber):
         for findIndex in range(len(data['find'])):
             if data['find'][findIndex] in self.getText() and reportLine.get_color() != "red":
                 reportLine.mark_green()
                 reportLine.report_line_find(data['find'][findIndex])
             else:
                 if len(self.getText()) > 500:
-                    reportLine.mark_red()
+                    reportLine.mark_red(errorNumber)
                     reportLine.report_line_find(data['find'][findIndex])
                 else:
-                    reportLine.mark_red()
+                    reportLine.mark_red(errorNumber)
                     reportLine.report_line_find(data['find'][findIndex])
         
     """""""""""""""""""""""""""""""""""""""""""""""""""""
     Check method, if there is certain values to check 
     in the response, this method will check them.
     """""""""""""""""""""""""""""""""""""""""""""""""""""
-    def check_value(self, data, reportLine, prevPayload, rsc_uuid):
+    def check_value(self, data, reportLine, prevPayload, rsc_uuid, errorNumber):
 
         with open('./data/words_prices.json') as codeLines_data:
             dataJson = json.load(codeLines_data)
@@ -153,7 +153,7 @@ class Response:
                     reportLine.mark_green()
                     reportLine.report_line_check(valueToCheck, str(resJson), splitVarToCheck[len(splitVarToCheck) - 1])
                 else:
-                    reportLine.mark_red()
+                    reportLine.mark_red(errorNumber)
                     reportLine.report_line_check(valueToCheck, str(resJson), splitVarToCheck[len(splitVarToCheck) - 1])
                     break
 
@@ -173,7 +173,7 @@ class Response:
                     reportLine.mark_green()
                     reportLine.report_line_check(total_words, str(resJson), splitVarToCheck[len(splitVarToCheck) - 1])
                 else:
-                    reportLine.mark_red()
+                    reportLine.mark_red(errorNumber)
                     reportLine.report_line_check(total_words, str(resJson), splitVarToCheck[len(splitVarToCheck) - 1])
                     break
 
@@ -205,7 +205,7 @@ class Response:
                     reportLine.report_line_check(total_price, str(resJson),
                                                  splitVarToCheck[len(splitVarToCheck) - 1])
                 else:
-                    reportLine.mark_red()
+                    reportLine.mark_red(errorNumber)
                     reportLine.report_line_check(total_price, str(resJson),
                                                  splitVarToCheck[len(splitVarToCheck) - 1])
                 break
@@ -221,7 +221,7 @@ class Response:
                         reportLine.report_line_check(valueToCheck, str(resJson),
                                                      splitVarToCheck[len(splitVarToCheck) - 1])
                 else:
-                    reportLine.mark_red()
+                    reportLine.mark_red(errorNumber)
                     if splitVarToCheck[len(splitVarToCheck) - 1][0] == "#":
                         reportLine.report_line_check(valueToCheck, str(resJson),
                                                      splitVarToCheck[len(splitVarToCheck) - 2])
@@ -251,7 +251,7 @@ class GetMethod:
         class and execute the request. 
         """""""""""""""""""""""""""""""""
         def get_method(self, secretKey, publicKey, httpAddress, prevResponse, prevPayload, tableWidget, testFilePath,
-                       uploadFileUUID, txtFileUUID):
+                       uploadFileUUID, txtFileUUID, errorNumber):
 
             uuidToAddress = 0
             payload = dict()
@@ -342,7 +342,7 @@ class GetMethod:
                 print("Payload: " + str(payload))
                 res.report_line(reportLine)
                 if res.getStatus() != 200:
-                    reportLine.mark_red()
+                    reportLine.mark_red(errorNumber)
 
                 """""""""""""""""""""""""""""""""""""""""
                 Download method for both files and text.
@@ -360,7 +360,7 @@ class GetMethod:
                 print("Payload: " + str(payload))
                 reportLine.print_line()
                 if res.getStatus() != 200:
-                    reportLine.mark_red()
+                    reportLine.mark_red(errorNumber)
                 else:
                     reportLine.mark_yellow()
 
@@ -389,7 +389,7 @@ class GetMethod:
 
                         # If no such file found an error is raised.
                         else:
-                            reportLine.mark_red()
+                            reportLine.mark_red(errorNumber)
                     # File check
                     else:
                         # Comparing the files names - downloaded vs uploaded.
@@ -398,11 +398,11 @@ class GetMethod:
                         if os.path.exists(fileName[len(fileName) - 1]):
                             reportLine.mark_green()
                         else:
-                            reportLine.mark_red()
+                            reportLine.mark_red(errorNumber)
 
                 else:
                     if len(self.testLine['check']) >= 1 and res.getStatus() != 500:
-                        res.check_value(self.testLine, reportLine, prevPayload, self.rsc_uuid)
+                        res.check_value(self.testLine, reportLine, prevPayload, self.rsc_uuid, errorNumber)
 
                 return
             else:
@@ -412,7 +412,7 @@ class GetMethod:
                 print("Payload: " + str(payload))
                 res.report_line(reportLine)
                 if res.getStatus() != 200:
-                    reportLine.mark_red()
+                    reportLine.mark_red(errorNumber)
             """""""""""""""""""""""""""""""""""""""""""""""
             If the save option is checked, will save the
             response and the request of the current request
@@ -430,18 +430,18 @@ class GetMethod:
                     if res.getStatus() == 200:
                         break
                     else:
-                        reportLine.mark_red()
+                        reportLine.mark_red(errorNumber)
                     
             if res.getStatus() == 200:
                 if len(self.testLine['find']) >= 1:
-                    res.find(self.testLine, reportLine)
+                    res.find(self.testLine, reportLine, errorNumber)
                 
                 if len(self.testLine['check']) >= 1:
-                    res.check_value(self.testLine, reportLine, prevPayload,self.rsc_uuid)
+                    res.check_value(self.testLine, reportLine, prevPayload,self.rsc_uuid, errorNumber)
                     
             else:
                 reportLine.print_line()
-                reportLine.mark_red()
+                reportLine.mark_red(errorNumber)
 
         """""""""""""""""""""""""""""""""""""""""""""""""""""""""
          This method is for requests that need resource UUID to
@@ -504,7 +504,7 @@ class PostMethod:
     sort between the types of requests.
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""
     def post_method(self, secretKey, publicKey, httpAddress, txtFilePath, txtFileUUID, testFilePath, uploadFileUUID,
-                    prevResponse, prevPayload, tableWidget, firstResourcesUpload):
+                    prevResponse, prevPayload, tableWidget, firstResourcesUpload, errorNumber):
         payload = dict()
         uploadedrscFlag = [False]
         for payIndex in range(len(self.testLine['params'])):
@@ -542,12 +542,12 @@ class PostMethod:
                 # Text upload
                 elif self.testLine["params"][payIndex]["name"] == "textrsc":
                     self.text_upload(httpAddress, payIndex, payload, txtFilePath, prevResponse, prevPayload, txtFileUUID,
-                                     uploadedrscFlag, firstResourcesUpload, tableWidget)
+                                     uploadedrscFlag, firstResourcesUpload, tableWidget, errorNumber)
                 
                 # File upload
                 elif self.testLine["params"][payIndex]["name"] == "filersc":
                     self.file_upload(httpAddress, payload, payIndex, testFilePath, prevResponse, prevPayload,
-                                     uploadFileUUID, uploadedrscFlag, firstResourcesUpload, tableWidget)
+                                     uploadFileUUID, uploadedrscFlag, firstResourcesUpload, tableWidget, errorNumber)
                 
                 # Use existing resources
                 elif self.testLine["params"][payIndex]["name"] == "sources" or self.testLine["params"][payIndex]["name"] == "translations":
@@ -564,7 +564,7 @@ class PostMethod:
             print("Payload: " + str(payload))
             res.report_line(reportLine)
             if res.getStatus() != 200:
-                reportLine.mark_red()
+                reportLine.mark_red(errorNumber)
                 
             if self.testLine["save"] == '1':
                 prevResponse[0] = res.getJson()
@@ -580,23 +580,23 @@ class PostMethod:
                     if res.getStatus() == 200:
                         break
                     else:
-                        reportLine.mark_red()
+                        reportLine.mark_red(errorNumber)
                         
             if res.getStatus() == 200:
                 if len(self.testLine['find']) >= 1:
-                    res.find(self.testLine, reportLine)
+                    res.find(self.testLine, reportLine, errorNumber)
 
                 if len(self.testLine['check']) >= 1:
-                    res.check_value(self.testLine, reportLine, prevPayload, self.rsc_uuid)
+                    res.check_value(self.testLine, reportLine, prevPayload, self.rsc_uuid, errorNumber)
             else:
                     reportLine.print_line()
-                    reportLine.mark_red()
+                    reportLine.mark_red(errorNumber)
 
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""
       This method will upload a text resource from file.
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""    
     def text_upload(self, httpAddress, payIndex, payload, txtFilePath, prevResponse, prevPayload, txtFileUUID,
-                    uploadedrscFlag, firstResourcesUpload, tableWidget):
+                    uploadedrscFlag, firstResourcesUpload, tableWidget, errorNumber):
         
         if self.testLine["params"][payIndex]["value"] == "empty":
             pass
@@ -624,7 +624,7 @@ class PostMethod:
                     print("Payload: " + str(payload))
                     res.report_line(reportLine)
                     if res.getStatus() != 200:
-                        reportLine.mark_red()
+                        reportLine.mark_red(errorNumber)
                                         
                     if self.testLine["save"] == '1':
                         prevResponse[0] = res.getJson()
@@ -643,14 +643,14 @@ class PostMethod:
                             if res.getStatus() == 200:
                                 break
                             else:
-                                reportLine.mark_red()
+                                reportLine.mark_red(errorNumber)
 
                     if res.getStatus() == 200:
                         if len(self.testLine['find']) >= 1:
-                            res.find(self.testLine, reportLine)
+                            res.find(self.testLine, reportLine, errorNumber)
 
                         if len(self.testLine['check']) >= 1:
-                            res.check_value(self.testLine, reportLine, prevPayload, self.rsc_uuid)
+                            res.check_value(self.testLine, reportLine, prevPayload, self.rsc_uuid, errorNumber)
 
                         if firstResourcesUpload[0] == False:
                             uuidTxt = str(res.getJson()["results"])
@@ -660,13 +660,13 @@ class PostMethod:
                                             
                     else:
                         reportLine.print_line()
-                        reportLine.mark_red()
+                        reportLine.mark_red(errorNumber)
         
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""
             This method will upload a file resource
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""
     def file_upload(self, httpAddress, payload, payIndex, testFilePath, prevResponse, prevPayload,
-                    uploadFileUUID, uploadedrscFlag, firstResourcesUpload, tableWidget):
+                    uploadFileUUID, uploadedrscFlag, firstResourcesUpload, tableWidget, errorNumber):
 
         #uploadFlag = False
         
@@ -691,7 +691,7 @@ class PostMethod:
                     print("Payload: " + str(payload))
                     res.report_line(reportLine)
                     if res.getStatus() != 200:
-                        reportLine.mark_red()
+                        reportLine.mark_red(errorNumber)
                                         
                     if self.testLine["save"] == '1':
                         prevResponse[0] = res.getJson()
@@ -712,14 +712,14 @@ class PostMethod:
                             if res.getStatus() == 200:
                                 break
                             else:
-                                reportLine.mark_red()
+                                reportLine.mark_red(errorNumber)
 
                     if res.getStatus() == 200:
                         if len(self.testLine['find']) >= 1:
-                            res.find(self.testLine, reportLine)
+                            res.find(self.testLine, reportLine, errorNumber)
 
                         if len(self.testLine['check']) >= 1:
-                            res.check_value(self.testLine, reportLine, prevPayload, self.rsc_uuid)
+                            res.check_value(self.testLine, reportLine, prevPayload, self.rsc_uuid, errorNumber)
 
                         if firstResourcesUpload[0] == False:
                             uuidFile = str(res.getJson()["results"])
@@ -729,7 +729,7 @@ class PostMethod:
                     
                     else:
                         reportLine.print_line()
-                        reportLine.mark_red()
+                        reportLine.mark_red(errorNumber)
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""
      This method is for requests that need resource UUID to
      execute. The method will check which type of resource is

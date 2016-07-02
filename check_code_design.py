@@ -2,7 +2,8 @@
 
 # Form implementation generated from reading ui file 'check_code_design.ui'
 #
-# Created by: PyQt4 UI code generator 4.11.4
+# Created: Sat Jul  2 16:08:54 2016
+#      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -36,6 +37,7 @@ class Ui_Lines_presentation(object):
         self.horizontalLayoutWidget.setGeometry(QtCore.QRect(0, 0, 1169, 640))
         self.horizontalLayoutWidget.setObjectName(_fromUtf8("horizontalLayoutWidget"))
         self.horizontalLayout_16 = QtGui.QHBoxLayout(self.horizontalLayoutWidget)
+        self.horizontalLayout_16.setMargin(0)
         self.horizontalLayout_16.setObjectName(_fromUtf8("horizontalLayout_16"))
         self.verticalLayout = QtGui.QVBoxLayout()
         self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
@@ -244,10 +246,10 @@ class Ui_Lines_presentation(object):
         self.horizontalLayout_47 = QtGui.QHBoxLayout()
         self.horizontalLayout_47.setObjectName(_fromUtf8("horizontalLayout_47"))
         self.saveBtn = QtGui.QPushButton(self.horizontalLayoutWidget)
-        self.saveBtn.setMinimumSize(QtCore.QSize(280, 30))
-        self.saveBtn.setMaximumSize(QtCore.QSize(280, 30))
+        self.saveBtn.setMinimumSize(QtCore.QSize(180, 30))
+        self.saveBtn.setMaximumSize(QtCore.QSize(180, 30))
         font = QtGui.QFont()
-        font.setPointSize(14)
+        font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
         self.saveBtn.setFont(font)
@@ -255,11 +257,23 @@ class Ui_Lines_presentation(object):
 "color: rgb(204,204,204);"))
         self.saveBtn.setObjectName(_fromUtf8("saveBtn"))
         self.horizontalLayout_47.addWidget(self.saveBtn)
-        self.oneLineCheck = QtGui.QPushButton(self.horizontalLayoutWidget)
-        self.oneLineCheck.setMinimumSize(QtCore.QSize(280, 30))
-        self.oneLineCheck.setMaximumSize(QtCore.QSize(280, 30))
+        self.wholeCheck = QtGui.QPushButton(self.horizontalLayoutWidget)
+        self.wholeCheck.setMinimumSize(QtCore.QSize(180, 30))
+        self.wholeCheck.setMaximumSize(QtCore.QSize(180, 30))
         font = QtGui.QFont()
-        font.setPointSize(14)
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.wholeCheck.setFont(font)
+        self.wholeCheck.setStyleSheet(_fromUtf8("background:rgb(80,80,80);\n"
+"color: rgb(204,204,204);"))
+        self.wholeCheck.setObjectName(_fromUtf8("wholeCheck"))
+        self.horizontalLayout_47.addWidget(self.wholeCheck)
+        self.oneLineCheck = QtGui.QPushButton(self.horizontalLayoutWidget)
+        self.oneLineCheck.setMinimumSize(QtCore.QSize(180, 30))
+        self.oneLineCheck.setMaximumSize(QtCore.QSize(180, 30))
+        font = QtGui.QFont()
+        font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
         self.oneLineCheck.setFont(font)
@@ -1177,7 +1191,8 @@ class Ui_Lines_presentation(object):
         self.prevBtn.setText(_translate("Lines_presentation", "Prev", None))
         self.nextBtn.setText(_translate("Lines_presentation", "Next", None))
         self.saveBtn.setText(_translate("Lines_presentation", "Save Line", None))
-        self.oneLineCheck.setText(_translate("Lines_presentation", "Check only the selected line", None))
+        self.wholeCheck.setText(_translate("Lines_presentation", "Whole Check", None))
+        self.oneLineCheck.setText(_translate("Lines_presentation", "Check selected line", None))
         self.label.setText(_translate("Lines_presentation", "Method:", None))
         self.label_2.setText(_translate("Lines_presentation", "Address:", None))
         self.label_3.setText(_translate("Lines_presentation", "Title:", None))

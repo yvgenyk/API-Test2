@@ -47,6 +47,8 @@ class CheckCode(QtGui.QMainWindow, check_code_design.Ui_Lines_presentation):
         self.codeLinesDict[8].clicked.connect(self.lineNine)
         self.codeLinesDict[9].clicked.connect(self.lineTen)
 
+        self.wholeCheck.clicked.connect(self.whole_check)
+
         self.nextBtn.clicked.connect(self.next_btn)
         self.prevBtn.clicked.connect(self.prev_btn)
         self.saveBtn.clicked.connect(self.save_line)
@@ -58,6 +60,9 @@ class CheckCode(QtGui.QMainWindow, check_code_design.Ui_Lines_presentation):
         self.maxLines = len(self.mainJson['data'])
         self.show_lines()
 
+    def whole_check(self):
+        self.testFile = None
+        self.close()
 
     def show_lines(self):
 

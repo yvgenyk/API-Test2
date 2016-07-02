@@ -12,6 +12,7 @@ import shutil
 import json
 import time
 from jason_creator import JsonCreator
+from settings import Settings
 from check_code import CheckCode
 from report_window import ViewReport
 from class_test import Response, GetMethod, PostMethod
@@ -43,52 +44,57 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         self.txtFileUUID = []
         self.uploadFileUUID = []
         self.testFilePath = []
+
         self.testFile = None
 
+        self.errorNumber.display(0)
+
         self.printText = ['']
-        self.json_work = JsonCreator(self.testFile)
-        self.check_code = CheckCode(self.testFile)
+        self.json_work = JsonCreator(None)
+        self.check_code = CheckCode(None)
+        self.settings = Settings()
         self.new_line_window = None
         self.startBtn.clicked.connect(self.start_test)
         self.pushButton_2.clicked.connect(self.close_application)
         self.fileLoad.clicked.connect(self.file_open)
         self.checkDisplay.clicked.connect(self.check_the_code)
         self.reportBtn.clicked.connect(self.new_report)
-        with open('./data/setup.json') as codeLines_data:
-            self.setupJson = json.load(codeLines_data)
-        self.lineEdit.setText(self.setupJson[0]['secret_key'])
-        self.lineEdit_2.setText(self.setupJson[1]['public_key'])
-        self.lineEdit_3.setText(self.setupJson[3]['https'])
-        self.loadTxtBtn.clicked.connect(self.open_txt)
-        self.loadFileBtn.clicked.connect(self.open_test_files)
-        self.read_files()
-        self.delTextFile.clicked.connect(self.del_txt)
-        self.delFile.clicked.connect(self.del_file)
+        self.settingsBtn.clicked.connect(self.settings_window)
 
         self.tableWidget.setColumnCount(2)
         self.tableWidget.setColumnWidth(0, 400)
         self.tableWidget.horizontalHeader().setResizeMode(1, QtGui.QHeaderView.Stretch)
 
-        self.reg_proj.setText('7')
-        self.expert_proj.setText('7.9')
-        self.proof_proj.setText('7')
-        self.transcript_proj.setText('3.316')
-        self.combo_proj.setText('12')
-
         self.errorFlag = [False]
         self.prevResponse = {}
         self.prevPayload = {}
 
-        self.priceList = {"reg_proj":float(self.reg_proj.text()),"expert_proj":float(self.expert_proj.text()),
-                          "proof_proj":float(self.proof_proj.text()),"transcript_proj":float(self.transcript_proj.text()),
-                          "combo_proj":float(self.combo_proj.text())}
+        self.priceList = {}
 
     def start_test(self):
-
+        self.txtFileUUID = []
+        self.uploadFileUUID = []
         self.firstResourcesUpload = [False]
-        self.secretKey = self.lineEdit.text()
-        self.publicKey = self.lineEdit_2.text()
-        self.httpAddress = self.lineEdit_3.text()
+        with open('./data/setup.json') as codeLines_data:
+            self.setupJson = json.load(codeLines_data)
+        self.secretKey = self.setupJson['secret_key']
+        self.publicKey = self.setupJson['public_key']
+        self.httpAddress = self.setupJson['https']
+        self.txtFilePath = self.settings.get_txt_path()
+        self.testFilePath = self.settings.get_file_path()
+        self.priceList = {"reg_proj": float(self.setupJson['reg_proj']),
+                          "expert_proj": float(self.setupJson['expert_proj']),
+                          "proof_proj": float(self.setupJson['proof_proj']),
+                          "transcript_proj": float(self.setupJson['transcript_proj']),
+                          "combo_proj": float(self.setupJson['combo_proj'])}
+        self.errorNumber.display(0)
+
+        if self.check_code.testFile:
+            with open(self.check_code.testFile) as codeLines_data:
+                data = json.load(codeLines_data)
+        else:
+            with open('./test_lines/00_Complete_Test.json') as codeLines_data:
+                data = json.load(codeLines_data)
 
         while self.tableWidget.rowCount() > 0:
             self.tableWidget.removeRow(0)
@@ -102,18 +108,30 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         with open('./data/words_prices.json', "w") as new:
             json.dump([], new)
 
-        with open('./data/setup.json', 'w+') as outfile:
-            self.setupJson[0]['secret_key'] = self.lineEdit.text()
-            self.setupJson[1]['public_key'] = self.lineEdit_2.text()
-            self.setupJson[3]['https'] = self.lineEdit_3.text()
-            json.dump(self.setupJson, outfile)
+        with open('./data/firstUpload.json') as codeLines_data:
+            firstUpload = json.load(codeLines_data)
 
-        startFlag = 0
+        for firstU in firstUpload["data"]:
+            if str.lower(firstU["method"]) == 'post':
+                checkLine = PostMethod(firstU)
+                checkLine.post_method(self.secretKey, self.publicKey, self.httpAddress, self.txtFilePath,
+                                      self.txtFileUUID, self.testFilePath, self.uploadFileUUID,
+                                      self.prevResponse, self.prevPayload, self.tableWidget,
+                                      self.firstResourcesUpload, self.errorNumber)
+
+            elif str.lower(firstU["method"]) == 'get':
+                checkLine = GetMethod(firstU)
+                checkLine.get_method(self.secretKey, self.publicKey, self.httpAddress, self.prevResponse,
+                                     self.prevPayload, self.tableWidget, self.testFilePath, self.uploadFileUUID,
+                                     self.txtFileUUID, self.errorNumber)
+
+        self.firstResourcesUpload[0] = True
 
         """""""""""""""""""""""""""""""""
         Checking that all necessary
         files are selected and uploading.
         """""""""""""""""""""""""""""""""
+        """
         if (self.json_work.testFile) or (self.check_code.testFile):
             self.txtFileUUID = []
             self.uploadFileUUID = []
@@ -136,25 +154,6 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
                     pass
             else:
 
-                with open('./data/firstUpload.json') as codeLines_data:
-                    firstUpload = json.load(codeLines_data)
-
-                for firstU in firstUpload["data"]:
-                    if str.lower(firstU["method"]) == 'post':
-                        checkLine = PostMethod(firstU)
-                        checkLine.post_method(self.secretKey, self.publicKey, self.httpAddress, self.txtFilePath,
-                                              self.txtFileUUID, self.testFilePath, self.uploadFileUUID,
-                                              self.prevResponse, self.prevPayload, self.tableWidget,
-                                              self.firstResourcesUpload)
-
-                    elif str.lower(firstU["method"]) == 'get':
-                        checkLine = GetMethod(firstU)
-                        checkLine.get_method(self.secretKey, self.publicKey, self.httpAddress, self.prevResponse,
-                                             self.prevPayload, self.tableWidget, self.testFilePath, self.uploadFileUUID,
-                                             self.txtFileUUID)
-
-                self.firstResourcesUpload[0] = True
-
                 startFlag = 1
 
 
@@ -167,32 +166,25 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
                 self.json_work.show()
             else:
                 pass
+        """
+        payload = dict()
+        """""""""""""""""""""""""""
+        Deletes the existing Downloads
+        directory to check up to date
+        files.
+        """""""""""""""""""""""""""
+        if os.path.exists("Downloads"):
+            shutil.rmtree("Downloads")
 
-        if startFlag == 1:
-            payload = dict()
-            self.initialize_data()
-            """""""""""""""""""""""""""
-            Deletes the existing Downloads
-            directory to check up to date
-            files.
-            """""""""""""""""""""""""""
-            if os.path.exists("Downloads"):
-                shutil.rmtree("Downloads")
+        self.initialize_data()
 
-            if self.check_code.testFile:
-                with open(self.check_code.testFile) as codeLines_data:
-                    data = json.load(codeLines_data)
-            else:
-                with open(self.json_work.testFile) as codeLines_data:
-                    data = json.load(codeLines_data)
-
-            self.progressBar.setMaximum(len(data["data"]))
-            self.progressBar.setValue(0)
-            self.linePrint = LineExec(data["data"])
-            self.connect(self.linePrint, SIGNAL("line_exec(PyQt_PyObject)"), self.line_exec)
-            self.linePrint.start()
-            self.stopBtn.setEnabled(True)
-            self.stopBtn.clicked.connect(self.linePrint.terminate)
+        self.progressBar.setMaximum(len(data["data"]))
+        self.progressBar.setValue(0)
+        self.linePrint = LineExec(data["data"])
+        self.connect(self.linePrint, SIGNAL("line_exec(PyQt_PyObject)"), self.line_exec)
+        self.linePrint.start()
+        self.stopBtn.setEnabled(True)
+        self.stopBtn.clicked.connect(self.linePrint.terminate)
 
     def initialize_data(self):
         entry = {}
@@ -230,14 +222,14 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
             checkLine = GetMethod(line)
             checkLine.get_method(self.secretKey, self.publicKey, self.httpAddress, self.prevResponse,
                                  self.prevPayload, self.tableWidget, self.testFilePath, self.uploadFileUUID,
-                                 self.txtFileUUID)
+                                 self.txtFileUUID, self.errorNumber)
 
         # Post line code
         elif str.lower(line["method"]) == 'post':
             checkLine = PostMethod(line)
             checkLine.post_method(self.secretKey, self.publicKey, self.httpAddress, self.txtFilePath, self.txtFileUUID,
                                   self.testFilePath, self.uploadFileUUID, self.prevResponse, self.prevPayload,
-                                  self.tableWidget, self.firstResourcesUpload)
+                                  self.tableWidget, self.firstResourcesUpload, self.errorNumber)
 
         self.progressBar.setValue(self.progressBar.value() + 1)
 
@@ -262,49 +254,8 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         else:
             pass
 
-    def open_txt(self):
-        txtFile = QtGui.QFileDialog.getOpenFileName(self, 'Open File', "*.txt")
-        if (txtFile):
-            self.txtFilePath.append(txtFile)
-            print(str(self.txtFilePath))
-            fileName = txtFile.split('/')
-            self.txtFilesList.addItem('%s' % fileName[len(fileName)-1])
-
-    def open_test_files(self):
-        testFile = QtGui.QFileDialog.getOpenFileName(self, 'Open File')
-        if (testFile):
-            self.testFilePath.append(testFile)
-            fileName = testFile.split('/')
-            self.testFilesList.addItem('%s' % fileName[len(fileName)-1])
-
-    def read_files(self):
-        files = os.listdir("./Text_Files/")
-        for file in files:
-            path = os.path.abspath("Text_Files")
-            self.txtFilePath.append(path + "/" + file)
-            self.txtFilesList.addItem(file)
-
-        files = os.listdir("./Other_Files/")
-        for file in files:
-            path = os.path.abspath("Other_Files")
-            self.testFilePath.append(os.path.abspath(path + "/" + file))
-            self.testFilesList.addItem(file)
-
-    def del_txt(self):
-        row = self.txtFilesList.currentRow()
-        if row >= 0 and row < len(self.txtFilePath):
-            self.txtFilesList.takeItem(self.txtFilesList.currentRow())
-            self.txtFilePath.remove(self.txtFilePath[row])
-        else:
-            pass
-
-    def del_file(self):
-        row = self.testFilesList.currentRow()
-        if row >= 0 and row < len(self.testFilePath):
-            self.testFilesList.takeItem(self.testFilesList.currentRow())
-            self.testFilePath.remove(self.testFilePath[row])
-        else:
-            pass
+    def settings_window(self):
+        self.settings.show()
 
 class StreamToLogger(object):
     """

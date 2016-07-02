@@ -39,10 +39,11 @@ class Report:
         self.tableWidget.item(self.rows, 1).setBackground(QtGui.QColor(221, 255, 204))
         self.color = "green"
 
-    def mark_red(self):
+    def mark_red(self, errorNumber):
         self.tableWidget.item(self.rows, 0).setBackground(QtGui.QColor(255, 153, 153))
         self.tableWidget.item(self.rows, 1).setBackground(QtGui.QColor(255, 153, 153))
         self.color = "red"
+        errorNumber.display(errorNumber.value()+1)
 
     def mark_yellow(self):
         self.tableWidget.item(self.rows, 0).setBackground(QtGui.QColor(255, 224, 102))

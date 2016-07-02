@@ -561,19 +561,19 @@ color: rgb(204,204,204);</string>
          <widget class="QPushButton" name="saveBtn">
           <property name="minimumSize">
            <size>
-            <width>280</width>
+            <width>180</width>
             <height>30</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>280</width>
+            <width>180</width>
             <height>30</height>
            </size>
           </property>
           <property name="font">
            <font>
-            <pointsize>14</pointsize>
+            <pointsize>12</pointsize>
             <weight>75</weight>
             <bold>true</bold>
            </font>
@@ -588,22 +588,22 @@ color: rgb(204,204,204);</string>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="oneLineCheck">
+         <widget class="QPushButton" name="wholeCheck">
           <property name="minimumSize">
            <size>
-            <width>280</width>
+            <width>180</width>
             <height>30</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>280</width>
+            <width>180</width>
             <height>30</height>
            </size>
           </property>
           <property name="font">
            <font>
-            <pointsize>14</pointsize>
+            <pointsize>12</pointsize>
             <weight>75</weight>
             <bold>true</bold>
            </font>
@@ -613,7 +613,37 @@ color: rgb(204,204,204);</string>
 color: rgb(204,204,204);</string>
           </property>
           <property name="text">
-           <string>Check only the selected line</string>
+           <string>Whole Check</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="oneLineCheck">
+          <property name="minimumSize">
+           <size>
+            <width>180</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>180</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background:rgb(80,80,80);
+color: rgb(204,204,204);</string>
+          </property>
+          <property name="text">
+           <string>Check selected line</string>
           </property>
          </widget>
         </item>

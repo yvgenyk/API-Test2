@@ -90,7 +90,7 @@ class ViewReport(QtGui.QMainWindow, new_report_design.Ui_Form):
 
                     else:
                         text += ("S: " + check + ": " + param + "\n" +
-                                 "F: " + check + ": " + reportJson[row]['check'][check][param] + "\n\n")
+                                 "F: " + check + ": " + reportJson[row]['check'][check][param] + "\n")
 
             self.checkLable.setText(text)
         else:
