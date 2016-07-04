@@ -1,0 +1,132 @@
+2016-07-04 10:52:26,069:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-07-04 10:52:27,031:ERROR:STDERR:C:\Users\oht\Desktop\API-Test2-master\dist\library.zip\requests\packages\urllib3\connectionpool.py:791: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html
+2016-07-04 10:52:28,583:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-07-04 10:52:28,602:INFO:STDOUT:Test report Lines: 1
+2016-07-04 10:52:28,604:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
+2016-07-04 10:52:28,605:INFO:STDOUT:0. Title: Create a resource from file  Status: 200
+2016-07-04 10:52:28,612:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-07-04 10:52:28,622:ERROR:STDERR:C:\Users\oht\Desktop\API-Test2-master\dist\library.zip\requests\packages\urllib3\connectionpool.py:791: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html
+2016-07-04 10:52:31,260:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-07-04 10:52:31,262:INFO:STDOUT:Test report Lines: 2
+2016-07-04 10:52:31,265:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
+2016-07-04 10:52:31,265:INFO:STDOUT:1. Title: Create a resource from file  Status: 200
+2016-07-04 10:52:31,273:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-07-04 10:52:31,278:ERROR:STDERR:C:\Users\oht\Desktop\API-Test2-master\dist\library.zip\requests\packages\urllib3\connectionpool.py:791: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html
+2016-07-04 10:52:32,526:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-07-04 10:52:32,528:INFO:STDOUT:Test report Lines: 3
+2016-07-04 10:52:32,532:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
+2016-07-04 10:52:32,532:INFO:STDOUT:2. Title: Create a resource from file  Status: 200
+2016-07-04 10:52:32,539:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-07-04 10:52:32,545:ERROR:STDERR:C:\Users\oht\Desktop\API-Test2-master\dist\library.zip\requests\packages\urllib3\connectionpool.py:791: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html
+2016-07-04 10:52:32,619:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-07-04 10:52:32,621:INFO:STDOUT:Test report Lines: 4
+2016-07-04 10:52:32,623:INFO:STDOUT:Payload: {'text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget nibh velit. Donec ut est lacus. Nulla iaculis, odio vitae convallis hendrerit, est arcu placerat diam, in luctus est neque eu nisi. Cras tempor, purus nec porttitor tristique, diam odio sagittis nunc, vel feugiat lorem sapien non diam. Curabitur tristique blandit suscipit. Morbi commodo ligula eget mauris accumsan, non feugiat nunc maximus. Ut nec diam non ante mattis facilisis. Mauris sodales ornare tincidunt. Sed tempor tincidunt risus, sed tincidunt dolor auctor non. In consequat aliquet feugiat. Maecenas condimentum lobortis malesuada.\n\nSed venenatis, mauris sodales ullamcorper congue, sem libero fermentum tortor, vel semper justo ipsum ac nibh. Proin quis est consectetur, commodo arcu a, sollicitudin eros. Vivamus lectus felis, pharetra eget condimentum id, dignissim a lorem. Nullam varius tempus mollis. Nullam ultricies quis orci sit amet sagittis. In commodo eleifend finibus. Nulla vehicula orci vel imperdiet tempus. Suspendisse efficitur dictum nulla, finibus elementum nunc pretium sit amet. Vivamus faucibus, elit sit amet gravida sollicitudin, arcu neque pretium mauris, vel pellentesque dolor orci vitae tellus. Curabitur tincidunt quam purus, quis elementum purus semper id. In ut pulvinar turpis. Mauris sed arcu at lacus laoreet rutrum sed quis ipsum. Integer auctor felis justo, eu laoreet tortor laoreet vel. Suspendisse viverra nisl odio, in malesuada turpis porttitor et. Aliquam erat volutpat.', 'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
+2016-07-04 10:52:32,624:INFO:STDOUT:3. Title: Create a resource from text  Status: 200
+2016-07-04 10:52:32,632:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-07-04 10:52:32,638:ERROR:STDERR:C:\Users\oht\Desktop\API-Test2-master\dist\library.zip\requests\packages\urllib3\connectionpool.py:791: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html
+2016-07-04 10:52:32,672:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-07-04 10:52:32,675:INFO:STDOUT:Test report Lines: 5
+2016-07-04 10:52:32,677:INFO:STDOUT:Payload: {'text': "Only the 1993-94 Golden State Warriors have come close to matching this level of offensive output, and they did so over a meager three-game stretch while playing even worse defense. It's basically impossible to maintain scoring success this extreme for a prolonged stretch, but the Cavs are making the impossible, well, possible. \n\nJames has helped, averaging 25.3 points and 6.8 assists heading into Thursday night's affair, in which he submitted a triple-double with 23 points, 11 boards and 11 assists. Irving chipped in 19.6 points and 4.7 dimes over Cleveland's first nine playoff games. Three players have averaged at least an offensive rebound per contest, led by Tristan Thompson and his 5.0 successful creations of second-chance opportunities during his typical outing. \n\nAnd, of course, the whole team has caught fire from the outside.\n", 'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
+2016-07-04 10:52:32,678:INFO:STDOUT:4. Title: Create a resource from text  Status: 200
+2016-07-04 10:52:32,686:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-07-04 10:52:32,692:ERROR:STDERR:C:\Users\oht\Desktop\API-Test2-master\dist\library.zip\requests\packages\urllib3\connectionpool.py:791: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html
+2016-07-04 10:52:32,773:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-07-04 10:52:32,776:INFO:STDOUT:Test report Lines: 6
+2016-07-04 10:52:32,778:INFO:STDOUT:Payload: {'text': "Only the 1993-94 Golden State Warriors have come close to matching this level of offensive output, and they did so over a meager three-game stretch while playing even worse defense. It's basically impossible to maintain scoring success this extreme for a prolonged stretch, but the Cavs are making the impossible, well, possible. \n\nJames has helped, averaging 25.3 points and 6.8 assists heading into Thursday night's affair, in which he submitted a triple-double with 23 points, 11 boards and 11 assists. Irving chipped in 19.6 points and 4.7 dimes over Cleveland's first nine playoff games. Three players have averaged at least an offensive rebound per contest, led by Tristan Thompson and his 5.0 successful creations of second-chance opportunities during his typical outing. \n\nAnd, of course, the whole team has caught fire from the outside.\n", 'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
+2016-07-04 10:52:32,779:INFO:STDOUT:5. Title: Create a resource from text  Status: 200
+2016-07-04 10:52:32,786:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-07-04 10:52:32,792:ERROR:STDERR:C:\Users\oht\Desktop\API-Test2-master\dist\library.zip\requests\packages\urllib3\connectionpool.py:791: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html
+2016-07-04 10:52:32,855:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/api/2/discover/language_pairs?secret_key=6f33aa6e155f6217f67e5dc6941d5baf&public_key=DfVNd29pC7q4Pn6RYtT8 HTTP/1.1" 200 282
+2016-07-04 10:52:32,857:INFO:STDOUT:Test report Lines: 7
+2016-07-04 10:52:32,861:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
+2016-07-04 10:52:32,861:INFO:STDOUT:6. Title: Get Language Pairs  Status: 200
+2016-07-04 10:52:32,945:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-07-04 10:52:32,950:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
+2016-07-04 10:52:33,014:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/account?secret_key=6f33aa6e155f6217f67e5dc6941d5baf&public_key=DfVNd29pC7q4Pn6RYtT8 HTTP/1.1" 200 196
+2016-07-04 10:52:33,016:INFO:STDOUT:Test report Lines: 8
+2016-07-04 10:52:33,019:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
+2016-07-04 10:52:33,019:INFO:STDOUT:7. Title: Get Account  Status: 200
+2016-07-04 10:52:34,944:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-07-04 10:52:34,951:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
+2016-07-04 10:52:34,989:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/account?=&secret_key=6f33aa6e155f6217f67e5dc6941d5baf HTTP/1.1" 200 143
+2016-07-04 10:52:34,991:INFO:STDOUT:Test report Lines: 9
+2016-07-04 10:52:34,995:INFO:STDOUT:Payload: {'': '', 'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf'}
+2016-07-04 10:52:34,995:INFO:STDOUT:8. Title: Get Account - No Public Key  Status: 200
+2016-07-04 10:52:36,945:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-07-04 10:52:36,951:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
+2016-07-04 10:52:36,990:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/account?public_key=DfVNd29pC7q4Pn6RYtT8 HTTP/1.1" 200 143
+2016-07-04 10:52:36,992:INFO:STDOUT:Test report Lines: 10
+2016-07-04 10:52:36,995:INFO:STDOUT:Payload: {'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
+2016-07-04 10:52:36,996:INFO:STDOUT:9. Title: Get Account - No Secret Key  Status: 200
+2016-07-04 10:52:38,946:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-07-04 10:52:38,952:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
+2016-07-04 10:52:39,028:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-07-04 10:52:39,031:INFO:STDOUT:Test report Lines: 11
+2016-07-04 10:52:39,034:INFO:STDOUT:Payload: {'text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget nibh velit. Donec ut est lacus. Nulla iaculis, odio vitae convallis hendrerit, est arcu placerat diam, in luctus est neque eu nisi. Cras tempor, purus nec porttitor tristique, diam odio sagittis nunc, vel feugiat lorem sapien non diam. Curabitur tristique blandit suscipit. Morbi commodo ligula eget mauris accumsan, non feugiat nunc maximus. Ut nec diam non ante mattis facilisis. Mauris sodales ornare tincidunt. Sed tempor tincidunt risus, sed tincidunt dolor auctor non. In consequat aliquet feugiat. Maecenas condimentum lobortis malesuada.\n\nSed venenatis, mauris sodales ullamcorper congue, sem libero fermentum tortor, vel semper justo ipsum ac nibh. Proin quis est consectetur, commodo arcu a, sollicitudin eros. Vivamus lectus felis, pharetra eget condimentum id, dignissim a lorem. Nullam varius tempus mollis. Nullam ultricies quis orci sit amet sagittis. In commodo eleifend finibus. Nulla vehicula orci vel imperdiet tempus. Suspendisse efficitur dictum nulla, finibus elementum nunc pretium sit amet. Vivamus faucibus, elit sit amet gravida sollicitudin, arcu neque pretium mauris, vel pellentesque dolor orci vitae tellus. Curabitur tincidunt quam purus, quis elementum purus semper id. In ut pulvinar turpis. Mauris sed arcu at lacus laoreet rutrum sed quis ipsum. Integer auctor felis justo, eu laoreet tortor laoreet vel. Suspendisse viverra nisl odio, in malesuada turpis porttitor et. Aliquam erat volutpat.', 'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
+2016-07-04 10:52:39,034:INFO:STDOUT:10. Title: Create a resource from text  Status: 200
+2016-07-04 10:52:39,044:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-07-04 10:52:39,049:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
+2016-07-04 10:52:39,115:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-07-04 10:52:39,118:INFO:STDOUT:Test report Lines: 12
+2016-07-04 10:52:39,120:INFO:STDOUT:Payload: {'text': "Only the 1993-94 Golden State Warriors have come close to matching this level of offensive output, and they did so over a meager three-game stretch while playing even worse defense. It's basically impossible to maintain scoring success this extreme for a prolonged stretch, but the Cavs are making the impossible, well, possible. \n\nJames has helped, averaging 25.3 points and 6.8 assists heading into Thursday night's affair, in which he submitted a triple-double with 23 points, 11 boards and 11 assists. Irving chipped in 19.6 points and 4.7 dimes over Cleveland's first nine playoff games. Three players have averaged at least an offensive rebound per contest, led by Tristan Thompson and his 5.0 successful creations of second-chance opportunities during his typical outing. \n\nAnd, of course, the whole team has caught fire from the outside.\n", 'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
+2016-07-04 10:52:39,121:INFO:STDOUT:11. Title: Create a resource from text  Status: 200
+2016-07-04 10:52:39,131:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-07-04 10:52:39,136:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
+2016-07-04 10:52:39,210:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-07-04 10:52:39,213:INFO:STDOUT:Test report Lines: 13
+2016-07-04 10:52:39,215:INFO:STDOUT:Payload: {'text': "Only the 1993-94 Golden State Warriors have come close to matching this level of offensive output, and they did so over a meager three-game stretch while playing even worse defense. It's basically impossible to maintain scoring success this extreme for a prolonged stretch, but the Cavs are making the impossible, well, possible. \n\nJames has helped, averaging 25.3 points and 6.8 assists heading into Thursday night's affair, in which he submitted a triple-double with 23 points, 11 boards and 11 assists. Irving chipped in 19.6 points and 4.7 dimes over Cleveland's first nine playoff games. Three players have averaged at least an offensive rebound per contest, led by Tristan Thompson and his 5.0 successful creations of second-chance opportunities during his typical outing. \n\nAnd, of course, the whole team has caught fire from the outside.\n", 'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
+2016-07-04 10:52:39,216:INFO:STDOUT:12. Title: Create a resource from text  Status: 200
+2016-07-04 10:52:40,947:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-07-04 10:52:40,953:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
+2016-07-04 10:52:41,010:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 88
+2016-07-04 10:52:41,012:INFO:STDOUT:Test report Lines: 14
+2016-07-04 10:52:41,015:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
+2016-07-04 10:52:41,016:INFO:STDOUT:13. Title: Create a resource from text - Empty  Status: 200
+2016-07-04 10:52:42,947:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-07-04 10:52:42,954:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
+2016-07-04 10:52:42,996:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 143
+2016-07-04 10:52:42,999:INFO:STDOUT:Test report Lines: 15
+2016-07-04 10:52:43,003:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf'}
+2016-07-04 10:52:43,003:INFO:STDOUT:14. Title: Create a resource from text - No Public Key  Status: 200
+2016-07-04 10:52:44,948:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-07-04 10:52:44,953:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
+2016-07-04 10:52:45,010:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 143
+2016-07-04 10:52:45,013:INFO:STDOUT:Test report Lines: 16
+2016-07-04 10:52:45,015:INFO:STDOUT:Payload: {'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
+2016-07-04 10:52:45,016:INFO:STDOUT:15. Title: Create a resource from text - No Secret Key  Status: 200
+2016-07-04 10:52:46,948:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-07-04 10:52:46,955:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
+2016-07-04 10:52:48,158:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-07-04 10:52:48,161:INFO:STDOUT:Test report Lines: 17
+2016-07-04 10:52:48,165:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
+2016-07-04 10:52:48,165:INFO:STDOUT:16. Title: Create a resource from file  Status: 200
+2016-07-04 10:52:48,177:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-07-04 10:52:48,182:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
+2016-07-04 10:52:50,992:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-07-04 10:52:50,996:INFO:STDOUT:Test report Lines: 18
+2016-07-04 10:52:50,999:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
+2016-07-04 10:52:51,000:INFO:STDOUT:17. Title: Create a resource from file  Status: 200
+2016-07-04 10:52:51,011:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-07-04 10:52:51,018:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
+2016-07-04 10:52:52,243:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-07-04 10:52:52,246:INFO:STDOUT:Test report Lines: 19
+2016-07-04 10:52:52,248:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
+2016-07-04 10:52:52,248:INFO:STDOUT:18. Title: Create a resource from file  Status: 200
+2016-07-04 10:52:52,265:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-07-04 10:52:52,277:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
+2016-07-04 10:52:52,329:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 127
+2016-07-04 10:52:52,332:INFO:STDOUT:Test report Lines: 20
+2016-07-04 10:52:52,334:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
+2016-07-04 10:52:52,335:INFO:STDOUT:19. Title: Create a resource from file - empty upload  Status: 200
+2016-07-04 10:52:52,353:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-07-04 10:52:52,359:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
+2016-07-04 10:52:52,398:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 143
+2016-07-04 10:52:52,401:INFO:STDOUT:Test report Lines: 21
+2016-07-04 10:52:52,404:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf'}
+2016-07-04 10:52:52,404:INFO:STDOUT:20. Title: Create a resourse from file - No Public key  Status: 200
+2016-07-04 10:52:52,950:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-07-04 10:52:52,955:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
+2016-07-04 10:52:52,997:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 143
+2016-07-04 10:52:53,001:INFO:STDOUT:Test report Lines: 22
+2016-07-04 10:52:53,003:INFO:STDOUT:Payload: {'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
+2016-07-04 10:52:53,004:INFO:STDOUT:21. Title: Create a resourse from file - No secret key  Status: 200
