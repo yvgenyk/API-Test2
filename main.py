@@ -278,9 +278,11 @@ class StreamToLogger(object):
         filename="main_log.log",
         filemode='w+')
 
+    def flush(self):
+        pass
 
 def main():
-    """ Logging - commented off, else On
+    # """ Logging - commented off, else On
     stdout_logger = logging.getLogger('STDOUT')
     sl = StreamToLogger(stdout_logger, logging.INFO)
     sys.stdout = sl
@@ -288,7 +290,7 @@ def main():
     stderr_logger = logging.getLogger('STDERR')
     sl = StreamToLogger(stderr_logger, logging.ERROR)
     sys.stderr = sl
-    """
+    # """
     app = QtGui.QApplication(sys.argv)
     app.setStyle('cleanlooks')
     form = TestApp()

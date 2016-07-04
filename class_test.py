@@ -71,8 +71,8 @@ class Response:
     Prints the request and the response in the text editor
     of the program for later review.
     """""""""""""""""""""""""""""""""""""""""""""""""""""
-    def report_line(self, reportLine):
-        reportLine.print_line()
+    def report_line(self, reportLine, errorNumber):
+        reportLine.print_line(errorNumber)
         reportLine.mark_yellow()
         
     """""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -340,7 +340,7 @@ class GetMethod:
                 reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                 reportLine.report_line(httpAddress + newAddress, res.getText(), payload, None)
                 print("Payload: " + str(payload))
-                res.report_line(reportLine)
+                res.report_line(reportLine, errorNumber)
                 if res.getStatus() != 200:
                     reportLine.mark_red(errorNumber)
 
@@ -358,7 +358,7 @@ class GetMethod:
                 reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                 reportLine.report_line(httpAddress + newAddress, res.getText(), payload, None)
                 print("Payload: " + str(payload))
-                reportLine.print_line()
+                reportLine.print_line(errorNumber)
                 if res.getStatus() != 200:
                     reportLine.mark_red(errorNumber)
                 else:
@@ -410,7 +410,7 @@ class GetMethod:
                 reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                 reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
                 print("Payload: " + str(payload))
-                res.report_line(reportLine)
+                res.report_line(reportLine, errorNumber)
                 if res.getStatus() != 200:
                     reportLine.mark_red(errorNumber)
             """""""""""""""""""""""""""""""""""""""""""""""
@@ -426,7 +426,7 @@ class GetMethod:
                     res = Response(requests.get(httpAddress + self.testLine["address"], params=payload, verify=False), True)
                     reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                     reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
-                    res.report_line(reportLine)
+                    res.report_line(reportLine, errorNumber)
                     if res.getStatus() == 200:
                         break
                     else:
@@ -440,7 +440,7 @@ class GetMethod:
                     res.check_value(self.testLine, reportLine, prevPayload,self.rsc_uuid, errorNumber)
                     
             else:
-                reportLine.print_line()
+                reportLine.print_line(errorNumber)
                 reportLine.mark_red(errorNumber)
 
         """""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -562,7 +562,7 @@ class PostMethod:
             reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
             reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
             print("Payload: " + str(payload))
-            res.report_line(reportLine)
+            res.report_line(reportLine, errorNumber)
             if res.getStatus() != 200:
                 reportLine.mark_red(errorNumber)
                 
@@ -575,7 +575,7 @@ class PostMethod:
                     res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False), True)
                     reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                     reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
-                    res.report_line(reportLine)
+                    res.report_line(reportLine, errorNumber)
 
                     if res.getStatus() == 200:
                         break
@@ -589,7 +589,7 @@ class PostMethod:
                 if len(self.testLine['check']) >= 1:
                     res.check_value(self.testLine, reportLine, prevPayload, self.rsc_uuid, errorNumber)
             else:
-                    reportLine.print_line()
+                    reportLine.print_line(errorNumber)
                     reportLine.mark_red(errorNumber)
 
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -608,21 +608,21 @@ class PostMethod:
             if len(txtFilePath) == 0:
                 pass
             elif len(txtFilePath) >= 1:
-                                
+
                 for txtIndex in range(len(txtFilePath)):
-                                
+
                     loadedFile = open(txtFilePath[txtIndex], 'r')
                                 
                     with loadedFile:
                         txt = loadedFile.read()
 
                     payload['text'] = txt
-                                        
+
                     res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False), True)
                     reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                     reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
                     print("Payload: " + str(payload))
-                    res.report_line(reportLine)
+                    res.report_line(reportLine, errorNumber)
                     if res.getStatus() != 200:
                         reportLine.mark_red(errorNumber)
                                         
@@ -639,7 +639,7 @@ class PostMethod:
                             res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False), True)
                             reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                             reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
-                            res.report_line(reportLine)
+                            res.report_line(reportLine, errorNumber)
                             if res.getStatus() == 200:
                                 break
                             else:
@@ -659,7 +659,7 @@ class PostMethod:
                         uploadedrscFlag[0] = True
                                             
                     else:
-                        reportLine.print_line()
+                        reportLine.print_line(errorNumber)
                         reportLine.mark_red(errorNumber)
         
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -689,7 +689,7 @@ class PostMethod:
                     reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                     reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, str(loadedFile))
                     print("Payload: " + str(payload))
-                    res.report_line(reportLine)
+                    res.report_line(reportLine, errorNumber)
                     if res.getStatus() != 200:
                         reportLine.mark_red(errorNumber)
                                         
@@ -708,7 +708,7 @@ class PostMethod:
                                               verify=False), True)
                             reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                             reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
-                            res.report_line(reportLine)
+                            res.report_line(reportLine, errorNumber)
                             if res.getStatus() == 200:
                                 break
                             else:
@@ -728,7 +728,7 @@ class PostMethod:
                         uploadedrscFlag[0] = True
                     
                     else:
-                        reportLine.print_line()
+                        reportLine.print_line(errorNumber)
                         reportLine.mark_red(errorNumber)
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""
      This method is for requests that need resource UUID to

@@ -22,12 +22,12 @@ class Report:
     This is critical. without the print the row won't be painted
     and there will be an exception.
     """
-    def print_line(self):
+    def print_line(self, errorNumber):
         self.tableWidget.insertRow(self.rows)
         self.tableWidget.setItem(self.rows, 0, QtGui.QTableWidgetItem(self.title))
         self.tableWidget.setItem(self.rows, 1, QtGui.QTableWidgetItem(str(self.status)))
         if self.status != 200:
-            self.mark_red()
+            self.mark_red(errorNumber)
 
         item = self.tableWidget.item(self.rows, 0)
         self.tableWidget.scrollToItem(item, QtGui.QAbstractItemView.PositionAtCenter)
