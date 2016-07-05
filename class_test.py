@@ -71,7 +71,7 @@ class Response:
     Prints the request and the response in the text editor
     of the program for later review.
     """""""""""""""""""""""""""""""""""""""""""""""""""""
-    def report_line(self, reportLine, errorNumber):
+    def report_line_to_main_window(self, reportLine, errorNumber):
         reportLine.print_line(errorNumber)
         reportLine.mark_yellow()
         
@@ -340,7 +340,7 @@ class GetMethod:
                 reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                 reportLine.report_line(httpAddress + newAddress, res.getText(), payload, None)
                 print("Payload: " + str(payload))
-                res.report_line(reportLine, errorNumber)
+                res.report_line_to_main_window(reportLine, errorNumber)
                 if res.getStatus() != 200:
                     reportLine.mark_red(errorNumber)
 
@@ -351,12 +351,15 @@ class GetMethod:
             elif downloadResource == 1:
                 if noKeysFlag == False:
                     res = Response(requests.get(httpAddress + newAddress,stream=True ,params=payload, verify=False), False)
+                    fileName = res.getHeader()['content-disposition']
+                    fileName = fileName[22:(len(fileName) - 1)]
+
                 else:
                     res = Response(requests.get(httpAddress + newAddress, stream=True, params=payload, verify=False),
                                    True)
 
                 reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
-                reportLine.report_line(httpAddress + newAddress, res.getText(), payload, None)
+                reportLine.report_line(httpAddress + newAddress, "Downloaded file: " + fileName, payload, None)
                 print("Payload: " + str(payload))
                 reportLine.print_line(errorNumber)
                 if res.getStatus() != 200:
@@ -410,7 +413,7 @@ class GetMethod:
                 reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                 reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
                 print("Payload: " + str(payload))
-                res.report_line(reportLine, errorNumber)
+                res.report_line_to_main_window(reportLine, errorNumber)
                 if res.getStatus() != 200:
                     reportLine.mark_red(errorNumber)
             """""""""""""""""""""""""""""""""""""""""""""""
@@ -426,7 +429,7 @@ class GetMethod:
                     res = Response(requests.get(httpAddress + self.testLine["address"], params=payload, verify=False), True)
                     reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                     reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
-                    res.report_line(reportLine, errorNumber)
+                    res.report_line_to_main_window(reportLine, errorNumber)
                     if res.getStatus() == 200:
                         break
                     else:
@@ -438,10 +441,6 @@ class GetMethod:
                 
                 if len(self.testLine['check']) >= 1:
                     res.check_value(self.testLine, reportLine, prevPayload,self.rsc_uuid, errorNumber)
-                    
-            else:
-                reportLine.print_line(errorNumber)
-                reportLine.mark_red(errorNumber)
 
         """""""""""""""""""""""""""""""""""""""""""""""""""""""""
          This method is for requests that need resource UUID to
@@ -562,7 +561,7 @@ class PostMethod:
             reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
             reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
             print("Payload: " + str(payload))
-            res.report_line(reportLine, errorNumber)
+            res.report_line_to_main_window(reportLine, errorNumber)
             if res.getStatus() != 200:
                 reportLine.mark_red(errorNumber)
                 
@@ -575,7 +574,7 @@ class PostMethod:
                     res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False), True)
                     reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                     reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
-                    res.report_line(reportLine, errorNumber)
+                    res.report_line_to_main_window(reportLine, errorNumber)
 
                     if res.getStatus() == 200:
                         break
@@ -588,9 +587,6 @@ class PostMethod:
 
                 if len(self.testLine['check']) >= 1:
                     res.check_value(self.testLine, reportLine, prevPayload, self.rsc_uuid, errorNumber)
-            else:
-                    reportLine.print_line(errorNumber)
-                    reportLine.mark_red(errorNumber)
 
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""
       This method will upload a text resource from file.
@@ -622,7 +618,7 @@ class PostMethod:
                     reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                     reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
                     print("Payload: " + str(payload))
-                    res.report_line(reportLine, errorNumber)
+                    res.report_line_to_main_window(reportLine, errorNumber)
                     if res.getStatus() != 200:
                         reportLine.mark_red(errorNumber)
                                         
@@ -639,7 +635,7 @@ class PostMethod:
                             res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False), True)
                             reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                             reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
-                            res.report_line(reportLine, errorNumber)
+                            res.report_line_to_main_window(reportLine, errorNumber)
                             if res.getStatus() == 200:
                                 break
                             else:
@@ -657,10 +653,6 @@ class PostMethod:
                             txtFileUUID.append(uuidTxt[2:(len(uuidTxt)-2)])
 
                         uploadedrscFlag[0] = True
-                                            
-                    else:
-                        reportLine.print_line(errorNumber)
-                        reportLine.mark_red(errorNumber)
         
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""
             This method will upload a file resource
@@ -689,7 +681,7 @@ class PostMethod:
                     reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                     reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, str(loadedFile))
                     print("Payload: " + str(payload))
-                    res.report_line(reportLine, errorNumber)
+                    res.report_line_to_main_window(reportLine, errorNumber)
                     if res.getStatus() != 200:
                         reportLine.mark_red(errorNumber)
                                         
@@ -708,7 +700,7 @@ class PostMethod:
                                               verify=False), True)
                             reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                             reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
-                            res.report_line(reportLine, errorNumber)
+                            res.report_line_to_main_window(reportLine, errorNumber)
                             if res.getStatus() == 200:
                                 break
                             else:
@@ -726,10 +718,7 @@ class PostMethod:
                             uploadFileUUID.append(uuidFile[2:(len(uuidFile)-2)])
 
                         uploadedrscFlag[0] = True
-                    
-                    else:
-                        reportLine.print_line(errorNumber)
-                        reportLine.mark_red(errorNumber)
+
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""
      This method is for requests that need resource UUID to
      execute. The method will check which type of resource is

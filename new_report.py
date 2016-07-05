@@ -40,15 +40,17 @@ class Report:
         self.color = "green"
 
     def mark_red(self, errorNumber):
+        if self.color != "red":
+            errorNumber.display(errorNumber.value() + 1)
         self.tableWidget.item(self.rows, 0).setBackground(QtGui.QColor(255, 153, 153))
         self.tableWidget.item(self.rows, 1).setBackground(QtGui.QColor(255, 153, 153))
         self.color = "red"
-        errorNumber.display(errorNumber.value()+1)
 
     def mark_yellow(self):
-        self.tableWidget.item(self.rows, 0).setBackground(QtGui.QColor(255, 224, 102))
-        self.tableWidget.item(self.rows, 1).setBackground(QtGui.QColor(255, 224, 102))
-        self.color = "yellow"
+        if self.color != 'red':
+            self.tableWidget.item(self.rows, 0).setBackground(QtGui.QColor(255, 224, 102))
+            self.tableWidget.item(self.rows, 1).setBackground(QtGui.QColor(255, 224, 102))
+            self.color = "yellow"
 
     def get_color(self):
         return self.color

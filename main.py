@@ -63,6 +63,7 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
 
         self.tableWidget.setColumnCount(2)
         self.tableWidget.setColumnWidth(0, 400)
+        self.tableWidget.setHorizontalHeaderLabels("Title;Status".split(";"))
         self.tableWidget.horizontalHeader().setResizeMode(1, QtGui.QHeaderView.Stretch)
 
         self.errorFlag = [False]
@@ -282,7 +283,7 @@ class StreamToLogger(object):
         pass
 
 def main():
-    # """ Logging - commented off, else On
+    """ Logging - commented off, else On
     stdout_logger = logging.getLogger('STDOUT')
     sl = StreamToLogger(stdout_logger, logging.INFO)
     sys.stdout = sl
@@ -290,7 +291,7 @@ def main():
     stderr_logger = logging.getLogger('STDERR')
     sl = StreamToLogger(stderr_logger, logging.ERROR)
     sys.stderr = sl
-    # """
+    """
     app = QtGui.QApplication(sys.argv)
     app.setStyle('cleanlooks')
     form = TestApp()
