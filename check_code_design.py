@@ -2,8 +2,7 @@
 
 # Form implementation generated from reading ui file 'check_code_design.ui'
 #
-# Created: Sat Jul  2 16:08:54 2016
-#      by: PyQt4 UI code generator 4.10.4
+# Created by: PyQt4 UI code generator 4.11.4
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -37,7 +36,6 @@ class Ui_Lines_presentation(object):
         self.horizontalLayoutWidget.setGeometry(QtCore.QRect(0, 0, 1169, 640))
         self.horizontalLayoutWidget.setObjectName(_fromUtf8("horizontalLayoutWidget"))
         self.horizontalLayout_16 = QtGui.QHBoxLayout(self.horizontalLayoutWidget)
-        self.horizontalLayout_16.setMargin(0)
         self.horizontalLayout_16.setObjectName(_fromUtf8("horizontalLayout_16"))
         self.verticalLayout = QtGui.QVBoxLayout()
         self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
@@ -59,6 +57,7 @@ class Ui_Lines_presentation(object):
         font = QtGui.QFont()
         font.setPointSize(10)
         self.displayLine_1.setFont(font)
+        self.displayLine_1.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
         self.displayLine_1.setText(_fromUtf8(""))
         self.displayLine_1.setObjectName(_fromUtf8("displayLine_1"))
         self.horizontalLayout.addWidget(self.displayLine_1)
@@ -76,6 +75,7 @@ class Ui_Lines_presentation(object):
         font = QtGui.QFont()
         font.setPointSize(10)
         self.displayLine_2.setFont(font)
+        self.displayLine_2.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
         self.displayLine_2.setText(_fromUtf8(""))
         self.displayLine_2.setObjectName(_fromUtf8("displayLine_2"))
         self.horizontalLayout_2.addWidget(self.displayLine_2)
@@ -93,6 +93,7 @@ class Ui_Lines_presentation(object):
         font = QtGui.QFont()
         font.setPointSize(10)
         self.displayLine_3.setFont(font)
+        self.displayLine_3.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
         self.displayLine_3.setText(_fromUtf8(""))
         self.displayLine_3.setObjectName(_fromUtf8("displayLine_3"))
         self.horizontalLayout_3.addWidget(self.displayLine_3)
@@ -110,6 +111,7 @@ class Ui_Lines_presentation(object):
         font = QtGui.QFont()
         font.setPointSize(10)
         self.displayLine_4.setFont(font)
+        self.displayLine_4.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
         self.displayLine_4.setText(_fromUtf8(""))
         self.displayLine_4.setObjectName(_fromUtf8("displayLine_4"))
         self.horizontalLayout_4.addWidget(self.displayLine_4)
@@ -127,6 +129,7 @@ class Ui_Lines_presentation(object):
         font = QtGui.QFont()
         font.setPointSize(10)
         self.displayLine_5.setFont(font)
+        self.displayLine_5.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
         self.displayLine_5.setText(_fromUtf8(""))
         self.displayLine_5.setObjectName(_fromUtf8("displayLine_5"))
         self.horizontalLayout_9.addWidget(self.displayLine_5)
@@ -144,6 +147,7 @@ class Ui_Lines_presentation(object):
         font = QtGui.QFont()
         font.setPointSize(10)
         self.displayLine_6.setFont(font)
+        self.displayLine_6.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
         self.displayLine_6.setText(_fromUtf8(""))
         self.displayLine_6.setObjectName(_fromUtf8("displayLine_6"))
         self.horizontalLayout_10.addWidget(self.displayLine_6)
@@ -161,6 +165,7 @@ class Ui_Lines_presentation(object):
         font = QtGui.QFont()
         font.setPointSize(10)
         self.displayLine_7.setFont(font)
+        self.displayLine_7.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
         self.displayLine_7.setText(_fromUtf8(""))
         self.displayLine_7.setObjectName(_fromUtf8("displayLine_7"))
         self.horizontalLayout_6.addWidget(self.displayLine_7)
@@ -178,6 +183,7 @@ class Ui_Lines_presentation(object):
         font = QtGui.QFont()
         font.setPointSize(10)
         self.displayLine_8.setFont(font)
+        self.displayLine_8.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
         self.displayLine_8.setText(_fromUtf8(""))
         self.displayLine_8.setObjectName(_fromUtf8("displayLine_8"))
         self.horizontalLayout_8.addWidget(self.displayLine_8)
@@ -195,6 +201,7 @@ class Ui_Lines_presentation(object):
         font = QtGui.QFont()
         font.setPointSize(10)
         self.displayLine_9.setFont(font)
+        self.displayLine_9.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
         self.displayLine_9.setText(_fromUtf8(""))
         self.displayLine_9.setObjectName(_fromUtf8("displayLine_9"))
         self.horizontalLayout_7.addWidget(self.displayLine_9)
@@ -212,6 +219,7 @@ class Ui_Lines_presentation(object):
         font = QtGui.QFont()
         font.setPointSize(10)
         self.displayLine_10.setFont(font)
+        self.displayLine_10.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
         self.displayLine_10.setText(_fromUtf8(""))
         self.displayLine_10.setObjectName(_fromUtf8("displayLine_10"))
         self.horizontalLayout_5.addWidget(self.displayLine_10)
@@ -226,6 +234,7 @@ class Ui_Lines_presentation(object):
         font.setBold(True)
         font.setWeight(75)
         self.prevBtn.setFont(font)
+        self.prevBtn.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
         self.prevBtn.setStyleSheet(_fromUtf8("background:rgb(80,80,80);\n"
 "color: rgb(204,204,204);"))
         self.prevBtn.setObjectName(_fromUtf8("prevBtn"))
@@ -238,6 +247,7 @@ class Ui_Lines_presentation(object):
         font.setBold(True)
         font.setWeight(75)
         self.nextBtn.setFont(font)
+        self.nextBtn.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
         self.nextBtn.setStyleSheet(_fromUtf8("background:rgb(80,80,80);\n"
 "color: rgb(204,204,204);"))
         self.nextBtn.setObjectName(_fromUtf8("nextBtn"))
@@ -253,6 +263,7 @@ class Ui_Lines_presentation(object):
         font.setBold(True)
         font.setWeight(75)
         self.saveBtn.setFont(font)
+        self.saveBtn.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
         self.saveBtn.setStyleSheet(_fromUtf8("background:rgb(80,80,80);\n"
 "color: rgb(204,204,204);"))
         self.saveBtn.setObjectName(_fromUtf8("saveBtn"))
@@ -265,6 +276,7 @@ class Ui_Lines_presentation(object):
         font.setBold(True)
         font.setWeight(75)
         self.wholeCheck.setFont(font)
+        self.wholeCheck.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
         self.wholeCheck.setStyleSheet(_fromUtf8("background:rgb(80,80,80);\n"
 "color: rgb(204,204,204);"))
         self.wholeCheck.setObjectName(_fromUtf8("wholeCheck"))
@@ -277,6 +289,7 @@ class Ui_Lines_presentation(object):
         font.setBold(True)
         font.setWeight(75)
         self.oneLineCheck.setFont(font)
+        self.oneLineCheck.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
         self.oneLineCheck.setStyleSheet(_fromUtf8("background:rgb(80,80,80);\n"
 "color: rgb(204,204,204);"))
         self.oneLineCheck.setObjectName(_fromUtf8("oneLineCheck"))
@@ -1190,8 +1203,11 @@ class Ui_Lines_presentation(object):
         Lines_presentation.setWindowTitle(_translate("Lines_presentation", "API Test - Code Check", None))
         self.prevBtn.setText(_translate("Lines_presentation", "Prev", None))
         self.nextBtn.setText(_translate("Lines_presentation", "Next", None))
+        self.saveBtn.setToolTip(_translate("Lines_presentation", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;color:black\">Click here to save edited line.</span></p></body></html>", None))
         self.saveBtn.setText(_translate("Lines_presentation", "Save Line", None))
+        self.wholeCheck.setToolTip(_translate("Lines_presentation", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;color:black;\">Click here to test all lines.</span></p></body></html>", None))
         self.wholeCheck.setText(_translate("Lines_presentation", "Whole Check", None))
+        self.oneLineCheck.setToolTip(_translate("Lines_presentation", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;color:black;\">Click here to test highlighted line.</span></p></body></html>", None))
         self.oneLineCheck.setText(_translate("Lines_presentation", "Check selected line", None))
         self.label.setText(_translate("Lines_presentation", "Method:", None))
         self.label_2.setText(_translate("Lines_presentation", "Address:", None))

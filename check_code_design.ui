@@ -88,6 +88,9 @@
             <pointsize>10</pointsize>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -131,6 +134,9 @@
            <font>
             <pointsize>10</pointsize>
            </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
           </property>
           <property name="text">
            <string/>
@@ -176,6 +182,9 @@
             <pointsize>10</pointsize>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -219,6 +228,9 @@
            <font>
             <pointsize>10</pointsize>
            </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
           </property>
           <property name="text">
            <string/>
@@ -264,6 +276,9 @@
             <pointsize>10</pointsize>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -307,6 +322,9 @@
            <font>
             <pointsize>10</pointsize>
            </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
           </property>
           <property name="text">
            <string/>
@@ -352,6 +370,9 @@
             <pointsize>10</pointsize>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -395,6 +416,9 @@
            <font>
             <pointsize>10</pointsize>
            </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
           </property>
           <property name="text">
            <string/>
@@ -440,6 +464,9 @@
             <pointsize>10</pointsize>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -484,6 +511,9 @@
             <pointsize>10</pointsize>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -514,6 +544,9 @@
             <bold>true</bold>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
           <property name="styleSheet">
            <string notr="true">background:rgb(80,80,80);
 color: rgb(204,204,204);</string>
@@ -543,6 +576,9 @@ color: rgb(204,204,204);</string>
             <weight>75</weight>
             <bold>true</bold>
            </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
           </property>
           <property name="styleSheet">
            <string notr="true">background:rgb(80,80,80);
@@ -578,6 +614,12 @@ color: rgb(204,204,204);</string>
             <bold>true</bold>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;color:black&quot;&gt;Click here to save edited line.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
           <property name="styleSheet">
            <string notr="true">background:rgb(80,80,80);
 color: rgb(204,204,204);</string>
@@ -608,6 +650,12 @@ color: rgb(204,204,204);</string>
             <bold>true</bold>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;color:black;&quot;&gt;Click here to test all lines.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
           <property name="styleSheet">
            <string notr="true">background:rgb(80,80,80);
 color: rgb(204,204,204);</string>
@@ -637,6 +685,12 @@ color: rgb(204,204,204);</string>
             <weight>75</weight>
             <bold>true</bold>
            </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;color:black;&quot;&gt;Click here to test highlighted line.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="styleSheet">
            <string notr="true">background:rgb(80,80,80);

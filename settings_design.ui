@@ -502,6 +502,9 @@ border-radius: 5px;</string>
               <pointsize>12</pointsize>
              </font>
             </property>
+            <property name="cursor">
+             <cursorShape>OpenHandCursor</cursorShape>
+            </property>
             <property name="styleSheet">
              <string notr="true">background:rgb(80,80,80);
 color: rgb(204,204,204);
@@ -532,6 +535,9 @@ color: rgb(204,204,204);
               <weight>75</weight>
               <bold>true</bold>
              </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>OpenHandCursor</cursorShape>
             </property>
             <property name="styleSheet">
              <string notr="true">background:rgb(77, 0, 0);color: rgb(204,204,204);</string>
@@ -601,6 +607,9 @@ border-radius: 5px;</string>
               <pointsize>12</pointsize>
              </font>
             </property>
+            <property name="cursor">
+             <cursorShape>OpenHandCursor</cursorShape>
+            </property>
             <property name="styleSheet">
              <string notr="true">background:rgb(80,80,80);
 color: rgb(204,204,204);</string>
@@ -630,6 +639,9 @@ color: rgb(204,204,204);</string>
               <weight>75</weight>
               <bold>true</bold>
              </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>OpenHandCursor</cursorShape>
             </property>
             <property name="autoFillBackground">
              <bool>false</bool>
@@ -693,6 +705,9 @@ border-radius: 5px;</string>
           <pointsize>12</pointsize>
          </font>
         </property>
+        <property name="cursor">
+         <cursorShape>OpenHandCursor</cursorShape>
+        </property>
         <property name="styleSheet">
          <string notr="true">background:rgb(80,80,80);
 color: rgb(204,204,204);</string>
@@ -720,6 +735,9 @@ color: rgb(204,204,204);</string>
          <font>
           <pointsize>12</pointsize>
          </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>OpenHandCursor</cursorShape>
         </property>
         <property name="styleSheet">
          <string notr="true">background:rgb(80,80,80);

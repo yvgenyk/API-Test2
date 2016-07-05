@@ -2,8 +2,7 @@
 
 # Form implementation generated from reading ui file 'settings_design.ui'
 #
-# Created: Sat Jul  2 14:28:58 2016
-#      by: PyQt4 UI code generator 4.10.4
+# Created by: PyQt4 UI code generator 4.11.4
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -35,7 +34,6 @@ class Ui_Form(object):
         self.verticalLayoutWidget.setGeometry(QtCore.QRect(0, 0, 384, 407))
         self.verticalLayoutWidget.setObjectName(_fromUtf8("verticalLayoutWidget"))
         self.verticalLayout = QtGui.QVBoxLayout(self.verticalLayoutWidget)
-        self.verticalLayout.setMargin(0)
         self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
         self.horizontalLayout = QtGui.QHBoxLayout()
         self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
@@ -210,6 +208,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setPointSize(12)
         self.loadTxtBtn.setFont(font)
+        self.loadTxtBtn.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
         self.loadTxtBtn.setStyleSheet(_fromUtf8("background:rgb(80,80,80);\n"
 "color: rgb(204,204,204);\n"
 ""))
@@ -223,6 +222,7 @@ class Ui_Form(object):
         font.setBold(True)
         font.setWeight(75)
         self.delTextFile.setFont(font)
+        self.delTextFile.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
         self.delTextFile.setStyleSheet(_fromUtf8("background:rgb(77, 0, 0);color: rgb(204,204,204);"))
         self.delTextFile.setObjectName(_fromUtf8("delTextFile"))
         self.horizontalLayout_11.addWidget(self.delTextFile)
@@ -253,6 +253,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setPointSize(12)
         self.loadFileBtn.setFont(font)
+        self.loadFileBtn.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
         self.loadFileBtn.setStyleSheet(_fromUtf8("background:rgb(80,80,80);\n"
 "color: rgb(204,204,204);"))
         self.loadFileBtn.setObjectName(_fromUtf8("loadFileBtn"))
@@ -265,6 +266,7 @@ class Ui_Form(object):
         font.setBold(True)
         font.setWeight(75)
         self.delFile.setFont(font)
+        self.delFile.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
         self.delFile.setAutoFillBackground(False)
         self.delFile.setStyleSheet(_fromUtf8("background:rgb(77, 0, 0);color: rgb(204,204,204);"))
         self.delFile.setObjectName(_fromUtf8("delFile"))
@@ -289,6 +291,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setPointSize(12)
         self.saveBtn.setFont(font)
+        self.saveBtn.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
         self.saveBtn.setStyleSheet(_fromUtf8("background:rgb(80,80,80);\n"
 "color: rgb(204,204,204);"))
         self.saveBtn.setObjectName(_fromUtf8("saveBtn"))
@@ -299,6 +302,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setPointSize(12)
         self.closeBtn.setFont(font)
+        self.closeBtn.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
         self.closeBtn.setStyleSheet(_fromUtf8("background:rgb(80,80,80);\n"
 "color: rgb(204,204,204);"))
         self.closeBtn.setObjectName(_fromUtf8("closeBtn"))
