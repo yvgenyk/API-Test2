@@ -14,6 +14,7 @@ import time
 from jason_creator import JsonCreator
 from settings import Settings
 from check_code import CheckCode
+from new_line import NewLine
 from report_window import ViewReport
 from class_test import Response, GetMethod, PostMethod
 from resource_class import Resource
@@ -44,14 +45,15 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         self.txtFileUUID = []
         self.uploadFileUUID = []
         self.testFilePath = []
-
+        self.newLineTest = [False]
         self.testFile = None
 
         self.errorNumber.display(0)
 
         self.printText = ['']
-        self.json_work = JsonCreator(None)
+        self.json_work = JsonCreator(None, self.newLineTest)
         self.check_code = CheckCode(None)
+        self.new_line = NewLine(self.newLineTest)
         self.settings = Settings()
         self.new_line_window = None
         self.startBtn.clicked.connect(self.start_test)
@@ -93,6 +95,9 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         if self.check_code.testFile:
             with open(self.check_code.testFile) as codeLines_data:
                 data = json.load(codeLines_data)
+        elif self.newLineTest[0]:
+            with open('./data/new_line.json') as codeLines_data:
+                data = json.load(codeLines_data)
         else:
             with open('./test_lines/00_Complete_Test.json') as codeLines_data:
                 data = json.load(codeLines_data)
@@ -128,47 +133,7 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
 
         self.firstResourcesUpload[0] = True
 
-        """""""""""""""""""""""""""""""""
-        Checking that all necessary
-        files are selected and uploading.
-        """""""""""""""""""""""""""""""""
-        """
-        if (self.json_work.testFile) or (self.check_code.testFile):
-            self.txtFileUUID = []
-            self.uploadFileUUID = []
-            self.printText = ['']
-
-            if len(self.txtFilePath) == 0:
-                choice = QtGui.QMessageBox.question(self, 'No Text File', "No text file was loaded, would you like to load?",
-                                                QtGui.QMessageBox.Yes | QtGui.QMessageBox.No)
-                if choice == QtGui.QMessageBox.Yes:
-                    self.open_txt()
-                else:
-                    pass
-            elif len(self.testFilePath) == 0:
-                choice = QtGui.QMessageBox.question(self, 'No test File',
-                                                        "No test file was loaded, would you like to load?",
-                                                        QtGui.QMessageBox.Yes | QtGui.QMessageBox.No)
-                if choice == QtGui.QMessageBox.Yes:
-                    self.open_test_files()
-                else:
-                    pass
-            else:
-
-                startFlag = 1
-
-
-        else:
-            choice = QtGui.QMessageBox.question(self, 'No File', "No file was loaded, would you like to load?",
-                                                QtGui.QMessageBox.Yes | QtGui.QMessageBox.No)
-
-            if choice == QtGui.QMessageBox.Yes:
-                self.json_work = JsonCreator(testFile)
-                self.json_work.show()
-            else:
-                pass
-        """
-        payload = dict()
+        # payload = dict()
         """""""""""""""""""""""""""
         Deletes the existing Downloads
         directory to check up to date
@@ -235,8 +200,8 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         self.progressBar.setValue(self.progressBar.value() + 1)
 
     def file_open(self):
-        self.json_work = JsonCreator(self.testFile)
-        self.json_work.show()
+        self.new_line_window = NewLine(self.newLineTest)
+        self.new_line_window.show()
 
     def check_the_code(self):
         self.check_code.show()

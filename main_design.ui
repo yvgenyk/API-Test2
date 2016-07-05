@@ -232,7 +232,7 @@ border: 1px solid black;</string>
          <cursorShape>OpenHandCursor</cursorShape>
         </property>
         <property name="toolTip">
-         <string>dfgdfgdf</string>
+         <string/>
         </property>
         <property name="styleSheet">
          <string notr="true">background:rgb(80,80,80);
@@ -275,7 +275,7 @@ color: rgb(204,204,204);</string>
 color: rgb(204,204,204);</string>
           </property>
           <property name="text">
-           <string>Whole check display</string>
+           <string>Whole Check Display</string>
           </property>
          </widget>
         </item>
@@ -309,7 +309,7 @@ color: rgb(204,204,204);</string>
 color: rgb(204,204,204);</string>
           </property>
           <property name="text">
-           <string>Load Test File</string>
+           <string>Add New Line</string>
           </property>
          </widget>
         </item>

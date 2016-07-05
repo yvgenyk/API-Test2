@@ -1,16 +1,18 @@
 from PyQt4 import QtGui, QtCore
 import new_line_design
+import json
 
 
 class NewLine(QtGui.QMainWindow, new_line_design.Ui_NewLine):
-    def __init__(self, parent=None):
+    def __init__(self, newLineTest, parent=None):
         super(NewLine, self).__init__(parent)
         self.setupUi(self)
         self.new_line_window = None
-        
-        self.saveBtn.clicked.connect(self.continueFile)
-        self.addBtn.clicked.connect(self.addNew)
+        self.finalLine = None
+        self.newLineTest = newLineTest
         self.closeBtn.clicked.connect(self.close_window)
+        self.testLineBtn.clicked.connect(self.test_line)
+        self.saveMain.clicked.connect(self.save_main)
         """""""""""""""""""""""""""
         Combo boxes initialization
         with predefined options.
@@ -20,8 +22,9 @@ class NewLine(QtGui.QMainWindow, new_line_design.Ui_NewLine):
 
         self.newMethod.addItems(["POST", "GET"])
         self.paramNameSet = ["None", "textrsc", "filersc", "file_mime", "file_name", "fetch", "resources", "wordcount",
-                             "source_language", "target_language", "service", "expertise", "currency", "proofreading",
-                             "sources", "callback_url", "notes", "custom0", "custom1", "custom2", "translations"]
+                             "source_language", "target_language", "language_pair", "service", "expertise", "currency",
+                             "proofreading", "sources", "callback_url", "notes", "custom0", "custom1", "custom2",
+                             "translations"]
 
         self.paramValueSet_rsc = ["", "empty", "nokey"]
 
@@ -38,6 +41,14 @@ class NewLine(QtGui.QMainWindow, new_line_design.Ui_NewLine):
         self.dictOfNames = [self.p_one_name, self.p_two_name, self.p_three_name, self.p_four_name,
                              self.p_five_name, self.p_six_name, self.p_seven_name, self.p_eight_name]
 
+        self.dictOfCheckNames = [self.check_one_name, self.check_two_name, self.check_three_name,
+                                 self.check_four_name, self.check_five_name, self.check_six_name]
+
+        self.dictOfCheckValues = [self.check_one_value, self.check_two_value, self.check_three_value,
+                                 self.check_four_value, self.check_five_value, self.check_six_value]
+
+        self.dictOfFinds = [self.findOne, self.findTwo, self.findThree]
+
         for nameField in self.dictOfNames:
             nameField.addItems(self.paramNameSet)
 
@@ -48,7 +59,7 @@ class NewLine(QtGui.QMainWindow, new_line_design.Ui_NewLine):
     Dynamic box options change for
     correct selections.
     """""""""""""""""""""""""""""""""
-    def change_value_options(self, name):
+    def change_value_options(self):
 
         for i in range(len(self.dictOfNames)):
 
@@ -82,20 +93,11 @@ class NewLine(QtGui.QMainWindow, new_line_design.Ui_NewLine):
                     self.dictOfValues[i].clear()
                     self.dictOfValues[i].addItems(self.expertise)
 
-            if self.dictOfNames[i].currentText() == "source_language":
+            if self.dictOfNames[i].currentText() == "source_language" or self.dictOfNames[
+                i].currentText() == "target_language" or self.dictOfNames[i].currentText() == "language_pair":
                 if self.dictOfValues[i].currentText() == '':
                     self.dictOfValues[i].clear()
-                    self.dictOfValues[i].addItems(["", "en-us"])
-
-            if self.dictOfNames[i].currentText() == "target_language":
-                if self.dictOfValues[i].currentText() == '':
-                    self.dictOfValues[i].clear()
-                    self.dictOfValues[i].addItems(["", "fr-fr"])
-
-            if self.dictOfNames[i].currentText() == "target_language":
-                if self.dictOfValues[i].currentText() == '':
-                    self.dictOfValues[i].clear()
-                    self.dictOfValues[i].addItems(["", "fr-fr"])
+                    self.dictOfValues[i].addItems(["Random"])
 
             if self.dictOfNames[i].currentText() == "currency":
                 if self.dictOfValues[i].currentText() == '':
@@ -145,97 +147,62 @@ class NewLine(QtGui.QMainWindow, new_line_design.Ui_NewLine):
                     self.dictOfValues[i].addItem("Custom 2")
 
     def close_window(self):
+        self.newLineTest[0] = False
         self.close()
-        
-    def addNew(self):
-        self.saveNewLine_file(1)
 
-    def continueFile(self):
-        self.saveNewLine_file(0)
+    def test_line(self):
+        with open('./data/new_line.json', "w") as new:
+            json.dump({}, new)
+        newLine = {}
+        self.paramTextEdit.setText('')
+        self.paramTextEdit.append("Secret Key: " + self.boxS_K.currentText())
+        self.paramTextEdit.append("Public Key: " + self.boxP_K.currentText())
+        for i in range(len(self.dictOfNames)):
+            if self.dictOfNames[i].currentText() != 'None':
+                self.paramTextEdit.append(self.dictOfNames[i].currentText() + ': ' + self.dictOfValues[i].currentText())
 
-    def saveNewLine_file(self, add):
-        
-        #read the file
-        nameOfFile = QtGui.QFileDialog.getOpenFileName(self, 'Open File', "*.json")
-        loadedFile = open(nameOfFile, 'r')
-        
-        #convert to text
-        with loadedFile:
-            text = loadedFile.read()
-        
-        #prepare to write
-        loadedFile = open(nameOfFile, 'w')
-        if add == 1:
-            line = ('{\"method\":\"' + self.newMethod.currentText() + '\",\"address\":\"' + self.newAddress.text() +
-                    '\",\"title\":\"' + self.newTitle.text())
-        else:
-            line = (',{\"method\":\"' + self.newMethod.currentText() + '\",\"address\":\"' + self.newAddress.text() +
-                    '\",\"title\":\"' + self.newTitle.text())
+        newLine['method'] = self.newMethod.currentText()
+        newLine['address'] = self.newAddress.text()
+        newLine['title'] = self.newTitle.text()
+        newLine['save'] = "0"
+        newLine['params'] = []
+        newLine['params'].append(self.boxS_K.currentText())
+        newLine['params'].append(self.boxP_K.currentText())
+        for i in range(len(self.dictOfNames)):
+            if self.dictOfNames[i].currentText() != 'None':
+                parameter = {}
+                parameter['name'] = self.dictOfNames[i].currentText()
+                parameter['value'] = self.dictOfValues[i].currentText()
+                newLine['params'].append(parameter)
+        newLine['check'] = []
+        for name in self.dictOfCheckNames:
+            if name.text() != '':
+                newLine['check'].append(name.text())
 
-        if self.saveForNext.isChecked():
-            line += ('\",\"save\":\"1\",\"params\":[\"' + self.boxS_K.currentText() + '\",\"' + self.boxP_K.currentText() + '\"]}')
-        else:
-            line += ('\",\"save\":\"0\",\"params\":[\"' + self.boxS_K.currentText() + '\",\"' + self.boxP_K.currentText() + '\"]}')
+        newLine['value'] = []
+        for value in self.dictOfCheckValues:
+            if value.text() != '':
+                newLine['value'].append(value.text())
 
-        for index in range(len(self.dictOfNames)):
-            if self.dictOfNames[index].currentText() != 'None':
-                line = (line[:len(line) - 2] + ',{\"name\":\"' + self.dictOfNames[index].currentText() +
-                        '\",\"value\":\"' + self.dictOfValues[index].currentText() + '\"}' + line[len(line) - 2:])
+        newLine['find'] = []
+        for find in self.dictOfFinds:
+            if find.text() != '':
+                newLine['find'].append(find.text())
 
-        
-        if self.findOne.text() != '':
-            line = (line[:len(line)-1] + ',\"find\":[\"' + self.findOne.text() + '\"]' + line[len(line)-1:])
-            
-            if self.findTwo.text() != '':
-                line = (line[:len(line)-2] + ',\"' + self.findTwo.text() + '\"' + line[len(line)-2:])
-                
-                if self.findThree.text() != '':
-                    line = (line[:len(line)-2] + ',\"' + self.findThree.text() + '\"' + line[len(line)-2:])
-        else:
-            line = (line[:len(line)-1] + ',\"find\":[]' + line[len(line)-1:])
-                
-                
-        
-        if self.check_one_name.text() != '':        
-            if self.checkPrevValue_1.isChecked():
-                line = (line[:len(line)-1] + ',\"check\":[\"@' + self.check_one_name.text() + '\"]' + line[len(line)-1:])
-        
-            else:         
-                line = (line[:len(line)-1] + ',\"check\":[\"' + self.check_one_name.text() + '\"]' + line[len(line)-1:])
-            
-            if self.check_two_name.text() != '':
-                if self.checkPrevValue_2.isChecked():
-                    line = (line[:len(line)-2] + ',\"@' + self.check_two_name.text() + '\"' + line[len(line)-2:])
-                else:    
-                    line = (line[:len(line)-2] + ',\"' + self.check_two_name.text() + '\"' + line[len(line)-2:])
-                
-            if self.check_three_name.text() != '':
-                if self.checkPrevValue_3.isChecked():
-                    line = (line[:len(line)-2] + ',\"@' + self.check_three_name.text() + '\"' + line[len(line)-2:])
-                else:
-                    line = (line[:len(line)-2] + ',\"' + self.check_three_name.text() + '\"' + line[len(line)-2:])
-        else:
-             line = (line[:len(line)-1] + ',\"check\":[]' + line[len(line)-1:])
-                    
-        
-        if self.check_one_value.text() != '':            
-            line = (line[:len(line)-1] + ',\"value\":[\"' + self.check_one_value.text() + '\"]' + line[len(line)-1:])
-            
-            if self.check_two_value.text() != '':
-                line = (line[:len(line)-2] + ',\"' + self.check_two_value.text() + '\"' + line[len(line)-2:])
-                
-                if self.check_three_value.text() != '':
-                    line = (line[:len(line)-2] + ',\"' + self.check_three_value.text() + '\"' + line[len(line)-2:])
-        else:
-            line = (line[:len(line)-1] + ',\"value\":[]' + line[len(line)-1:])
+        self.finalLine = {}
+        self.finalLine['data'] = []
+        self.finalLine['data'].append(newLine)
+        self.newLineTest[0] = True
+        with open('./data/new_line.json', 'w') as outfile:
+            json.dump(self.finalLine, outfile)
 
-        
-        #find the place where to add the new line
-        fileEnd = len(text)-2
-        
-        #create new text
-        newText = text[:fileEnd] + line + text[fileEnd:]
-        
-        #overwrite the existing file with new content
-        loadedFile.write(newText)
-        loadedFile.close()
+    def save_main(self):
+        with open('./test_lines/00_Complete_Test.json') as codeLines_data:
+            mainJson = json.load(codeLines_data)
+
+        mainJson['data'].append(self.finalLine['data'][0])
+
+        with open('./test_lines/00_Complete_Test.json', 'w') as outfile:
+            json.dump(mainJson, outfile)
+
+        self.newLineTest[0] = False

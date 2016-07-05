@@ -177,6 +177,16 @@ class Response:
                     reportLine.report_line_check(total_words, str(resJson), splitVarToCheck[len(splitVarToCheck) - 1])
                     break
 
+            elif splitVarToCheck[len(splitVarToCheck) - 1] == "account_id":
+                with open('./data/setup.json') as codeLines_data:
+                    mainJson = json.load(codeLines_data)
+                if mainJson['user'] == str(resJson) and reportLine.get_color() != "red":
+                    reportLine.mark_green()
+                    reportLine.report_line_check(mainJson['user'], str(resJson), splitVarToCheck[len(splitVarToCheck) - 1])
+                else:
+                    reportLine.mark_red(errorNumber)
+                    reportLine.report_line_check(mainJson['user'], str(resJson), splitVarToCheck[len(splitVarToCheck) - 1])
+
             elif splitVarToCheck[len(splitVarToCheck) - 1] == "credits":
                 total_price = 0
 
@@ -357,6 +367,7 @@ class GetMethod:
                 else:
                     res = Response(requests.get(httpAddress + newAddress, stream=True, params=payload, verify=False),
                                    True)
+                    fileName = "None"
 
                 reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                 reportLine.report_line(httpAddress + newAddress, "Downloaded file: " + fileName, payload, None)
@@ -398,7 +409,7 @@ class GetMethod:
                         # Comparing the files names - downloaded vs uploaded.
                         fileName = testFilePath[0].split('/')
 
-                        if os.path.exists(fileName[len(fileName) - 1]):
+                        if os.path.exists("Downloads/" + fileName[len(fileName) - 1]):
                             reportLine.mark_green()
                         else:
                             reportLine.mark_red(errorNumber)
