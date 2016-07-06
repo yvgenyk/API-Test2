@@ -33,19 +33,18 @@ class NewLine(QtGui.QMainWindow, new_line_design.Ui_NewLine):
                           "technical-engineering", "gaming-video-games", "ad-words-banners", "mobile-applications",
                           "tourism", "certificates-translation"]
 
+        self.dictOfValues = [self.p_one_value, self.p_two_value, self.p_three_value, self.p_four_value, self.p_five_value]
 
+        self.dictOfNames = [self.p_one_name, self.p_two_name, self.p_three_name, self.p_four_name, self.p_five_name]
 
-        self.dictOfValues = [self.p_one_value, self.p_two_value, self.p_three_value, self.p_four_value,
-                             self.p_five_value, self.p_six_value, self.p_seven_value, self.p_eight_value]
-
-        self.dictOfNames = [self.p_one_name, self.p_two_name, self.p_three_name, self.p_four_name,
-                             self.p_five_name, self.p_six_name, self.p_seven_name, self.p_eight_name]
+        self.dictOfManualNames = [self.p_six_name, self.p_seven_name, self.p_eight_name]
+        self.dictOfManualValues = [self.p_six_value, self.p_seven_value, self.p_eight_value]
 
         self.dictOfCheckNames = [self.check_one_name, self.check_two_name, self.check_three_name,
                                  self.check_four_name, self.check_five_name, self.check_six_name]
 
         self.dictOfCheckValues = [self.check_one_value, self.check_two_value, self.check_three_value,
-                                 self.check_four_value, self.check_five_value, self.check_six_value]
+                                  self.check_four_value, self.check_five_value, self.check_six_value]
 
         self.dictOfFinds = [self.findOne, self.findTwo, self.findThree]
 
@@ -160,6 +159,9 @@ class NewLine(QtGui.QMainWindow, new_line_design.Ui_NewLine):
         for i in range(len(self.dictOfNames)):
             if self.dictOfNames[i].currentText() != 'None':
                 self.paramTextEdit.append(self.dictOfNames[i].currentText() + ': ' + self.dictOfValues[i].currentText())
+        for i in range(len(self.dictOfManualNames)):
+            if self.dictOfManualNames[i].text() != '':
+                self.paramTextEdit.append(self.dictOfManualNames[i].text() + ': ' + self.dictOfManualValues[i].text())
 
         newLine['method'] = self.newMethod.currentText()
         newLine['address'] = self.newAddress.text()
@@ -174,6 +176,14 @@ class NewLine(QtGui.QMainWindow, new_line_design.Ui_NewLine):
                 parameter['name'] = self.dictOfNames[i].currentText()
                 parameter['value'] = self.dictOfValues[i].currentText()
                 newLine['params'].append(parameter)
+
+        for i in range(len(self.dictOfManualNames)):
+            if self.dictOfManualNames[i].text() != '':
+                parameter = {}
+                parameter['name'] = self.dictOfManualNames[i].text()
+                parameter['value'] = self.dictOfManualValues[i].text()
+                newLine['params'].append(parameter)
+
         newLine['check'] = []
         for name in self.dictOfCheckNames:
             if name.text() != '':
