@@ -407,8 +407,7 @@ class GetMethod:
                     # File check
                     else:
                         # Comparing the files names - downloaded vs uploaded.
-                        fileName = testFilePath[0].split('/')
-
+                        fileName = testFilePath[0].split('\\')
                         if os.path.exists("Downloads/" + fileName[len(fileName) - 1]):
                             reportLine.mark_green()
                         else:
