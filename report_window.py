@@ -19,6 +19,7 @@ class ViewReport(QtGui.QMainWindow, new_report_design.Ui_Form):
         self.tableWidget.setRowCount(tableWidget.rowCount())
         self.tableWidget.setColumnCount(2)
         self.tableWidget.setColumnWidth(0, 400)
+        self.tableWidget.setHorizontalHeaderLabels("Title;Status".split(";"))
         self.tableWidget.horizontalHeader().setResizeMode(1, QtGui.QHeaderView.Stretch)
         self.tableWidget.cellClicked.connect(self.cell_was_clicked)
 

@@ -8,9 +8,10 @@ This class is handling all the low level json files editing.
 
 
 class JsonCreator(QtGui.QMainWindow, json_creator_design.Ui_JsonCreator):
-    def __init__(self, testFile, parent=None):
+    def __init__(self, testFile, newLineTest, parent=None):
         super(JsonCreator, self).__init__(parent)
         self.setupUi(self)
+        self.newLineTest = newLineTest
         self.doneBtn.clicked.connect(self.close_window)
         self.loadExFileBtn.clicked.connect(self.load_file)
         self.createNewBtn.clicked.connect(self.new_file)
@@ -48,5 +49,5 @@ class JsonCreator(QtGui.QMainWindow, json_creator_design.Ui_JsonCreator):
         
     def edit_file(self):
         
-        self.new_line_window = NewLine()
+        self.new_line_window = NewLine(self.newLineTest)
         self.new_line_window.show()

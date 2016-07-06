@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'settings_design.ui'
 #
-# Created: Sat Jul  2 14:28:58 2016
+# Created: Tue Jul  5 23:58:00 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,13 +26,13 @@ except AttributeError:
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName(_fromUtf8("Form"))
-        Form.resize(380, 410)
-        Form.setMinimumSize(QtCore.QSize(380, 410))
-        Form.setMaximumSize(QtCore.QSize(380, 410))
+        Form.resize(380, 450)
+        Form.setMinimumSize(QtCore.QSize(380, 450))
+        Form.setMaximumSize(QtCore.QSize(380, 450))
         Form.setStyleSheet(_fromUtf8("background: rgb(128,128, 128)"))
         Form.setWindowFilePath(_fromUtf8(""))
         self.verticalLayoutWidget = QtGui.QWidget(Form)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(0, 0, 384, 407))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(0, 0, 384, 445))
         self.verticalLayoutWidget.setObjectName(_fromUtf8("verticalLayoutWidget"))
         self.verticalLayout = QtGui.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setMargin(0)
@@ -92,6 +92,24 @@ class Ui_Form(object):
         self.httpLine.setObjectName(_fromUtf8("httpLine"))
         self.horizontalLayout_3.addWidget(self.httpLine)
         self.verticalLayout.addLayout(self.horizontalLayout_3)
+        self.horizontalLayout_8 = QtGui.QHBoxLayout()
+        self.horizontalLayout_8.setObjectName(_fromUtf8("horizontalLayout_8"))
+        self.label_9 = QtGui.QLabel(self.verticalLayoutWidget)
+        self.label_9.setMinimumSize(QtCore.QSize(60, 30))
+        self.label_9.setMaximumSize(QtCore.QSize(60, 30))
+        self.label_9.setStyleSheet(_fromUtf8("background:rgb(204,204,204);\n"
+"border-radius: 5px;"))
+        self.label_9.setObjectName(_fromUtf8("label_9"))
+        self.horizontalLayout_8.addWidget(self.label_9)
+        self.user_id = QtGui.QLineEdit(self.verticalLayoutWidget)
+        self.user_id.setMinimumSize(QtCore.QSize(305, 30))
+        self.user_id.setMaximumSize(QtCore.QSize(305, 30))
+        self.user_id.setStyleSheet(_fromUtf8("background:rgb(204,204,204);\n"
+"border: 2px solid black;\n"
+"border-radius: 5px;"))
+        self.user_id.setObjectName(_fromUtf8("user_id"))
+        self.horizontalLayout_8.addWidget(self.user_id)
+        self.verticalLayout.addLayout(self.horizontalLayout_8)
         self.horizontalLayout_7 = QtGui.QHBoxLayout()
         self.horizontalLayout_7.setObjectName(_fromUtf8("horizontalLayout_7"))
         self.horizontalLayout_6 = QtGui.QHBoxLayout()
@@ -210,6 +228,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setPointSize(12)
         self.loadTxtBtn.setFont(font)
+        self.loadTxtBtn.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
         self.loadTxtBtn.setStyleSheet(_fromUtf8("background:rgb(80,80,80);\n"
 "color: rgb(204,204,204);\n"
 ""))
@@ -223,6 +242,7 @@ class Ui_Form(object):
         font.setBold(True)
         font.setWeight(75)
         self.delTextFile.setFont(font)
+        self.delTextFile.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
         self.delTextFile.setStyleSheet(_fromUtf8("background:rgb(77, 0, 0);color: rgb(204,204,204);"))
         self.delTextFile.setObjectName(_fromUtf8("delTextFile"))
         self.horizontalLayout_11.addWidget(self.delTextFile)
@@ -253,6 +273,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setPointSize(12)
         self.loadFileBtn.setFont(font)
+        self.loadFileBtn.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
         self.loadFileBtn.setStyleSheet(_fromUtf8("background:rgb(80,80,80);\n"
 "color: rgb(204,204,204);"))
         self.loadFileBtn.setObjectName(_fromUtf8("loadFileBtn"))
@@ -265,6 +286,7 @@ class Ui_Form(object):
         font.setBold(True)
         font.setWeight(75)
         self.delFile.setFont(font)
+        self.delFile.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
         self.delFile.setAutoFillBackground(False)
         self.delFile.setStyleSheet(_fromUtf8("background:rgb(77, 0, 0);color: rgb(204,204,204);"))
         self.delFile.setObjectName(_fromUtf8("delFile"))
@@ -289,6 +311,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setPointSize(12)
         self.saveBtn.setFont(font)
+        self.saveBtn.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
         self.saveBtn.setStyleSheet(_fromUtf8("background:rgb(80,80,80);\n"
 "color: rgb(204,204,204);"))
         self.saveBtn.setObjectName(_fromUtf8("saveBtn"))
@@ -299,6 +322,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setPointSize(12)
         self.closeBtn.setFont(font)
+        self.closeBtn.setCursor(QtGui.QCursor(QtCore.Qt.OpenHandCursor))
         self.closeBtn.setStyleSheet(_fromUtf8("background:rgb(80,80,80);\n"
 "color: rgb(204,204,204);"))
         self.closeBtn.setObjectName(_fromUtf8("closeBtn"))
@@ -313,6 +337,7 @@ class Ui_Form(object):
         self.label.setText(_translate("Form", " Secret Key", None))
         self.label_2.setText(_translate("Form", " Public Key ", None))
         self.label_3.setText(_translate("Form", " http:     ", None))
+        self.label_9.setText(_translate("Form", "User ID:", None))
         self.label_4.setText(_translate("Form", " Regular Project", None))
         self.label_5.setText(_translate("Form", " Expert Project", None))
         self.label_6.setText(_translate("Form", " Proofreading", None))

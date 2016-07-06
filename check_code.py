@@ -53,6 +53,7 @@ class CheckCode(QtGui.QMainWindow, check_code_design.Ui_Lines_presentation):
         self.prevBtn.clicked.connect(self.prev_btn)
         self.saveBtn.clicked.connect(self.save_line)
         self.oneLineCheck.clicked.connect(self.one_line_test)
+        self.deleteLine.clicked.connect(self.delete_line)
 
         with open('./test_lines/00_Complete_Test.json') as codeLines_data:
             self.mainJson = json.load(codeLines_data)
@@ -65,6 +66,11 @@ class CheckCode(QtGui.QMainWindow, check_code_design.Ui_Lines_presentation):
         self.close()
 
     def show_lines(self):
+
+        with open('./test_lines/00_Complete_Test.json') as codeLines_data:
+            self.mainJson = json.load(codeLines_data)
+
+        self.maxLines = len(self.mainJson['data'])
 
         for i in range(10):
             self.codeLinesCounterDict[i].display(self.index+i+1)
@@ -266,12 +272,11 @@ class CheckCode(QtGui.QMainWindow, check_code_design.Ui_Lines_presentation):
             if i == "1" and (self.displayedLine.index('1') + self.index) < self.maxLines:
                 flag = True
 
-        if flag == True:
+        if flag:
             line = self.displayedLine.index('1') + self.index
 
             lineInfo = {}
             lineInfo['data'] = [self.mainJson['data'][line]]
-            # lineInfo = "{\"data\":[" + str(self.mainJson['data'][line]) + "]}"
             with open('./test_lines/one_line_test.json', 'w') as outfile:
                 json.dump(lineInfo, outfile)
 
@@ -279,9 +284,30 @@ class CheckCode(QtGui.QMainWindow, check_code_design.Ui_Lines_presentation):
 
             self.close()
 
+    def delete_line(self):
+        flag = False
+        for i in self.displayedLine:
+            if i == "1" and (self.displayedLine.index('1') + self.index) < self.maxLines:
+                flag = True
 
+        if flag:
+            choice = QtGui.QMessageBox.question(self, 'Delete', "Are you sure?",
+                                                QtGui.QMessageBox.Yes | QtGui.QMessageBox.No)
+            if choice == QtGui.QMessageBox.Yes:
+                line = self.displayedLine.index('1') + self.index
 
+                with open('./test_lines/00_Complete_Test.json') as codeLines_data:
+                    mainJson = json.load(codeLines_data)
+                    del mainJson['data'][line]
 
+                with open('./test_lines/00_Complete_Test.json', 'w') as outfile:
+                    json.dump(mainJson, outfile)
 
+                with open('./test_lines/00_Complete_Test.json') as codeLines_data:
+                    self.mainJson = json.load(codeLines_data)
 
-
+                self.maxLines = len(self.mainJson['data'])
+                self.displayedLine = ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0"]
+                self.show_lines()
+            else:
+                pass

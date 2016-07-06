@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>1170</width>
-    <height>640</height>
+    <height>645</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>1170</width>
-    <height>640</height>
+    <height>645</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>1170</width>
-    <height>640</height>
+    <height>645</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -88,6 +88,9 @@
             <pointsize>10</pointsize>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -131,6 +134,9 @@
            <font>
             <pointsize>10</pointsize>
            </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
           </property>
           <property name="text">
            <string/>
@@ -176,6 +182,9 @@
             <pointsize>10</pointsize>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -219,6 +228,9 @@
            <font>
             <pointsize>10</pointsize>
            </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
           </property>
           <property name="text">
            <string/>
@@ -264,6 +276,9 @@
             <pointsize>10</pointsize>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -307,6 +322,9 @@
            <font>
             <pointsize>10</pointsize>
            </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
           </property>
           <property name="text">
            <string/>
@@ -352,6 +370,9 @@
             <pointsize>10</pointsize>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -395,6 +416,9 @@
            <font>
             <pointsize>10</pointsize>
            </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
           </property>
           <property name="text">
            <string/>
@@ -440,6 +464,9 @@
             <pointsize>10</pointsize>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -484,6 +511,9 @@
             <pointsize>10</pointsize>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -513,6 +543,9 @@
             <weight>75</weight>
             <bold>true</bold>
            </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
           </property>
           <property name="styleSheet">
            <string notr="true">background:rgb(80,80,80);
@@ -544,6 +577,9 @@ color: rgb(204,204,204);</string>
             <bold>true</bold>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
           <property name="styleSheet">
            <string notr="true">background:rgb(80,80,80);
 color: rgb(204,204,204);</string>
@@ -556,27 +592,33 @@ color: rgb(204,204,204);</string>
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_47">
+       <layout class="QHBoxLayout" name="horizontalLayout_17">
         <item>
          <widget class="QPushButton" name="saveBtn">
           <property name="minimumSize">
            <size>
-            <width>180</width>
+            <width>280</width>
             <height>30</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>180</width>
+            <width>280</width>
             <height>30</height>
            </size>
           </property>
           <property name="font">
            <font>
-            <pointsize>12</pointsize>
+            <pointsize>14</pointsize>
             <weight>75</weight>
             <bold>true</bold>
            </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;color:black&quot;&gt;Click here to save edited line.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="styleSheet">
            <string notr="true">background:rgb(80,80,80);
@@ -588,25 +630,68 @@ color: rgb(204,204,204);</string>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="wholeCheck">
+         <widget class="QPushButton" name="deleteLine">
           <property name="minimumSize">
            <size>
-            <width>180</width>
+            <width>280</width>
             <height>30</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>180</width>
+            <width>280</width>
             <height>30</height>
            </size>
           </property>
           <property name="font">
            <font>
-            <pointsize>12</pointsize>
+            <pointsize>14</pointsize>
             <weight>75</weight>
             <bold>true</bold>
            </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background:rgb(80,80,80);
+color: rgb(204,204,204);</string>
+          </property>
+          <property name="text">
+           <string>Delete selected line</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_47">
+        <item>
+         <widget class="QPushButton" name="wholeCheck">
+          <property name="minimumSize">
+           <size>
+            <width>280</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>280</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;color:black;&quot;&gt;Click here to test all lines.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="styleSheet">
            <string notr="true">background:rgb(80,80,80);
@@ -621,22 +706,28 @@ color: rgb(204,204,204);</string>
          <widget class="QPushButton" name="oneLineCheck">
           <property name="minimumSize">
            <size>
-            <width>180</width>
+            <width>280</width>
             <height>30</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>180</width>
+            <width>280</width>
             <height>30</height>
            </size>
           </property>
           <property name="font">
            <font>
-            <pointsize>12</pointsize>
+            <pointsize>14</pointsize>
             <weight>75</weight>
             <bold>true</bold>
            </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;color:black;&quot;&gt;Click here to test highlighted line.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="styleSheet">
            <string notr="true">background:rgb(80,80,80);

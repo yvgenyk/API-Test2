@@ -6,13 +6,13 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>915</width>
+    <width>905</width>
     <height>645</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>915</width>
+    <width>905</width>
     <height>645</height>
    </size>
   </property>
@@ -35,7 +35,7 @@
   <widget class="QWidget" name="horizontalLayoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>0</x>
      <y>0</y>
      <width>901</width>
      <height>641</height>
@@ -43,30 +43,137 @@
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_5">
     <item>
-     <widget class="QTableWidget" name="tableWidget">
-      <property name="minimumSize">
-       <size>
-        <width>500</width>
-        <height>635</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>500</width>
-        <height>635</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>9</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background:rgb(204,204,204);
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QTableWidget" name="tableWidget">
+        <property name="minimumSize">
+         <size>
+          <width>500</width>
+          <height>540</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>500</width>
+          <height>540</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background:rgb(204,204,204);
 border: 1px solid black;
 </string>
-      </property>
-     </widget>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>10</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="minimumSize">
+         <size>
+          <width>500</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>500</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background:rgb(255, 224, 102);
+border: 1px solid black;</string>
+        </property>
+        <property name="text">
+         <string>Line was executed properly. No values were checked or searched for.</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="minimumSize">
+         <size>
+          <width>500</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>500</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background:rgb(255, 153, 153);
+border: 1px solid black;</string>
+        </property>
+        <property name="text">
+         <string>Line was executed but there was problems: response status isn't 200/incorrect value was found in the response.</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_3">
+        <property name="minimumSize">
+         <size>
+          <width>500</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>500</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background:rgb(221, 255, 204);
+border: 1px solid black;</string>
+        </property>
+        <property name="text">
+         <string>Line was executed with correct status, all values to check were found and correct.</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
     <item>
      <widget class="Line" name="line">
@@ -121,6 +228,12 @@ border: 1px solid black;
           <pointsize>12</pointsize>
          </font>
         </property>
+        <property name="cursor">
+         <cursorShape>OpenHandCursor</cursorShape>
+        </property>
+        <property name="toolTip">
+         <string/>
+        </property>
         <property name="styleSheet">
          <string notr="true">background:rgb(80,80,80);
 color: rgb(204,204,204);</string>
@@ -151,12 +264,18 @@ color: rgb(204,204,204);</string>
             <pointsize>12</pointsize>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#000000;&quot;&gt;You can check individual lines. By clicking here you can select and test individual lines one at a time.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
           <property name="styleSheet">
            <string notr="true">background:rgb(80,80,80);
 color: rgb(204,204,204);</string>
           </property>
           <property name="text">
-           <string>Whole check display</string>
+           <string>Whole Check Display</string>
           </property>
          </widget>
         </item>
@@ -179,12 +298,18 @@ color: rgb(204,204,204);</string>
             <pointsize>12</pointsize>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#000000;&quot;&gt;To add new test lines click here.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
           <property name="styleSheet">
            <string notr="true">background:rgb(80,80,80);
 color: rgb(204,204,204);</string>
           </property>
           <property name="text">
-           <string>Load Test File</string>
+           <string>Add New Line</string>
           </property>
          </widget>
         </item>
@@ -216,6 +341,9 @@ color: rgb(204,204,204);</string>
            <font>
             <pointsize>12</pointsize>
            </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
           </property>
           <property name="styleSheet">
            <string notr="true">background:rgb(0, 51, 0);
@@ -251,6 +379,9 @@ color: rgb(204,204,204);</string>
             <pointsize>12</pointsize>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
           <property name="styleSheet">
            <string notr="true">background:rgb(77, 0, 0);
 color: rgb(204,204,204);</string>
@@ -283,6 +414,12 @@ color: rgb(204,204,204);</string>
             <pointsize>12</pointsize>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;color:black&quot;&gt;Click here to see the report after the test is finished.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
           <property name="styleSheet">
            <string notr="true">background:rgb(80,80,80);
 color: rgb(204,204,204);</string>
@@ -311,6 +448,9 @@ color: rgb(204,204,204);</string>
             <pointsize>12</pointsize>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
           <property name="styleSheet">
            <string notr="true">background:rgb(80,80,80);
 color: rgb(204,204,204);</string>
@@ -327,13 +467,13 @@ color: rgb(204,204,204);</string>
         <property name="minimumSize">
          <size>
           <width>375</width>
-          <height>40</height>
+          <height>60</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>375</width>
-          <height>40</height>
+          <height>60</height>
          </size>
         </property>
         <property name="styleSheet">

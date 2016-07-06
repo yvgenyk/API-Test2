@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>380</width>
-    <height>410</height>
+    <height>450</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>380</width>
-    <height>410</height>
+    <height>450</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>380</width>
-    <height>410</height>
+    <height>450</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -37,7 +37,7 @@
      <x>0</x>
      <y>0</y>
      <width>384</width>
-     <height>407</height>
+     <height>445</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -167,6 +167,54 @@ border-radius: 5px;</string>
       </item>
       <item>
        <widget class="QLineEdit" name="httpLine">
+        <property name="minimumSize">
+         <size>
+          <width>305</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>305</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background:rgb(204,204,204);
+border: 2px solid black;
+border-radius: 5px;</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_8">
+      <item>
+       <widget class="QLabel" name="label_9">
+        <property name="minimumSize">
+         <size>
+          <width>60</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>60</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background:rgb(204,204,204);
+border-radius: 5px;</string>
+        </property>
+        <property name="text">
+         <string>User ID:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="user_id">
         <property name="minimumSize">
          <size>
           <width>305</width>
@@ -502,6 +550,9 @@ border-radius: 5px;</string>
               <pointsize>12</pointsize>
              </font>
             </property>
+            <property name="cursor">
+             <cursorShape>OpenHandCursor</cursorShape>
+            </property>
             <property name="styleSheet">
              <string notr="true">background:rgb(80,80,80);
 color: rgb(204,204,204);
@@ -532,6 +583,9 @@ color: rgb(204,204,204);
               <weight>75</weight>
               <bold>true</bold>
              </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>OpenHandCursor</cursorShape>
             </property>
             <property name="styleSheet">
              <string notr="true">background:rgb(77, 0, 0);color: rgb(204,204,204);</string>
@@ -601,6 +655,9 @@ border-radius: 5px;</string>
               <pointsize>12</pointsize>
              </font>
             </property>
+            <property name="cursor">
+             <cursorShape>OpenHandCursor</cursorShape>
+            </property>
             <property name="styleSheet">
              <string notr="true">background:rgb(80,80,80);
 color: rgb(204,204,204);</string>
@@ -630,6 +687,9 @@ color: rgb(204,204,204);</string>
               <weight>75</weight>
               <bold>true</bold>
              </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>OpenHandCursor</cursorShape>
             </property>
             <property name="autoFillBackground">
              <bool>false</bool>
@@ -693,6 +753,9 @@ border-radius: 5px;</string>
           <pointsize>12</pointsize>
          </font>
         </property>
+        <property name="cursor">
+         <cursorShape>OpenHandCursor</cursorShape>
+        </property>
         <property name="styleSheet">
          <string notr="true">background:rgb(80,80,80);
 color: rgb(204,204,204);</string>
@@ -720,6 +783,9 @@ color: rgb(204,204,204);</string>
          <font>
           <pointsize>12</pointsize>
          </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>OpenHandCursor</cursorShape>
         </property>
         <property name="styleSheet">
          <string notr="true">background:rgb(80,80,80);
