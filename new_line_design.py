@@ -2,8 +2,7 @@
 
 # Form implementation generated from reading ui file 'new_line_design.ui'
 #
-# Created: Tue Jul  5 22:49:05 2016
-#      by: PyQt4 UI code generator 4.10.4
+# Created by: PyQt4 UI code generator 4.11.4
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -34,10 +33,9 @@ class Ui_NewLine(object):
         NewLine.setWindowIcon(icon)
         NewLine.setStyleSheet(_fromUtf8("background: rgb(128,128, 128)"))
         self.verticalLayoutWidget = QtGui.QWidget(NewLine)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 10, 831, 721))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 10, 831, 730))
         self.verticalLayoutWidget.setObjectName(_fromUtf8("verticalLayoutWidget"))
         self.verticalLayout_5 = QtGui.QVBoxLayout(self.verticalLayoutWidget)
-        self.verticalLayout_5.setMargin(0)
         self.verticalLayout_5.setObjectName(_fromUtf8("verticalLayout_5"))
         self.horizontalLayout_49 = QtGui.QHBoxLayout()
         self.horizontalLayout_49.setObjectName(_fromUtf8("horizontalLayout_49"))
@@ -103,7 +101,6 @@ class Ui_NewLine(object):
         self.label_30.setMinimumSize(QtCore.QSize(0, 20))
         self.label_30.setMaximumSize(QtCore.QSize(16777215, 20))
         self.label_30.setWordWrap(False)
-        self.label_30.setMargin(0)
         self.label_30.setObjectName(_fromUtf8("label_30"))
         self.verticalLayout_3.addWidget(self.label_30)
         self.horizontalLayout_30 = QtGui.QHBoxLayout()
@@ -585,10 +582,12 @@ class Ui_NewLine(object):
         self.label_12.setMaximumSize(QtCore.QSize(40, 20))
         self.label_12.setObjectName(_fromUtf8("label_12"))
         self.horizontalLayout_17.addWidget(self.label_12)
-        self.p_six_name = QtGui.QComboBox(self.verticalLayoutWidget)
+        self.p_six_name = QtGui.QLineEdit(self.verticalLayoutWidget)
         self.p_six_name.setMinimumSize(QtCore.QSize(100, 20))
         self.p_six_name.setMaximumSize(QtCore.QSize(100, 20))
-        self.p_six_name.setStyleSheet(_fromUtf8("background:rgb(204,204,204);"))
+        self.p_six_name.setStyleSheet(_fromUtf8("background:rgb(204,204,204);\n"
+"border: 1px solid black;"))
+        self.p_six_name.setText(_fromUtf8(""))
         self.p_six_name.setObjectName(_fromUtf8("p_six_name"))
         self.horizontalLayout_17.addWidget(self.p_six_name)
         self.horizontalLayout_16.addLayout(self.horizontalLayout_17)
@@ -599,10 +598,12 @@ class Ui_NewLine(object):
         self.label_13.setMaximumSize(QtCore.QSize(40, 20))
         self.label_13.setObjectName(_fromUtf8("label_13"))
         self.horizontalLayout_18.addWidget(self.label_13)
-        self.p_six_value = QtGui.QComboBox(self.verticalLayoutWidget)
+        self.p_six_value = QtGui.QLineEdit(self.verticalLayoutWidget)
         self.p_six_value.setMinimumSize(QtCore.QSize(100, 20))
         self.p_six_value.setMaximumSize(QtCore.QSize(100, 20))
-        self.p_six_value.setStyleSheet(_fromUtf8("background:rgb(204,204,204);"))
+        self.p_six_value.setStyleSheet(_fromUtf8("background:rgb(204,204,204);\n"
+"border: 1px solid black;"))
+        self.p_six_value.setText(_fromUtf8(""))
         self.p_six_value.setObjectName(_fromUtf8("p_six_value"))
         self.horizontalLayout_18.addWidget(self.p_six_value)
         self.horizontalLayout_16.addLayout(self.horizontalLayout_18)
@@ -616,10 +617,12 @@ class Ui_NewLine(object):
         self.label_18.setMaximumSize(QtCore.QSize(40, 20))
         self.label_18.setObjectName(_fromUtf8("label_18"))
         self.horizontalLayout_26.addWidget(self.label_18)
-        self.p_seven_name = QtGui.QComboBox(self.verticalLayoutWidget)
+        self.p_seven_name = QtGui.QLineEdit(self.verticalLayoutWidget)
         self.p_seven_name.setMinimumSize(QtCore.QSize(100, 20))
         self.p_seven_name.setMaximumSize(QtCore.QSize(100, 20))
-        self.p_seven_name.setStyleSheet(_fromUtf8("background:rgb(204,204,204);"))
+        self.p_seven_name.setStyleSheet(_fromUtf8("background:rgb(204,204,204);\n"
+"border: 1px solid black;"))
+        self.p_seven_name.setText(_fromUtf8(""))
         self.p_seven_name.setObjectName(_fromUtf8("p_seven_name"))
         self.horizontalLayout_26.addWidget(self.p_seven_name)
         self.horizontalLayout_25.addLayout(self.horizontalLayout_26)
@@ -630,10 +633,12 @@ class Ui_NewLine(object):
         self.label_19.setMaximumSize(QtCore.QSize(40, 20))
         self.label_19.setObjectName(_fromUtf8("label_19"))
         self.horizontalLayout_27.addWidget(self.label_19)
-        self.p_seven_value = QtGui.QComboBox(self.verticalLayoutWidget)
+        self.p_seven_value = QtGui.QLineEdit(self.verticalLayoutWidget)
         self.p_seven_value.setMinimumSize(QtCore.QSize(100, 20))
         self.p_seven_value.setMaximumSize(QtCore.QSize(100, 20))
-        self.p_seven_value.setStyleSheet(_fromUtf8("background:rgb(204,204,204);"))
+        self.p_seven_value.setStyleSheet(_fromUtf8("background:rgb(204,204,204);\n"
+"border: 1px solid black;"))
+        self.p_seven_value.setText(_fromUtf8(""))
         self.p_seven_value.setObjectName(_fromUtf8("p_seven_value"))
         self.horizontalLayout_27.addWidget(self.p_seven_value)
         self.horizontalLayout_25.addLayout(self.horizontalLayout_27)
@@ -647,10 +652,12 @@ class Ui_NewLine(object):
         self.label_16.setMaximumSize(QtCore.QSize(40, 20))
         self.label_16.setObjectName(_fromUtf8("label_16"))
         self.horizontalLayout_23.addWidget(self.label_16)
-        self.p_eight_name = QtGui.QComboBox(self.verticalLayoutWidget)
+        self.p_eight_name = QtGui.QLineEdit(self.verticalLayoutWidget)
         self.p_eight_name.setMinimumSize(QtCore.QSize(100, 20))
         self.p_eight_name.setMaximumSize(QtCore.QSize(100, 20))
-        self.p_eight_name.setStyleSheet(_fromUtf8("background:rgb(204,204,204);"))
+        self.p_eight_name.setStyleSheet(_fromUtf8("background:rgb(204,204,204);\n"
+"border: 1px solid black;"))
+        self.p_eight_name.setText(_fromUtf8(""))
         self.p_eight_name.setObjectName(_fromUtf8("p_eight_name"))
         self.horizontalLayout_23.addWidget(self.p_eight_name)
         self.horizontalLayout_22.addLayout(self.horizontalLayout_23)
@@ -661,10 +668,12 @@ class Ui_NewLine(object):
         self.label_17.setMaximumSize(QtCore.QSize(40, 20))
         self.label_17.setObjectName(_fromUtf8("label_17"))
         self.horizontalLayout_24.addWidget(self.label_17)
-        self.p_eight_value = QtGui.QComboBox(self.verticalLayoutWidget)
+        self.p_eight_value = QtGui.QLineEdit(self.verticalLayoutWidget)
         self.p_eight_value.setMinimumSize(QtCore.QSize(100, 20))
         self.p_eight_value.setMaximumSize(QtCore.QSize(100, 20))
-        self.p_eight_value.setStyleSheet(_fromUtf8("background:rgb(204,204,204);"))
+        self.p_eight_value.setStyleSheet(_fromUtf8("background:rgb(204,204,204);\n"
+"border: 1px solid black;"))
+        self.p_eight_value.setText(_fromUtf8(""))
         self.p_eight_value.setObjectName(_fromUtf8("p_eight_value"))
         self.horizontalLayout_24.addWidget(self.p_eight_value)
         self.horizontalLayout_22.addLayout(self.horizontalLayout_24)

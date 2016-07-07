@@ -18,7 +18,7 @@ class Resource:
                 txt = loadedFile.read()
 
             # Adding 13% more for the word count.
-            self.wordcount = len(txt.split(' '))*1.13
+            self.wordcount = len(txt.split(' '))*1.1
         """
         Reading a pdf file isn't as easy as text file.
         """

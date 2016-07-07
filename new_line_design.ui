@@ -38,7 +38,7 @@
      <x>10</x>
      <y>10</y>
      <width>831</width>
-     <height>721</height>
+     <height>730</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -1551,7 +1551,7 @@ border-radius: 5px;</string>
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="p_six_name">
+             <widget class="QLineEdit" name="p_six_name">
               <property name="minimumSize">
                <size>
                 <width>100</width>
@@ -1565,7 +1565,11 @@ border-radius: 5px;</string>
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">background:rgb(204,204,204);</string>
+               <string notr="true">background:rgb(204,204,204);
+border: 1px solid black;</string>
+              </property>
+              <property name="text">
+               <string/>
               </property>
              </widget>
             </item>
@@ -1593,7 +1597,7 @@ border-radius: 5px;</string>
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="p_six_value">
+             <widget class="QLineEdit" name="p_six_value">
               <property name="minimumSize">
                <size>
                 <width>100</width>
@@ -1607,7 +1611,11 @@ border-radius: 5px;</string>
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">background:rgb(204,204,204);</string>
+               <string notr="true">background:rgb(204,204,204);
+border: 1px solid black;</string>
+              </property>
+              <property name="text">
+               <string/>
               </property>
              </widget>
             </item>
@@ -1639,7 +1647,7 @@ border-radius: 5px;</string>
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="p_seven_name">
+             <widget class="QLineEdit" name="p_seven_name">
               <property name="minimumSize">
                <size>
                 <width>100</width>
@@ -1653,7 +1661,11 @@ border-radius: 5px;</string>
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">background:rgb(204,204,204);</string>
+               <string notr="true">background:rgb(204,204,204);
+border: 1px solid black;</string>
+              </property>
+              <property name="text">
+               <string/>
               </property>
              </widget>
             </item>
@@ -1681,7 +1693,7 @@ border-radius: 5px;</string>
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="p_seven_value">
+             <widget class="QLineEdit" name="p_seven_value">
               <property name="minimumSize">
                <size>
                 <width>100</width>
@@ -1695,7 +1707,11 @@ border-radius: 5px;</string>
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">background:rgb(204,204,204);</string>
+               <string notr="true">background:rgb(204,204,204);
+border: 1px solid black;</string>
+              </property>
+              <property name="text">
+               <string/>
               </property>
              </widget>
             </item>
@@ -1727,7 +1743,7 @@ border-radius: 5px;</string>
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="p_eight_name">
+             <widget class="QLineEdit" name="p_eight_name">
               <property name="minimumSize">
                <size>
                 <width>100</width>
@@ -1741,7 +1757,11 @@ border-radius: 5px;</string>
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">background:rgb(204,204,204);</string>
+               <string notr="true">background:rgb(204,204,204);
+border: 1px solid black;</string>
+              </property>
+              <property name="text">
+               <string/>
               </property>
              </widget>
             </item>
@@ -1769,7 +1789,7 @@ border-radius: 5px;</string>
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="p_eight_value">
+             <widget class="QLineEdit" name="p_eight_value">
               <property name="minimumSize">
                <size>
                 <width>100</width>
@@ -1783,7 +1803,11 @@ border-radius: 5px;</string>
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">background:rgb(204,204,204);</string>
+               <string notr="true">background:rgb(204,204,204);
+border: 1px solid black;</string>
+              </property>
+              <property name="text">
+               <string/>
               </property>
              </widget>
             </item>
