@@ -168,8 +168,7 @@ class Response:
                     for uuid in rsc_uuid:
                         total_words += dataJson[0][uuid]['wordcount']
 
-
-                if int(total_words) >= int(resJson) and reportLine.get_color() != "red":
+                if int(total_words) >= int(resJson) and (int(total_words)*0.82) <= int(resJson) and reportLine.get_color() != "red":
                     reportLine.mark_green()
                     reportLine.report_line_check(total_words, str(resJson), splitVarToCheck[len(splitVarToCheck) - 1])
                 else:
@@ -210,7 +209,7 @@ class Response:
                     for uuid in rsc_uuid:
                         total_price += dataJson[0][uuid]['trranscrip_proj_price']
 
-                if total_price >= resJson and reportLine.get_color() != "red":
+                if total_price >= resJson and (total_price*0.8) <= resJson and reportLine.get_color() != "red":
                     reportLine.mark_green()
                     reportLine.report_line_check(total_price, str(resJson),
                                                  splitVarToCheck[len(splitVarToCheck) - 1])
@@ -608,7 +607,54 @@ class PostMethod:
             pass
         elif self.testLine["params"][payIndex]["value"] == "nokey":
             pass
-                            
+        elif self.testLine["params"][payIndex]["value"] == "oneFile":
+            loadedFile = open(txtFilePath[0], 'r')
+
+            with loadedFile:
+                txt = loadedFile.read()
+
+            payload['text'] = txt
+
+            res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False), True)
+            reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
+            reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
+            print("Payload: " + str(payload))
+            res.report_line_to_main_window(reportLine, errorNumber)
+            if res.getStatus() != 200:
+                reportLine.mark_red(errorNumber)
+
+            if self.testLine["save"] == '1':
+                prevResponse[0] = res.getJson()
+                prevPayload[0] = payload
+
+            """""""""""""""""""""""""""""""""
+            In case there is 500 error, will
+            try to upload 2 more times.
+            """""""""""""""""""""""""""""""""
+            if res.getStatus() != 200:
+                for i in range(2):
+                    res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False), True)
+                    reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
+                    reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
+                    res.report_line_to_main_window(reportLine, errorNumber)
+                    if res.getStatus() == 200:
+                        break
+                    else:
+                        reportLine.mark_red(errorNumber)
+
+            if res.getStatus() == 200:
+                if len(self.testLine['find']) >= 1:
+                    res.find(self.testLine, reportLine, errorNumber)
+
+                if len(self.testLine['check']) >= 1:
+                    res.check_value(self.testLine, reportLine, prevPayload, self.rsc_uuid, errorNumber)
+
+                if firstResourcesUpload[0] == False:
+                    uuidTxt = str(res.getJson()["results"])
+                    txtFileUUID.append(uuidTxt[2:(len(uuidTxt) - 2)])
+
+                uploadedrscFlag[0] = True
+
         else:
                             
             if len(txtFilePath) == 0:
@@ -676,6 +722,52 @@ class PostMethod:
             pass
         elif self.testLine["params"][payIndex]["value"] == "nokey":
             pass
+        elif self.testLine["params"][payIndex]["value"] == "oneFile":
+            loadedFile = {'@upload': open(testFilePath[0], 'rb')}
+
+            res = Response(
+                requests.post(httpAddress + self.testLine["address"], files=loadedFile, data=payload, verify=False),
+                True)
+            reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
+            reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, str(loadedFile))
+            print("Payload: " + str(payload))
+            res.report_line_to_main_window(reportLine, errorNumber)
+            if res.getStatus() != 200:
+                reportLine.mark_red(errorNumber)
+
+            if self.testLine["save"] == '1':
+                prevResponse[0] = res.getJson()
+                prevPayload[0] = payload
+
+            """""""""""""""""""""""""""""""""
+                                In case there is 500 error, will
+                                try to upload 2 more times.
+                                """""""""""""""""""""""""""""""""
+            if res.getStatus() != 200:
+                for i in range(2):
+                    res = Response(
+                        requests.post(httpAddress + self.testLine["address"], files=loadedFile, data=payload,
+                                      verify=False), True)
+                    reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
+                    reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
+                    res.report_line_to_main_window(reportLine, errorNumber)
+                    if res.getStatus() == 200:
+                        break
+                    else:
+                        reportLine.mark_red(errorNumber)
+
+            if res.getStatus() == 200:
+                if len(self.testLine['find']) >= 1:
+                    res.find(self.testLine, reportLine, errorNumber)
+
+                if len(self.testLine['check']) >= 1:
+                    res.check_value(self.testLine, reportLine, prevPayload, self.rsc_uuid, errorNumber)
+
+                if firstResourcesUpload[0] == False:
+                    uuidFile = str(res.getJson()["results"])
+                    uploadFileUUID.append(uuidFile[2:(len(uuidFile) - 2)])
+
+                uploadedrscFlag[0] = True
                             
         else:
             if len(testFilePath) == 0:

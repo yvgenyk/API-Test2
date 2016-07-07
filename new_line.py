@@ -26,7 +26,7 @@ class NewLine(QtGui.QMainWindow, new_line_design.Ui_NewLine):
                              "proofreading", "sources", "callback_url", "notes", "custom0", "custom1", "custom2",
                              "translations"]
 
-        self.paramValueSet_rsc = ["", "empty", "nokey"]
+        self.paramValueSet_rsc = ["", "empty", "nokey", "oneFile"]
 
         self.expertise = ["", "automotive-aerospace", "business-finance", "software-it", "legal-certificate",
                           "marketing-consumer-media", "cv", "medical", "patents", "scientific-academic",

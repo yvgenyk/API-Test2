@@ -83,6 +83,11 @@ class CheckCode(QtGui.QMainWindow, check_code_design.Ui_Lines_presentation):
                 self.codeLinesDict[i].setText('')
 
     def next_btn(self):
+        with open('./test_lines/00_Complete_Test.json') as codeLines_data:
+            self.mainJson = json.load(codeLines_data)
+
+        self.maxLines = len(self.mainJson['data'])
+
         if (self.index + 10) > (self.maxLines):
             pass
         else:
