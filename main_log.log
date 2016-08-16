@@ -1,181 +1,302 @@
-2016-07-07 11:39:25,256:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
-2016-07-07 11:39:26,290:ERROR:STDERR:C:\Python34\lib\site-packages\requests\packages\urllib3\connectionpool.py:791: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html
-2016-07-07 11:39:26,290:ERROR:STDERR:  InsecureRequestWarning)
-2016-07-07 11:39:27,465:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
-2016-07-07 11:39:27,486:INFO:STDOUT:Test report Lines: 1
-2016-07-07 11:39:27,492:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
-2016-07-07 11:39:27,493:INFO:STDOUT:0. Title: Create a resource from file  Status: 200
-2016-07-07 11:39:27,505:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
-2016-07-07 11:39:27,509:ERROR:STDERR:C:\Python34\lib\site-packages\requests\packages\urllib3\connectionpool.py:791: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html
-2016-07-07 11:39:27,509:ERROR:STDERR:  InsecureRequestWarning)
-2016-07-07 11:39:30,466:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
-2016-07-07 11:39:30,468:INFO:STDOUT:Test report Lines: 2
-2016-07-07 11:39:30,470:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
-2016-07-07 11:39:30,471:INFO:STDOUT:1. Title: Create a resource from file  Status: 200
-2016-07-07 11:39:30,481:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
-2016-07-07 11:39:30,486:ERROR:STDERR:C:\Python34\lib\site-packages\requests\packages\urllib3\connectionpool.py:791: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html
-2016-07-07 11:39:30,487:ERROR:STDERR:  InsecureRequestWarning)
-2016-07-07 11:39:31,658:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
-2016-07-07 11:39:31,662:INFO:STDOUT:Test report Lines: 3
-2016-07-07 11:39:31,664:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
-2016-07-07 11:39:31,665:INFO:STDOUT:2. Title: Create a resource from file  Status: 200
-2016-07-07 11:39:31,677:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
-2016-07-07 11:39:31,682:ERROR:STDERR:C:\Python34\lib\site-packages\requests\packages\urllib3\connectionpool.py:791: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html
-2016-07-07 11:39:31,682:ERROR:STDERR:  InsecureRequestWarning)
-2016-07-07 11:39:31,735:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
-2016-07-07 11:39:31,737:INFO:STDOUT:Test report Lines: 4
-2016-07-07 11:39:31,740:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8', 'text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget nibh velit. Donec ut est lacus. Nulla iaculis, odio vitae convallis hendrerit, est arcu placerat diam, in luctus est neque eu nisi. Cras tempor, purus nec porttitor tristique, diam odio sagittis nunc, vel feugiat lorem sapien non diam. Curabitur tristique blandit suscipit. Morbi commodo ligula eget mauris accumsan, non feugiat nunc maximus. Ut nec diam non ante mattis facilisis. Mauris sodales ornare tincidunt. Sed tempor tincidunt risus, sed tincidunt dolor auctor non. In consequat aliquet feugiat. Maecenas condimentum lobortis malesuada.\n\nSed venenatis, mauris sodales ullamcorper congue, sem libero fermentum tortor, vel semper justo ipsum ac nibh. Proin quis est consectetur, commodo arcu a, sollicitudin eros. Vivamus lectus felis, pharetra eget condimentum id, dignissim a lorem. Nullam varius tempus mollis. Nullam ultricies quis orci sit amet sagittis. In commodo eleifend finibus. Nulla vehicula orci vel imperdiet tempus. Suspendisse efficitur dictum nulla, finibus elementum nunc pretium sit amet. Vivamus faucibus, elit sit amet gravida sollicitudin, arcu neque pretium mauris, vel pellentesque dolor orci vitae tellus. Curabitur tincidunt quam purus, quis elementum purus semper id. In ut pulvinar turpis. Mauris sed arcu at lacus laoreet rutrum sed quis ipsum. Integer auctor felis justo, eu laoreet tortor laoreet vel. Suspendisse viverra nisl odio, in malesuada turpis porttitor et. Aliquam erat volutpat.'}
-2016-07-07 11:39:31,740:INFO:STDOUT:3. Title: Create a resource from text  Status: 200
-2016-07-07 11:39:31,749:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
-2016-07-07 11:39:31,754:ERROR:STDERR:C:\Python34\lib\site-packages\requests\packages\urllib3\connectionpool.py:791: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html
-2016-07-07 11:39:31,754:ERROR:STDERR:  InsecureRequestWarning)
-2016-07-07 11:39:31,788:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
-2016-07-07 11:39:31,790:INFO:STDOUT:Test report Lines: 5
-2016-07-07 11:39:31,793:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8', 'text': "Only the 1993-94 Golden State Warriors have come close to matching this level of offensive output, and they did so over a meager three-game stretch while playing even worse defense. It's basically impossible to maintain scoring success this extreme for a prolonged stretch, but the Cavs are making the impossible, well, possible. \n\nJames has helped, averaging 25.3 points and 6.8 assists heading into Thursday night's affair, in which he submitted a triple-double with 23 points, 11 boards and 11 assists. Irving chipped in 19.6 points and 4.7 dimes over Cleveland's first nine playoff games. Three players have averaged at least an offensive rebound per contest, led by Tristan Thompson and his 5.0 successful creations of second-chance opportunities during his typical outing. \n\nAnd, of course, the whole team has caught fire from the outside.\n"}
-2016-07-07 11:39:31,794:INFO:STDOUT:4. Title: Create a resource from text  Status: 200
-2016-07-07 11:39:31,804:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
-2016-07-07 11:39:31,809:ERROR:STDERR:C:\Python34\lib\site-packages\requests\packages\urllib3\connectionpool.py:791: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html
-2016-07-07 11:39:31,809:ERROR:STDERR:  InsecureRequestWarning)
-2016-07-07 11:39:31,846:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
-2016-07-07 11:39:31,848:INFO:STDOUT:Test report Lines: 6
-2016-07-07 11:39:31,851:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8', 'text': "Only the 1993-94 Golden State Warriors have come close to matching this level of offensive output, and they did so over a meager three-game stretch while playing even worse defense. It's basically impossible to maintain scoring success this extreme for a prolonged stretch, but the Cavs are making the impossible, well, possible. \n\nJames has helped, averaging 25.3 points and 6.8 assists heading into Thursday night's affair, in which he submitted a triple-double with 23 points, 11 boards and 11 assists. Irving chipped in 19.6 points and 4.7 dimes over Cleveland's first nine playoff games. Three players have averaged at least an offensive rebound per contest, led by Tristan Thompson and his 5.0 successful creations of second-chance opportunities during his typical outing. \n\nAnd, of course, the whole team has caught fire from the outside.\n"}
-2016-07-07 11:39:31,851:INFO:STDOUT:5. Title: Create a resource from text  Status: 200
-2016-07-07 11:39:31,859:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
-2016-07-07 11:39:31,864:ERROR:STDERR:C:\Python34\lib\site-packages\requests\packages\urllib3\connectionpool.py:791: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html
-2016-07-07 11:39:31,864:ERROR:STDERR:  InsecureRequestWarning)
-2016-07-07 11:39:31,896:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/api/2/discover/language_pairs?secret_key=6f33aa6e155f6217f67e5dc6941d5baf&public_key=DfVNd29pC7q4Pn6RYtT8 HTTP/1.1" 200 282
-2016-07-07 11:39:31,898:INFO:STDOUT:Test report Lines: 7
-2016-07-07 11:39:31,900:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
-2016-07-07 11:39:31,901:INFO:STDOUT:6. Title: Get Language Pairs  Status: 200
-2016-07-07 11:39:31,986:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
-2016-07-07 11:39:31,990:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
-2016-07-07 11:39:32,024:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/account?secret_key=6f33aa6e155f6217f67e5dc6941d5baf&public_key=DfVNd29pC7q4Pn6RYtT8 HTTP/1.1" 200 196
-2016-07-07 11:39:32,027:INFO:STDOUT:Test report Lines: 8
-2016-07-07 11:39:32,029:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
-2016-07-07 11:39:32,030:INFO:STDOUT:7. Title: Get Account  Status: 200
-2016-07-07 11:39:33,990:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
-2016-07-07 11:39:34,010:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
-2016-07-07 11:39:34,061:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/account?=&secret_key=6f33aa6e155f6217f67e5dc6941d5baf HTTP/1.1" 200 143
-2016-07-07 11:39:34,064:INFO:STDOUT:Test report Lines: 9
-2016-07-07 11:39:34,066:INFO:STDOUT:Payload: {'': '', 'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf'}
-2016-07-07 11:39:34,067:INFO:STDOUT:8. Title: Get Account - No Public Key  Status: 200
-2016-07-07 11:39:35,987:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
-2016-07-07 11:39:35,992:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
-2016-07-07 11:39:36,016:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/account?public_key=DfVNd29pC7q4Pn6RYtT8 HTTP/1.1" 200 143
-2016-07-07 11:39:36,018:INFO:STDOUT:Test report Lines: 10
-2016-07-07 11:39:36,021:INFO:STDOUT:Payload: {'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
-2016-07-07 11:39:36,021:INFO:STDOUT:9. Title: Get Account - No Secret Key  Status: 200
-2016-07-07 11:39:37,993:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
-2016-07-07 11:39:38,008:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
-2016-07-07 11:39:38,074:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
-2016-07-07 11:39:38,076:INFO:STDOUT:Test report Lines: 11
-2016-07-07 11:39:38,079:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8', 'text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget nibh velit. Donec ut est lacus. Nulla iaculis, odio vitae convallis hendrerit, est arcu placerat diam, in luctus est neque eu nisi. Cras tempor, purus nec porttitor tristique, diam odio sagittis nunc, vel feugiat lorem sapien non diam. Curabitur tristique blandit suscipit. Morbi commodo ligula eget mauris accumsan, non feugiat nunc maximus. Ut nec diam non ante mattis facilisis. Mauris sodales ornare tincidunt. Sed tempor tincidunt risus, sed tincidunt dolor auctor non. In consequat aliquet feugiat. Maecenas condimentum lobortis malesuada.\n\nSed venenatis, mauris sodales ullamcorper congue, sem libero fermentum tortor, vel semper justo ipsum ac nibh. Proin quis est consectetur, commodo arcu a, sollicitudin eros. Vivamus lectus felis, pharetra eget condimentum id, dignissim a lorem. Nullam varius tempus mollis. Nullam ultricies quis orci sit amet sagittis. In commodo eleifend finibus. Nulla vehicula orci vel imperdiet tempus. Suspendisse efficitur dictum nulla, finibus elementum nunc pretium sit amet. Vivamus faucibus, elit sit amet gravida sollicitudin, arcu neque pretium mauris, vel pellentesque dolor orci vitae tellus. Curabitur tincidunt quam purus, quis elementum purus semper id. In ut pulvinar turpis. Mauris sed arcu at lacus laoreet rutrum sed quis ipsum. Integer auctor felis justo, eu laoreet tortor laoreet vel. Suspendisse viverra nisl odio, in malesuada turpis porttitor et. Aliquam erat volutpat.'}
-2016-07-07 11:39:38,080:INFO:STDOUT:10. Title: Create a resource from text  Status: 200
-2016-07-07 11:39:38,089:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
-2016-07-07 11:39:38,094:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
-2016-07-07 11:39:38,130:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
-2016-07-07 11:39:38,132:INFO:STDOUT:Test report Lines: 12
-2016-07-07 11:39:38,134:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8', 'text': "Only the 1993-94 Golden State Warriors have come close to matching this level of offensive output, and they did so over a meager three-game stretch while playing even worse defense. It's basically impossible to maintain scoring success this extreme for a prolonged stretch, but the Cavs are making the impossible, well, possible. \n\nJames has helped, averaging 25.3 points and 6.8 assists heading into Thursday night's affair, in which he submitted a triple-double with 23 points, 11 boards and 11 assists. Irving chipped in 19.6 points and 4.7 dimes over Cleveland's first nine playoff games. Three players have averaged at least an offensive rebound per contest, led by Tristan Thompson and his 5.0 successful creations of second-chance opportunities during his typical outing. \n\nAnd, of course, the whole team has caught fire from the outside.\n"}
-2016-07-07 11:39:38,135:INFO:STDOUT:11. Title: Create a resource from text  Status: 200
-2016-07-07 11:39:38,144:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
-2016-07-07 11:39:38,149:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
-2016-07-07 11:39:38,184:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
-2016-07-07 11:39:38,187:INFO:STDOUT:Test report Lines: 13
-2016-07-07 11:39:38,190:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8', 'text': "Only the 1993-94 Golden State Warriors have come close to matching this level of offensive output, and they did so over a meager three-game stretch while playing even worse defense. It's basically impossible to maintain scoring success this extreme for a prolonged stretch, but the Cavs are making the impossible, well, possible. \n\nJames has helped, averaging 25.3 points and 6.8 assists heading into Thursday night's affair, in which he submitted a triple-double with 23 points, 11 boards and 11 assists. Irving chipped in 19.6 points and 4.7 dimes over Cleveland's first nine playoff games. Three players have averaged at least an offensive rebound per contest, led by Tristan Thompson and his 5.0 successful creations of second-chance opportunities during his typical outing. \n\nAnd, of course, the whole team has caught fire from the outside.\n"}
-2016-07-07 11:39:38,190:INFO:STDOUT:12. Title: Create a resource from text  Status: 200
-2016-07-07 11:39:39,991:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
-2016-07-07 11:39:39,999:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
-2016-07-07 11:39:40,047:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 88
-2016-07-07 11:39:40,049:INFO:STDOUT:Test report Lines: 14
-2016-07-07 11:39:40,052:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
-2016-07-07 11:39:40,053:INFO:STDOUT:13. Title: Create a resource from text - Empty  Status: 200
-2016-07-07 11:39:41,992:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
-2016-07-07 11:39:42,010:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
-2016-07-07 11:39:42,070:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 143
-2016-07-07 11:39:42,074:INFO:STDOUT:Test report Lines: 15
-2016-07-07 11:39:42,077:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf'}
-2016-07-07 11:39:42,077:INFO:STDOUT:14. Title: Create a resource from text - No Public Key  Status: 200
-2016-07-07 11:39:43,992:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
-2016-07-07 11:39:44,019:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
-2016-07-07 11:39:44,058:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 143
-2016-07-07 11:39:44,061:INFO:STDOUT:Test report Lines: 16
-2016-07-07 11:39:44,064:INFO:STDOUT:Payload: {'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
-2016-07-07 11:39:44,065:INFO:STDOUT:15. Title: Create a resource from text - No Secret Key  Status: 200
-2016-07-07 11:39:45,993:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
-2016-07-07 11:39:46,009:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
-2016-07-07 11:39:47,184:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
-2016-07-07 11:39:47,187:INFO:STDOUT:Test report Lines: 17
-2016-07-07 11:39:47,190:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
-2016-07-07 11:39:47,190:INFO:STDOUT:16. Title: Create a resource from file  Status: 200
-2016-07-07 11:39:47,201:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
-2016-07-07 11:39:47,205:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
-2016-07-07 11:39:49,947:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
-2016-07-07 11:39:49,951:INFO:STDOUT:Test report Lines: 18
-2016-07-07 11:39:49,957:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
-2016-07-07 11:39:49,958:INFO:STDOUT:17. Title: Create a resource from file  Status: 200
-2016-07-07 11:39:49,971:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
-2016-07-07 11:39:49,974:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
-2016-07-07 11:39:51,129:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
-2016-07-07 11:39:51,133:INFO:STDOUT:Test report Lines: 19
-2016-07-07 11:39:51,136:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
-2016-07-07 11:39:51,137:INFO:STDOUT:18. Title: Create a resource from file  Status: 200
-2016-07-07 11:39:51,154:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
-2016-07-07 11:39:51,157:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
-2016-07-07 11:39:51,185:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 127
-2016-07-07 11:39:51,189:INFO:STDOUT:Test report Lines: 20
-2016-07-07 11:39:51,191:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
-2016-07-07 11:39:51,192:INFO:STDOUT:19. Title: Create a resource from file - empty upload  Status: 200
-2016-07-07 11:39:51,208:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
-2016-07-07 11:39:51,212:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
-2016-07-07 11:39:51,233:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 143
-2016-07-07 11:39:51,236:INFO:STDOUT:Test report Lines: 21
-2016-07-07 11:39:51,239:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf'}
-2016-07-07 11:39:51,240:INFO:STDOUT:20. Title: Create a resourse from file - No Public key  Status: 200
-2016-07-07 11:39:51,992:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
-2016-07-07 11:39:51,997:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
-2016-07-07 11:39:52,034:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 143
-2016-07-07 11:39:52,037:INFO:STDOUT:Test report Lines: 22
-2016-07-07 11:39:52,039:INFO:STDOUT:Payload: {'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
-2016-07-07 11:39:52,040:INFO:STDOUT:21. Title: Create a resourse from file - No secret key  Status: 200
-2016-07-07 11:39:53,995:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
-2016-07-07 11:39:54,013:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
-2016-07-07 11:39:54,987:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
-2016-07-07 11:39:54,991:INFO:STDOUT:Test report Lines: 23
-2016-07-07 11:39:54,994:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'file_name': 'namecheck', 'public_key': 'DfVNd29pC7q4Pn6RYtT8', 'file_mime': 'File type'}
-2016-07-07 11:39:54,995:INFO:STDOUT:22. Title: File Upload with file mime amd file name  Status: 200
-2016-07-07 11:39:55,006:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
-2016-07-07 11:39:55,011:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
-2016-07-07 11:39:57,907:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
-2016-07-07 11:39:57,913:INFO:STDOUT:Test report Lines: 24
-2016-07-07 11:39:57,916:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'file_name': 'namecheck', 'public_key': 'DfVNd29pC7q4Pn6RYtT8', 'file_mime': 'File type'}
-2016-07-07 11:39:57,917:INFO:STDOUT:23. Title: File Upload with file mime amd file name  Status: 200
-2016-07-07 11:39:57,929:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
-2016-07-07 11:39:57,934:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
-2016-07-07 11:39:59,066:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
-2016-07-07 11:39:59,072:INFO:STDOUT:Test report Lines: 25
-2016-07-07 11:39:59,076:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'file_name': 'namecheck', 'public_key': 'DfVNd29pC7q4Pn6RYtT8', 'file_mime': 'File type'}
-2016-07-07 11:39:59,077:INFO:STDOUT:24. Title: File Upload with file mime amd file name  Status: 200
-2016-07-07 11:39:59,097:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
-2016-07-07 11:39:59,101:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
-2016-07-07 11:40:00,054:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/resources/rsc-577e155f1f7ae7-30484233?=&secret_key=6f33aa6e155f6217f67e5dc6941d5baf&public_key=DfVNd29pC7q4Pn6RYtT8 HTTP/1.1" 200 239
-2016-07-07 11:40:00,057:INFO:STDOUT:Test report Lines: 26
-2016-07-07 11:40:00,060:INFO:STDOUT:Payload: {'': '', 'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
-2016-07-07 11:40:00,061:INFO:STDOUT:25. Title: Check file mime and name  Status: 200
-2016-07-07 11:40:00,077:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
-2016-07-07 11:40:00,082:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
-2016-07-07 11:40:01,096:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/resources/rsc-577e153f80ae33-76736902?=&secret_key=6f33aa6e155f6217f67e5dc6941d5baf&public_key=DfVNd29pC7q4Pn6RYtT8 HTTP/1.1" 200 291
-2016-07-07 11:40:01,100:INFO:STDOUT:Test report Lines: 27
-2016-07-07 11:40:01,103:INFO:STDOUT:Payload: {'': '', 'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8'}
-2016-07-07 11:40:01,104:INFO:STDOUT:26. Title: Get resource content without fetch  Status: 200
-2016-07-07 11:40:01,125:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
-2016-07-07 11:40:01,130:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
-2016-07-07 11:40:02,208:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/resources/rsc-577e153f80ae33-76736902?secret_key=6f33aa6e155f6217f67e5dc6941d5baf&public_key=DfVNd29pC7q4Pn6RYtT8&fetch=base64 HTTP/1.1" 200 None
-2016-07-07 11:40:02,219:INFO:STDOUT:Test report Lines: 28
-2016-07-07 11:40:02,222:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8', 'fetch': 'base64'}
-2016-07-07 11:40:02,223:INFO:STDOUT:27. Title: Get resource content file  Status: 200
-2016-07-07 11:40:02,248:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
-2016-07-07 11:40:02,253:ERROR:STDERR:InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.org/en/latest/security.html [connectionpool.py:791]
-2016-07-07 11:40:02,318:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/resources/rsc-577e1543c51654-47110795?secret_key=6f33aa6e155f6217f67e5dc6941d5baf&public_key=DfVNd29pC7q4Pn6RYtT8&fetch=base64 HTTP/1.1" 200 2193
-2016-07-07 11:40:02,322:INFO:STDOUT:Test report Lines: 29
-2016-07-07 11:40:02,325:INFO:STDOUT:Payload: {'secret_key': '6f33aa6e155f6217f67e5dc6941d5baf', 'public_key': 'DfVNd29pC7q4Pn6RYtT8', 'fetch': 'base64'}
-2016-07-07 11:40:02,326:INFO:STDOUT:28. Title: Get resource content text  Status: 200
+2016-08-16 19:18:23,467:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:18:25,610:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-08-16 19:18:25,645:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:18:28,925:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-08-16 19:18:28,941:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:18:29,871:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-08-16 19:18:29,884:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:18:29,931:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-08-16 19:18:29,945:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:18:29,988:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-08-16 19:18:30,005:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:18:30,047:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-08-16 19:18:30,065:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:18:30,103:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/api/2/discover/language_pairs?public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b HTTP/1.1" 200 397
+2016-08-16 19:18:30,194:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:18:30,594:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/transcription HTTP/1.1" 200 106
+2016-08-16 19:19:34,063:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:19:35,200:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-08-16 19:19:35,218:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:19:37,897:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-08-16 19:19:37,917:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:19:38,844:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-08-16 19:19:38,858:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:19:38,898:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-08-16 19:19:38,915:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:19:38,956:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-08-16 19:19:38,972:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:19:39,012:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-08-16 19:19:39,029:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:19:39,066:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/api/2/discover/language_pairs?public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b HTTP/1.1" 200 397
+2016-08-16 19:19:39,171:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:19:39,559:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/transcription HTTP/1.1" 200 106
+2016-08-16 19:19:49,711:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:19:50,924:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-08-16 19:19:50,939:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:19:54,184:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-08-16 19:19:54,200:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:19:55,173:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-08-16 19:19:55,190:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:19:55,236:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-08-16 19:19:55,252:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:19:55,298:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-08-16 19:19:55,315:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:19:55,359:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-08-16 19:19:55,376:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:19:55,413:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/api/2/discover/language_pairs?public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b HTTP/1.1" 200 397
+2016-08-16 19:19:55,506:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:19:57,014:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/transcription HTTP/1.1" 200 108
+2016-08-16 19:20:14,943:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:20:16,309:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-08-16 19:20:16,323:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:20:19,014:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-08-16 19:20:19,030:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:20:19,960:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-08-16 19:20:19,975:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:20:20,020:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-08-16 19:20:20,037:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:20:20,143:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-08-16 19:20:20,159:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:20:20,206:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-08-16 19:20:20,224:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:20:20,263:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/api/2/discover/language_pairs?public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b HTTP/1.1" 200 397
+2016-08-16 19:20:20,355:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:20:21,867:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/transcription HTTP/1.1" 200 108
+2016-08-16 19:21:53,704:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:21:55,368:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-08-16 19:21:55,383:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:21:58,143:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-08-16 19:21:58,159:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:21:59,142:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-08-16 19:21:59,157:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:21:59,201:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-08-16 19:21:59,217:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:21:59,259:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-08-16 19:21:59,277:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:21:59,318:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-08-16 19:21:59,335:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:21:59,369:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/api/2/discover/language_pairs?public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b HTTP/1.1" 200 397
+2016-08-16 19:21:59,460:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:21:59,501:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/account?public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b HTTP/1.1" 200 194
+2016-08-16 19:22:01,462:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:22:01,504:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/account?secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b HTTP/1.1" 200 143
+2016-08-16 19:22:03,465:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:22:03,505:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/account?public_key=vMrF3Z8mfhzxKbWDjBd7 HTTP/1.1" 200 143
+2016-08-16 19:22:05,464:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:22:05,518:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 88
+2016-08-16 19:22:07,466:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:22:07,532:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 143
+2016-08-16 19:22:09,468:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:22:09,530:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 143
+2016-08-16 19:22:11,468:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:22:11,525:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 127
+2016-08-16 19:22:13,470:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:22:14,600:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-08-16 19:22:15,467:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:22:16,377:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/resources/rsc-57b33db693bb03-82641035?public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b HTTP/1.1" 200 242
+2016-08-16 19:22:17,467:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:22:17,513:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 143
+2016-08-16 19:22:19,471:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:22:19,542:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 143
+2016-08-16 19:22:21,471:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:22:22,461:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/resources/rsc-57b33da35e8ff9-56572677?public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b&fetch=base64 HTTP/1.1" 200 None
+2016-08-16 19:22:23,469:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:22:23,527:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/resources/rsc-57b33da7378392-67185511?public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b&fetch=base64 HTTP/1.1" 200 2193
+2016-08-16 19:22:25,469:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:22:25,520:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/resources/rsc-57b33da7378392-67185511?public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b HTTP/1.1" 200 188
+2016-08-16 19:22:27,472:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:22:27,535:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/resources/rsc-57b33da7378392-67185511?public_key=vMrF3Z8mfhzxKbWDjBd7 HTTP/1.1" 200 143
+2016-08-16 19:22:29,472:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:22:29,539:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/resources/rsc-57b33da7378392-67185511?secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b HTTP/1.1" 200 143
+2016-08-16 19:22:31,474:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:22:31,555:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/resources/rsc-57b33da35e8ff9-56572677/download?public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b HTTP/1.1" 200 15096
+2016-08-16 19:22:33,472:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:22:33,530:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/resources/rsc-57b33da7378392-67185511/download?public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b HTTP/1.1" 200 None
+2016-08-16 19:22:35,474:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:22:35,512:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/resources/rsc-57b33da7378392-67185511/download?public_key=vMrF3Z8mfhzxKbWDjBd7 HTTP/1.1" 200 143
+2016-08-16 19:22:37,476:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:22:37,548:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/resources/rsc-57b33da35e8ff9-56572677/download?secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b HTTP/1.1" 200 143
+2016-08-16 19:22:39,476:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:22:39,635:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/tools/quote?public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b&resources=rsc-57b33da7378392-67185511&target_language=de-de HTTP/1.1" 200 99
+2016-08-16 19:22:41,473:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:22:41,604:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/tools/quote?public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b&resources=rsc-57b33da7378392-67185511&source_language=en-us HTTP/1.1" 200 99
+2016-08-16 19:22:43,475:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:22:46,989:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/tools/quote?public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b&resources=rsc-57b33da7378392-67185511%2Crsc-57b33da745c498-59265918%2Crsc-57b33da753efb1-55707450&target_language=fr-fr&source_language=en-us HTTP/1.1" 200 446
+2016-08-16 19:22:47,030:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:22:48,293:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/tools/quote?public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b&resources=rsc-57b33da7378392-67185511&target_language=fr-fr&source_language=en-us HTTP/1.1" 200 271
+2016-08-16 19:22:48,336:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:22:50,415:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/tools/quote?public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b&resources=rsc-57b33da35e8ff9-56572677&target_language=fr-fr&source_language=en-us HTTP/1.1" 200 271
+2016-08-16 19:22:50,457:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:22:57,277:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/tools/quote?public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b&resources=rsc-57b33da35e8ff9-56572677%2Crsc-57b33da6272893-40147833%2Crsc-57b33da7259eb8-18834140&target_language=fr-fr&source_language=en-us HTTP/1.1" 200 448
+2016-08-16 19:22:57,323:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:22:58,592:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/tools/quote?=&resources=rsc-57b33da7378392-67185511&expertise=automotive-aerospace&source_language=en-us&public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b&target_language=fr-fr HTTP/1.1" 200 275
+2016-08-16 19:22:58,635:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:22:58,763:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/tools/quote?resources=rsc-57b33da7378392-67185511&source_language=he-il&public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b&target_language=de-de&wordcount=200 HTTP/1.1" 200 168
+2016-08-16 19:22:58,807:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:23:00,060:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/tools/quote?resources=rsc-57b33da7378392-67185511&service=proofreading&source_language=en-us&public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b&target_language=fr-fr HTTP/1.1" 200 271
+2016-08-16 19:23:00,103:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:23:01,463:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/tools/quote?resources=rsc-57b33da7378392-67185511&source_language=en-us&public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b&target_language=fr-fr&proofreading=1 HTTP/1.1" 200 271
+2016-08-16 19:23:01,511:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:23:02,929:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/tools/quote?resources=rsc-57b33da7378392-67185511&expertise=automotive-aerospace&source_language=he-il&public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b&target_language=de-de&proofreading=1 HTTP/1.1" 200 271
+2016-08-16 19:23:02,976:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:23:04,225:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/tools/quote?currency=EUR&resources=rsc-57b33da7378392-67185511&source_language=en-us&public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b&target_language=fr-fr HTTP/1.1" 200 270
+2016-08-16 19:23:04,264:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:23:05,507:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/tools/quote?resources=rsc-57b33da7378392-67185511&service=transproof&source_language=ru-ru&public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b&target_language=ar-sa HTTP/1.1" 200 271
+2016-08-16 19:23:05,548:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:23:06,807:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/tools/quote?resources=rsc-57b33da7378392-67185511&service=transcription&source_language=he-il&public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b&target_language=de-de HTTP/1.1" 200 274
+2016-08-16 19:23:07,485:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:23:07,554:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/tools/quote?public_key=vMrF3Z8mfhzxKbWDjBd7&resources=rsc-57b33da7378392-67185511&target_language=ar-sa&source_language=ru-ru HTTP/1.1" 200 143
+2016-08-16 19:23:09,485:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:23:09,536:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/tools/quote?secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b&resources=rsc-57b33da7378392-67185511&target_language=de-de&source_language=he-il HTTP/1.1" 200 143
+2016-08-16 19:23:11,488:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:23:11,658:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/tools/quote?public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b&target_language=fr-fr&source_language=en-us HTTP/1.1" 200 140
+2016-08-16 19:23:13,485:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:23:14,658:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/tools/wordcount?public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b&resources=rsc-57b33da7378392-67185511 HTTP/1.1" 200 155
+2016-08-16 19:23:15,486:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:23:22,044:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/tools/wordcount?public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b&resources=rsc-57b33da35e8ff9-56572677%2Crsc-57b33da6272893-40147833%2Crsc-57b33da7259eb8-18834140 HTTP/1.1" 200 274
+2016-08-16 19:23:22,086:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:23:22,112:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/tools/wordcount?secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b&resources=rsc-57b33da35e8ff9-56572677%2Crsc-57b33da6272893-40147833%2Crsc-57b33da7259eb8-18834140 HTTP/1.1" 200 143
+2016-08-16 19:23:22,148:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:23:22,174:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/tools/wordcount?public_key=vMrF3Z8mfhzxKbWDjBd7&resources=rsc-57b33da35e8ff9-56572677%2Crsc-57b33da6272893-40147833%2Crsc-57b33da7259eb8-18834140 HTTP/1.1" 200 143
+2016-08-16 19:23:22,208:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:23:22,243:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/translation HTTP/1.1" 200 91
+2016-08-16 19:23:23,491:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:23:23,553:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/translation HTTP/1.1" 200 99
+2016-08-16 19:23:25,489:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:23:25,546:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/translation HTTP/1.1" 200 99
+2016-08-16 19:23:27,491:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:23:29,936:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/translation HTTP/1.1" 200 105
+2016-08-16 19:23:29,989:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:23:36,709:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/translation HTTP/1.1" 200 106
+2016-08-16 19:23:36,764:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:23:37,170:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/translation HTTP/1.1" 200 105
+2016-08-16 19:23:37,226:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:23:38,739:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/translation HTTP/1.1" 200 107
+2016-08-16 19:23:38,793:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:23:40,644:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/translation HTTP/1.1" 200 105
+2016-08-16 19:23:40,682:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:23:42,327:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/translation HTTP/1.1" 200 105
+2016-08-16 19:23:42,364:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:23:43,949:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/translation HTTP/1.1" 200 106
+2016-08-16 19:23:43,987:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:23:44,076:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/projects/100?public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b HTTP/1.1" 200 532
+2016-08-16 19:23:44,142:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:23:44,182:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/translation HTTP/1.1" 200 143
+2016-08-16 19:23:45,493:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:23:45,568:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/translation HTTP/1.1" 200 143
+2016-08-16 19:23:47,497:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:23:47,581:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/proof-general HTTP/1.1" 200 91
+2016-08-16 19:23:49,497:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:23:49,558:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/proof-general HTTP/1.1" 200 99
+2016-08-16 19:23:51,499:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:23:53,082:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/proof-general HTTP/1.1" 200 106
+2016-08-16 19:23:53,497:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:24:00,193:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/proof-general HTTP/1.1" 200 107
+2016-08-16 19:24:00,254:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:24:06,793:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/proof-general HTTP/1.1" 200 107
+2016-08-16 19:24:06,834:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:24:09,466:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/proof-general HTTP/1.1" 200 106
+2016-08-16 19:24:09,508:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:24:09,608:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/projects/104?public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b&sources=oneFile&source_language=en-us HTTP/1.1" 200 534
+2016-08-16 19:24:09,680:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:24:09,746:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/proof-translated HTTP/1.1" 200 91
+2016-08-16 19:24:09,800:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:24:09,970:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/proof-translated HTTP/1.1" 200 96
+2016-08-16 19:24:10,024:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:24:10,059:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/proof-translated HTTP/1.1" 200 99
+2016-08-16 19:24:10,111:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:24:10,150:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/proof-translated HTTP/1.1" 200 99
+2016-08-16 19:24:10,203:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:24:12,222:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/proof-translated HTTP/1.1" 200 106
+2016-08-16 19:24:12,288:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:24:17,840:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/proof-translated HTTP/1.1" 200 106
+2016-08-16 19:24:17,904:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:24:19,435:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/proof-translated HTTP/1.1" 200 106
+2016-08-16 19:24:19,480:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:24:19,649:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/projects/107?public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b HTTP/1.1" 200 598
+2016-08-16 19:24:19,726:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:24:19,783:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/last_projectId HTTP/1.1" 200 143
+2016-08-16 19:24:19,828:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:24:19,877:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/last_projectId HTTP/1.1" 200 143
+2016-08-16 19:24:21,508:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:24:21,573:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/transcription HTTP/1.1" 200 91
+2016-08-16 19:24:23,509:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:24:23,585:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/transcription HTTP/1.1" 200 99
+2016-08-16 19:24:25,506:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:24:27,110:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/transcription HTTP/1.1" 200 109
+2016-08-16 19:24:27,508:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:24:33,964:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/transcription HTTP/1.1" 200 110
+2016-08-16 19:24:34,034:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:24:35,755:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/transcription HTTP/1.1" 200 109
+2016-08-16 19:24:35,801:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:24:37,358:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/transcription HTTP/1.1" 200 109
+2016-08-16 19:24:37,406:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:24:37,813:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/transcription HTTP/1.1" 200 107
+2016-08-16 19:24:37,887:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:24:39,559:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/transcription HTTP/1.1" 200 109
+2016-08-16 19:24:39,608:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:24:39,697:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/projects/113?public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b HTTP/1.1" 200 534
+2016-08-16 19:26:36,832:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:26:38,099:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-08-16 19:26:38,119:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:26:40,932:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-08-16 19:26:40,946:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:26:42,166:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-08-16 19:26:42,180:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:26:42,221:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-08-16 19:26:42,238:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:26:42,278:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-08-16 19:26:42,292:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:26:42,335:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-08-16 19:26:42,353:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:26:42,389:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/api/2/discover/language_pairs?public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b HTTP/1.1" 200 397
+2016-08-16 19:26:42,483:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:26:42,511:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/transcription HTTP/1.1" 200 143
+2016-08-16 19:27:12,383:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:27:13,579:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-08-16 19:27:13,596:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:27:16,226:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-08-16 19:27:16,242:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:27:17,381:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-08-16 19:27:17,396:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:27:17,439:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-08-16 19:27:17,455:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:27:17,499:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-08-16 19:27:17,516:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:27:17,559:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-08-16 19:27:17,577:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:27:17,613:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/api/2/discover/language_pairs?public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b HTTP/1.1" 200 397
+2016-08-16 19:27:17,706:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:27:17,738:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/transcription HTTP/1.1" 200 143
+2016-08-16 19:27:30,534:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:27:31,722:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-08-16 19:27:31,736:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:27:34,455:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-08-16 19:27:34,470:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:27:35,453:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-08-16 19:27:35,466:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:27:35,507:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-08-16 19:27:35,523:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:27:35,567:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-08-16 19:27:35,585:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:27:35,636:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-08-16 19:27:35,654:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:27:35,699:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/api/2/discover/language_pairs?public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b HTTP/1.1" 200 397
+2016-08-16 19:27:35,793:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:27:35,822:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/transcription HTTP/1.1" 200 143
+2016-08-16 19:28:00,344:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:28:01,618:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-08-16 19:28:01,635:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:28:04,620:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-08-16 19:28:04,635:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:28:05,597:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/file HTTP/1.1" 200 86
+2016-08-16 19:28:05,616:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:28:05,667:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-08-16 19:28:05,683:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:28:05,732:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-08-16 19:28:05,750:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:28:05,802:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/resources/text HTTP/1.1" 200 86
+2016-08-16 19:28:05,820:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:28:05,858:DEBUG:requests.packages.urllib3.connectionpool:"GET /api/2/api/2/discover/language_pairs?public_key=vMrF3Z8mfhzxKbWDjBd7&secret_key=701df2828cf5e9b30c35f1e5ab7fbd5b HTTP/1.1" 200 397
+2016-08-16 19:28:05,968:INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): oht.vagrant.oht.cc
+2016-08-16 19:28:06,000:DEBUG:requests.packages.urllib3.connectionpool:"POST /api/2/projects/transcription HTTP/1.1" 200 143

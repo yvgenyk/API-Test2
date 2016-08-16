@@ -140,14 +140,14 @@ class Response:
 
             resJson = self.getJson()
 
-            #This will go through the path of the response to find the value we are checking.
+            # This will go through the path of the response to find the value we are checking.
             for res in splitVarToCheck:
                 if res[0] == '#':
                     resJson = resJson[int(res[1])]
                 else:
                     resJson = resJson[res]
 
-            #The files correct format is checked in a different function. Here we check only the name.
+            # The files correct format is checked in a different function. Here we check only the name.
             if splitVarToCheck[len(splitVarToCheck) - 1] == "file_name":
                 if valueToCheck in str(resJson) and reportLine.get_color() != "red":
                     reportLine.mark_green()
@@ -193,6 +193,15 @@ class Response:
                     for uuid in rsc_uuid:
                         total_price += dataJson[0][uuid]['reg_proj_price']
 
+                if valueToCheck == "regular_pre_defined":
+                    with open('./report/test_report.json') as codeLines_data:
+                        mainJson = json.load(codeLines_data)
+                        total_words = mainJson[len(mainJson) - 1]["payload"]["wordcount"]
+
+                    with open('./data/setup.json') as codeLines_data:
+                        mainJson = json.load(codeLines_data)
+                        total_price += int(total_words)*int(mainJson['reg_proj'])
+
                 if valueToCheck == "expert":
                     for uuid in rsc_uuid:
                         total_price += dataJson[0][uuid]['expert_proj_price']
@@ -209,6 +218,15 @@ class Response:
                     for uuid in rsc_uuid:
                         total_price += dataJson[0][uuid]['trranscrip_proj_price']
 
+                if valueToCheck == "transcrip_pre_defined":
+                    with open('./report/test_report.json') as codeLines_data:
+                        mainJson = json.load(codeLines_data)
+                        total_words = mainJson[len(mainJson) - 1]["payload"]["wordcount"]
+
+                    with open('./data/setup.json') as codeLines_data:
+                        mainJson = json.load(codeLines_data)
+                        total_price += float(total_words) * float(mainJson['transcript_proj']) + 1
+
                 if total_price >= resJson and (total_price*0.8) <= resJson and reportLine.get_color() != "red":
                     reportLine.mark_green()
                     reportLine.report_line_check(total_price, str(resJson),
@@ -219,7 +237,7 @@ class Response:
                                                  splitVarToCheck[len(splitVarToCheck) - 1])
                 break
 
-            #This is the main search method.
+            # This is the main search method.
             else:
                 if valueToCheck == str(resJson) and reportLine.get_color() != "red":
                     reportLine.mark_green()
@@ -329,6 +347,14 @@ class GetMethod:
 
             elif addressCheck[len(addressCheck) - 8:] == 'uuidFile':
                 newAddress = (addressCheck[:len(addressCheck) - 8] + uploadFileUUID[0])
+                uuidToAddress = 1
+
+            elif addressCheck[len(addressCheck) - 14:] == 'last_projectId':
+                with open('./report/test_report.json') as codeLines_data:
+                    mainJson = json.load(codeLines_data)
+                    project_id = json.loads(mainJson[len(mainJson) - 1]["res"])["results"]["project_id"]
+
+                newAddress = (addressCheck[:len(addressCheck) - 14] + str(project_id))
                 uuidToAddress = 1
 
             """""""""""""""""""""""""""""""""""""""""
@@ -833,31 +859,37 @@ class PostMethod:
         # Text sources
         if line["value"] == "oneTxt":
             payload[line["name"]] = txtFileUUID[0]
-            self.rsc_uuid.append(txtFileUUID[0])
+            if line["name"] != "translations":
+                self.rsc_uuid.append(txtFileUUID[0])
 
         elif line["value"] == "allTxt":
             for rsc in range(len(txtFileUUID)):
                 if rsc == 0:
                     sourcesString = txtFileUUID[0]
-                    self.rsc_uuid.append(txtFileUUID[0])
+                    if line["name"] != "translations":
+                        self.rsc_uuid.append(txtFileUUID[0])
                 else:
                     sourcesString += "," + txtFileUUID[rsc]
-                    self.rsc_uuid.append(txtFileUUID[rsc])
+                    if line["name"] != "translations":
+                        self.rsc_uuid.append(txtFileUUID[rsc])
 
             payload[line["name"]] = sourcesString
 
         elif line["value"] == "oneFile":
             payload[line["name"]] = uploadFileUUID[0]
-            self.rsc_uuid.append(uploadFileUUID[0])
+            if line["name"] != "translations":
+                self.rsc_uuid.append(uploadFileUUID[0])
 
         elif line["value"] == "allFile":
             for rsc in range(len(uploadFileUUID)):
                 if rsc == 0:
                     sourcesString = uploadFileUUID[0]
-                    self.rsc_uuid.append(uploadFileUUID[0])
+                    if line["name"] != "translations":
+                        self.rsc_uuid.append(uploadFileUUID[0])
                 else:
                     sourcesString += "," + uploadFileUUID[rsc]
-                    self.rsc_uuid.append(uploadFileUUID[rsc])
+                    if line["name"] != "translations":
+                        self.rsc_uuid.append(uploadFileUUID[rsc])
 
             payload[line["name"]] = sourcesString
     

@@ -96,7 +96,7 @@ class NewLine(QtGui.QMainWindow, new_line_design.Ui_NewLine):
                 i].currentText() == "target_language" or self.dictOfNames[i].currentText() == "language_pair":
                 if self.dictOfValues[i].currentText() == '':
                     self.dictOfValues[i].clear()
-                    self.dictOfValues[i].addItems(["Random"])
+                    self.dictOfValues[i].addItems(["", "Random"])
 
             if self.dictOfNames[i].currentText() == "currency":
                 if self.dictOfValues[i].currentText() == '':
@@ -133,17 +133,17 @@ class NewLine(QtGui.QMainWindow, new_line_design.Ui_NewLine):
             if self.dictOfNames[i].currentText() == "custom0":
                 if self.dictOfValues[i].currentText() == '':
                     self.dictOfValues[i].clear()
-                    self.dictOfValues[i].addItem("Custom 0")
+                    self.dictOfValues[i].addItems(["", "Custom 0"])
 
             if self.dictOfNames[i].currentText() == "custom1":
                 if self.dictOfValues[i].currentText() == '':
                     self.dictOfValues[i].clear()
-                    self.dictOfValues[i].addItem("Custom 1")
+                    self.dictOfValues[i].addItems(["", "Custom 1"])
 
             if self.dictOfNames[i].currentText() == "custom2":
                 if self.dictOfValues[i].currentText() == '':
                     self.dictOfValues[i].clear()
-                    self.dictOfValues[i].addItem("Custom 2")
+                    self.dictOfValues[i].addItems(["", "Custom 2"])
 
     def close_window(self):
         self.newLineTest[0] = False
