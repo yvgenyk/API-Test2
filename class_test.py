@@ -98,6 +98,8 @@ class Response:
     """""""""""""""""""""""""""""""""""""""""""""""""""""
     def check_value(self, data, reportLine, prevPayload, rsc_uuid, errorNumber):
 
+        wordCountCheck = True
+
         with open('./data/words_prices.json') as codeLines_data:
             dataJson = json.load(codeLines_data)
 
@@ -109,7 +111,7 @@ class Response:
             """""""""""""""""""""""""""""""""""""""""""""
             If there is "@" sign it means that there
             is a value to check from previous payload.
-            This if will erase the "@" sign and take the
+            This will erase the "@" sign and take the
             original value from prev payload to find
             in the new response.
             """""""""""""""""""""""""""""""""""""""""""""
@@ -118,6 +120,14 @@ class Response:
 
                 valueToCheck = prevPayload[0][splitVarToCheck[len(splitVarToCheck)-1]]
 
+            elif splitVarToCheck[0][0] == "$":
+                splitVarToCheck[0] = splitVarToCheck[0][1:]
+
+                with open('./report/test_report.json') as codeLines_data:
+                    mainJson = json.load(codeLines_data)
+                    valueToCheck = json.loads(mainJson[len(mainJson) - 1]["res"])["results"][splitVarToCheck[len(splitVarToCheck)-1]]
+                    wordCountCheck = False
+
             elif varToCheck == 'save-languages':
                 with open('./data/languages.json') as codeLines_data:
                     langJson = json.load(codeLines_data)
@@ -125,7 +135,7 @@ class Response:
                 with open('./data/languages.json', 'w') as outfile:
                     for results in self.getJson()['results']:
                         for target in results['targets']:
-                            langJson.append({results['source']['code'] : target['code']})
+                            langJson.append({results['source']['code']: target['code']})
                     json.dump(langJson, outfile)
 
                 break
@@ -157,7 +167,7 @@ class Response:
                     reportLine.report_line_check(valueToCheck, str(resJson), splitVarToCheck[len(splitVarToCheck) - 1])
                     break
 
-            elif splitVarToCheck[len(splitVarToCheck) - 1] == "wordcount":
+            elif splitVarToCheck[len(splitVarToCheck) - 1] == "wordcount" and wordCountCheck:
                 total_words = 0
 
                 if valueToCheck == "pre_defined":
@@ -264,7 +274,9 @@ class Response:
     This class will handle all the get requests.
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""        
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
 class GetMethod:
         
         def __init__(self, data):
@@ -293,11 +305,21 @@ class GetMethod:
             """""""""""""""""""""""""""""""""""""""""""""
             for payIndex in range(len(self.testLine['params'])):
                     
-                if self.testLine["params"][payIndex] == "secret_key":
-                    payload[self.testLine["params"][payIndex]] = secretKey
+                if self.testLine["params"][payIndex] == "secret_key" or self.testLine["params"][payIndex] == "secret_key_main_user":
+                    payload["secret_key"] = secretKey
                             
-                elif self.testLine["params"][payIndex] == "public_key":
-                    payload[self.testLine["params"][payIndex]] = publicKey
+                elif self.testLine["params"][payIndex] == "public_key" or self.testLine["params"][payIndex] == "public_key_main_user":
+                    payload["public_key"] = publicKey
+
+                elif self.testLine["params"][payIndex] == "public_key_secondary_user":
+                    with open('./data/setup.json') as codeLines_data:
+                        setupJson = json.load(codeLines_data)
+                    payload["secret_key"] = setupJson["s_public_key"]
+
+                elif self.testLine["params"][payIndex] == "secret_key_secondary_user":
+                    with open('./data/setup.json') as codeLines_data:
+                        setupJson = json.load(codeLines_data)
+                    payload["public_key"] = setupJson["s_secret_key"]
 
                 elif 'name' in self.testLine["params"][payIndex]:
 
@@ -331,7 +353,7 @@ class GetMethod:
 
             """""""""""""""""""""""""""""""""""""""""
             If an input from earlier request is 
-            needed, like the resouce uuid, this code 
+            needed, like the resource uuid, this code
             will find the relevant uuid and create 
             the new address line.
             """""""""""""""""""""""""""""""""""""""""
@@ -525,6 +547,8 @@ class GetMethod:
                     
                     
 """""""""""""""""""""""""""""""""""""""""""""""""""
+
+
 class PostMethod:
     
     def __init__(self, data):
@@ -546,11 +570,21 @@ class PostMethod:
             if self.testLine["params"][payIndex] == "No Secret Key" or self.testLine["params"][payIndex] == "No Public Key":
                 pass
 
-            elif self.testLine["params"][payIndex] == "secret_key":
-                payload[self.testLine["params"][payIndex]] = secretKey
+            elif self.testLine["params"][payIndex] == "secret_key" or self.testLine["params"][payIndex] == "secret_key_main_user":
+                payload["secret_key"] = secretKey
                             
-            elif self.testLine["params"][payIndex] == "public_key":
-                payload[self.testLine["params"][payIndex]] = publicKey
+            elif self.testLine["params"][payIndex] == "public_key" or self.testLine["params"][payIndex] == "public_key_main_user":
+                payload["public_key"] = publicKey
+
+            elif self.testLine["params"][payIndex] == "public_key_secondary_user":
+                with open('./data/setup.json') as codeLines_data:
+                    setupJson = json.load(codeLines_data)
+                payload["public_key"] = setupJson["s_public_key"]
+
+            elif self.testLine["params"][payIndex] == "secret_key_secondary_user":
+                with open('./data/setup.json') as codeLines_data:
+                    setupJson = json.load(codeLines_data)
+                payload["secret_key"] = setupJson["s_secret_key"]
 
             elif 'name' in self.testLine["params"][payIndex]:
 
@@ -892,4 +926,84 @@ class PostMethod:
                         self.rsc_uuid.append(uploadFileUUID[rsc])
 
             payload[line["name"]] = sourcesString
-    
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+                    Delete Method
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+class DeleteMethod:
+    def __init__(self, data):
+        self.testLine = data
+        self.rsc_uuid = []
+
+    def delete_method(self, secretKey, publicKey, httpAddress, txtFilePath, txtFileUUID, testFilePath, uploadFileUUID,
+                    prevResponse, prevPayload, tableWidget, firstResourcesUpload, errorNumber):
+
+        payload = dict()
+        uuidToAddress = 0
+        noKeysFlag = True
+        for payIndex in range(len(self.testLine['params'])):
+
+            if self.testLine["params"][payIndex] == "No Secret Key" or self.testLine["params"][payIndex] == "No Public Key":
+                pass
+
+            elif self.testLine["params"][payIndex] == "secret_key" or self.testLine["params"][payIndex] == "secret_key_main_user":
+                payload["secret_key"] = secretKey
+
+            elif self.testLine["params"][payIndex] == "public_key" or self.testLine["params"][payIndex] == "public_key_main_user":
+                payload["public_key"] = publicKey
+
+            elif self.testLine["params"][payIndex] == "No Secret Key" or self.testLine["params"][payIndex] == "No Public Key":
+                noKeysFlag = False
+
+            else:
+                payload[self.testLine["params"][payIndex]["name"]] = self.testLine["params"][payIndex]["value"]
+
+        addressCheck = self.testLine["address"]
+
+        if addressCheck[len(addressCheck) - 14:] == 'last_projectId' and noKeysFlag:
+            with open('./report/test_report.json') as codeLines_data:
+                mainJson = json.load(codeLines_data)
+                project_id = json.loads(mainJson[len(mainJson) - 1]["res"])["results"]["project_id"]
+
+            newAddress = (addressCheck[:len(addressCheck) - 14] + str(project_id))
+            uuidToAddress = 1
+
+        if uuidToAddress == 1:
+            res = Response(requests.delete(httpAddress + newAddress, params=payload, verify=False), True)
+            reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
+            reportLine.report_line(httpAddress + newAddress, res.getText(), payload, None)
+            print("Payload: " + str(payload))
+            res.report_line_to_main_window(reportLine, errorNumber)
+            if res.getStatus() != 200:
+                reportLine.mark_red(errorNumber)
+
+        else:
+            res = Response(requests.delete(httpAddress + self.testLine["address"], params=payload, verify=False), True)
+            reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
+            reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
+            print("Payload: " + str(payload))
+            res.report_line_to_main_window(reportLine, errorNumber)
+            if res.getStatus() != 200:
+                reportLine.mark_red(errorNumber)
+
+        if res.getStatus() != 200:
+            for i in range(2):
+                res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False), True)
+                reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
+                reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
+                res.report_line_to_main_window(reportLine, errorNumber)
+
+                if res.getStatus() == 200:
+                    break
+                else:
+                    reportLine.mark_red(errorNumber)
+
+        if res.getStatus() == 200:
+            if len(self.testLine['find']) >= 1:
+                res.find(self.testLine, reportLine, errorNumber)
+
+            if len(self.testLine['check']) >= 1:
+                res.check_value(self.testLine, reportLine, prevPayload, self.rsc_uuid, errorNumber)

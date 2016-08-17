@@ -2,8 +2,7 @@
 
 # Form implementation generated from reading ui file 'main_design.ui'
 #
-# Created: Tue Jul  5 22:21:05 2016
-#      by: PyQt4 UI code generator 4.10.4
+# Created by: PyQt4 UI code generator 4.11.4
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -26,9 +25,9 @@ except AttributeError:
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName(_fromUtf8("Dialog"))
-        Dialog.resize(905, 645)
-        Dialog.setMinimumSize(QtCore.QSize(905, 645))
-        Dialog.setMaximumSize(QtCore.QSize(915, 645))
+        Dialog.resize(910, 645)
+        Dialog.setMinimumSize(QtCore.QSize(910, 645))
+        Dialog.setMaximumSize(QtCore.QSize(910, 645))
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(_fromUtf8("logo.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Dialog.setWindowIcon(icon)
@@ -37,7 +36,6 @@ class Ui_Dialog(object):
         self.horizontalLayoutWidget_2.setGeometry(QtCore.QRect(0, 0, 901, 641))
         self.horizontalLayoutWidget_2.setObjectName(_fromUtf8("horizontalLayoutWidget_2"))
         self.horizontalLayout_5 = QtGui.QHBoxLayout(self.horizontalLayoutWidget_2)
-        self.horizontalLayout_5.setMargin(0)
         self.horizontalLayout_5.setObjectName(_fromUtf8("horizontalLayout_5"))
         self.verticalLayout_2 = QtGui.QVBoxLayout()
         self.verticalLayout_2.setObjectName(_fromUtf8("verticalLayout_2"))
@@ -97,8 +95,8 @@ class Ui_Dialog(object):
         self.line.setObjectName(_fromUtf8("line"))
         self.horizontalLayout_5.addWidget(self.line)
         self.verticalLayout = QtGui.QVBoxLayout()
-        self.verticalLayout.setSpacing(6)
         self.verticalLayout.setContentsMargins(0, -1, -1, -1)
+        self.verticalLayout.setSpacing(6)
         self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
         self.errorNumber = QtGui.QLCDNumber(self.horizontalLayoutWidget_2)
         self.errorNumber.setMinimumSize(QtCore.QSize(375, 130))

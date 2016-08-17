@@ -16,7 +16,7 @@ from settings import Settings
 from check_code import CheckCode
 from new_line import NewLine
 from report_window import ViewReport
-from class_test import Response, GetMethod, PostMethod
+from class_test import Response, GetMethod, PostMethod, DeleteMethod
 from resource_class import Resource
 from doctest import testfile
 #from idlelib.ClassBrowser import file_open
@@ -80,6 +80,7 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         self.firstResourcesUpload = [False]
         with open('./data/setup.json') as codeLines_data:
             self.setupJson = json.load(codeLines_data)
+
         self.secretKey = self.setupJson['secret_key']
         self.publicKey = self.setupJson['public_key']
         self.httpAddress = self.setupJson['https']
@@ -197,6 +198,12 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
                                   self.testFilePath, self.uploadFileUUID, self.prevResponse, self.prevPayload,
                                   self.tableWidget, self.firstResourcesUpload, self.errorNumber)
 
+        elif str.lower(line["method"]) == 'delete':
+            checkLine = DeleteMethod(line)
+            checkLine.delete_method(self.secretKey, self.publicKey, self.httpAddress, self.txtFilePath, self.txtFileUUID,
+                                  self.testFilePath, self.uploadFileUUID, self.prevResponse, self.prevPayload,
+                                  self.tableWidget, self.firstResourcesUpload, self.errorNumber)
+
         self.progressBar.setValue(self.progressBar.value() + 1)
 
     def file_open(self):
@@ -248,7 +255,7 @@ class StreamToLogger(object):
         pass
 
 def main():
-    # """ Logging - commented off, else On
+    """ Logging - commented off, else On
     stdout_logger = logging.getLogger('STDOUT')
     sl = StreamToLogger(stdout_logger, logging.INFO)
     sys.stdout = sl
@@ -256,7 +263,7 @@ def main():
     stderr_logger = logging.getLogger('STDERR')
     sl = StreamToLogger(stderr_logger, logging.ERROR)
     sys.stderr = sl
-    # """
+    """
     app = QtGui.QApplication(sys.argv)
     app.setStyle('cleanlooks')
     form = TestApp()

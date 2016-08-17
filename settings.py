@@ -16,6 +16,8 @@ class Settings(QtGui.QMainWindow, settings_design.Ui_Form):
 
         self.secretKeyLine.setText(self.setupJson['secret_key'])
         self.publicKeyLine.setText(self.setupJson['public_key'])
+        self.secretKeyLine_2.setText(self.setupJson['s_secret_key'])
+        self.publicKeyLine_2.setText(self.setupJson['s_public_key'])
         self.httpLine.setText(self.setupJson['https'])
         self.user_id.setText(self.setupJson['user'])
         self.reg_proj.setText(self.setupJson['reg_proj'])
@@ -86,6 +88,8 @@ class Settings(QtGui.QMainWindow, settings_design.Ui_Form):
         with open('./data/setup.json', 'w+') as outfile:
             self.setupJson['secret_key'] = self.secretKeyLine.text()
             self.setupJson['public_key'] = self.publicKeyLine.text()
+            self.setupJson['s_secret_key'] = self.secretKeyLine_2.text()
+            self.setupJson['s_public_key'] = self.publicKeyLine_2.text()
             self.setupJson['https'] = self.httpLine.text()
             self.setupJson['user'] = self.user_id.text()
             self.setupJson['reg_proj'] = self.reg_proj.text()

@@ -2,8 +2,7 @@
 
 # Form implementation generated from reading ui file 'settings_design.ui'
 #
-# Created: Tue Jul  5 23:58:00 2016
-#      by: PyQt4 UI code generator 4.10.4
+# Created by: PyQt4 UI code generator 4.11.4
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -26,17 +25,24 @@ except AttributeError:
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName(_fromUtf8("Form"))
-        Form.resize(380, 450)
-        Form.setMinimumSize(QtCore.QSize(380, 450))
-        Form.setMaximumSize(QtCore.QSize(380, 450))
+        Form.resize(380, 575)
+        Form.setMinimumSize(QtCore.QSize(380, 575))
+        Form.setMaximumSize(QtCore.QSize(380, 575))
         Form.setStyleSheet(_fromUtf8("background: rgb(128,128, 128)"))
         Form.setWindowFilePath(_fromUtf8(""))
         self.verticalLayoutWidget = QtGui.QWidget(Form)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(0, 0, 384, 445))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(0, 0, 384, 571))
         self.verticalLayoutWidget.setObjectName(_fromUtf8("verticalLayoutWidget"))
         self.verticalLayout = QtGui.QVBoxLayout(self.verticalLayoutWidget)
-        self.verticalLayout.setMargin(0)
         self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
+        self.label_10 = QtGui.QLabel(self.verticalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_10.setFont(font)
+        self.label_10.setObjectName(_fromUtf8("label_10"))
+        self.verticalLayout.addWidget(self.label_10)
         self.horizontalLayout = QtGui.QHBoxLayout()
         self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
         self.label = QtGui.QLabel(self.verticalLayoutWidget)
@@ -110,6 +116,51 @@ class Ui_Form(object):
         self.user_id.setObjectName(_fromUtf8("user_id"))
         self.horizontalLayout_8.addWidget(self.user_id)
         self.verticalLayout.addLayout(self.horizontalLayout_8)
+        self.label_11 = QtGui.QLabel(self.verticalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_11.setFont(font)
+        self.label_11.setObjectName(_fromUtf8("label_11"))
+        self.verticalLayout.addWidget(self.label_11)
+        self.horizontalLayout_9 = QtGui.QHBoxLayout()
+        self.horizontalLayout_9.setObjectName(_fromUtf8("horizontalLayout_9"))
+        self.label_12 = QtGui.QLabel(self.verticalLayoutWidget)
+        self.label_12.setMinimumSize(QtCore.QSize(60, 30))
+        self.label_12.setMaximumSize(QtCore.QSize(60, 30))
+        self.label_12.setStyleSheet(_fromUtf8("background:rgb(204,204,204);\n"
+"border-radius: 5px;"))
+        self.label_12.setObjectName(_fromUtf8("label_12"))
+        self.horizontalLayout_9.addWidget(self.label_12)
+        self.secretKeyLine_2 = QtGui.QLineEdit(self.verticalLayoutWidget)
+        self.secretKeyLine_2.setMinimumSize(QtCore.QSize(305, 30))
+        self.secretKeyLine_2.setMaximumSize(QtCore.QSize(305, 30))
+        self.secretKeyLine_2.setStyleSheet(_fromUtf8("background:rgb(204,204,204);\n"
+"border: 2px solid black;\n"
+"border-radius: 5px;"))
+        self.secretKeyLine_2.setText(_fromUtf8(""))
+        self.secretKeyLine_2.setObjectName(_fromUtf8("secretKeyLine_2"))
+        self.horizontalLayout_9.addWidget(self.secretKeyLine_2)
+        self.verticalLayout.addLayout(self.horizontalLayout_9)
+        self.horizontalLayout_10 = QtGui.QHBoxLayout()
+        self.horizontalLayout_10.setObjectName(_fromUtf8("horizontalLayout_10"))
+        self.label_13 = QtGui.QLabel(self.verticalLayoutWidget)
+        self.label_13.setMinimumSize(QtCore.QSize(60, 30))
+        self.label_13.setMaximumSize(QtCore.QSize(60, 30))
+        self.label_13.setStyleSheet(_fromUtf8("background:rgb(204,204,204);\n"
+"border-radius: 5px;"))
+        self.label_13.setObjectName(_fromUtf8("label_13"))
+        self.horizontalLayout_10.addWidget(self.label_13)
+        self.publicKeyLine_2 = QtGui.QLineEdit(self.verticalLayoutWidget)
+        self.publicKeyLine_2.setMinimumSize(QtCore.QSize(305, 30))
+        self.publicKeyLine_2.setMaximumSize(QtCore.QSize(305, 30))
+        self.publicKeyLine_2.setStyleSheet(_fromUtf8("background:rgb(204,204,204);\n"
+"border: 2px solid black;\n"
+"border-radius: 5px;"))
+        self.publicKeyLine_2.setObjectName(_fromUtf8("publicKeyLine_2"))
+        self.horizontalLayout_10.addWidget(self.publicKeyLine_2)
+        self.verticalLayout.addLayout(self.horizontalLayout_10)
         self.horizontalLayout_7 = QtGui.QHBoxLayout()
         self.horizontalLayout_7.setObjectName(_fromUtf8("horizontalLayout_7"))
         self.horizontalLayout_6 = QtGui.QHBoxLayout()
@@ -334,10 +385,14 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         Form.setWindowTitle(_translate("Form", "Settings", None))
+        self.label_10.setText(_translate("Form", "                             Main User:", None))
         self.label.setText(_translate("Form", " Secret Key", None))
         self.label_2.setText(_translate("Form", " Public Key ", None))
         self.label_3.setText(_translate("Form", " http:     ", None))
         self.label_9.setText(_translate("Form", "User ID:", None))
+        self.label_11.setText(_translate("Form", "                         Secondary User:", None))
+        self.label_12.setText(_translate("Form", " Secret Key", None))
+        self.label_13.setText(_translate("Form", " Public Key ", None))
         self.label_4.setText(_translate("Form", " Regular Project", None))
         self.label_5.setText(_translate("Form", " Expert Project", None))
         self.label_6.setText(_translate("Form", " Proofreading", None))

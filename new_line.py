@@ -17,10 +17,10 @@ class NewLine(QtGui.QMainWindow, new_line_design.Ui_NewLine):
         Combo boxes initialization
         with predefined options.
         """""""""""""""""""""""""""
-        self.boxS_K.addItems(["secret_key", "No Secret Key"])
-        self.boxP_K.addItems(["public_key", "No Public Key"])
+        self.boxS_K.addItems(["secret_key_main_user", "secret_key_secondary_user", "No Secret Key"])
+        self.boxP_K.addItems(["public_key_main_user", "public_key_secondary_user", "No Public Key"])
 
-        self.newMethod.addItems(["POST", "GET"])
+        self.newMethod.addItems(["POST", "GET", "DELETE"])
         self.paramNameSet = ["None", "textrsc", "filersc", "file_mime", "file_name", "fetch", "resources", "wordcount",
                              "source_language", "target_language", "language_pair", "service", "expertise", "currency",
                              "proofreading", "sources", "callback_url", "notes", "custom0", "custom1", "custom2",
