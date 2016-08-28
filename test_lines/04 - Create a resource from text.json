@@ -1,1 +1,0 @@
-{"data":[{"method":"POST","address":"resources/text","title":"Create a resource from text","save":"0","params":["secret_key","public_key",{"name":"textrsc","value":""}],"find":[],"check":["status-code","status-msg"],"value":["0","ok"]}]}
