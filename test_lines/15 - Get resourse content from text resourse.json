@@ -1,1 +1,0 @@
-{"data":[{"method":"GET","address":"resources/uuidTxt","title":"Get resource content text","save":"0","params":["secret_key","public_key",{"name":"fetch","value":"base64"}],"find":["download_url"],"check":["status-code","status-msg"],"value":["0","ok"]}]}
