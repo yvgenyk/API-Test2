@@ -1,1 +1,0 @@
-{"data":[{"method":"POST","address":"projects/transcription","title":"New transcription project - With a note","save":"0","params":["secret_key","public_key",{"name":"source_language","value":"en-us"},{"name":"sources","value":"oneTxt"},{"name":"notes","value":"Hello there, please do a good job."}],"find":[],"check":[],"value":[]}]}
