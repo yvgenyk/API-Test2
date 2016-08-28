@@ -1,1 +1,0 @@
-{"data":[{"method":"POST","address":"projects/translation","title":"New translation project - With specified wordcount","save":"0","params":["secret_key","public_key",{"name":"sources","value":"allTxt"},{"name":"source_language","value":"en-us"},{"name":"target_language","value":"fr-fr"},{"name":"wordcount","value":"333"}],"find":[],"check":[],"value":[]}]}
