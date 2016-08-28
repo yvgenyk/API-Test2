@@ -1,1 +1,0 @@
-{"data":[{"method":"GET","address":"api/2/discover/language_pairs","title":"Get Language Pairs","save":"0","params":["secret_key","public_key","language_pair"],"find":[],"check":["save-languages"],"value":[]}]}
