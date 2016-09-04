@@ -605,10 +605,16 @@ class PostMethod:
 
                 # Randomly Choosing a language pair out of the initialized on site.
                 if self.testLine["params"][payIndex]['name'] == "language_pair":
-                    lang_pair = randint(0, len(self.langJson) - 1)
-                    for source in self.langJson[lang_pair]:
-                        payload['source_language'] = source
-                        payload['target_language'] = self.langJson[lang_pair][source]
+                    found = False
+                    for index in range(len(self.langJson) - 1):
+                        lang_pair = randint(0, len(self.langJson) - 1)
+                        for source in self.langJson[lang_pair]:
+                            if source != self.langJson[lang_pair][source]:
+                                payload['source_language'] = source
+                                payload['target_language'] = self.langJson[lang_pair][source]
+                                found = True
+                        if found:
+                            break
 
                 # Randomly Choosing source language
                 elif self.testLine["params"][payIndex]['name'] == "source_language":
