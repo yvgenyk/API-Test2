@@ -14,6 +14,7 @@ import time
 from jason_creator import JsonCreator
 from settings import Settings
 from check_code import CheckCode
+from additional_testing import AdditionalTesting
 from new_line import NewLine
 from report_window import ViewReport
 from class_test import Response, GetMethod, PostMethod, DeleteMethod
@@ -23,6 +24,7 @@ from doctest import testfile
 from PyQt4.Qt import QListWidgetItem
 from PyQt4.QtCore import QThread, SIGNAL
 import logging
+
 
 class LineExec(QThread):
 
@@ -55,6 +57,7 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         self.check_code = CheckCode(None)
         self.new_line = NewLine(self.newLineTest)
         self.settings = Settings()
+        self.additional_tests = AdditionalTesting()
         self.new_line_window = None
         self.startBtn.clicked.connect(self.start_test)
         self.pushButton_2.clicked.connect(self.close_application)
@@ -62,6 +65,7 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         self.checkDisplay.clicked.connect(self.check_the_code)
         self.reportBtn.clicked.connect(self.new_report)
         self.settingsBtn.clicked.connect(self.settings_window)
+        self.ad_proj.clicked.connect(self.additional_window)
 
         self.tableWidget.setColumnCount(2)
         self.tableWidget.setColumnWidth(0, 400)
@@ -111,6 +115,9 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
 
         with open('./data/languages.json', "w") as new:
             json.dump([], new)
+
+        with open('./data/open_projects.json', "w") as new:
+            json.dump({"projects":[]}, new)
 
         with open('./data/words_prices.json', "w") as new:
             json.dump([], new)
@@ -230,6 +237,10 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
     def settings_window(self):
         self.settings.show()
 
+    def additional_window(self):
+        self.additional_tests = AdditionalTesting()
+        self.additional_tests.show()
+
 class StreamToLogger(object):
     """
     Fake file-like stream object that redirects writes to a logger instance.
@@ -255,7 +266,7 @@ class StreamToLogger(object):
         pass
 
 def main():
-    """ Logging - commented off, else On
+    # Logging - commented off, else On
     stdout_logger = logging.getLogger('STDOUT')
     sl = StreamToLogger(stdout_logger, logging.INFO)
     sys.stdout = sl
@@ -263,7 +274,7 @@ def main():
     stderr_logger = logging.getLogger('STDERR')
     sl = StreamToLogger(stderr_logger, logging.ERROR)
     sys.stderr = sl
-    """
+
     app = QtGui.QApplication(sys.argv)
     app.setStyle('cleanlooks')
     form = TestApp()

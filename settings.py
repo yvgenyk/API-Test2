@@ -90,6 +90,7 @@ class Settings(QtGui.QMainWindow, settings_design.Ui_Form):
             self.setupJson['public_key'] = self.publicKeyLine.text()
             self.setupJson['s_secret_key'] = self.secretKeyLine_2.text()
             self.setupJson['s_public_key'] = self.publicKeyLine_2.text()
+            self.setupJson["callbacks"] = (self.httpLine.text()[:len(self.httpLine.text())-6] + "callbacks.php")
             self.setupJson['https'] = self.httpLine.text()
             self.setupJson['user'] = self.user_id.text()
             self.setupJson['reg_proj'] = self.reg_proj.text()

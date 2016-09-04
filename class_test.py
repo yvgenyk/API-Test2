@@ -125,7 +125,7 @@ class Response:
 
                 with open('./report/test_report.json') as codeLines_data:
                     mainJson = json.load(codeLines_data)
-                    valueToCheck = json.loads(mainJson[len(mainJson) - 1]["res"])["results"][splitVarToCheck[len(splitVarToCheck)-1]]
+                    valueToCheck = str(json.loads(mainJson[len(mainJson) - 1]["res"])["results"][splitVarToCheck[len(splitVarToCheck)-1]])
                     wordCountCheck = False
 
             elif varToCheck == 'save-languages':
@@ -314,12 +314,12 @@ class GetMethod:
                 elif self.testLine["params"][payIndex] == "public_key_secondary_user":
                     with open('./data/setup.json') as codeLines_data:
                         setupJson = json.load(codeLines_data)
-                    payload["secret_key"] = setupJson["s_public_key"]
+                    payload["public_key"] = setupJson["s_public_key"]
 
                 elif self.testLine["params"][payIndex] == "secret_key_secondary_user":
                     with open('./data/setup.json') as codeLines_data:
                         setupJson = json.load(codeLines_data)
-                    payload["public_key"] = setupJson["s_secret_key"]
+                    payload["secret_key"] = setupJson["s_secret_key"]
 
                 elif 'name' in self.testLine["params"][payIndex]:
 
@@ -372,11 +372,19 @@ class GetMethod:
                 uuidToAddress = 1
 
             elif addressCheck[len(addressCheck) - 14:] == 'last_projectId':
-                with open('./report/test_report.json') as codeLines_data:
-                    mainJson = json.load(codeLines_data)
-                    project_id = json.loads(mainJson[len(mainJson) - 1]["res"])["results"]["project_id"]
+                with open('./data/open_projects.json', 'r') as new_list:
+                    project_list = json.load(new_list)
+                    last_project = project_list["projects"][len(project_list["projects"]) - 1]
 
-                newAddress = (addressCheck[:len(addressCheck) - 14] + str(project_id))
+                newAddress = (addressCheck[:len(addressCheck) - 14] + str(last_project))
+                uuidToAddress = 1
+
+            elif addressCheck[len(addressCheck) - 8:] == 'comments':
+                with open('./data/open_projects.json', 'r') as new_list:
+                    project_list = json.load(new_list)
+                    last_project = project_list["projects"][len(project_list["projects"]) - 1]
+
+                newAddress = (addressCheck[:len(addressCheck) - 23] + str(last_project) + "/comments")
                 uuidToAddress = 1
 
             """""""""""""""""""""""""""""""""""""""""
@@ -483,6 +491,7 @@ class GetMethod:
 
             if res.getStatus() != 200:
                 for i in range(2):
+                    time.sleep(2)
                     res = Response(requests.get(httpAddress + self.testLine["address"], params=payload, verify=False), True)
                     reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                     reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
@@ -497,7 +506,7 @@ class GetMethod:
                     res.find(self.testLine, reportLine, errorNumber)
                 
                 if len(self.testLine['check']) >= 1:
-                    res.check_value(self.testLine, reportLine, prevPayload,self.rsc_uuid, errorNumber)
+                    res.check_value(self.testLine, reportLine, prevPayload, self.rsc_uuid, errorNumber)
 
         """""""""""""""""""""""""""""""""""""""""""""""""""""""""
          This method is for requests that need resource UUID to
@@ -565,6 +574,7 @@ class PostMethod:
                     prevResponse, prevPayload, tableWidget, firstResourcesUpload, errorNumber):
         payload = dict()
         uploadedrscFlag = [False]
+        uuidToAddress = False
         for payIndex in range(len(self.testLine['params'])):
 
             if self.testLine["params"][payIndex] == "No Secret Key" or self.testLine["params"][payIndex] == "No Public Key":
@@ -585,6 +595,11 @@ class PostMethod:
                 with open('./data/setup.json') as codeLines_data:
                     setupJson = json.load(codeLines_data)
                 payload["secret_key"] = setupJson["s_secret_key"]
+
+            elif self.testLine["params"][payIndex]["name"] == "callback_url" and self.testLine["params"][payIndex]["value"] == "setup":
+                with open('./data/setup.json') as codeLines_data:
+                    setupJson = json.load(codeLines_data)
+                payload["callback_url"] = setupJson["callbacks"]
 
             elif 'name' in self.testLine["params"][payIndex]:
 
@@ -623,9 +638,33 @@ class PostMethod:
                 
                 else:
                     payload[self.testLine["params"][payIndex]["name"]] = self.testLine["params"][payIndex]["value"]
+
+                addressCheck = self.testLine["address"]
+                if addressCheck[len(addressCheck) - 8:] == 'comments':
+                    with open('./data/open_projects.json', 'r') as new_list:
+                        project_list = json.load(new_list)
+                        last_project = project_list["projects"][len(project_list["projects"]) - 1]
+
+                    newAddress = (addressCheck[:len(addressCheck) - 23] + str(last_project) + "/comments")
+                    uuidToAddress = True
                 
-                        
-        if uploadedrscFlag[0] == False:        
+        if uuidToAddress:
+            res = Response(requests.post(httpAddress + newAddress, data=payload, verify=False), True)
+            reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
+            reportLine.report_line(httpAddress + newAddress, res.getText(), payload, None)
+            print("Payload: " + str(payload))
+            res.report_line_to_main_window(reportLine, errorNumber)
+            if res.getStatus() != 200:
+                reportLine.mark_red(errorNumber)
+
+            if res.getStatus() == 200:
+                if len(self.testLine['find']) >= 1:
+                    res.find(self.testLine, reportLine, errorNumber)
+
+                if len(self.testLine['check']) >= 1:
+                    res.check_value(self.testLine, reportLine, prevPayload, self.rsc_uuid, errorNumber)
+
+        elif uploadedrscFlag[0] == False:
             res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False), True)
             reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
             reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
@@ -640,6 +679,7 @@ class PostMethod:
 
             if res.getStatus() != 200:
                 for i in range(2):
+                    time.sleep(2)
                     res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False), True)
                     reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                     reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
@@ -656,6 +696,19 @@ class PostMethod:
 
                 if len(self.testLine['check']) >= 1:
                     res.check_value(self.testLine, reportLine, prevPayload, self.rsc_uuid, errorNumber)
+
+                split_action = self.testLine["address"].split("/")
+                call_name = split_action[len(split_action) - 1]
+
+                if call_name == 'translation' or call_name == 'proof-general' or call_name == 'proof-translated' or call_name == 'transcription':
+                    with open('./data/open_projects.json', 'r') as new_list:
+                        project_list = json.load(new_list)
+
+                    with open('./data/open_projects.json', 'w') as new_list:
+                        if res.getJson()["status"]["code"] == 0:
+                            project_list["projects"].append(str(res.getJson()["results"]["project_id"]))
+
+                        json.dump(project_list, new_list)
 
     """""""""""""""""""""""""""""""""""""""""""""""""""""""""
       This method will upload a text resource from file.
@@ -693,6 +746,7 @@ class PostMethod:
             """""""""""""""""""""""""""""""""
             if res.getStatus() != 200:
                 for i in range(2):
+                    time.sleep(2)
                     res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False), True)
                     reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                     reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
@@ -748,6 +802,7 @@ class PostMethod:
                     """""""""""""""""""""""""""""""""
                     if res.getStatus() != 200:
                         for i in range(2):
+                            time.sleep(2)
                             res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False), True)
                             reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                             reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)
@@ -800,11 +855,12 @@ class PostMethod:
                 prevPayload[0] = payload
 
             """""""""""""""""""""""""""""""""
-                                In case there is 500 error, will
-                                try to upload 2 more times.
-                                """""""""""""""""""""""""""""""""
+            In case there is 500 error, will
+            try to upload 2 more times.
+            """""""""""""""""""""""""""""""""
             if res.getStatus() != 200:
                 for i in range(2):
+                    time.sleep(2)
                     res = Response(
                         requests.post(httpAddress + self.testLine["address"], files=loadedFile, data=payload,
                                       verify=False), True)
@@ -857,6 +913,7 @@ class PostMethod:
                     """""""""""""""""""""""""""""""""
                     if res.getStatus() != 200:
                         for i in range(2):
+                            time.sleep(2)
                             res = Response(
                                 requests.post(httpAddress + self.testLine["address"], files=loadedFile, data=payload,
                                               verify=False), True)
@@ -991,6 +1048,7 @@ class DeleteMethod:
 
         if res.getStatus() != 200:
             for i in range(2):
+                time.sleep(2)
                 res = Response(requests.post(httpAddress + self.testLine["address"], data=payload, verify=False), True)
                 reportLine = Report(tableWidget, self.testLine['title'], res.getStatus())
                 reportLine.report_line(httpAddress + self.testLine["address"], res.getText(), payload, None)

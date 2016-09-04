@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>API Test</string>
+   <string>API Test v1.01</string>
   </property>
   <property name="windowIcon">
    <iconset>
@@ -392,6 +392,37 @@ color: rgb(204,204,204);</string>
          </widget>
         </item>
        </layout>
+      </item>
+      <item>
+       <widget class="QPushButton" name="ad_proj">
+        <property name="minimumSize">
+         <size>
+          <width>375</width>
+          <height>60</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>375</width>
+          <height>60</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>OpenHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background:rgb(80,80,80);
+color: rgb(204,204,204);</string>
+        </property>
+        <property name="text">
+         <string>Additionall Testing Projects</string>
+        </property>
+       </widget>
       </item>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_10">
