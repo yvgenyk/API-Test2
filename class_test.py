@@ -620,7 +620,8 @@ class PostMethod:
                 elif self.testLine["params"][payIndex]['name'] == "source_language":
                     lang_pair = randint(0, len(self.langJson) - 1)
                     for source in self.langJson[lang_pair]:
-                        payload['source_language'] = source
+                        # For allocation purpose, this is the same as the target language
+                        payload['source_language'] = self.langJson[lang_pair][source]
 
                 # Randomly choosing target language.
                 elif self.testLine["params"][payIndex]['name'] == "target_language":
