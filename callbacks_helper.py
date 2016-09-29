@@ -139,26 +139,48 @@ class CallbacksHelper:
         else:
             print("Something went wrong: No allocated translators")
 
-    def check_callback(self, project_id, params):
+    def get_callback(self, project_id, entry):
         self.driver.get("https://oht.vagrant.oht.cc/project/" + str(project_id))
         time.sleep(1)
         elem = self.driver.find_element_by_xpath(
-            "/html/body/div[5]/div/div[5]/div[2]/div[1]/div/table/tbody/tr[1]/td[4]").find_element_by_link_text("More")
+            "/html/body/div[5]/div/div[5]/div[2]/div[1]/div/table/tbody/tr[" + str(entry) +"]/td[4]").find_element_by_link_text("More")
         elem.click()
         time.sleep(1)
         elem = self.driver.find_element_by_xpath("/html/body/div[12]/div[1]/table/tbody/tr[5]/td[2]/textarea")
         time.sleep(1)
-        callback = json.loads(elem.text)
+
+        return elem.text
+
+    def check_callback(self, project_id, params, check_type):
+
+        if check_type == "status":
+            if params["project_status_code"] == "in_progress":
+                callback = json.loads(self.get_callback(project_id, 5))
+            elif params["project_status_code"] == "submitted":
+                callback = json.loads(self.get_callback(project_id, 4))
+            elif params["project_status_code"] == "signed":
+                callback = json.loads(self.get_callback(project_id, 3))
+            elif params["project_status_code"] == "disputed":
+                callback = json.loads(self.get_callback(project_id, 2))
+            elif params["project_status_code"] == "pending":
+                callback = json.loads(self.get_callback(project_id, 1))
+
+        elif check_type == "comment" or "resource":
+            print("comment or resource")
+        else:
+            print("Error!")
 
         for param in params:
-            param_not_found = False
+            param_found = False
             for callback_param in callback:
                 if callback_param == param:
-                    param_not_found = True
+                    param_found = True
                     if callback[param] != params[param]:
                         return "Incorrect param found: " + param + " " + params[param]
+                    else:
+                        print("Found: " + param + ": " + params[param])
 
-            if not param_not_found:
+            if not param_found:
                 return "Param not found: " + param
 
         return "True"
@@ -167,8 +189,9 @@ class CallbacksHelper:
         elem = self.driver.find_element_by_id("toggleAdminFloatPanel")
         elem.click()
         if new_user == 1:
-            self.driver.find_element_by_id("ToggleAdminRights").click()
-            time.sleep(1)
+            if self.driver.find_elements_by_id("ToggleAdminRights"):
+                self.driver.find_element_by_id("ToggleAdminRights").click()
+                time.sleep(1)
         else:
             elem = self.driver.find_element_by_id("uidFloat")
             elem.send_keys(new_user)
