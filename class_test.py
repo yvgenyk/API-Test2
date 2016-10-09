@@ -6,6 +6,7 @@ from new_report import Report
 import json
 from random import randint
 import time
+import random
 import re
 from resource_class import Resource
 from PyQt4.QtCore import QThread, SIGNAL
@@ -606,8 +607,9 @@ class PostMethod:
                 # Randomly Choosing a language pair out of the initialized on site.
                 if self.testLine["params"][payIndex]['name'] == "language_pair":
                     found = False
+                    random.shuffle(self.langJson)
                     for index in range(len(self.langJson) - 1):
-                        lang_pair = randint(0, len(self.langJson) - 1)
+                        lang_pair = index
                         for source in self.langJson[lang_pair]:
                             if source != self.langJson[lang_pair][source]:
                                 payload['source_language'] = source

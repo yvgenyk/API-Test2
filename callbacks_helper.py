@@ -42,11 +42,28 @@ class CallbacksHelper:
             self.change_view_to_translator(project_id)
             time.sleep(1)
             self.driver.find_element_by_css_selector('input[type="file"][name="translation"]').clear()
-            self.driver.find_element_by_css_selector('input[type="file"]').send_keys(
+            self.driver.find_element_by_css_selector('input[type="file"][name="translation"]').send_keys(
                 "/home/oht/Downloads/fb-status.json")
+
             time.sleep(3)
             self.change_user(1)
-            # Add some stuff to validate upload.
+            return True
+
+        elif status == "submitted_new":
+            self.change_view_to_translator(project_id)
+            time.sleep(1)
+            self.driver.find_element_by_css_selector('input[type="file"][name="translation"]').clear()
+            self.driver.find_element_by_css_selector('input[type="file"][name="translation"]').send_keys(
+                "/home/oht/Downloads/fb-status.json")
+            time.sleep(1)
+            elem = self.driver.find_element_by_xpath("/html/body/div[12]/form/p[2]/textarea")
+            elem.click()
+            elem.send_keys("Please leave a comment to the customer regarding what was updated in the translation and why.")
+            time.sleep(1)
+            self.driver.find_element_by_xpath('/html/body/div[12]/form/p[3]/button').click()
+
+            time.sleep(3)
+            self.change_user(1)
             return True
 
         elif status == "signed":
@@ -165,8 +182,8 @@ class CallbacksHelper:
             elif params["project_status_code"] == "pending":
                 callback = json.loads(self.get_callback(project_id, 1))
 
-        elif check_type == "comment" or "resource":
-            print("comment or resource")
+        elif check_type == "comment" or check_type == "resource":
+            callback = json.loads(self.get_callback(project_id, 1))
         else:
             print("Error!")
 
@@ -188,6 +205,7 @@ class CallbacksHelper:
     def change_user(self, new_user):
         elem = self.driver.find_element_by_id("toggleAdminFloatPanel")
         elem.click()
+        time.sleep(1)
         if new_user == 1:
             if self.driver.find_elements_by_id("ToggleAdminRights"):
                 self.driver.find_element_by_id("ToggleAdminRights").click()
