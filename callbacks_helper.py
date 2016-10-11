@@ -182,8 +182,18 @@ class CallbacksHelper:
             elif params["project_status_code"] == "pending":
                 callback = json.loads(self.get_callback(project_id, 1))
 
-        elif check_type == "comment" or check_type == "resource":
+        elif check_type == "resource":
             callback = json.loads(self.get_callback(project_id, 1))
+
+        elif check_type == "customer_comment":
+            callback = json.loads(self.get_callback(project_id, 3))
+
+        elif check_type == "admin_comment":
+            callback = json.loads(self.get_callback(project_id, 2))
+
+        elif check_type == "trans_comment":
+            callback = json.loads(self.get_callback(project_id, 1))
+
         else:
             print("Error!")
 
@@ -217,33 +227,29 @@ class CallbacksHelper:
             time.sleep(1)
             elem.click()
 
-    """
-    def find_languages(self, project_id):
-        source_language = ""
-        target_language = ""
+    def open_project_page(self, project_id):
         self.driver.get("https://oht.vagrant.oht.cc/project/" + str(project_id))
-        elem = self.driver.find_element_by_xpath("/html/body/div[5]/div/div[2]/h2")
-        split = elem.text.split(" ")
 
-        if split[0] == "Translation":
-            elem = self.driver.find_element_by_xpath("/html/body/div[5]/div/div[2]/div[1]/div[2]/h3")
-            split_lang = elem.text.split(" ")
-            source_language = split_lang[0]
-            target_language = split_lang[2]
-        elif split[0] == "Proofreading":
-            elem = self.driver.find_element_by_xpath("/html/body/div[5]/div/div[2]/div[1]/div[1]/h3")
-            split_lang = elem.text.split(" ")
-            if len(split_lang) == 2:
-                source_language = split_lang[0]
-                target_language = split_lang[0]
-            else:
-                source_language = split_lang[0]
-                target_language = split_lang[2]
-        elif split[0] == "Transcription":
-            elem = self.driver.find_element_by_xpath("/html/body/div[5]/div/div[2]/div[1]/div[1]/h3")
-            split_lang = elem.text.split(" ")
-            source_language = split_lang[0]
-            target_language = split_lang[0]
+    def post_comment(self, user_id, status):
 
-        return [source_language, target_language]
-    """
+        self.change_user(user_id)
+        time.sleep(1)
+        name = self.get_name()
+        comment = self.create_comment(status, name)
+        self.driver.find_element_by_id("add").find_element_by_name("comment").send_keys(comment)
+        self.driver.find_element_by_id("add").find_element_by_css_selector('button[type="submit"]').click()
+
+        return name
+
+    def create_comment(self, status, name):
+        return "User: " + name + " comment, project status: " + status
+
+    def get_name(self):
+        name = ""
+        string = self.driver.find_element_by_css_selector('div[class="user-menu float-r"]').text.split("\n")[0]
+        string = string.split(" ")
+        for n in string:
+            if n != "Welcome":
+                name += (n + " ")
+
+        return name[:len(name)-1]

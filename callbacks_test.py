@@ -2,6 +2,7 @@ from PyQt4 import QtGui
 from callbacks_helper import CallbacksHelper
 import json
 import requests
+import time
 
 
 class CallbacksTest:
@@ -15,13 +16,15 @@ class CallbacksTest:
         self.secretKey = self.setupJson['secret_key']
         self.publicKey = self.setupJson['public_key']
         self.httpAddress = self.setupJson['https']
+        self.main_user = self.setupJson['user']
 
         if len(self.project_list['projects']) == 0:
             print("No projects, run the test first!")
         else:
             self.test = CallbacksHelper()
-            self.status_change()
-            self.new_resource()
+            # self.status_change()
+            # self.new_resource()
+            self.comments_check()
 
     def status_change(self):
         rsc_list = []
@@ -118,6 +121,8 @@ class CallbacksTest:
                                      params={"secret_key": self.secretKey, "public_key": self.publicKey},
                                      verify=False).json()["results"]["resources"]["transcriptions"][2])
 
+        time.sleep(10)
+
         project_id = self.project_list['projects'][len(self.project_list['projects']) - 19]
         self.test.check_callback(project_id, {"project_status_code": "disputed", "project_id": project_id,
                                               "resource_uuid": rsc_list[0], "event": "project.resources.new"}, "resource")
@@ -125,3 +130,48 @@ class CallbacksTest:
         project_id = self.project_list['projects'][len(self.project_list['projects']) - 4]
         self.test.check_callback(project_id, {"project_status_code": "disputed", "project_id": project_id,
                                               "resource_uuid": rsc_list[1], "event": "project.resources.new"}, "resource")
+
+    def comments_check(self):
+
+        names = self.add_comments("pending", 18)
+        self.test.change_user(1)
+        time.sleep(1)
+        self.check_comment_callbacks("pending", 18, names)
+
+    def check_comment_callbacks(self, status, project_index, names):
+
+        for i in range(4):
+            project_id = self.project_list['projects'][len(self.project_list['projects']) - project_index + (i * 5)]
+
+            self.test.check_callback(project_id, {"project_status_code": status, "project_id": project_id,
+                                                  "event": "project.comments.new", "commenter_name": names[i*3],
+                                                  "commenter_role": "customer"},"customer_comment")
+
+            self.test.check_callback(project_id, {"project_status_code": status, "project_id": project_id,
+                                                  "event": "project.comments.new", "commenter_name": names[i*3 + 1],
+                                                  "commenter_role": "admin"}, "admin_comment")
+            if status == "pending":
+                self.test.check_callback(project_id, {"project_status_code": status, "project_id": project_id,
+                                                      "event": "project.comments.new", "commenter_name": names[i*3 + 2],
+                                                      "commenter_role": "potential-provider"}, "trans_comment")
+
+    def add_comments(self, status, project_index):
+        names_list = []
+        for i in range(4):
+            project_id = self.project_list['projects'][len(self.project_list['projects']) - project_index + (i * 5)]
+
+            self.test.open_project_page(project_id)
+
+            names_list.append(self.test.post_comment(self.main_user, status))
+            time.sleep(1)
+            names_list.append(self.test.post_comment(1, status))
+            new_trans = self.test.find_new_translator(project_id)
+            names_list.append(self.test.post_comment(new_trans, status))
+
+        return names_list
+
+        #self.test.driver.get("https://oht.vagrant.oht.cc/project/28")
+        #time.sleep(2)
+        #self.test.post_comment(2)
+        #self.test.get_name()
+
