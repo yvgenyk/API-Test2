@@ -66,7 +66,7 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         self.checkDisplay.clicked.connect(self.check_the_code)
         self.reportBtn.clicked.connect(self.new_report)
         self.settingsBtn.clicked.connect(self.settings_window)
-        self.ad_proj.clicked.connect(CallbacksTest)
+        self.ad_proj.clicked.connect(self.callbacks_test)
 
         self.tableWidget.setColumnCount(2)
         self.tableWidget.setColumnWidth(0, 400)
@@ -225,7 +225,6 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         self.viewReport = ViewReport(self.tableWidget)
         self.viewReport.show()
 
-
     def close_application(self):
         # popup messegae before exiting
         choice = QtGui.QMessageBox.question(self, 'Quit', "Quit application?", QtGui.QMessageBox.Yes | QtGui.QMessageBox.No)
@@ -241,6 +240,9 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
     def additional_window(self):
         self.additional_tests = AdditionalTesting()
         self.additional_tests.show()
+
+    def callbacks_test(self):
+        CallbacksTest(self.tableWidget, self.errorNumber)
 
 class StreamToLogger(object):
     """
