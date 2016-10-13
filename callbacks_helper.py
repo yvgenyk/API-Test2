@@ -1,10 +1,13 @@
 from selenium import webdriver
 import time
 import json
+from new_report import Report
+import os
 
 
 class CallbacksHelper:
     def __init__(self):
+        self.file_path = os.path.abspath("./Other_Files/Untitled_Document.txt")
         self.driver = webdriver.Chrome('./chromedriver')
         self.driver.maximize_window()
         self.driver.get("https://oht.vagrant.oht.cc/translation/home")
@@ -40,11 +43,9 @@ class CallbacksHelper:
 
         elif status == "submitted":
             self.change_view_to_translator(project_id)
-            time.sleep(1)
+            time.sleep(3)
             self.driver.find_element_by_css_selector('input[type="file"][name="translation"]').clear()
-            self.driver.find_element_by_css_selector('input[type="file"][name="translation"]').send_keys(
-                "/home/oht/Downloads/fb-status.json")
-
+            self.driver.find_element_by_css_selector('input[type="file"][name="translation"]').send_keys(self.file_path)
             time.sleep(3)
             self.change_user(1)
             return True
@@ -53,8 +54,7 @@ class CallbacksHelper:
             self.change_view_to_translator(project_id)
             time.sleep(1)
             self.driver.find_element_by_css_selector('input[type="file"][name="translation"]').clear()
-            self.driver.find_element_by_css_selector('input[type="file"][name="translation"]').send_keys(
-                "/home/oht/Downloads/fb-status.json")
+            self.driver.find_element_by_css_selector('input[type="file"][name="translation"]').send_keys(self.file_path)
             time.sleep(1)
             elem = self.driver.find_element_by_xpath("/html/body/div[12]/form/p[2]/textarea")
             elem.click()
@@ -75,7 +75,7 @@ class CallbacksHelper:
                 trans_name = trans_name.text
                 trans_name = trans_name.split(" ")
                 self.driver.find_element_by_link_text("Declare Completed").click()
-                time.sleep(1)
+                time.sleep(4)
                 self.driver.find_element_by_id('user-username').send_keys(trans_name[1])
                 time.sleep(1)
                 self.driver.find_element_by_xpath("/html/body/div[11]/div/div[2]/form/p[3]/button").click()
@@ -168,9 +168,11 @@ class CallbacksHelper:
 
         return elem.text
 
-    def check_callback(self, project_id, params, check_type):
-
+    def check_callback(self, project_id, params, check_type, table_widget, errorNumber):
+        report_line = Report(table_widget,
+                             (check_type + ": Status: " + params["project_status_code"] + " project id: " + project_id), 200)
         if check_type == "status":
+            report_line = Report(table_widget, (check_type + " change: " + params["project_status_code"] + " project id: " + project_id), 200)
             if params["project_status_code"] == "in_progress":
                 callback = json.loads(self.get_callback(project_id, 5))
             elif params["project_status_code"] == "submitted":
@@ -183,6 +185,8 @@ class CallbacksHelper:
                 callback = json.loads(self.get_callback(project_id, 1))
 
         elif check_type == "resource":
+            report_line = Report(table_widget, (
+            check_type + " upload: Project status: " + params["project_status_code"] + " project id " + project_id), 200)
             callback = json.loads(self.get_callback(project_id, 1))
 
         elif check_type == "customer_comment":
@@ -197,24 +201,28 @@ class CallbacksHelper:
         else:
             print("Error!")
 
+        report_line.print_line(200)
+        report_line.report_line("", str(callback), "", "")
+        report_line.mark_green()
+
         for param in params:
             param_found = False
             for callback_param in callback:
                 if callback_param == param:
                     param_found = True
                     if callback[param] != params[param]:
-                        return "Incorrect param found: " + param + " " + params[param]
+                        report_line.mark_red(errorNumber)
+                        report_line.report_line_find("Incorrect param found: " + param + " " + params[param])
                     else:
-                        print("Found: " + param + ": " + params[param])
+                        report_line.report_line_check(callback[param], params[param], param)
 
             if not param_found:
-                return "Param not found: " + param
-
-        return "True"
+                report_line.mark_red(errorNumber)
+                report_line.report_line_find("Param not found: " + param)
 
     def change_user(self, new_user):
-        elem = self.driver.find_element_by_id("toggleAdminFloatPanel")
-        elem.click()
+        time.sleep(2)
+        self.driver.find_element_by_id("toggleAdminFloatPanel").click()
         time.sleep(1)
         if new_user == 1:
             if self.driver.find_elements_by_id("ToggleAdminRights"):
@@ -232,7 +240,8 @@ class CallbacksHelper:
 
     def post_comment(self, user_id, status):
 
-        self.change_user(user_id)
+        if user_id != 0:
+            self.change_user(user_id)
         time.sleep(1)
         name = self.get_name()
         comment = self.create_comment(status, name)
