@@ -220,8 +220,9 @@ class CallbacksTest:
             self.test.open_project_page(project_id)
 
             names_list.append(self.test.post_comment(self.main_user, status))
-            time.sleep(1)
+            time.sleep(5)
             names_list.append(self.test.post_comment(1, status))
+            time.sleep(5)
             if status == "pending":
                 new_trans = self.test.find_new_translator(project_id)
                 names_list.append(self.test.post_comment(new_trans, status))

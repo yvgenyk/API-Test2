@@ -189,7 +189,7 @@ class CallbacksHelper:
             trans = trans.split(" ")
             self.change_user(trans[0])
             time.sleep(1)
-            if self.driver.find_elements_by_xpath("Start Project"):
+            if self.driver.find_elements_by_link_text("Start Project"):
                 trans_id = trans[0]
                 break
 
