@@ -19,6 +19,7 @@ from new_line import NewLine
 from report_window import ViewReport
 from class_test import Response, GetMethod, PostMethod, DeleteMethod
 from resource_class import Resource
+from callbacks_test import CallbacksTest
 from doctest import testfile
 #from idlelib.ClassBrowser import file_open
 from PyQt4.Qt import QListWidgetItem
@@ -65,7 +66,7 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         self.checkDisplay.clicked.connect(self.check_the_code)
         self.reportBtn.clicked.connect(self.new_report)
         self.settingsBtn.clicked.connect(self.settings_window)
-        self.ad_proj.clicked.connect(self.additional_window)
+        self.ad_proj.clicked.connect(self.callbacks_test)
 
         self.tableWidget.setColumnCount(2)
         self.tableWidget.setColumnWidth(0, 400)
@@ -117,7 +118,7 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
             json.dump([], new)
 
         with open('./data/open_projects.json', "w") as new:
-            json.dump({"projects":[]}, new)
+            json.dump({"projects": []}, new)
 
         with open('./data/words_prices.json', "w") as new:
             json.dump([], new)
@@ -224,7 +225,6 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
         self.viewReport = ViewReport(self.tableWidget)
         self.viewReport.show()
 
-
     def close_application(self):
         # popup messegae before exiting
         choice = QtGui.QMessageBox.question(self, 'Quit', "Quit application?", QtGui.QMessageBox.Yes | QtGui.QMessageBox.No)
@@ -240,6 +240,9 @@ class TestApp(QtGui.QMainWindow, main_design.Ui_Dialog):
     def additional_window(self):
         self.additional_tests = AdditionalTesting()
         self.additional_tests.show()
+
+    def callbacks_test(self):
+        CallbacksTest(self.tableWidget, self.errorNumber)
 
 class StreamToLogger(object):
     """
@@ -274,7 +277,7 @@ def main():
     stderr_logger = logging.getLogger('STDERR')
     sl = StreamToLogger(stderr_logger, logging.ERROR)
     sys.stderr = sl
-
+    
     app = QtGui.QApplication(sys.argv)
     app.setStyle('cleanlooks')
     form = TestApp()

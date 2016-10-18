@@ -82,7 +82,9 @@ class Report:
                 mainJson[len(mainJson) - 1]["check"][name] = {check: checkFound}
             else:
                 mainJson[len(mainJson) - 1]["check"][name] = {check: checkFound}
+
             json.dump(mainJson, outfile)
+
     """
     Finally adding the find parameters which were, if they were searched and found
     or not. This too is added to test_report.json
