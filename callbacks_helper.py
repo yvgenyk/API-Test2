@@ -116,8 +116,8 @@ class CallbacksHelper:
             self.change_view_to_customer(project_id)
             time.sleep(1)
             if self.driver_wait.until(EC.presence_of_element_located(
-                        (By.XPATH, "/html/body/div[5]/div/div[6]/div[1]/div[3]/p"))):
-                self.driver.find_element_by_xpath("/html/body/div[5]/div/div[6]/div[1]/div[3]/p").click()
+                        (By.XPATH, "/html/body/div[5]/div/div[6]/div[1]/div[3]/p/b"))):
+                self.driver.find_element_by_xpath("/html/body/div[5]/div/div[6]/div[1]/div[3]/p/b").click()
                 time.sleep(1)
                 self.driver_wait.until(EC.presence_of_element_located(
                     (By.NAME, "dispute")))
@@ -273,6 +273,7 @@ class CallbacksHelper:
         time.sleep(1)
         if new_user == 1:
             if self.driver_wait.until(EC.presence_of_element_located((By.ID, "ToggleAdminRights"))):
+                time.sleep(1)
                 self.driver.find_element_by_id("ToggleAdminRights").click()
                 time.sleep(1)
         else:

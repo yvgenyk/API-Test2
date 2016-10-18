@@ -2,7 +2,8 @@
 
 # Form implementation generated from reading ui file 'main_design.ui'
 #
-# Created by: PyQt4 UI code generator 4.11.4
+# Created: Tue Oct 18 11:25:32 2016
+#      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -36,6 +37,7 @@ class Ui_Dialog(object):
         self.horizontalLayoutWidget_2.setGeometry(QtCore.QRect(0, 0, 901, 641))
         self.horizontalLayoutWidget_2.setObjectName(_fromUtf8("horizontalLayoutWidget_2"))
         self.horizontalLayout_5 = QtGui.QHBoxLayout(self.horizontalLayoutWidget_2)
+        self.horizontalLayout_5.setMargin(0)
         self.horizontalLayout_5.setObjectName(_fromUtf8("horizontalLayout_5"))
         self.verticalLayout_2 = QtGui.QVBoxLayout()
         self.verticalLayout_2.setObjectName(_fromUtf8("verticalLayout_2"))
@@ -95,8 +97,8 @@ class Ui_Dialog(object):
         self.line.setObjectName(_fromUtf8("line"))
         self.horizontalLayout_5.addWidget(self.line)
         self.verticalLayout = QtGui.QVBoxLayout()
-        self.verticalLayout.setContentsMargins(0, -1, -1, -1)
         self.verticalLayout.setSpacing(6)
+        self.verticalLayout.setContentsMargins(0, -1, -1, -1)
         self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
         self.errorNumber = QtGui.QLCDNumber(self.horizontalLayoutWidget_2)
         self.errorNumber.setMinimumSize(QtCore.QSize(375, 130))
@@ -221,7 +223,7 @@ class Ui_Dialog(object):
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(_translate("Dialog", "API Test v1.01", None))
+        Dialog.setWindowTitle(_translate("Dialog", "API Test v1.2", None))
         self.label.setText(_translate("Dialog", "Line was executed properly. No values were checked or searched for.", None))
         self.label_2.setText(_translate("Dialog", "Line was executed but there was problems: response status isn\'t 200/incorrect value was found in the response.", None))
         self.label_3.setText(_translate("Dialog", "Line was executed with correct status, all values to check were found and correct.", None))
@@ -232,7 +234,7 @@ class Ui_Dialog(object):
         self.fileLoad.setText(_translate("Dialog", "Add New Line", None))
         self.startBtn.setText(_translate("Dialog", "Start Test", None))
         self.stopBtn.setText(_translate("Dialog", "Stop Test", None))
-        self.ad_proj.setText(_translate("Dialog", "Additionall Testing Projects", None))
+        self.ad_proj.setText(_translate("Dialog", "Callbacks Test", None))
         self.reportBtn.setToolTip(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;color:black\">Click here to see the report after the test is finished.</span></p></body></html>", None))
         self.reportBtn.setText(_translate("Dialog", "See Report", None))
         self.pushButton_2.setText(_translate("Dialog", "Quit", None))
